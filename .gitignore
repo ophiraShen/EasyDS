@@ -1,0 +1,31 @@
+# Python bytecode files
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Virtual environments
+venv/
+env/
+
+# Distribution / packaging
+*.egg
+*.egg-info
+dist/
+build/
+
+# PyInstaller
+*.spec
+
+# IDE or text editor settings
+.vscode/
+.idea/
+*.swp
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Python test files
+*.log
+
+#others
+ztmp/*
