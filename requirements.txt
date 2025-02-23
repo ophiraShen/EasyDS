@@ -1,6 +1,7 @@
 # 基础依赖
 torch>=2.0.0
-transformers>=4.36.0
+transformers==4.49.0
+tiktoken
 datasets>=2.14.0
 peft>=0.7.0  # LoRA实现
 accelerate>=0.25.0

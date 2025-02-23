@@ -4,7 +4,7 @@ import random
 from copy import deepcopy
 
 class PromptAugmenter:
-    """提示词增强器"""
+    """提示词增强器：仅对提示词的表达方式进行变化，保持原意不变"""
     def __init__(self):
         self.template_variations = {
             "subject_templates": [
@@ -12,140 +12,86 @@ class PromptAugmenter:
                 "作为{subject}领域的教学专家",
                 "你是一位经验丰富的{subject}导师"
             ],
-            "understanding_templates": [
-                "学生对{topic}的理解水平为{level}",
-                "学生在{topic}方面展现出{level}的理解",
-                "学生对{topic}的掌握程度为{level}"
-            ],
             "focus_templates": [
                 "需要重点关注：{points}",
                 "建议重点引导以下方面：{points}",
                 "请着重引导这些要点：{points}"
+            ],
+            "tone_templates": [
+                "请保持耐心和鼓励的语气",
+                "使用循序渐进的引导方式",
+                "通过启发式提问激发思考"
             ]
         }
 
-    def augment_prompt(self, prompt: str, subject: str, topic: str) -> List[str]:
-        """增强提示词"""
+    def augment_prompt(self, prompt: str, subject: str) -> List[str]:
+        """增强提示词，仅改变表达方式，保持内容不变"""
         variations = []
-        
-        # 解析原始提示词的结构
         parts = self._parse_prompt(prompt)
         
-        # 生成不同的组合
+        # 仅组合不同的表达模板
         for subj_temp in self.template_variations["subject_templates"]:
-            for und_temp in self.template_variations["understanding_templates"]:
-                for focus_temp in self.template_variations["focus_templates"]:
-                    new_prompt = self._combine_templates(
-                        subj_temp, und_temp, focus_temp,
-                        parts, subject, topic
-                    )
+            for focus_temp in self.template_variations["focus_templates"]:
+                for tone_temp in self.template_variations["tone_templates"]:
+                    new_prompt = f"""{subj_temp.format(subject=subject)}。
+学生的理解水平：{parts['level']}
+{focus_temp.format(points=', '.join(parts['points']))}
+{tone_temp}。"""
                     variations.append(new_prompt)
         
         return variations
 
     def _parse_prompt(self, prompt: str) -> Dict:
-        """解析提示词结构"""
+        """解析原始提示词，提取关键信息"""
         lines = prompt.split('\n')
         return {
             'level': self._extract_level(lines),
-            'points': self._extract_points(lines),
-            'strategies': self._extract_strategies(lines),
-            'tone': self._extract_tone(lines)
+            'points': self._extract_points(lines)
         }
 
-    def _combine_templates(self, subj_temp: str, und_temp: str, 
-                         focus_temp: str, parts: Dict, 
-                         subject: str, topic: str) -> str:
-        """组合模板生成新的提示词"""
-        return f"""{subj_temp.format(subject=subject)}。
-{und_temp.format(topic=topic, level=parts['level'])}。
-{focus_temp.format(points=', '.join(parts['points']))}
-教学策略：{parts['strategies']}
-语气要求：{parts['tone']}"""
+    def _extract_level(self, lines: List[str]) -> str:
+        """提取理解水平描述"""
+        for line in lines:
+            if "理解水平" in line or "掌握程度" in line:
+                return line.strip()
+        return lines[1].strip()  # 默认取第二行作为理解水平描述
+
+    def _extract_points(self, lines: List[str]) -> List[str]:
+        """提取重点关注点，保持原有内容"""
+        points = []
+        for line in lines:
+            if line.strip().startswith(('1.', '2.', '3.', '•')):
+                point = line.split('.', 1)[-1].strip()
+                points.append(point)
+        return points
 
 class DataAugmenter:
-    """数据增强器"""
+    """数据增强器：仅进行表达方式的变化，不改变原有语义"""
     def __init__(self):
         self.prompt_augmenter = PromptAugmenter()
-        self.feature_variations = {
-            "understanding_levels": [
-                "基础理解", "部分理解", "深入理解", "完全掌握"
-            ],
-            "misconception_types": [
-                "概念混淆", "应用错误", "逻辑谬误", "过度简化"
-            ]
-        }
 
     def augment_example(self, example: Dict) -> List[Dict]:
-        """增强单个样例"""
+        """增强单个样例，仅改变提示词的表达方式"""
         augmented = []
         base_example = deepcopy(example)
         
-        # 生成不同的特征分析变体
-        feature_variations = self._generate_feature_variations(
-            base_example['response_analysis']
+        # 生成不同表达方式的提示词
+        prompt_variations = self.prompt_augmenter.augment_prompt(
+            base_example['target_prompt'],
+            subject="数据结构"
         )
         
-        # 对每个特征变体生成对应的提示词变体
-        for features in feature_variations:
-            new_example = deepcopy(base_example)
-            new_example['response_analysis'] = features
-            
-            # 生成对应的提示词变体
-            prompt_variations = self.prompt_augmenter.augment_prompt(
-                base_example['target_prompt'],
-                subject="数据结构",
-                topic=self._extract_topic(base_example['question'])
-            )
-            
-            # 组合特征和提示词变体
-            for prompt in prompt_variations:
-                variation = deepcopy(new_example)
-                variation['target_prompt'] = prompt
-                augmented.append(variation)
+        # 为每个提示词变体创建新样例
+        for prompt in prompt_variations:
+            variation = deepcopy(base_example)
+            variation['target_prompt'] = prompt
+            augmented.append(variation)
         
         return augmented
-
-    def _generate_feature_variations(self, analysis: Dict) -> List[Dict]:
-        """生成特征分析的变体"""
-        variations = []
-        base_analysis = deepcopy(analysis)
-        
-        # 变换理解程度
-        for level in self.feature_variations["understanding_levels"]:
-            if level != base_analysis["understanding_level"]:
-                variation = deepcopy(base_analysis)
-                variation["understanding_level"] = level
-                variations.append(variation)
-        
-        # 添加或移除误解
-        if base_analysis["misconceptions"]:
-            # 移除一个误解
-            variation = deepcopy(base_analysis)
-            variation["misconceptions"].pop()
-            variations.append(variation)
-        else:
-            # 添加一个误解
-            variation = deepcopy(base_analysis)
-            variation["misconceptions"].append(
-                random.choice(self.feature_variations["misconception_types"])
-            )
-            variations.append(variation)
-        
-        return variations
-
-    def _extract_topic(self, question: str) -> str:
-        """从问题中提取主题"""
-        # 简单实现，实际应用中可能需要更复杂的逻辑
-        keywords = ["排序", "树", "图", "栈", "队列", "链表"]
-        for keyword in keywords:
-            if keyword in question:
-                return keyword
-        return "数据结构"
 
     def augment_dataset(self, dataset: List[Dict]) -> List[Dict]:
         """增强整个数据集"""
         augmented_dataset = []
         for example in dataset:
             augmented_dataset.extend(self.augment_example(example))
-        return augmented_dataset 
+        return augmented_dataset
