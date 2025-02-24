@@ -7,19 +7,10 @@ from typing import List, Dict, Optional
 
 
 @dataclass
-class ResponseAnalysis:
-    """回答分析结果类"""
-    knowledge_points: List[str]
-    understanding_level: str
-    misconceptions: List[str]
-    missing_points: List[str]
-
-@dataclass
 class TrainingExample:
     """训练数据样例类"""
     question: str
-    student_response: str
-    response_analysis: ResponseAnalysis
+    dialogues: List[Dict]
     target_prompt: str
 
 @dataclass
@@ -70,23 +61,28 @@ class DataProcessor:
 
 class SFTDataProcessor(DataProcessor):
     """SFT数据处理器"""
-    def convert_to_training_format(self, example: TrainingExample) -> str:
+    def convert_to_training_format(self, example: Dict) -> str:
         """转换为训练格式"""
-        return f"""<|im_start|>system
-{self.system_prompt}<|im_end|>
-<|im_start|>user
-问题：{example.question}
-学生回答：{example.student_response}
-回答分析：{self._format_analysis(example.response_analysis)}<|im_end|>
-<|im_start|>assistant
-{example.target_prompt}<|im_end|>"""
+        question = example['question']
+        dialogues = example['dialogues']
+        target_prompt = example['target_prompt']
 
-    def _format_analysis(self, analysis: ResponseAnalysis) -> str:
-        """格式化分析结果"""
-        return f"""知识点：{', '.join(analysis.knowledge_points)}
-理解程度：{analysis.understanding_level}
-存在误解：{', '.join(analysis.misconceptions) if analysis.misconceptions else '无'}
-缺失要点：{', '.join(analysis.missing_points)}"""
+        input_data = []
+        input_data.append({"role": "system", "content": "你是一个提示词生成助手。请根据问题、用户与教师智能体的对话，生成进一步的教学指导提示词。"})
+        first_response = dialogues[0]['content']
+        input_data.append({"role": "user", "content": f"问题：{question}\n学生回答：{first_response}"})
+        for dialogue in dialogues[1:]:
+            input_data.append({"role": dialogue['role'], "content": dialogue['content']})
+
+        output_data = {
+            "role": "assistant",
+            "content": f"现在在采用费曼学习法，帮助用户学习数据结构知识，尽可能的引导用户思考，非必要情况下不要直接给出答案。\n{target_prompt}"
+        }
+
+        return {
+            "input": json.dumps(input_data, ensure_ascii=False),
+            "output": json.dumps(output_data, ensure_ascii=False)
+        }
 
     def process_file(self, input_file: str, output_file: str):
         """处理整个数据文件"""
