@@ -29,5 +29,7 @@ build/
 
 #others
 ztmp/*
+scripts/rlhf/lora_model/
+/scripts/rlhf/lora_model/
 lora_model/*
 
