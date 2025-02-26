@@ -1,7 +1,7 @@
 
 
 # 设置环境变量
-export CUDA_VISIBLE_DEVICES=0,1,2
+export CUDA_VISIBLE_DEVICES=0
 export TORCH_DISTRIBUTED_DEBUG=INFO
 export NCCL_DEBUG=INFO
 export PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512
@@ -30,15 +30,15 @@ accelerate launch \
     --validation_file /root/autodl-tmp/EasyDS/data/rlhf_data/sft/val.jsonl \
     --prompt_column input \
     --response_column output \
-    --max_source_length 768 \
-    --max_target_length 192 \
+    --max_source_length 200 \
+    --max_target_length 150 \
     --model_name_or_path "${MODEL_PATH}" \
     --output_dir $OUTPUT_DIR \
     --per_device_train_batch_size 1 \
     --per_device_eval_batch_size 4 \
     --gradient_accumulation_steps 16 \
     --learning_rate $LR \
-    --num_train_epochs 2 \
+    --num_train_epochs 3\
     --weight_decay 0.01 \
     --warmup_ratio 0.1 \
     --lora_rank 4 \

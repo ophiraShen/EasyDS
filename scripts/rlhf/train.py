@@ -17,7 +17,7 @@ from accelerate import Accelerator
 from accelerate.utils import DeepSpeedPlugin
 from tqdm import tqdm
 
-# from utils import GPUMonitor, empty_cache
+from utils import empty_cache
 from data_preprocess import InputOutputDataset, prepare_dataloaders
 from arguments import ModelArguments, DataTrainingArguments, PeftArguments
 
@@ -93,14 +93,15 @@ def save_model_state(model, accelerator, save_path, is_final_save=False, trainin
     
 
 def main():
-    # 解析参数
+    # 1. 解析参数
     parser = HfArgumentParser((ModelArguments, DataTrainingArguments, PeftArguments, TrainingArguments))
     model_args, data_args, peft_args, training_args = parser.parse_args_into_dataclasses()
     
+    # 2. 初始化系统环境
     # 设置随机种子
     set_seed(training_args.seed)
     
-    # 初始化 Accelerator
+    # 初始化 DeepSpeed 和 Accelerator
     deepspeed_plugin = DeepSpeedPlugin(
         zero_stage=3,
         gradient_accumulation_steps=training_args.gradient_accumulation_steps
@@ -111,16 +112,19 @@ def main():
         mixed_precision="bf16"
     )
     
+    # 3. 模型初始化
     # 加载模型和分词器
     model, tokenizer = setup_model_and_tokenizer(model_args)
     model = setup_lora(model, peft_args)
     model.print_trainable_parameters()
     
+    # 4. 数据准备
     # 准备数据加载器
     train_dataloader, eval_dataloader = prepare_dataloaders(
         data_args, tokenizer, training_args
     )
     
+    # 5. 训练配置
     # 优化器设置
     optimizer = torch.optim.Adam(model.parameters(), lr=training_args.learning_rate)
     lr_scheduler = torch.optim.lr_scheduler.LinearLR(optimizer)
@@ -131,7 +135,7 @@ def main():
     )
     
     
-    # 训练循环
+    # 6. 训练循环
     if training_args.do_train:
         model.train()
         total_steps = len(train_dataloader) * training_args.num_train_epochs
@@ -169,7 +173,7 @@ def main():
 
                 progress_bar.update(1)
     
-    # 评估
+    # 7. 模型评估
     if training_args.do_eval:
         model.eval()
         eval_loss = 0
@@ -184,7 +188,7 @@ def main():
         eval_loss /= eval_steps
         accelerator.print(f"Eval Loss: {eval_loss:.4f}")
     
-    # 保存模型
+    # 8. 保存模型
     if training_args.output_dir:
         save_model_state(
             model,

@@ -83,7 +83,7 @@ def build_response(response):
     # 判断角色是否为助手
     if response["role"] == "assistant":
         # 构建助手的响应字符串，格式为
-        return '<sop>assistant\n' + response["content"] + '<eop>'
+        return '<sop><|assistant|>\n' + response["content"] + '<eop>'
     return ''
 
 

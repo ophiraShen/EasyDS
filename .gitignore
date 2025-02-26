@@ -29,3 +29,5 @@ build/
 
 #others
 ztmp/*
+lora_model/*
+
