@@ -17,9 +17,9 @@ from accelerate import Accelerator
 from accelerate.utils import DeepSpeedPlugin
 from tqdm import tqdm
 
-from utils import empty_cache
-from data_preprocess import InputOutputDataset, prepare_dataloaders
-from arguments import ModelArguments, DataTrainingArguments, PeftArguments
+from src.rlhf.sft.utils import empty_cache
+from src.rlhf.sft.data_preprocess import InputOutputDataset, prepare_dataloaders
+from src.rlhf.sft.arguments import ModelArguments, DataTrainingArguments, PeftArguments
 
 
 def setup_model_and_tokenizer(model_args):

@@ -8,7 +8,7 @@ from peft import PeftModel
 device = "cuda"
 
 # 基础模型路径和 LoRA 模型路径
-BASE_MODEL_PATH = "/root/autodl-fs/modelscope/glm_4_9b_chat"  # 替换为你使用的基础模型路径
+BASE_MODEL_PATH = "/root/autodl-fs/modelscope/glm_4_9b_chat"  
 LORA_PATH = "/root/autodl-tmp/EasyDS/scripts/rlhf/lora_model"
 
 # 加载tokenizer和基础模型
