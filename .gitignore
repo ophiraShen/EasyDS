@@ -33,5 +33,7 @@ scripts/rlhf/lora_model/
 /scripts/rlhf/lora_model/
 lora_model/*
 rola_config/*
+checkpoints/*
+openrlhf_workspace/checkpoints/*
 
 

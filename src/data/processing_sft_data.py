@@ -3,11 +3,11 @@ import json
 import random
 import sys
 from pathlib import Path
-sys.path.append(str(Path(__file__).parent.parent))
-ROOT_DIR = Path(__file__).parent.parent
+sys.path.append(str(Path(__file__).parent.parent.parent))
+ROOT_DIR = Path(__file__).parent.parent.parent
 print(ROOT_DIR)
 
-from src.data.processor import SFTDataProcessor
+from processor import SFTDataProcessor
 
 
 

@@ -79,15 +79,15 @@ class SFTDataProcessor(DataProcessor):
             "content": f"现在在采用费曼学习法，帮助用户学习数据结构知识，尽可能的引导用户思考，非必要情况下不要直接给出答案。\n{target_prompt}"
         }
 
-        # return {
-        #     "input": json.dumps(input_data, ensure_ascii=False),
-        #     "output": json.dumps(output_data, ensure_ascii=False)
-        # }
-
         return {
-            "input": input_data,
-            "output": output_data
+            "input": json.dumps(input_data, ensure_ascii=False),
+            "output": json.dumps(output_data, ensure_ascii=False)
         }
+
+        # return {
+        #     "input": input_data,
+        #     "output": output_data
+        # }
 
     def process_file(self, input_file: str, output_file: str):
         """处理整个数据文件"""
