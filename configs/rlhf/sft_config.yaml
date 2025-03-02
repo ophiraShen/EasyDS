@@ -1,0 +1,39 @@
+model:
+  model_name_or_path: "/root/autodl-fs/modelscope/glm_4_9b_chat"
+  trust_remote_code: true
+  use_flash_attention: true
+
+tokenizer:
+  tokenizer_name_or_path: "/root/autodl-fs/modelscope/glm_4_9b_chat"
+  padding_side: "right"
+  truncation_side: "right"
+  trust_remote_code: true
+
+dataset:
+  train_file: "/root/autodl-tmp/EasyDS/data/rlhf_data/sft/train.jsonl"
+  eval_file: "/root/autodl-tmp/EasyDS/data/rlhf_data/sft/eval.jsonl"
+  format: "openai" 
+
+training:
+  bf16: true
+  fp16: false
+  num_train_epochs: 3
+  per_device_train_batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 5.0e-5
+  weight_decay: 0.0
+  warmup_ratio: 0.03
+  evaluation_strategy: "steps"
+  eval_steps: 500
+  save_strategy: "steps"
+  save_steps: 500
+  save_total_limit: 3
+  logging_steps: 10
+  output_dir: "/root/autodl-tmp/EasyDS/openrlhf_workspace/outputs/sft"
+  
+lora:
+  use_lora: true
+  r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  target_modules: ["q_proj", "k_proj", "v_proj", "o_proj"]

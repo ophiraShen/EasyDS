@@ -29,6 +29,10 @@ EasyDS/
 │   │   │   ├── sft_raw_data.jsonl
 │   │   │   ├── sft_train_data.jsonl
 │   │   │   └── sft_eval_data.jsonl
+│   │   ├── rm/           # 奖励模型阶段数据
+│   │   │   ├── rm_raw_data.jsonl
+│   │   │   ├── rm_train_data.jsonl
+│   │   │   └── rm_eval_data.jsonl
 │   │   └── ppo/          # PPO阶段数据
 │   │       ├── ppo_raw_data.jsonl
 │   │       ├── ppo_train_data.jsonl
@@ -51,11 +55,19 @@ EasyDS/
 |           |   ├──train.sh
 |           |   ├──train.py
 |           |   └──evaluate.py
+|           ├──rm/
+|           |   ├──config.yaml
+|           |   ├──train.py
+|           |   └──evaluate.py
 |           └──ppo/
+|               ├──config.yaml
+|               ├──train.py
+|               └──evaluate.py
 └── configs/
     ├── dpo_config.yaml   # DPO配置
     └── rlhf/             # RLHF配置
         ├── sft_config.yaml
+        ├── rm_config.yaml
         └── ppo_config.yaml
 
 ```
@@ -75,9 +87,10 @@ EasyDS/
 ### 2.2 核心模块
 
 1. **动态提示词生成系统**
-   - RLHF训练框架
+   - RLHF训练框架 (基于OpenRLHF)
      * 奖励模型设计
      * 强化学习优化
+     * 分布式训练支持
    - DPO训练框架
      * 偏好数据构建
      * 直接偏好优化
@@ -88,7 +101,6 @@ EasyDS/
    - 动态评估算法
    - 学习路径自适应生成
    - 多维度学习效果分析
-
 
 3. **多智能体协同框架**
    - 基于LangGraph的智能体通信
@@ -105,7 +117,8 @@ EasyDS/
    - 准备RLHF和DPO训练数据
 
 2. **模型训练与对比**
-   - RLHF实现路线
+   - RLHF实现路线 (OpenRLHF框架)
+     * SFT模型训练
      * 奖励模型训练
      * PPO优化过程
      * 提示词质量评估
@@ -138,6 +151,18 @@ EasyDS/
      * RLHF奖励建模数据
      * 验证数据集划分
      * 测试数据准备
+
+5. **结果分析**
+   - 优势对比
+     * DPO vs RLHF性能差异
+     * 场景适用性分析
+     * 成本效益分析
+   
+   - 改进建议
+     * 模型优化方向
+     * 数据质量提升
+     * 训练策略调整
+
 ### 3.2 第二阶段：知识图谱评估系统
 
 1. **知识图谱构建**
@@ -158,36 +183,7 @@ EasyDS/
    - 学习速度调整
    - 知识点关联分析
 
-### 3.3 第三阶段：系统集成
-
-1. **智能体协同机制**
-   - 通信协议设计
-   - 状态同步机制
-   - 对话流程控制
-
-2. **教学内容体系**
-   - 基础数据结构课程设计
-   - 算法思维训练设计
-   - 实践案例开发
-
-3. **系统优化与测试**
-   - 性能优化
-   - 用户体验改进
-   - 教学效果验证
-   - 系统稳定性测试
-
-5. **结果分析**
-   - 优势对比
-     * DPO vs RLHF性能差异
-     * 场景适用性分析
-     * 成本效益分析
-   
-   - 改进建议
-     * 模型优化方向
-     * 数据质量提升
-     * 训练策略调整
-
-### 3.2 第二阶段：多智能体系统
+### 3.3 第三阶段：多智能体系统
 
 1. **基础框架搭建**
    - LangGraph环境配置
@@ -204,7 +200,7 @@ EasyDS/
    - 图谱关系定义
    - 知识点难度划分
 
-### 3.3 第三阶段：系统集成
+### 3.4 第四阶段：系统集成
 
 1. **模块整合**
    - 动态提示词系统接入
@@ -218,8 +214,9 @@ EasyDS/
 
 ## 4. 技术栈
 
-- LangGraph: 多智能体框架
-- PyTorch: DPO模型训练
+- OpenRLHF: RLHF训练框架
+- PyTorch: 模型训练基础框架
+- Ray: 分布式训练支持
 - Neo4j: 知识图谱存储
 - FastAPI: 后端服务
 - Vue.js: 前端界面
