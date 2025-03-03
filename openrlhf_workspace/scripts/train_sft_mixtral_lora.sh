@@ -4,7 +4,7 @@ set -x
 LR=1e-4
 DATESTR=`date +%Y%m%d-%H%M%S`
 RUN_NAME=glm_4_9b_chat
-OUTPUT_DIR=/root/autodl-tmp/EasyDS/openrlhf_workspace/checkpoints/sft/${RUN_NAME}-${DATESTR}
+OUTPUT_DIR=/root/autodl-fs/checkpoint/sft/${RUN_NAME}-${DATESTR}
 mkdir -p $OUTPUT_DIR
 
 MODEL_PATH="/root/autodl-fs/modelscope/glm_4_9b_chat"
