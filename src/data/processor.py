@@ -3,7 +3,7 @@ import json
 import random
 from pathlib import Path
 from dataclasses import dataclass
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Tuple
 
 
 @dataclass
@@ -31,6 +31,13 @@ class PPOExample:
     teacher_response: str
     reward_metrics: RewardMetrics
 
+@dataclass
+class RewardModelExample:
+    """奖励模型训练数据样例类"""
+    prompt: str
+    chosen: str
+    rejected: str
+
 class DataProcessor:
     """数据处理基类"""
     def __init__(self, system_prompt: Optional[str] = None):
@@ -49,8 +56,12 @@ class DataProcessor:
     
     def load_jsonl(self, file_path: str) -> List[Dict]:
         """加载JSONL格式的数据"""
+        data = []
         with open(file_path, 'r', encoding='utf-8') as f:
-            return [json.loads(line) for line in f]
+            for line in f:
+                if line.strip():
+                    data.append(json.loads(line))
+        return data
     
     def save_jsonl(self, data: List[Dict], file_path: str):
         """保存数据为JSONL格式"""
@@ -58,6 +69,12 @@ class DataProcessor:
         with open(file_path, 'w', encoding='utf-8') as f:
             for item in data:
                 f.write(json.dumps(item, ensure_ascii=False) + '\n')
+
+    def split_data(self, data: List[Dict], test_ratio: float = 0.1) -> Tuple[List[Dict], List[Dict]]:
+        """将数据分割为训练集和测试集"""
+        random.shuffle(data)
+        split_idx = int(len(data) * (1 - test_ratio))
+        return data[:split_idx], data[split_idx:]
 
 class SFTDataProcessor(DataProcessor):
     """SFT数据处理器"""
@@ -111,6 +128,54 @@ class SFTDataProcessor(DataProcessor):
             processed_data.append(self.convert_to_training_format(example))
             
         self.save_json(processed_data, output_file)
+
+class RewardModelDataProcessor(DataProcessor):
+    """奖励模型数据处理类"""
+
+    def convert_to_training_format(self, example: Dict) -> Dict:
+        """将原始数据转换为奖励模型训练格式"""
+        # 提取问题和对话内容作为prompt
+        prompt = example["question"]
+        if "dialogues" in example and example["dialogues"]:
+            for dialogue in example["dialogues"]:
+                if dialogue["role"] == "user":
+                    prompt += f"\n学生回答：{dialogue['content']}"
+                elif dialogue["role"] == "assistant":
+                    prompt += f"\n教师回答：{dialogue['content']}"
+        
+        # 提取优质回答和较差回答
+        chosen = example["chosen"]
+        rejected = example["rejected"]
+        
+        return {
+            "prompt": prompt,
+            "chosen": chosen,
+            "rejected": rejected
+        }
+    
+    def process_file(self, input_file: str, output_train_file: str, output_test_file: str, test_ratio: float = 0.1):
+        """处理文件并分割为训练集和测试集"""
+        # 加载原始数据
+        raw_data = self.load_jsonl(input_file)
+        print(f"加载了 {len(raw_data)} 条原始数据")
+        
+        # 转换为训练格式
+        processed_data = []
+        for example in raw_data:
+            processed_example = self.convert_to_training_format(example)
+            processed_data.append(processed_example)
+        
+        print(f"处理完成 {len(processed_data)} 条数据")
+        
+        # 分割为训练集和测试集
+        train_data, test_data = self.split_data(processed_data, test_ratio)
+        print(f"分割为 {len(train_data)} 条训练数据和 {len(test_data)} 条测试数据")
+        
+        # 保存为JSONL文件
+        self.save_jsonl(train_data, output_train_file)
+        self.save_jsonl(test_data, output_test_file)
+        print(f"已保存训练数据到 {output_train_file}")
+        print(f"已保存测试数据到 {output_test_file}")
 
 class PPODataProcessor(DataProcessor):
     """PPO数据处理器"""

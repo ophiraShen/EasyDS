@@ -41,7 +41,8 @@ EasyDS/
 │   ├── data/
 │   │   ├── __init__.py
 │   │   ├── processor.py
-│   │   └── processing_sft_data.py
+|   |   ├── generate_rm_data.py
+│   │   └── generate_sft_data.py
 │   ├── agents/
 │   └── models/
 |       ├──dpo/
