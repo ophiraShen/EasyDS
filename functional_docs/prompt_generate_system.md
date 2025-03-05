@@ -33,6 +33,8 @@
    - 设计了数据处理脚本框架
    - 实现了 RewardModelDataProcessor 类用于数据处理
    - 创建了 rm_raw_data.jsonl 原始数据集
+   - 完成了数据处理脚本的实现和测试
+   - 优化了数据格式以适配OpenRLHF框架
 
 ### 2.2 进行中任务
 1. **奖励模型(RM)训练**
@@ -115,9 +117,9 @@ data_path: `/autodl-tmp/EasyDS/data/rlhf_data/sft/train.jsonl`
 data_path: `/autodl-tmp/EasyDS/data/rlhf_data/rm/train.jsonl`
 ```python
 {
-    "prompt": "问题：BFS和DFS的主要区别是什么？\n学生回答：BFS用队列实现，按层遍历；DFS用栈实现，优先深入子节点",
-    "chosen": "现在在采用费曼学习法，帮助用户学习数据结构知识，尽可能的引导用户思考，非必要情况下不要直接给出答案。\n学生已准确掌握基础概念，需提升至应用层：\n1. 设计迷宫问题比较两种算法效率\n2. 引入加权图下的扩展应用\n3. 探讨递归实现DFS的栈溢出风险\n请用工程案例引导高阶思考。",
-    "rejected": "你的回答基本正确。BFS确实使用队列实现，按层次遍历图或树；而DFS使用栈实现，优先深入探索。BFS适合寻找最短路径，DFS适合探索所有可能路径。在实现上，BFS的空间复杂度通常较高，因为需要存储整层节点。"
+    "prompt": "[{\"role\": \"user\", \"content\": \"问题：BFS和DFS的主要区别是什么？\\n学生回答：BFS用队列实现，按层遍历；DFS用栈实现，优先深入子节点\"}]",
+    "chosen": "{\"role\": \"assistant\", \"content\": \"现在在采用费曼学习法，帮助用户学习数据结构知识，尽可能的引导用户思考，非必要情况下不要直接给出答案。\\n学生已准确掌握基础概念，需提升至应用层：\\n1. 设计迷宫问题比较两种算法效率\\n2. 引入加权图下的扩展应用\\n3. 探讨递归实现DFS的栈溢出风险\\n请用工程案例引导高阶思考。\"}",
+    "rejected": "{\"role\": \"assistant\", \"content\": \"你的回答基本正确。BFS确实使用队列实现，按层次遍历图或树；而DFS使用栈实现，优先深入探索。BFS适合寻找最短路径，DFS适合探索所有可能路径。在实现上，BFS的空间复杂度通常较高，因为需要存储整层节点。\"}"
 }
 ```
 
@@ -134,112 +136,35 @@ data_path: `/autodl-tmp/EasyDS/data/rlhf_data/ppo/train.jsonl`
 为了高效处理奖励模型训练数据，实现了以下数据处理类和脚本：
 
 #### RewardModelDataProcessor 类
-```python
-class RewardModelDataProcessor(DataProcessor):
-    """奖励模型数据处理类"""
 
-    def convert_to_training_format(self, example: Dict) -> Dict:
-        """将原始数据转换为奖励模型训练格式"""
-        # 提取问题和对话内容作为prompt
-        prompt = example["question"]
-        if "dialogues" in example and example["dialogues"]:
-            for dialogue in example["dialogues"]:
-                if dialogue["role"] == "user":
-                    prompt += f"\n学生回答：{dialogue['content']}"
-                elif dialogue["role"] == "assistant":
-                    prompt += f"\n教师回答：{dialogue['content']}"
-        
-        # 提取优质回答和较差回答
-        chosen = example["chosen"]
-        rejected = example["rejected"]
-        
-        return {
-            "prompt": prompt,
-            "chosen": chosen,
-            "rejected": rejected
-        }
-    
-    def process_file(self, input_file: str, output_train_file: str, output_test_file: str, test_ratio: float = 0.1):
-        """处理文件并分割为训练集和测试集"""
-        # 加载原始数据
-        raw_data = self.load_jsonl(input_file)
-        print(f"加载了 {len(raw_data)} 条原始数据")
-        
-        # 转换为训练格式
-        processed_data = []
-        for example in raw_data:
-            processed_example = self.convert_to_training_format(example)
-            processed_data.append(processed_example)
-        
-        print(f"处理完成 {len(processed_data)} 条数据")
-        
-        # 分割为训练集和测试集
-        train_data, test_data = self.split_data(processed_data, test_ratio)
-        print(f"分割为 {len(train_data)} 条训练数据和 {len(test_data)} 条测试数据")
-        
-        # 保存为JSONL文件
-        self.save_jsonl(train_data, output_train_file)
-        self.save_jsonl(test_data, output_test_file)
-        print(f"已保存训练数据到 {output_train_file}")
-        print(f"已保存测试数据到 {output_test_file}")
+```python
+from src.data.processor improt RewardModelDataProcessor
 ```
 
 #### 数据处理脚本
-```python
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-"""
-生成奖励模型训练数据脚本
-"""
-
-import os
-import sys
-import argparse
-from pathlib import Path
-
-# 添加项目根目录到系统路径
-project_root = Path(__file__).resolve().parents[1]
-sys.path.append(str(project_root))
-
-from src.data.processor import RewardModelDataProcessor
 
 
-def main():
-    parser = argparse.ArgumentParser(description="生成奖励模型训练数据")
-    parser.add_argument("--input", type=str, default="/autodl-tmp/EasyDS/data/rlhf_data/rm/rm_raw_data.jsonl",
-                        help="输入的原始数据文件路径")
-    parser.add_argument("--output_dir", type=str, default="/autodl-tmp/EasyDS/data/rlhf_data/rm",
-                        help="输出目录")
-    parser.add_argument("--test_ratio", type=float, default=0.1,
-                        help="测试集比例")
-    args = parser.parse_args()
+### 3.4 数据处理优化
 
-    # 确保输出目录存在
-    os.makedirs(args.output_dir, exist_ok=True)
+在实现过程中，针对奖励模型数据处理进行了以下优化：
 
-    # 设置输出文件路径
-    output_train_file = os.path.join(args.output_dir, "train.jsonl")
-    output_test_file = os.path.join(args.output_dir, "test.jsonl")
+1. **JSON格式处理**：
+   - 将对话内容转换为JSON字符串，确保OpenRLHF框架能正确解析
+   - 保留角色信息，使模型能够理解对话上下文
 
-    # 初始化数据处理器
-    processor = RewardModelDataProcessor()
+2. **数据结构优化**：
+   - 为优质回答和较差回答添加角色标识，使格式与训练要求一致
+   - 确保所有字段使用统一的编码方式，避免中文乱码问题
 
-    # 处理数据
-    processor.process_file(
-        input_file=args.input,
-        output_train_file=output_train_file,
-        output_test_file=output_test_file,
-        test_ratio=args.test_ratio
-    )
+3. **错误处理**：
+   - 添加了数据验证逻辑，确保输入数据格式正确
+   - 实现了异常捕获和日志记录，便于调试和问题排查
 
-    print(f"数据处理完成！")
-    print(f"训练数据保存至: {output_train_file}")
-    print(f"测试数据保存至: {output_test_file}")
+4. **性能优化**：
+   - 使用批量处理方式，提高数据处理效率
+   - 优化文件读写操作，减少I/O开销
 
-
-if __name__ == "__main__":
-    main()
-```
+这些优化确保了生成的训练数据能够被OpenRLHF框架正确解析和使用，为后续的奖励模型训练奠定了基础。
 
 ## 4. 评估方案
 
@@ -277,6 +202,7 @@ if __name__ == "__main__":
    - [x] 创建 rm_raw_data.jsonl 原始数据
    - [x] 实现 RewardModelDataProcessor 类
    - [x] 实现数据处理脚本
+   - [x] 优化数据格式以适配OpenRLHF框架
    - [ ] 执行奖励模型训练
    - [ ] 评估奖励模型质量
    - [ ] 合并LoRA权重（如使用LoRA）

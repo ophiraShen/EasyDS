@@ -13,14 +13,14 @@ from pathlib import Path
 project_root = Path(__file__).resolve().parents[1]
 sys.path.append(str(project_root))
 
-from src.data.processor import RewardModelDataProcessor
+from data.processor import RewardModelDataProcessor
 
 
 def main():
     parser = argparse.ArgumentParser(description="生成奖励模型训练数据")
-    parser.add_argument("--input", type=str, default="/autodl-tmp/EasyDS/data/rlhf_data/rm/rm_raw_data.jsonl",
+    parser.add_argument("--input", type=str, default="/root/autodl-tmp/EasyDS/data/rlhf_data/rm/rm_raw_data.jsonl",
                         help="输入的原始数据文件路径")
-    parser.add_argument("--output_dir", type=str, default="/autodl-tmp/EasyDS/data/rlhf_data/rm",
+    parser.add_argument("--output_dir", type=str, default="/root/autodl-tmp/EasyDS/data/rlhf_data/rm",
                         help="输出目录")
     parser.add_argument("--test_ratio", type=float, default=0.1,
                         help="测试集比例")

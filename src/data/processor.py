@@ -135,22 +135,22 @@ class RewardModelDataProcessor(DataProcessor):
     def convert_to_training_format(self, example: Dict) -> Dict:
         """将原始数据转换为奖励模型训练格式"""
         # 提取问题和对话内容作为prompt
-        prompt = example["question"]
-        if "dialogues" in example and example["dialogues"]:
-            for dialogue in example["dialogues"]:
-                if dialogue["role"] == "user":
-                    prompt += f"\n学生回答：{dialogue['content']}"
-                elif dialogue["role"] == "assistant":
-                    prompt += f"\n教师回答：{dialogue['content']}"
+        question = example["question"]
+        dialogues = example["dialogues"]
+        prompt = []
+        first_response = dialogues[0]['content']
+        prompt.append({"role": "user", "content": f"问题：{question}\n学生回答：{first_response}"})
+        for dialogue in dialogues[1:]:
+            prompt.append({"role": dialogue['role'], "content": dialogue['content']})
         
         # 提取优质回答和较差回答
-        chosen = example["chosen"]
-        rejected = example["rejected"]
+        chosen = {"role": "assistant", "content": example["chosen"]}
+        rejected = {"role": "assistant", "content": example["rejected"]}
         
         return {
-            "prompt": prompt,
-            "chosen": chosen,
-            "rejected": rejected
+            "prompt": json.dumps(prompt, ensure_ascii=False),
+            "chosen": json.dumps(chosen, ensure_ascii=False),
+            "rejected": json.dumps(rejected, ensure_ascii=False)
         }
     
     def process_file(self, input_file: str, output_train_file: str, output_test_file: str, test_ratio: float = 0.1):
