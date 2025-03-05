@@ -1,0 +1,535 @@
++ export PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:32
++ PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:32
++ export NCCL_DEBUG=INFO
++ NCCL_DEBUG=INFO
++ LR=9e-6
+++ date +%Y%m%d-%H%M%S
++ DATESTR=20250306-021144
++ RUN_NAME=glm_4_9b_chat
++ SAVE_PATH=/root/autodl-fs/checkpoint/rm/glm_4_9b_chat-rm-20250306-021144
++ mkdir -p /root/autodl-fs/checkpoint/rm/glm_4_9b_chat-rm-20250306-021144
++ MODEL_PATH=/root/autodl-fs/modelscope/Qwen2.5-7B-Instruct
++ DATA_PATH=/root/autodl-tmp/EasyDS/data/rlhf_data/rm
++ read -r -d '' training_commands
++ [[ '' != \s\l\u\r\m ]]
++ deepspeed --module openrlhf.cli.train_rm --save_path /root/autodl-fs/checkpoint/rm/glm_4_9b_chat-rm-20250306-021144 --save_steps -1 --logging_steps 1 --eval_steps -1 --train_batch_size 4 --micro_train_batch_size 1 --pretrain /root/autodl-fs/modelscope/Qwen2.5-7B-Instruct --bf16 --max_epochs 1 --max_len 200 --zero_stage 3 --learning_rate 9e-6 --dataset json@/root/autodl-tmp/EasyDS/data/rlhf_data/rm --apply_chat_template --chosen_key chosen --rejected_key rejected --flash_attn --load_checkpoint --lora_rank 4 --lora_alpha 16 --lora_dropout 0.05 --target_modules q_proj k_proj v_proj o_proj --adam_offload --overlap_comm
+[2025-03-06 02:11:47,499] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-06 02:11:50,754] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2025-03-06 02:11:50,754] [INFO] [runner.py:607:main] cmd = /root/miniconda3/envs/easyDS/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --module --enable_each_rank_log=None openrlhf.cli.train_rm --save_path /root/autodl-fs/checkpoint/rm/glm_4_9b_chat-rm-20250306-021144 --save_steps -1 --logging_steps 1 --eval_steps -1 --train_batch_size 4 --micro_train_batch_size 1 --pretrain /root/autodl-fs/modelscope/Qwen2.5-7B-Instruct --bf16 --max_epochs 1 --max_len 200 --zero_stage 3 --learning_rate 9e-6 --dataset json@/root/autodl-tmp/EasyDS/data/rlhf_data/rm --apply_chat_template --chosen_key chosen --rejected_key rejected --flash_attn --load_checkpoint --lora_rank 4 --lora_alpha 16 --lora_dropout 0.05 --target_modules q_proj k_proj v_proj o_proj --adam_offload --overlap_comm
+[2025-03-06 02:11:52,476] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-06 02:11:56,295] [INFO] [launch.py:139:main] 0 NCCL_DEBUG=INFO
+[2025-03-06 02:11:56,295] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2025-03-06 02:11:56,295] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=2, node_rank=0
+[2025-03-06 02:11:56,295] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2025-03-06 02:11:56,296] [INFO] [launch.py:164:main] dist_world_size=2
+[2025-03-06 02:11:56,296] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2025-03-06 02:11:56,297] [INFO] [launch.py:256:main] process 12711 spawned with command: ['/root/miniconda3/envs/easyDS/bin/python', '-u', '-m', 'openrlhf.cli.train_rm', '--local_rank=0', '--save_path', '/root/autodl-fs/checkpoint/rm/glm_4_9b_chat-rm-20250306-021144', '--save_steps', '-1', '--logging_steps', '1', '--eval_steps', '-1', '--train_batch_size', '4', '--micro_train_batch_size', '1', '--pretrain', '/root/autodl-fs/modelscope/Qwen2.5-7B-Instruct', '--bf16', '--max_epochs', '1', '--max_len', '200', '--zero_stage', '3', '--learning_rate', '9e-6', '--dataset', 'json@/root/autodl-tmp/EasyDS/data/rlhf_data/rm', '--apply_chat_template', '--chosen_key', 'chosen', '--rejected_key', 'rejected', '--flash_attn', '--load_checkpoint', '--lora_rank', '4', '--lora_alpha', '16', '--lora_dropout', '0.05', '--target_modules', 'q_proj', 'k_proj', 'v_proj', 'o_proj', '--adam_offload', '--overlap_comm']
+[2025-03-06 02:11:56,298] [INFO] [launch.py:256:main] process 12712 spawned with command: ['/root/miniconda3/envs/easyDS/bin/python', '-u', '-m', 'openrlhf.cli.train_rm', '--local_rank=1', '--save_path', '/root/autodl-fs/checkpoint/rm/glm_4_9b_chat-rm-20250306-021144', '--save_steps', '-1', '--logging_steps', '1', '--eval_steps', '-1', '--train_batch_size', '4', '--micro_train_batch_size', '1', '--pretrain', '/root/autodl-fs/modelscope/Qwen2.5-7B-Instruct', '--bf16', '--max_epochs', '1', '--max_len', '200', '--zero_stage', '3', '--learning_rate', '9e-6', '--dataset', 'json@/root/autodl-tmp/EasyDS/data/rlhf_data/rm', '--apply_chat_template', '--chosen_key', 'chosen', '--rejected_key', 'rejected', '--flash_attn', '--load_checkpoint', '--lora_rank', '4', '--lora_alpha', '16', '--lora_dropout', '0.05', '--target_modules', 'q_proj', 'k_proj', 'v_proj', 'o_proj', '--adam_offload', '--overlap_comm']
+[2025-03-06 02:12:01,760] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-06 02:12:02,499] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-06 02:12:03,666] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-03-06 02:12:04,453] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-03-06 02:12:04,453] [INFO] [comm.py:683:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+INFO 03-06 02:12:04 model.py:75] set value_head_prefix to `score`
+INFO 03-06 02:12:04 model.py:75] set value_head_prefix to `score`
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[2025-03-06 02:12:04,838] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 2
+[2025-03-06 02:12:04,838] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 2
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+autodl-container-9050458ceb-e3d19daf:12711:12711 [0] NCCL INFO Bootstrap : Using eth0:172.17.0.3<0>
+autodl-container-9050458ceb-e3d19daf:12711:12711 [0] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+autodl-container-9050458ceb-e3d19daf:12711:12711 [0] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+autodl-container-9050458ceb-e3d19daf:12711:12711 [0] NCCL INFO NET/Plugin: Using internal network plugin.
+autodl-container-9050458ceb-e3d19daf:12711:12711 [0] NCCL INFO cudaDriverVersion 12060
+NCCL version 2.21.5+cuda12.4
+autodl-container-9050458ceb-e3d19daf:12712:12712 [1] NCCL INFO cudaDriverVersion 12060
+autodl-container-9050458ceb-e3d19daf:12712:12712 [1] NCCL INFO Bootstrap : Using eth0:172.17.0.3<0>
+autodl-container-9050458ceb-e3d19daf:12712:12712 [1] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+autodl-container-9050458ceb-e3d19daf:12712:12712 [1] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+autodl-container-9050458ceb-e3d19daf:12712:12712 [1] NCCL INFO NET/Plugin: Using internal network plugin.
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO NET/IB : No device found.
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO NET/Socket : Using [0]eth0:172.17.0.3<0>
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO Using non-device net plugin version 0
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO Using network Socket
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO NET/IB : No device found.
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO NET/Socket : Using [0]eth0:172.17.0.3<0>
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO Using non-device net plugin version 0
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO Using network Socket
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO ncclCommInitRank comm 0xcce2cc0 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId e3000 commId 0xf33c5c08af630c24 - Init START
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO ncclCommInitRank comm 0xc5590b0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId ca000 commId 0xf33c5c08af630c24 - Init START
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO Setting affinity for GPU 1 to ffffffff,00000000,ffffffff,00000000
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO Setting affinity for GPU 0 to ffffffff,00000000,ffffffff,00000000
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO comm 0xc5590b0 rank 0 nRanks 2 nNodes 1 localRanks 2 localRank 0 MNNVL 0
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO comm 0xcce2cc0 rank 1 nRanks 2 nNodes 1 localRanks 2 localRank 1 MNNVL 0
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO Channel 00/02 :    0   1
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO Channel 01/02 :    0   1
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO P2P Chunksize set to 131072
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO P2P Chunksize set to 131072
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO Channel 00 : 1[1] -> 0[0] via SHM/direct/direct
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO Channel 01 : 1[1] -> 0[0] via SHM/direct/direct
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO Channel 00 : 0[0] -> 1[1] via SHM/direct/direct
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO Channel 01 : 0[0] -> 1[1] via SHM/direct/direct
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO Connected all rings
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO Connected all trees
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO Connected all rings
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO Connected all trees
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO TUNER/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO TUNER/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
+autodl-container-9050458ceb-e3d19daf:12711:12877 [0] NCCL INFO ncclCommInitRank comm 0xc5590b0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId ca000 commId 0xf33c5c08af630c24 - Init COMPLETE
+autodl-container-9050458ceb-e3d19daf:12712:12878 [1] NCCL INFO ncclCommInitRank comm 0xcce2cc0 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId e3000 commId 0xf33c5c08af630c24 - Init COMPLETE
+[2025-03-06 02:12:06,361] [INFO] [partition_parameters.py:348:__exit__] finished initializing model - num_params = 339, num_elems = 7.07B
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.71s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.74s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.65s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.67s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.69s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.72s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.56s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.61s/it]
+Some weights of RewardModel were not initialized from the model checkpoint at /root/autodl-fs/modelscope/Qwen2.5-7B-Instruct and are newly initialized: ['score.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.59s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.63s/it]
+Some weights of RewardModel were not initialized from the model checkpoint at /root/autodl-fs/modelscope/Qwen2.5-7B-Instruct and are newly initialized: ['score.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+INFO 03-06 02:12:13 model.py:149] initialize value_head for ZeRO-3 reward model training.
+INFO 03-06 02:12:13 model.py:149] initialize value_head for ZeRO-3 reward model training.
+PeftModel(
+  (base_model): LoraModel(
+    (model): RewardModel(
+      (model): Qwen2Model(
+        (embed_tokens): Embedding(152064, 3584)
+        (layers): ModuleList(
+          (0-27): 28 x Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): lora.Linear(
+                (base_layer): Linear(in_features=3584, out_features=3584, bias=True)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3584, out_features=4, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=4, out_features=3584, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (k_proj): lora.Linear(
+                (base_layer): Linear(in_features=3584, out_features=512, bias=True)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3584, out_features=4, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=4, out_features=512, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (v_proj): lora.Linear(
+                (base_layer): Linear(in_features=3584, out_features=512, bias=True)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3584, out_features=4, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=4, out_features=512, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (o_proj): lora.Linear(
+                (base_layer): Linear(in_features=3584, out_features=3584, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3584, out_features=4, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=4, out_features=3584, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+            )
+            (mlp): Qwen2MLP(
+              (gate_proj): Linear(in_features=3584, out_features=18944, bias=False)
+              (up_proj): Linear(in_features=3584, out_features=18944, bias=False)
+              (down_proj): Linear(in_features=18944, out_features=3584, bias=False)
+              (act_fn): SiLU()
+            )
+            (input_layernorm): Qwen2RMSNorm((0,), eps=1e-06)
+            (post_attention_layernorm): Qwen2RMSNorm((0,), eps=1e-06)
+          )
+        )
+        (norm): Qwen2RMSNorm((0,), eps=1e-06)
+        (rotary_emb): Qwen2RotaryEmbedding()
+      )
+      (score): Linear(in_features=3584, out_features=1, bias=False)
+    )
+  )
+)
+Using /root/.cache/torch_extensions/py311_cu124 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py311_cu124/cpu_adam/build.ninja...
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.5981979370117188 seconds
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.000009, betas=(0.900000, 0.950000), weight_decay=0.000000, adam_w=1
+Using /root/.cache/torch_extensions/py311_cu124 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py311_cu124/cpu_adam/build.ninja...
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.6238255500793457 seconds
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.000009, betas=(0.900000, 0.950000), weight_decay=0.000000, adam_w=1
+dataset: json@/root/autodl-tmp/EasyDS/data/rlhf_data/rm
+loaded json from files
+[Dataset({
+    features: ['prompt', 'chosen', 'rejected'],
+    num_rows: 57
+})]
+Map (num_proc=8):   0%|          | 0/57 [00:00<?, ? examples/s]Map (num_proc=8):   0%|          | 0/57 [00:00<?, ? examples/s]Map (num_proc=8):  14%|█▍        | 8/57 [00:01<00:07,  6.87 examples/s]Map (num_proc=8):  14%|█▍        | 8/57 [00:00<00:05,  8.25 examples/s]Map (num_proc=8):  26%|██▋       | 15/57 [00:01<00:03, 12.25 examples/s]Map (num_proc=8):  26%|██▋       | 15/57 [00:01<00:03, 13.84 examples/s]Map (num_proc=8):  39%|███▊      | 22/57 [00:01<00:02, 17.00 examples/s]Map (num_proc=8):  51%|█████     | 29/57 [00:01<00:01, 21.03 examples/s]Map (num_proc=8):  39%|███▊      | 22/57 [00:01<00:02, 14.35 examples/s]Map (num_proc=8):  51%|█████     | 29/57 [00:01<00:01, 17.85 examples/s]Map (num_proc=8):  75%|███████▌  | 43/57 [00:02<00:00, 29.72 examples/s]Map (num_proc=8):  88%|████████▊ | 50/57 [00:02<00:00, 28.46 examples/s]Map (num_proc=8):  88%|████████▊ | 50/57 [00:02<00:00, 30.13 examples/s]Map (num_proc=8): 100%|██████████| 57/57 [00:02<00:00, 30.53 examples/s]Map (num_proc=8): 100%|██████████| 57/57 [00:02<00:00, 21.33 examples/s]
+Filter:   0%|          | 0/57 [00:00<?, ? examples/s]Filter: 100%|██████████| 57/57 [00:00<00:00, 4879.39 examples/s]
+Map (num_proc=8): 100%|██████████| 57/57 [00:02<00:00, 29.17 examples/s]num_proc must be <= 7. Reducing num_proc to 7 for dataset of size 7.
+Map (num_proc=8): 100%|██████████| 57/57 [00:02<00:00, 21.21 examples/s]
+Filter:   0%|          | 0/57 [00:00<?, ? examples/s]Filter: 100%|██████████| 57/57 [00:00<00:00, 5147.16 examples/s]
+num_proc must be <= 7. Reducing num_proc to 7 for dataset of size 7.
+Map (num_proc=7):   0%|          | 0/7 [00:00<?, ? examples/s]Map (num_proc=7):   0%|          | 0/7 [00:00<?, ? examples/s]Map (num_proc=7):  14%|█▍        | 1/7 [00:01<00:06,  1.08s/ examples]Map (num_proc=7):  14%|█▍        | 1/7 [00:01<00:06,  1.08s/ examples]Map (num_proc=7):  29%|██▊       | 2/7 [00:01<00:02,  1.76 examples/s]Map (num_proc=7):  29%|██▊       | 2/7 [00:01<00:02,  1.78 examples/s]Map (num_proc=7):  43%|████▎     | 3/7 [00:01<00:01,  2.51 examples/s]Map (num_proc=7):  57%|█████▋    | 4/7 [00:01<00:01,  2.92 examples/s]Map (num_proc=7):  86%|████████▌ | 6/7 [00:01<00:00,  4.40 examples/s]Map (num_proc=7):  71%|███████▏  | 5/7 [00:01<00:00,  4.04 examples/s]Map (num_proc=7):  86%|████████▌ | 6/7 [00:01<00:00,  4.34 examples/s]Map (num_proc=7): 100%|██████████| 7/7 [00:02<00:00,  3.58 examples/s]Map (num_proc=7): 100%|██████████| 7/7 [00:02<00:00,  4.25 examples/s]Map (num_proc=7): 100%|██████████| 7/7 [00:02<00:00,  3.06 examples/s]
+Map (num_proc=7): 100%|██████████| 7/7 [00:02<00:00,  2.84 examples/s]
+Filter:   0%|          | 0/7 [00:00<?, ? examples/s]Filter:   0%|          | 0/7 [00:00<?, ? examples/s]Filter: 100%|██████████| 7/7 [00:00<00:00, 811.01 examples/s]
+[2025-03-06 02:12:24,701] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed info: version=0.16.3, git-hash=unknown, git-branch=unknown
+Filter: 100%|██████████| 7/7 [00:00<00:00, 821.52 examples/s]
+[2025-03-06 02:12:24,702] [INFO] [comm.py:677:init_distributed] Distributed backend already initialized
+[2025-03-06 02:12:24,702] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 2
+[2025-03-06 02:12:24,721] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 2
+[2025-03-06 02:12:24,730] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-03-06 02:12:24,732] [INFO] [logging.py:128:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2025-03-06 02:12:24,732] [INFO] [logging.py:128:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2025-03-06 02:12:24,743] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed Basic Optimizer = DeepSpeedCPUAdam
+[2025-03-06 02:12:24,743] [INFO] [utils.py:59:is_zero_supported_optimizer] Checking ZeRO support for optimizer=DeepSpeedCPUAdam type=<class 'deepspeed.ops.adam.cpu_adam.DeepSpeedCPUAdam'>
+[2025-03-06 02:12:24,743] [INFO] [logging.py:128:log_dist] [Rank 0] Creating fp16 ZeRO stage 3 optimizer, MiCS is enabled False, Hierarchical params gather False
+[2025-03-06 02:12:24,743] [INFO] [logging.py:128:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 3 optimizer
+[2025-03-06 02:12:25,118] [INFO] [utils.py:781:see_memory_usage] Stage 3 initialize beginning
+[2025-03-06 02:12:25,119] [INFO] [utils.py:782:see_memory_usage] MA 6.69 GB         Max_MA 8.72 GB         CA 9.17 GB         Max_CA 9 GB 
+[2025-03-06 02:12:25,119] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.6 GB, percent = 16.0%
+[2025-03-06 02:12:25,124] [INFO] [stage3.py:169:__init__] Reduce bucket size 500000000
+[2025-03-06 02:12:25,124] [INFO] [stage3.py:170:__init__] Prefetch bucket size 50000000
+[2025-03-06 02:12:25,467] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2025-03-06 02:12:25,468] [INFO] [utils.py:782:see_memory_usage] MA 6.69 GB         Max_MA 6.69 GB         CA 9.17 GB         Max_CA 9 GB 
+[2025-03-06 02:12:25,468] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.51 GB, percent = 16.0%
+Parameter Offload: Total persistent parameters: 2860032 in 366 params
+[2025-03-06 02:12:25,876] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2025-03-06 02:12:25,876] [INFO] [utils.py:782:see_memory_usage] MA 6.69 GB         Max_MA 6.69 GB         CA 9.17 GB         Max_CA 9 GB 
+[2025-03-06 02:12:25,877] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.55 GB, percent = 16.0%
+[2025-03-06 02:12:26,169] [INFO] [utils.py:781:see_memory_usage] Before creating fp16 partitions
+[2025-03-06 02:12:26,170] [INFO] [utils.py:782:see_memory_usage] MA 6.69 GB         Max_MA 6.69 GB         CA 9.17 GB         Max_CA 9 GB 
+[2025-03-06 02:12:26,170] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.53 GB, percent = 16.0%
+[2025-03-06 02:12:26,862] [INFO] [utils.py:781:see_memory_usage] After creating fp16 partitions: 1
+[2025-03-06 02:12:26,863] [INFO] [utils.py:782:see_memory_usage] MA 6.69 GB         Max_MA 6.69 GB         CA 6.7 GB         Max_CA 9 GB 
+[2025-03-06 02:12:26,863] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.53 GB, percent = 16.0%
+[2025-03-06 02:12:27,169] [INFO] [utils.py:781:see_memory_usage] Before creating fp32 partitions
+[2025-03-06 02:12:27,169] [INFO] [utils.py:782:see_memory_usage] MA 6.69 GB         Max_MA 6.69 GB         CA 6.7 GB         Max_CA 7 GB 
+[2025-03-06 02:12:27,170] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 119.46 GB, percent = 15.8%
+[2025-03-06 02:12:27,491] [INFO] [utils.py:781:see_memory_usage] After creating fp32 partitions
+[2025-03-06 02:12:27,492] [INFO] [utils.py:782:see_memory_usage] MA 6.69 GB         Max_MA 6.69 GB         CA 6.7 GB         Max_CA 7 GB 
+[2025-03-06 02:12:27,492] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 118.11 GB, percent = 15.6%
+[2025-03-06 02:12:27,816] [INFO] [utils.py:781:see_memory_usage] Before initializing optimizer states
+[2025-03-06 02:12:27,817] [INFO] [utils.py:782:see_memory_usage] MA 6.69 GB         Max_MA 6.69 GB         CA 6.7 GB         Max_CA 7 GB 
+[2025-03-06 02:12:27,817] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 118.29 GB, percent = 15.7%
+[2025-03-06 02:12:28,177] [INFO] [utils.py:781:see_memory_usage] After initializing optimizer states
+[2025-03-06 02:12:28,177] [INFO] [utils.py:782:see_memory_usage] MA 6.69 GB         Max_MA 6.69 GB         CA 6.7 GB         Max_CA 7 GB 
+[2025-03-06 02:12:28,178] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 119.43 GB, percent = 15.8%
+[2025-03-06 02:12:28,178] [INFO] [stage3.py:529:_setup_for_real_optimizer] optimizer state initialized
+[2025-03-06 02:12:28,707] [INFO] [utils.py:781:see_memory_usage] After initializing ZeRO optimizer
+[2025-03-06 02:12:28,708] [INFO] [utils.py:782:see_memory_usage] MA 7.62 GB         Max_MA 7.62 GB         CA 7.63 GB         Max_CA 8 GB 
+[2025-03-06 02:12:28,708] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 119.68 GB, percent = 15.8%
+[2025-03-06 02:12:28,708] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedZeroOptimizer_Stage3
+[2025-03-06 02:12:28,708] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2025-03-06 02:12:28,708] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed LR Scheduler = <torch.optim.lr_scheduler.LambdaLR object at 0x7f07ea644b50>
+[2025-03-06 02:12:28,708] [INFO] [logging.py:128:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0], mom=[(0.9, 0.95)]
+[2025-03-06 02:12:28,713] [INFO] [config.py:999:print] DeepSpeedEngine configuration:
+[2025-03-06 02:12:28,713] [INFO] [config.py:1003:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2025-03-06 02:12:28,713] [INFO] [config.py:1003:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True, 'use_gds': False}
+[2025-03-06 02:12:28,713] [INFO] [config.py:1003:print]   amp_enabled .................. False
+[2025-03-06 02:12:28,713] [INFO] [config.py:1003:print]   amp_params ................... False
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   bfloat16_enabled ............. True
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   bfloat16_immediate_grad_update  False
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   checkpoint_parallel_write_pipeline  False
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   checkpoint_tag_validation_enabled  True
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   checkpoint_tag_validation_fail  False
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7f0af416aa10>
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   communication_data_type ...... None
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   curriculum_enabled_legacy .... False
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   curriculum_params_legacy ..... False
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   data_efficiency_enabled ...... False
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   dataloader_drop_last ......... False
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   disable_allgather ............ False
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   dump_state ................... False
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   dynamic_loss_scale_args ...... None
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   eigenvalue_enabled ........... False
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   eigenvalue_gas_boundary_resolution  1
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   eigenvalue_layer_num ......... 0
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   eigenvalue_max_iter .......... 100
+[2025-03-06 02:12:28,714] [INFO] [config.py:1003:print]   eigenvalue_stability ......... 1e-06
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   eigenvalue_tol ............... 0.01
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   eigenvalue_verbose ........... False
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   elasticity_enabled ........... False
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   fp16_auto_cast ............... None
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   fp16_enabled ................. False
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   fp16_master_weights_and_gradients  False
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   global_rank .................. 0
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   grad_accum_dtype ............. None
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   gradient_accumulation_steps .. 2
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   gradient_clipping ............ 1.0
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   gradient_predivide_factor .... 1.0
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   graph_harvesting ............. False
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   initial_dynamic_scale ........ 1
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   load_universal_checkpoint .... False
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   loss_scale ................... 1.0
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   memory_breakdown ............. False
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   mics_hierarchial_params_gather  False
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   mics_shard_size .............. -1
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, experiment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName')
+[2025-03-06 02:12:28,715] [INFO] [config.py:1003:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   optimizer_legacy_fusion ...... False
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   optimizer_name ............... None
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   optimizer_params ............. None
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   pld_enabled .................. False
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   pld_params ................... False
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   prescale_gradients ........... False
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   scheduler_name ............... None
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   scheduler_params ............. None
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   seq_parallel_communication_data_type  torch.float32
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   sparse_attention ............. None
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   sparse_gradients_enabled ..... False
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   steps_per_print .............. 100
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   timers_config ................ enabled=True synchronized=True
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   train_batch_size ............. 4
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   train_micro_batch_size_per_gpu  1
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   use_data_before_expert_parallel_  False
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   use_node_local_storage ....... False
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   wall_clock_breakdown ......... False
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   weight_quantization_config ... None
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   world_size ................... 2
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   zero_allow_untested_optimizer  False
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='none', nvme_path=None, buffer_count=5, buffer_size=100000000, max_in_cpu=1000000000, pin_memory=False) offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='cpu', nvme_path=None, buffer_count=4, pin_memory=True, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1000000000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50000000 param_persistence_threshold=100000 model_persistence_threshold=9223372036854775807 max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=False module_granularity_threshold=0 use_all_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False zeropp_loco_param=None mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   zero_enabled ................. True
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   zero_force_ds_cpu_optimizer .. True
+[2025-03-06 02:12:28,716] [INFO] [config.py:1003:print]   zero_optimization_stage ...... 3
+[2025-03-06 02:12:28,717] [INFO] [config.py:989:print_user_config]   json = {
+    "steps_per_print": 100, 
+    "zero_optimization": {
+        "stage": 3, 
+        "offload_param": {
+            "device": "none"
+        }, 
+        "offload_optimizer": {
+            "device": "cpu", 
+            "pin_memory": true
+        }, 
+        "sub_group_size": "auto", 
+        "stage3_max_live_parameters": "auto", 
+        "stage3_max_reuse_distance": "auto", 
+        "stage3_param_persistence_threshold": "auto", 
+        "stage3_prefetch_bucket_size": "auto", 
+        "reduce_bucket_size": "auto", 
+        "zero_hpz_partition_size": 1, 
+        "zero_quantized_weights": false, 
+        "zero_quantized_gradients": false, 
+        "overlap_comm": true, 
+        "contiguous_gradients": true
+    }, 
+    "bf16": {
+        "enabled": true
+    }, 
+    "gradient_clipping": 1.0, 
+    "prescale_gradients": false, 
+    "wall_clock_breakdown": false, 
+    "data_types": {
+        "grad_accum_dtype": null
+    }, 
+    "train_micro_batch_size_per_gpu": 1, 
+    "train_batch_size": 4
+}
+LogSigmoid Loss
+Train epoch:   0%|          | 0/1 [00:00<?, ?it/s]
+Train step of epoch 0:   0%|          | 0/28 [00:00<?, ?it/s][Aautodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO Using non-device net plugin version 0
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO Using non-device net plugin version 0
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO Using network Socket
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO Using network Socket
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO bootstrapSplit: comm 0x391113d0 parent 0xc5590b0 rank 0 nranks 2 color 1530306504 key 0 prev 1 next 1 - DONE
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO bootstrapSplit: comm 0x398770b0 parent 0xcce2cc0 rank 1 nranks 2 color 1530306504 key 1 prev 0 next 0 - DONE
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO ncclCommSplit comm 0x398770b0 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId e3000 parent 0xcce2cc0 color 1530306504 key 1 commId 0x444e6a003d1d61fc - Init START
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO ncclCommSplit comm 0x391113d0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId ca000 parent 0xc5590b0 color 1530306504 key 0 commId 0x444e6a003d1d61fc - Init START
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO Setting affinity for GPU 0 to ffffffff,00000000,ffffffff,00000000
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO Setting affinity for GPU 1 to ffffffff,00000000,ffffffff,00000000
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO comm 0x391113d0 rank 0 nRanks 2 nNodes 1 localRanks 2 localRank 0 MNNVL 0
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO comm 0x398770b0 rank 1 nRanks 2 nNodes 1 localRanks 2 localRank 1 MNNVL 0
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO Channel 00/02 :    0   1
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO Channel 01/02 :    0   1
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO P2P Chunksize set to 131072
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO P2P Chunksize set to 131072
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO Channel 00 : 1[1] -> 0[0] via SHM/direct/direct
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO Channel 00 : 0[0] -> 1[1] via SHM/direct/direct
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO Channel 01 : 1[1] -> 0[0] via SHM/direct/direct
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO Channel 01 : 0[0] -> 1[1] via SHM/direct/direct
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO Connected all rings
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO Connected all trees
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO Connected all rings
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO Connected all trees
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+autodl-container-9050458ceb-e3d19daf:12711:13427 [0] NCCL INFO ncclCommSplit comm 0x391113d0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId ca000 parent 0xc5590b0 color 1530306504 key 0 commId 0x444e6a003d1d61fc - Init COMPLETE
+autodl-container-9050458ceb-e3d19daf:12712:13428 [1] NCCL INFO ncclCommSplit comm 0x398770b0 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId e3000 parent 0xcce2cc0 color 1530306504 key 1 commId 0x444e6a003d1d61fc - Init COMPLETE
+
+Train step of epoch 0:   0%|          | 0/28 [00:03<?, ?it/s, loss=0.691, acc=0, chosen_reward=0.0103, reject_reward=0.0103, lr=0][A
+Train step of epoch 0:   4%|▎         | 1/28 [00:03<01:32,  3.42s/it, loss=0.691, acc=0, chosen_reward=0.0103, reject_reward=0.0103, lr=0][A
+Train step of epoch 0:   4%|▎         | 1/28 [00:07<01:32,  3.42s/it, loss=0.691, acc=0, chosen_reward=0.0103, reject_reward=0.0103, lr=9e-6][A
+Train step of epoch 0:   7%|▋         | 2/28 [00:07<01:34,  3.65s/it, loss=0.691, acc=0, chosen_reward=0.0103, reject_reward=0.0103, lr=9e-6][A
+Train step of epoch 0:   7%|▋         | 2/28 [00:08<01:34,  3.65s/it, loss=0.691, acc=0, chosen_reward=0.0103, reject_reward=0.0103, lr=9e-6][A
+Train step of epoch 0:  11%|█         | 3/28 [00:08<01:05,  2.63s/it, loss=0.691, acc=0, chosen_reward=0.0103, reject_reward=0.0103, lr=9e-6][A
+Train step of epoch 0:  11%|█         | 3/28 [00:10<01:05,  2.63s/it, loss=0.691, acc=0, chosen_reward=0.0103, reject_reward=0.0103, lr=8.88e-6][A
+Train step of epoch 0:  14%|█▍        | 4/28 [00:10<00:52,  2.20s/it, loss=0.691, acc=0, chosen_reward=0.0103, reject_reward=0.0103, lr=8.88e-6][A
+Train step of epoch 0:  14%|█▍        | 4/28 [00:11<00:52,  2.20s/it, loss=0.691, acc=0.5, chosen_reward=0.0103, reject_reward=0.0104, lr=8.88e-6][A
+Train step of epoch 0:  18%|█▊        | 5/28 [00:11<00:44,  1.91s/it, loss=0.691, acc=0.5, chosen_reward=0.0103, reject_reward=0.0104, lr=8.88e-6][A
+Train step of epoch 0:  18%|█▊        | 5/28 [00:12<00:44,  1.91s/it, loss=0.695, acc=0, chosen_reward=0.0089, reject_reward=0.0101, lr=8.54e-6]  [A
+Train step of epoch 0:  21%|██▏       | 6/28 [00:12<00:37,  1.73s/it, loss=0.695, acc=0, chosen_reward=0.0089, reject_reward=0.0101, lr=8.54e-6][A
+Train step of epoch 0:  21%|██▏       | 6/28 [00:14<00:37,  1.73s/it, loss=0.693, acc=0, chosen_reward=0.00964, reject_reward=0.0109, lr=8.54e-6][A
+Train step of epoch 0:  25%|██▌       | 7/28 [00:14<00:33,  1.60s/it, loss=0.693, acc=0, chosen_reward=0.00964, reject_reward=0.0109, lr=8.54e-6][A
+Train step of epoch 0:  25%|██▌       | 7/28 [00:15<00:33,  1.60s/it, loss=0.693, acc=0.5, chosen_reward=0.00906, reject_reward=0.00983, lr=7.98e-6][A
+Train step of epoch 0:  29%|██▊       | 8/28 [00:15<00:31,  1.57s/it, loss=0.693, acc=0.5, chosen_reward=0.00906, reject_reward=0.00983, lr=7.98e-6][A
+Train step of epoch 0:  29%|██▊       | 8/28 [00:17<00:31,  1.57s/it, loss=0.691, acc=1, chosen_reward=0.00937, reject_reward=0.00897, lr=7.98e-6]  [A
+Train step of epoch 0:  32%|███▏      | 9/28 [00:17<00:28,  1.48s/it, loss=0.691, acc=1, chosen_reward=0.00937, reject_reward=0.00897, lr=7.98e-6][A
+Train step of epoch 0:  32%|███▏      | 9/28 [00:18<00:28,  1.48s/it, loss=0.691, acc=1, chosen_reward=0.0105, reject_reward=0.00851, lr=7.25e-6] [A
+Train step of epoch 0:  36%|███▌      | 10/28 [00:18<00:26,  1.45s/it, loss=0.691, acc=1, chosen_reward=0.0105, reject_reward=0.00851, lr=7.25e-6][A
+Train step of epoch 0:  36%|███▌      | 10/28 [00:19<00:26,  1.45s/it, loss=0.691, acc=1, chosen_reward=0.0104, reject_reward=0.00946, lr=7.25e-6][A
+Train step of epoch 0:  39%|███▉      | 11/28 [00:19<00:24,  1.44s/it, loss=0.691, acc=1, chosen_reward=0.0104, reject_reward=0.00946, lr=7.25e-6][A
+Train step of epoch 0:  39%|███▉      | 11/28 [00:21<00:24,  1.44s/it, loss=0.691, acc=1, chosen_reward=0.0107, reject_reward=0.00943, lr=6.39e-6][A
+Train step of epoch 0:  43%|████▎     | 12/28 [00:21<00:23,  1.46s/it, loss=0.691, acc=1, chosen_reward=0.0107, reject_reward=0.00943, lr=6.39e-6][A
+Train step of epoch 0:  43%|████▎     | 12/28 [00:22<00:23,  1.46s/it, loss=0.693, acc=0.5, chosen_reward=0.00946, reject_reward=0.00937, lr=6.39e-6][A
+Train step of epoch 0:  46%|████▋     | 13/28 [00:22<00:21,  1.45s/it, loss=0.693, acc=0.5, chosen_reward=0.00946, reject_reward=0.00937, lr=6.39e-6][A
+Train step of epoch 0:  46%|████▋     | 13/28 [00:24<00:21,  1.45s/it, loss=0.693, acc=0.5, chosen_reward=0.00995, reject_reward=0.0109, lr=5.44e-6] [A
+Train step of epoch 0:  50%|█████     | 14/28 [00:24<00:20,  1.48s/it, loss=0.693, acc=0.5, chosen_reward=0.00995, reject_reward=0.0109, lr=5.44e-6][A
+Train step of epoch 0:  50%|█████     | 14/28 [00:25<00:20,  1.48s/it, loss=0.691, acc=1, chosen_reward=0.011, reject_reward=0.00934, lr=5.44e-6]   [A
+Train step of epoch 0:  54%|█████▎    | 15/28 [00:25<00:18,  1.43s/it, loss=0.691, acc=1, chosen_reward=0.011, reject_reward=0.00934, lr=5.44e-6][A
+Train step of epoch 0:  54%|█████▎    | 15/28 [00:27<00:18,  1.43s/it, loss=0.691, acc=0.5, chosen_reward=0.0094, reject_reward=0.00897, lr=4.46e-6][A
+Train step of epoch 0:  57%|█████▋    | 16/28 [00:27<00:17,  1.44s/it, loss=0.691, acc=0.5, chosen_reward=0.0094, reject_reward=0.00897, lr=4.46e-6][A
+Train step of epoch 0:  57%|█████▋    | 16/28 [00:28<00:17,  1.44s/it, loss=0.691, acc=0.5, chosen_reward=0.00946, reject_reward=0.00928, lr=4.46e-6][A
+Train step of epoch 0:  61%|██████    | 17/28 [00:28<00:15,  1.42s/it, loss=0.691, acc=0.5, chosen_reward=0.00946, reject_reward=0.00928, lr=4.46e-6][A
+Train step of epoch 0:  61%|██████    | 17/28 [00:29<00:15,  1.42s/it, loss=0.695, acc=0, chosen_reward=0.00882, reject_reward=0.0105, lr=3.51e-6]   [A
+Train step of epoch 0:  64%|██████▍   | 18/28 [00:29<00:14,  1.42s/it, loss=0.695, acc=0, chosen_reward=0.00882, reject_reward=0.0105, lr=3.51e-6][A
+Train step of epoch 0:  64%|██████▍   | 18/28 [00:31<00:14,  1.42s/it, loss=0.691, acc=1, chosen_reward=0.0117, reject_reward=0.00946, lr=3.51e-6][A
+Train step of epoch 0:  68%|██████▊   | 19/28 [00:31<00:12,  1.39s/it, loss=0.691, acc=1, chosen_reward=0.0117, reject_reward=0.00946, lr=3.51e-6][A
+Train step of epoch 0:  68%|██████▊   | 19/28 [00:32<00:12,  1.39s/it, loss=0.693, acc=0.5, chosen_reward=0.00856, reject_reward=0.0094, lr=2.65e-6][A
+Train step of epoch 0:  71%|███████▏  | 20/28 [00:32<00:11,  1.42s/it, loss=0.693, acc=0.5, chosen_reward=0.00856, reject_reward=0.0094, lr=2.65e-6][A
+Train step of epoch 0:  71%|███████▏  | 20/28 [00:34<00:11,  1.42s/it, loss=0.691, acc=1, chosen_reward=0.0097, reject_reward=0.009, lr=2.65e-6]    [A
+Train step of epoch 0:  75%|███████▌  | 21/28 [00:34<00:09,  1.38s/it, loss=0.691, acc=1, chosen_reward=0.0097, reject_reward=0.009, lr=2.65e-6][A
+Train step of epoch 0:  75%|███████▌  | 21/28 [00:35<00:09,  1.38s/it, loss=0.691, acc=1, chosen_reward=0.0106, reject_reward=0.00931, lr=1.92e-6][A
+Train step of epoch 0:  79%|███████▊  | 22/28 [00:35<00:08,  1.38s/it, loss=0.691, acc=1, chosen_reward=0.0106, reject_reward=0.00931, lr=1.92e-6][A
+Train step of epoch 0:  79%|███████▊  | 22/28 [00:36<00:08,  1.38s/it, loss=0.691, acc=1, chosen_reward=0.00916, reject_reward=0.00749, lr=1.92e-6][A
+Train step of epoch 0:  82%|████████▏ | 23/28 [00:36<00:06,  1.35s/it, loss=0.691, acc=1, chosen_reward=0.00916, reject_reward=0.00749, lr=1.92e-6][A
+Train step of epoch 0:  82%|████████▏ | 23/28 [00:38<00:06,  1.35s/it, loss=0.691, acc=1, chosen_reward=0.0107, reject_reward=0.00922, lr=1.36e-6] [A
+Train step of epoch 0:  86%|████████▌ | 24/28 [00:38<00:06,  1.59s/it, loss=0.691, acc=1, chosen_reward=0.0107, reject_reward=0.00922, lr=1.36e-6][A
+Train step of epoch 0:  86%|████████▌ | 24/28 [00:40<00:06,  1.59s/it, loss=0.693, acc=0.5, chosen_reward=0.00949, reject_reward=0.00983, lr=1.36e-6][A
+Train step of epoch 0:  89%|████████▉ | 25/28 [00:40<00:04,  1.57s/it, loss=0.693, acc=0.5, chosen_reward=0.00949, reject_reward=0.00983, lr=1.36e-6][A
+Train step of epoch 0:  89%|████████▉ | 25/28 [00:41<00:04,  1.57s/it, loss=0.693, acc=0.5, chosen_reward=0.00961, reject_reward=0.0106, lr=1.02e-6] [A
+Train step of epoch 0:  93%|█████████▎| 26/28 [00:41<00:03,  1.57s/it, loss=0.693, acc=0.5, chosen_reward=0.00961, reject_reward=0.0106, lr=1.02e-6][A
+Train step of epoch 0:  93%|█████████▎| 26/28 [00:43<00:03,  1.57s/it, loss=0.693, acc=0.5, chosen_reward=0.0106, reject_reward=0.0103, lr=1.02e-6] [A
+Train step of epoch 0:  96%|█████████▋| 27/28 [00:43<00:01,  1.56s/it, loss=0.693, acc=0.5, chosen_reward=0.0106, reject_reward=0.0103, lr=1.02e-6][A
+Train step of epoch 0:  96%|█████████▋| 27/28 [00:45<00:01,  1.56s/it, loss=0.691, acc=1, chosen_reward=0.0104, reject_reward=0.01, lr=9e-7]       [A
+Train step of epoch 0: 100%|██████████| 28/28 [00:45<00:00,  1.60s/it, loss=0.691, acc=1, chosen_reward=0.0104, reject_reward=0.01, lr=9e-7][A
+
+Eval stage of steps 14:   0%|          | 0/3 [00:00<?, ?it/s][A[A
+
+Eval stage of steps 14:  33%|███▎      | 1/3 [00:00<00:01,  1.20it/s][A[A
+
+Eval stage of steps 14:  67%|██████▋   | 2/3 [00:01<00:00,  1.17it/s][A[A
+
+Eval stage of steps 14: 100%|██████████| 3/3 [00:02<00:00,  1.15it/s][A[ASet reward mean std
+
+
+Eval stage of steps 14: 100%|██████████| 3/3 [00:02<00:00,  1.15it/s, eval_loss=0.691, acc_mean=0, reward_mean=0.0114, reward_std=1e-8][A[Ahistgram
+(tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000,
+        0.0000]), tensor([-10.,  -8.,  -6.,  -4.,  -2.,   0.,   2.,   4.,   6.,   8.,  10.]), tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000,
+        0.0000]), tensor([-10.,  -8.,  -6.,  -4.,  -2.,   0.,   2.,   4.,   6.,   8.,  10.]))
+Eval stage of steps 14: 100%|██████████| 3/3 [00:02<00:00,  1.15it/s, eval_loss=0.691, acc_mean=0, reward_mean=0.0114, reward_std=1e-8]
+Train epoch: 100%|██████████| 1/1 [00:47<00:00, 47.76s/it]Train epoch: 100%|██████████| 1/1 [00:47<00:00, 47.76s/it]
+Train step of epoch 0: 100%|██████████| 28/28 [00:47<00:00,  1.71s/it, loss=0.691, acc=1, chosen_reward=0.0104, reject_reward=0.01, lr=9e-7]
+Save value_head_prefix in config
+[2025-03-06 02:13:31,315] [INFO] [launch.py:351:main] Process 12712 exits successfully.
+[2025-03-06 02:13:33,316] [INFO] [launch.py:351:main] Process 12711 exits successfully.

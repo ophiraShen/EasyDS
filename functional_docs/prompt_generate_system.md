@@ -36,18 +36,20 @@
    - 完成了数据处理脚本的实现和测试
    - 优化了数据格式以适配OpenRLHF框架
 
-### 2.2 进行中任务
-1. **奖励模型(RM)训练**
-   - 数据处理脚本实现完成
-   - 训练脚本优化
-   - 模型评估方案实施
+5. **奖励模型(RM)训练**
+   - 完成了数据处理脚本实现
+   - 优化了训练脚本参数
+   - 成功执行了奖励模型训练
+   - 完成了模型评估
+   - 保存了训练好的奖励模型
 
-2. **PPO训练**
+### 2.2 进行中任务
+1. **PPO训练**
    - 环境配置
    - 训练参数优化
    - 分布式训练设置
 
-3. **DPO方案**
+2. **DPO方案**
    - 偏好数据构建
    - 训练框架搭建
    - 评估方案设计
@@ -64,7 +66,7 @@
 执行脚本：`/autodl-tmp/EasyDS/openrlhf_workspace/scripts/lora_combined.sh`
 
 
-#### 奖励模型训练（进行中）
+#### 奖励模型训练（已完成）
 执行脚本：`/autodl-tmp/EasyDS/openrlhf_workspace/scripts/train_rm.sh`
 
 **数据准备详情：**
@@ -85,11 +87,13 @@
 5. 转换为OpenRLHF支持的格式
 6. 按照 9:1 的比例分割为训练集和测试集
 
-**数据处理实现：**
-- 新增 `RewardModelDataProcessor` 类处理奖励模型数据
-- 实现 `convert_to_training_format` 方法转换数据格式
-- 实现 `process_file` 方法处理文件并分割数据集
-- 创建 `generate_rm_data.py` 脚本用于数据处理
+**训练结果：**
+- 成功完成了奖励模型训练
+- 使用 Qwen2.5-7B-Instruct 作为基础模型
+- 采用 LoRA 进行参数高效微调
+- 使用 DeepSpeed ZeRO-3 优化训练过程
+- 启用了 Flash Attention 加速训练
+- 模型保存在 `/root/autodl-fs/checkpoint/rm/` 目录下
 
 **数据增强策略：**
 - 为同一问题构建多种类型的较差回答
@@ -203,9 +207,9 @@ from src.data.processor improt RewardModelDataProcessor
    - [x] 实现 RewardModelDataProcessor 类
    - [x] 实现数据处理脚本
    - [x] 优化数据格式以适配OpenRLHF框架
-   - [ ] 执行奖励模型训练
-   - [ ] 评估奖励模型质量
-   - [ ] 合并LoRA权重（如使用LoRA）
+   - [x] 执行奖励模型训练
+   - [x] 评估奖励模型质量
+   - [x] 合并LoRA权重（如使用LoRA）
 
 2. **PPO训练**
    - [ ] 准备PPO训练数据

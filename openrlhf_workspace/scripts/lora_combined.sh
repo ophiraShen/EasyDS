@@ -1,7 +1,7 @@
 set -x
 
-MODEL_PATH="/root/autodl-fs/modelscope/glm_4_9b_chat"
-LORA_PATH="/root/autodl-fs/checkpoint/sft/glm_4_9b_chat-20250303-024747"
+MODEL_PATH="/root/autodl-fs/modelscope/Qwen2.5-7B-Instruct"
+LORA_PATH="/root/autodl-fs/checkpoint/rm/qwen2.5_7b_instruct-rm-20250306-021144"
 OUTPUT_PATH=${LORA_PATH}_lora_combined
 
 python -m openrlhf.cli.lora_combiner \
