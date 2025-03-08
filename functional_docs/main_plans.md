@@ -44,7 +44,7 @@ EasyDS/
 |   |   ├── generate_rm_data.py
 │   │   └── generate_sft_data.py
 │   ├── agents/
-│   └── models/
+│   └── models/  # 暂时不用，先用 OpenRLHF 框架
 |       ├──dpo/
 |       └──rlhf/
 |           ├──sft/
@@ -64,6 +64,12 @@ EasyDS/
 |               ├──config.yaml
 |               ├──train.py
 |               └──evaluate.py
+├── openrlhf_workspace/
+│   └── scripts/
+│       ├── lora_combined.sh
+│       ├── train_rm.sh
+│       └── train_sft_mixtral_lora.sh
+│   
 └── configs/
     ├── dpo_config.yaml   # DPO配置
     └── rlhf/             # RLHF配置

@@ -179,64 +179,41 @@ class RewardModelDataProcessor(DataProcessor):
 
 class PPODataProcessor(DataProcessor):
     """PPO数据处理器"""
+    def __init__(self, system_prompt: Optional[str] = None):
+        super().__init__(system_prompt)
+        if system_prompt is None:
+            self.system_prompt = "你是一个提示词生成助手。请根据问题、用户与教师智能体的对话，生成进一步的教学指导提示词。"
+        else:
+            self.system_prompt = system_prompt
+
     def convert_to_training_format(self, example: PPOExample) -> Dict:
         """转换为PPO训练格式"""
-        prompt = f"""<|im_start|>system
-{self.system_prompt}<|im_end|>
-<|im_start|>user
-问题：{example.question}
-学生回答：{example.student_response}
-回答特征分析：{self._format_features(example.response_features)}<|im_end|>"""
+        question = example['question']
+        dialogues = example['dialogues']
 
+        first_response = dialogues[0]['content']
+        prompt = [
+            {"role": "system", "content": self.system_prompt},
+            {"role": "user", "content": f"问题：{question}\n学生回答：{first_response}"}
+        ]
+        for dialogue in dialogues[1:]:
+            prompt.append({"role": dialogue['role'], "content": dialogue['content']})
+        
         return {
-            "prompt": prompt,
-            "response": example.generated_prompt,
-            "reward": self._calculate_weighted_reward(example.reward_metrics)
+            "input": json.dumps(prompt, ensure_ascii=False),
         }
 
-    def _format_features(self, features: Dict) -> str:
-        """格式化特征分析"""
-        return json.dumps(features, ensure_ascii=False, indent=2)
-
-    def _calculate_weighted_reward(self, metrics: RewardMetrics) -> float:
-        """计算加权奖励分数"""
-        weights = {
-            'guidance_effectiveness': 0.4,
-            'relevance': 0.3,
-            'specificity': 0.2,
-            'encouragement': 0.1
-        }
-        
-        return (
-            weights['guidance_effectiveness'] * metrics.guidance_effectiveness +
-            weights['relevance'] * metrics.relevance +
-            weights['specificity'] * metrics.specificity +
-            weights['encouragement'] * metrics.encouragement
-        )
-
-    def process_file(self, input_file: str, output_file: str):
+    def process_file(self, input_file: str, output_train_file: str, output_test_file: str, test_ratio: float = 0.1):
         """处理整个数据文件"""
-        raw_data = self.load_json(input_file)
-        processed_data = []
-        
-        for item in raw_data:
-            metrics = RewardMetrics(
-                guidance_effectiveness=item['reward_metrics']['guidance_effectiveness'],
-                relevance=item['reward_metrics']['relevance'],
-                specificity=item['reward_metrics']['specificity'],
-                encouragement=item['reward_metrics']['encouragement']
-            )
-            
-            example = PPOExample(
-                question=item['question'],
-                student_response=item['student_response'],
-                response_features=item['response_features'],
-                generated_prompt=item['generated_prompt'],
-                teacher_response=item['teacher_response'],
-                reward_metrics=metrics
-            )
-            processed_data.append(self.convert_to_training_format(example))
-            
-        self.save_json(processed_data, output_file)
+        raw_data = self.load_jsonl(input_file)
 
+        processed_data = []
+        for example in raw_data:
+            processed_example = self.convert_to_training_format(example)
+            processed_data.append(processed_example)
+
+        train_data, test_data = self.split_data(processed_data, test_ratio)
+
+        self.save_jsonl(train_data, output_train_file)
+        self.save_jsonl(test_data, output_test_file)
 
