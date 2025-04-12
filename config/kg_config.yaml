@@ -1,0 +1,118 @@
+# 知识图谱构建配置文件
+
+# 基本配置
+base:
+  project_name: "EasyDS-KnowledgeGraph"
+  version: "0.1.0"
+  log_level: "INFO"
+  temp_dir: "/root/autodl-tmp/EasyDS/data/kg_temp"
+  cache_dir: "/root/autodl-tmp/EasyDS/data/kg_cache"
+  output_dir: "/root/autodl-tmp/EasyDS/data/kg_output"
+
+# 资源文件配置
+resources:
+  pdf_dir: "/root/autodl-tmp/EasyDS/data/pdfs"
+  question_dir: "/root/autodl-tmp/EasyDS/data/questions"
+  stopwords_file: "/root/autodl-tmp/EasyDS/data/resources/stopwords.txt"
+  domain_dict_file: "/root/autodl-tmp/EasyDS/data/resources/domain_dict.txt"
+
+# 文本提取配置
+extract:
+  pdf:
+    use_ocr: false
+    ocr_engine: "tesseract"  # 可选: tesseract, paddleocr
+    language: "chi_sim+eng"
+    min_line_length: 5
+    max_line_length: 1000
+    page_separator: "\n\n====== 页面分隔符 ======\n\n"
+  term:
+    max_term_length: 8
+    min_term_frequency: 3
+    jieba_user_dict: "/root/autodl-tmp/EasyDS/data/resources/jieba_user_dict.txt"
+    use_domain_terms_only: false
+
+# 文本处理配置
+process:
+  text:
+    remove_headers: true
+    remove_footers: true
+    normalize_chars: true
+    min_paragraph_length: 10
+    clean_regex_patterns:
+      - "\d+\.\s+"
+      - "^\s*\d+[\.\)]\s*"
+      - "图\s*\d+[\.\-:：]"
+  knowledge:
+    min_knowledge_length: 20
+    max_knowledge_length: 500
+    segmentation_method: "textrank"  # 可选: sentence, paragraph, textrank
+    textrank_params:
+      window_size: 2
+      damping: 0.85
+      min_similarity: 0.1
+      top_k: 0.3
+  question:
+    min_question_length: 10
+    split_by_number: true
+    question_patterns:
+      - "^\d+[\.\)、]\s*"
+      - "第\d+题"
+    answer_patterns:
+      - "[A-D][\.\)、]"
+      - "答案[:：]?\s*[A-D]"
+
+# 关系提取配置  
+relation:
+  max_distance: 5
+  relation_types:
+    - "包含"
+    - "先决条件"
+    - "相关"
+    - "应用"
+    - "实例"
+  use_language_model: true
+  language_model:
+    api_key: ""
+    model_name: "gpt-3.5-turbo"
+    temperature: 0.1
+    max_tokens: 1000
+    prompt_template: "/root/autodl-tmp/EasyDS/data/resources/relation_prompt.txt"
+
+# 分数计算配置
+score:
+  module_distance:
+    weight: 0.3
+    similarity_threshold: 0.5
+  document_weight:
+    weight: 0.2
+    important_sections:
+      - "概述"
+      - "定义"
+      - "示例"
+  semantic_similarity:
+    weight: 0.5
+    model_name: "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+    batch_size: 32
+    device: "cuda"  # 可选: cuda, cpu
+    similarity_threshold: 0.75
+
+# 知识图谱数据库配置
+database:
+  type: "neo4j"  # 目前仅支持neo4j
+  neo4j:
+    uri: "bolt://localhost:7687"
+    username: "neo4j"
+    password: "password"
+    database: "knowledge_graph"
+  constraints:
+    - "CONSTRAINT ON (k:KnowledgePoint) ASSERT k.id IS UNIQUE"
+    - "CONSTRAINT ON (t:Term) ASSERT t.name IS UNIQUE"
+    - "CONSTRAINT ON (m:Module) ASSERT m.name IS UNIQUE"
+  indices:
+    - "CREATE INDEX ON :KnowledgePoint(title)"
+    - "CREATE INDEX ON :Term(name)"
+    - "CREATE INDEX ON :Module(name)"
+  validation:
+    min_knowledge_points: 100
+    min_relations: 200
+    orphan_threshold: 0.1  # 孤立节点最大比例 
