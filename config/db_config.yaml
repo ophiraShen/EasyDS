@@ -1,0 +1,153 @@
+# EasyDS 结构化问题数据库配置
+
+# 数据库基本配置
+database:
+  # 数据库类型: mongodb, sqlite
+  type: "mongodb"
+  # 连接信息
+  connection:
+    # MongoDB 连接信息
+    mongodb:
+      host: "localhost"
+      port: 27017
+      database: "easyds"
+      # 如果需要认证，取消以下注释
+      # username: "user"
+      # password: "pass"
+      # auth_source: "admin"
+    # SQLite 连接信息（备选方案）
+    sqlite:
+      path: "./data/easyds.db"
+  
+  # 集合/表名配置
+  collections:
+    chapters: "chapters"
+    knowledge_points: "knowledge_points"
+    questions: "questions"
+
+# 文件存储配置
+files:
+  # 数据文件存储路径
+  data_dir: "./data/questions"
+  # 章节数据文件
+  chapters_file: "chapters.json"
+  # 知识点数据文件
+  knowledge_points_file: "knowledge_points.json"
+  # 问题数据文件
+  questions_file: "questions.json"
+  # 问题详情文件存储目录
+  details_dir: "details"
+
+# 关系类型配置
+relation_types:
+  # 知识点关系类型
+  knowledge_point:
+    - id: "prerequisite"
+      name: "前置知识"
+      description: "学习目标知识点前需要先掌握的知识"
+    - id: "related"
+      name: "相关知识"
+      description: "与目标知识点相关但无明确依赖关系的知识"
+    - id: "extension"
+      name: "扩展知识"
+      description: "目标知识点的扩展或深入内容"
+
+  # 问题关系类型
+  question:
+    - id: "extension"
+      name: "扩展问题"
+      description: "针对同一知识点的深入探讨"
+    - id: "application"
+      name: "应用问题"
+      description: "知识点的实际应用场景"
+    - id: "contrast"
+      name: "对比问题"
+      description: "涉及相似但有区别的概念"
+
+# 问题类型配置
+question_types:
+  - id: "concept"
+    name: "概念题"
+    description: "测试对基本概念的理解"
+  - id: "calculation"
+    name: "计算题"
+    description: "需要进行数学或算法计算"
+  - id: "application"
+    name: "应用题"
+    description: "将知识应用到实际场景"
+
+# 难度级别配置
+difficulty_levels:
+  - level: 1
+    name: "入门"
+    description: "基础概念和简单应用"
+  - level: 2
+    name: "基础"
+    description: "基本概念的综合应用"
+  - level: 3
+    name: "中等"
+    description: "需要一定推理能力"
+  - level: 4
+    name: "进阶"
+    description: "较复杂的问题，需要深入思考"
+  - level: 5
+    name: "挑战"
+    description: "高难度问题，考查综合能力"
+
+# 智能体接口配置
+agent_interfaces:
+  # 路由智能体配置
+  router:
+    # 评估用户回答时提供的参考答案格式
+    reference_answer_format:
+      include_key_points: true
+      include_explanation: true
+    # 知识点关联深度
+    knowledge_relation_depth: 2
+  
+  # 学生智能体配置
+  student:
+    # 追问问题数量限制
+    max_extension_questions: 3
+    # 追问深度限制
+    max_extension_depth: 2
+    # 追问策略权重
+    extension_strategy_weights:
+      prerequisite: 0.3
+      related: 0.3
+      extension: 0.4
+  
+  # 教师智能体配置
+  teacher:
+    # 纠错模式
+    correction_mode: "guided"  # guided, direct
+    # 知识点总结格式
+    summary_format:
+      include_examples: true
+      include_applications: true
+
+# 索引配置
+indexes:
+  # MongoDB 索引
+  mongodb:
+    - collection: "chapters"
+      fields:
+        - "id"
+        - "parent_id"
+    - collection: "knowledge_points"
+      fields:
+        - "id"
+        - "chapter_id"
+        - "related_points.id"
+    - collection: "questions"
+      fields:
+        - "id"
+        - "knowledge_points"
+        - "difficulty"
+        - "type"
+
+# 缓存配置
+cache:
+  enabled: true
+  ttl: 3600  # 秒
+  max_size: 1000  # 条目数 

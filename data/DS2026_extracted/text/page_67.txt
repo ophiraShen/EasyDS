@@ -1,0 +1,64 @@
+第2章线性
+表
+55
+时）为止，若它们所指结点值相同，则继续进行下去，否则返回0。若比较全部相等，则返回1。
+本题代码如下：
+int Symmetry(DLinkList L){
+d-bx-o
+//两头工作指针
+while(p!=q&&p->next!=q)
+/循环跳出条件
+if(p->data==q->data)(
+/所指结点值相同则继续比较
+p=p->next;
+q=q->prior;
+else
+//否则，返回0
+return0;
+return
+1;
+//比较结束后返回1
+注意
+while循环第二个判断条件易误写成g->next！=p，分析这样会产生什么问题。
+12.【解答】
+算法思想：先找到两个链表的尾指针，将第一个链表的尾指针与第二个链表的头结点链接起
+来，再使之成为循环的。
+本题代码如下：
+LinkList Link（LinkList &hl,LinkList &h2）{
+//将循环链表h2链接到循环链表h1之后，使之仍保持循环链表的形式
+LNode *p,*q;
+1/分别指向两个链表的尾结点
+p=h1;
+while(p->next!=h1)
+//寻找h1的尾结点
+p=p->next;
+q=h2;
+while(q->next!=h2)
+//寻找h2的尾结点
+q=q->next;
+p->next=h2;
+/将h2链接到h1之后
+q->next=h1;
+//令h2的尾结点指向h1
+return hl;
+13.【解答】
+算法思想：首先在双链表中查找数据值为x的结点，查到后，将结点从链表上摘下，然后顺
+着结点的前驱链查找该结点的插入位置（频度递减，且排在同频度的第一个，即向前找到第一个
+比它的频度大的结点，插入位置为该结点之后），并插入到该位置。
+本题代码如下：
+DLinkList Locate（DLinkList &L,ElemType x){
+b'xau<-=d pona
+/lp为工作指针，q为p的前驱，用于查找插入位置
+while(p&&p->data!=x)
+p=p->next;
+//查找值为x的结点
+if(!p)
+exit（0);
+//不存在值为x的结点
+elser
+p->freq++;
+//令元素值为x的结点的freq域加1
+(I<-db<-d-=d-)
+return p;
+/lp是链表首结点，或freg值小于前驱
+d-d=d-x-(x-)

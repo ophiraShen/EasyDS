@@ -1,0 +1,67 @@
+164
+2026年数据结构考研复习指导
+DeleteXTree(bt->lchild);
+DeletexTree(bt->rchild);
+//删除bt的左子树、右子树
+free(bt);
+//释放被删结点所占的存储空间
+//在二叉树上查找所有以×为元素值的结点，并删除以其为根的子树
+void Search(BiTree bt,ElemType x)(
+BiTree Q[];
+/IQ是存放二叉树结点指针的队列，容量足够大
+if(bt){
+if(bt->data==x){
+//若根结点值为x，则删除整棵树
+DeletexTree(bt);
+exit（0);
+InitQueue(Q);
+EnQueue(Q,bt);
+while(!IsEmpty(Q)){
+DeQueue(Q,p);
+if(p->lchild)
+若左子女非空
+if(p->lchild->data==x){
+Ⅱ左子树符合则删除左子树
+DeleteXTree(p->lchild);
+p->lchild=NULL;
+{
+I/父结点的左子女置空
+else
+EnQueue(Q,p->lchild);
+Ⅱ左子树入队列
+if(p->rchild)
+Ⅱ/若右子女非空
+if(p->rchild->data==x){
+//右子女符合则删除右子树
+DeletexTree(p->rchild);
+p->rchild=NULL;
+I/父结点的右子女置空
+else
+EnQueue(Q,p->rchild);
+Ⅱ/右子女入队列
+09.【解答】
+算法思想：采用非递归后序遍历，最后访问根结点，访问到值为×的结点时，栈中所有元素
+均为该结点的祖先，依次出栈打印即可。算法实现如下：
+typedef struct{
+BiTreet;
+int
+tag;
+)stack;
+//tag=0表示左子女被访问，tag=1表示右子女被访问
+void Search(BiTree bt,ElemType x){
+/在二叉树bt中，查找值为x的结点，并打印其所有祖先
+stack s[];
+//栈容量足够大
+top=0;
+while(bt!=NULL||top>0){
+while(bt!=NULL&&bt->data!=x){
+结点入栈
+s[++top].t=bt;
+s[top].tag=0;
+bt=bt->lchild;
+//沿左分支向下
+if（bt!=NULL&&bt->data==x){
+printf（"所查结点的所有祖先结点的值为：\n"）；//找到x
+for(i=l;i<=top;i++)
+printf("%d",s[i].t->data);
+//输出祖先值后结束

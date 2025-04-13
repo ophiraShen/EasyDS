@@ -1,0 +1,61 @@
+第2章
+线性
+表
+57
+a
+则有2（a+x）=a+n*r+x，即a=nr-x。显然从头结点到环的入口点的距离等于n倍的环长减去
+环的入口点到相遇点的距离。因此可设置两个指针，一个指向head，一个指向相遇点，两个指
+针同步移动（均为一次走一步），相遇点即环的入口点。
+2）本题代码如下：
+LNode* FindLoopStart(LNode *head){
+LNode *fast=head,*slow=head;
+/设置快慢两个指针
+while（fast!=NULL&&fast->next!=NULL){
+slow=slow->next;
+//每次走一步
+fast=fast->next->next;
+//每次走两步
+if(slow==fast)
+break;
+//相遇
+if(fast==NULLIlfast->next==NULL)
+return NULL;
+//没有环，返回NULL
+LNode *pl=head,
+*p2=slow
+//分别指向开始点、相遇点
+while(p1!=p2）{
+pl=pl->next;
+p2=p2->next;
+return pl;
+/返回入口点
+3）当fast与slow相遇时，slow肯定没有遍历完链表，故算法的时间复杂度为O(n)，空
+间复杂度为0(1)。
+16.【解答】
+1）算法的基本设计思想：
+设置快、慢两个指针分别为fast和slow，初始时slow指向L（第一个结点），fast指向
+L->next（第二个结点），之后slow每次走一步，fast每次走两步。当fast指向表尾（第n个
+结点）时，slow正好指向链表的中间点（第n/2个结点），即slow正好指向链表前半部分的最后
+一个结点。将链表的后半部分逆置，然后设置两个指针分别指向链表前半部分和后半部分的首结点，
+在遍历过程中计算两个指针所指结点的元素之和，并维护最大值。
+2）本题代码如下：
+int PairSum(LinkList L){
+LNode*fast=L->next，*slow=L;//利用快慢双指针找到链表的中间点
+while(fast!=NULL&&fast->next!=NULL){
+fast=fast->next->next;
+//快指针每次走两步
+slow=slow->next;
+//慢指针每次走一步
+LNode *newHead=NULL,*p=slow->next,*tmp;
+while(p!=NULL)(
+//反转链表后一半部分的元素，采用头插法
+tmp=p->next;
+/lp指向当前待插入结点，令tmp指向其下一结点
+p->next=newHead;
+/将p所指结点插入到新链表的首结点之前
+newHead=p;
+//newHead指向刚才新插入的结点，作为新的首结点
+dun=d
+//当前待处理结点变为下一结点
+int mx=0;p=L;
+LNode *q=newHead;

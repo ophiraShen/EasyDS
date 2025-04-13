@@ -1,0 +1,48 @@
+170
+2026年数据结构考研复习指导
+BtreeToExp(root->left,deep+l);
+printf("%s",root->data);
+//输出操作符
+BtreeToExp(root->right,deep+1);
+if(deep>l）printf(")");
+若有子表达式则加一层括号
+17.【解答1】
+1）算法的基本设计思想。
+对于采用顺序存储方式保存的二叉树，根结点保存在SqBiTNode[O］中：当某结点保存在
+SqBiTNode[i]中时，若有左孩子，则其值保存在SqBiTNode[2i+1]中；若有右孩子，则其值
+保存在SqBiTNode[2i+2]中：若有双亲结点，则其值保存在SqBiTNode[（i-1）/2]中。
+二叉搜索树需要满足的条件是：任意一个结点值大于其左子树中的全部结点值，小于其右子
+树中的全部结点值。中序遍历二叉搜索树得到一个升序序列。
+使用整型变量va1记录中序遍历过程中已遍历结点的最大值，初值为一个负整数。若当前遍
+历的结点值小于或等于val，则算法返回false，否则，将val的值更新为当前结点的值。
+2）算法实现。
+#define false0
+#define true 1
+typedef int bool;
+if（k<bt.ElemNum&&bt.SqBiTNode[k]!=-1){
+if(!judgeInOrderBST(bt,2*k+1,val))return false;
+if(bt.SqBiTNode[k]<=*val) return false;
+*val=bt.SqBiTNode[k];
+if(!judgeInOrderBsT(bt,2*k+2,val))return false;
+return true;
+【解答2】
+1）算法的基本设计思想。
+对于采用顺序存储方式保存的二叉树，根结点保存在SqBiTNode[O］中：当某结点保存在
+SqBiTNode[i]中时，若有左孩子，则其值保存在 SqBiTNode[2i+1]中：若有右孩子，则其值
+保存在SqBiTNode[2i+2]中；若有双亲结点，则其值保存在SqBiTNode[（i-1）/2］中。
+二叉搜索树需要满足的条件是：任意一个结点值大于其左子树中的全部结点值，小于其右子
+树中的全部结点值。设置两个数组pmax和pmin。根据二叉搜索树的定义，SqBiTNode[i]中
+的值应该大于以SqBiTNode[2i+1]为根的子树中的最大值（保存在pmax[2i+1]中)，小于以
+SqBiTNode[2i+2]为根的子树中的最小值（保存在pmin[2i+1]中）。初始时，用数组
+SqBiTNode中前ElemNum个元素的值对数组pmax和pmin初始化。
+在数组SqBiTNode中从后向前扫描，扫描过程中逐一验证结点与子树之间是否满足上述的
+大小关系。
+2）算法实现。
+#define false0
+#define true 1
+typedef int bool;
+bool judgeBsT(SqBiTree bt)(
+pmin=（int *)malloc(sizeof(int)*(bt.ElemNum));
+pmax=（int *)malloc(sizeof(int)*(bt.ElemNum));
+for(k=0;k<bt.ElemNum;k++)
+/辅助数组初始化

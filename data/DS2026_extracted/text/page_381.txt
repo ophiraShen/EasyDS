@@ -1,0 +1,61 @@
+第8章排
+序
+369
+while(p!=NULL){
+//扫描原链表寻找最大结点s
+(b=!d=s}(eep<-s<eep<-d)
+/找到更大的，记忆它和它的前驱
+ut<-d=d!d=b
+//继续寻找
+if(s==h)
+h=h->link;
+//最大结点在原链表前端
+else
+r->link=s->link;
+//最大结点在原链表表内
+s->link=L;L=s;
+l/结点s插入结果链前端
+06.【解答】
+将顺序表L[1..n］视为一个完全二叉树，扫描所有分支结点，遇到孩子结点的关键字小于根
+结点的关键字时返回false，扫描完后返回true。算法的实现如下：
+bool IsMinHeap(ElemType A[l,int len)(
+if（len%2==0）{
+//len为偶数，有一个单分支结点
+if(A[len/2]>A[len])
+1//判断单分支结点
+return false;
+for（i=len/2-1;i>=1；i--）//判断所有双分支结点
+if(A[i]>A[2*i]1|A[i]>A[2*i+1])
+return false;
+elser
+//len为奇数时，没有单分支结点
+for(i=len/2;i>=1;i--)
+1/判断所有双分支结点
+if(A[i]>A[2*i]l|A[i]>A[2*i+1])
+return false;
+?
+return true;
+07.【解答】
+1）题目要求整个队列所占用的空间不变，入队操作和出队操作的时间复杂度始终保持为
+O(log2n)，则应采用顺序存储结构，即用数组实现大根堆。
+2）优先队列的数据结构定义如下：
+typedef struct{
+PriorityQueueElement heap[MAx_SIzE];
+//用数组实现堆
+int size;
+//当前堆中元素的数量
+)PriorityQueue
+3）入队操作：
+void enqueue(PriorityQueue*
+*pq,int value,int priority)(
+if(pq->size>=MAx_SIzE){
+队列已满，无法入队；
+return;
+将新元素添加到堆的末尾；
+向上调整堆；
+出队操作：
+PriorityQueueElement dequeue(PriorityQueue *pq)(
+if(pq->size==0){
+队列为空时直接退出；
+获取堆顶元素（优先级最高的元素）；
+将堆的最后一个元素放到堆顶；

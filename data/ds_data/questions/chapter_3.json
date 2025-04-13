@@ -1,0 +1,1881 @@
+[
+    {
+        "id": "q031001",
+        "title": "栈和队列的相同点",
+        "content": "栈和队列具有相同的（）。\nA.抽象数据类型\nB.逻辑结构\nC.存储结构\nD.运算",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "栈和队列的逻辑结构都是相同的，都属于线性结构，只是它们对数据的运算不同。"
+        }
+    },
+    {
+        "id": "q031002",
+        "title": "栈的性质",
+        "content": "栈是一种（）。\nA.顺序存储的线性结构\nB.链式存储的非线性结构\nC.限制存取点的线性结构\nD.限制存取点的非线性结构",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "首先栈是一种线性表，所以选项B、D错。按存储结构的不同可分为顺序栈和链栈，但不可\n以把栈局限在某种存储结构上，所以选项A错。栈和队列都是限制存取点的线性结构。"
+        }
+    },
+    {
+        "id": "q031003",
+        "title": "栈的基本操作",
+        "content": "下列选项中，（）不是栈的基本操作。\nA.删除栈顶元素\nB.删除栈底元素\nC.判断栈是否为空\nD.将栈置为空栈",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "基本操作是指该结构最核心、最基本的运算，其他较复杂的操作可通过基本操作实现。删除\n栈底元素不属于栈的基本运算，但它可以通过调用栈的基本运算求得。"
+        }
+    },
+    {
+        "id": "q031004",
+        "title": "栈的入栈操作",
+        "content": "假定用数组a[n］存储一个栈，初始栈顶指针top=-1，则元素x入栈的操作是（）。\nA.a[--top]=xB.a[top--]=x\nC.a[++top]=xD.a[top++]=x",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "元素。栈向高地址方向增长，所以入栈时应先将指针top加1，然后存入元素x，选项C正确。"
+        }
+    },
+    {
+        "id": "q031005",
+        "title": "栈操作题目",
+        "content": "假定用数组a[1..n]存储一个栈，初始栈顶指针top=1，则元素x入栈的操作是（）\nA.data[top--]=x\nB.data[top++]=x\nC.data[--top]=x\nD.data[++top]=x",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "数组下标范围为1～n，初始时top为1，表示top指向栈顶元素的下一个元素。栈向高地\n址方向增长，所以入栈时应先存入元素x，然后将指针top加1，选项B正确。"
+        }
+    },
+    {
+        "id": "q031006",
+        "title": "栈操作与数组存储",
+        "content": "假定用数组a[1..n]存储一个栈，初始栈顶指针top=n+l，则元素x入栈的操作是（）。\nA.data[--top]=x\nB.data[top++]=x\nC. data[top--]=x\nD.data[++top]=x",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "数组下标范围为1～n，初始时top为n+1，表示top指向栈顶元素。栈向低地址方向增长，\n所以入栈时应先将指针top减1，然后存入元素x，A正确。"
+        }
+    },
+    {
+        "id": "q031007",
+        "title": "栈操作后栈顶指针位置",
+        "content": "设有一个空栈，栈顶指针为1000H，栈向高地址方向增长，每个元素占一个存储单元，\n执行push、push、pop、push、pop、push、pop、push 操作后，栈顶指针为（)。\nA.1002H\nB.1003H\nC.1004H\nD.1005H",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "每个元素需要1个存储单元，所以每入栈一次top加1，出栈一次top减1。指针top的\n值依次为1001H,1002H,1001H,1002H,1001H,1002H,1001H,1002H。"
+        }
+    },
+    {
+        "id": "q031008",
+        "title": "链栈的优势",
+        "content": "和顺序栈相比，链栈有一个比较明显的优势，即（）。\nA.通常不会出现栈满的情况\nB.通常不会出现栈空的情况\nC.插入操作更容易实现\nD.删除操作更容易实现",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "顺序栈采用数组存储，数组的大小是固定的，不能动态地分配大小。和顺序栈相比，链栈的\n最大优势在于它可以动态地分配存储空间。"
+        }
+    },
+    {
+        "id": "q031009",
+        "title": "链栈操作不适合的链表类型",
+        "content": "设链表不带头结点且所有操作均在表头进行，则下列最不适合作为链栈的是（）。\nA.只有表头结点指针，没有表尾指针的双向循环链表\nB.只有表尾结点指针，没有表头指针的双向循环链表\nC.只有表头结点指针，没有表尾指针的单向循环链表\nD.只有表尾结点指针，没有表头指针的单向循环链表",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于双向循环链表，不管是表头指针还是表尾指针，都可以很方便地找到表头结点，方便在表\n头做插入或册除操作。而循环单链表通过尾指针可以很方便地找到表头结点，但通过头指针找尾结点\n需要遍历一次链表。对于选项C，插入和删除结点后，找尾结点所需的时间为O（n)。"
+        }
+    },
+    {
+        "id": "q031010",
+        "title": "链栈插入结点操作",
+        "content": "向一个栈顶指针为top的链栈（不带头结点）中插入一个×结点，则执行（）。\nA.top->next=x\nxau<-do xau-doxau-x\n第3章栈、队列和数组\n67\nC. x->next=top; top=x\nD. x->next=top; top=top->next",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "链栈采用不带头结点的单链表表示时，入栈操作在首部插入一个结点x（x->next=top），\n插入完后需将top指向该插入的结点x。请思考当链栈存在头结点时的情况。"
+        }
+    },
+    {
+        "id": "q031011",
+        "title": "链栈pop操作",
+        "content": "链栈（不带头结点）执行pop操作，并将出栈的元素存在x中，应该执行（）。\nA.x=top;top=top->next\nB.x=top->data\nC.top=top->next;x=top->data\nD.x=top->data;top=top->next",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "这里假设栈顶指针指向的是栈顶元素，所以选择选项D：而选项A中首先将top指针赋给\n了x，错误；选项B中没有修改top指针的值；选项C为top指针指向栈顶元素的上一个元素\n时的答案。"
+        }
+    },
+    {
+        "id": "q031012",
+        "title": "栈操作后变量x的值",
+        "content": "经过以下栈的操作后，变量×的值为（）。\nA. a\nB.b\nC.NULL\nD. false",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "执行前3句后，栈st内的值为a，b，其中b为栈顶元素；执行第4句后，栈顶元素b出栈，\nx的值为b；执行最后一句，读取栈顶元素的值，x的值为a。"
+        }
+    },
+    {
+        "id": "q031013",
+        "title": "不同元素入栈出栈序列数",
+        "content": "3个不同元素依次入栈，能得到（）种不同的出栈序列。\nA.4\nB.5\nC. 6\nD.7",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "公众号：小兔网盘\n免费网课+无水印PDF\n70\n2026年数据结构考研复习指导\n当n个不同元素入栈时，出栈序列的个数为\n1(2n)!\n6×5×4\n2n\n5\nn+1\nn+1n!×n!4x3×2×l\n考题中给出的n值不会很大，可以根据栈的特点，若X已经出栈，则X前面的尚未出栈的\n元素一定逆置有序地出栈，因此可采用例举方法。如a,b,c依次入栈的出栈序列有abc,acb,bac,\nbca,cba。另外，在一些考题中可能会问符合某个特定条件的出栈序列有多少种，比如此题中的问\n以b开头的出栈序列有几种，这种类型的题目一般都使用穷举法。"
+        }
+    },
+    {
+        "id": "q031014",
+        "title": "栈的出栈序列",
+        "content": "设a，b,c,d，e,f以所给的次序入栈，若在入栈操作时，允许出栈操作，则下面不会出现\n的出栈序列为（）。\nA. fedcba\nB. bcafed\nC. dcefba\nD. cabdef",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "则此时栈内必定为a和b，但因为a先于b入栈，所以要晚出栈。对于某个出栈的元素，在它之\n前入栈却晚出栈的元素必定是按逆序出栈的，其余答案均是可能出现的情况。\n此题也可采用将各序列逐个代入的方法来确定是否有对应的进出栈序列（类似下题）。"
+        }
+    },
+    {
+        "id": "q031015",
+        "title": "出栈序列个数",
+        "content": "4个元素依次入栈的次序为α,b,c,d，则以c,d开头的出栈序列的个数为（）。\nA. 1\nB.2\nC.3\nD. 4",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "假设出栈序列为cd..，分析栈的操作序列：a入栈，b入栈，c入栈，c出栈，d入栈，d出\n栈，此后只能是b出栈和a出栈一种情况，因此出栈序列只有cdba。"
+        }
+    },
+    {
+        "id": "q031016",
+        "title": "栈操作序列",
+        "content": "用S表示入栈操作，用X表示出栈操作，若元素的入栈顺序是1234，为了得到1342的\n出栈顺序，相应的S和X的操作序列为（）。\nA.SXSXSSXX\nB.SSSXXSXX\nC.SXSSXXSX\nD.SXSSXSXX",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "采用排除法，选项A，B，C得到的出栈序列分别为1243，3241，1324。由1234得到1342的进\n出栈序列为：1进，1出，2进，3进，3出，4进，4出，2出，所以选择选项D。"
+        }
+    },
+    {
+        "id": "q031017",
+        "title": "栈输出序列元素",
+        "content": "若栈的输入序列是1,2，3,\"，n，输出序列的第一个元素是n，则第i个输出元素是（）。\nA.不确定\nB. n-i\nC. n-i-1\nD. n-i+1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "第n个元素第一个出栈，说明前n-1个元素都已经按顺序入栈，由“先进后出”的特点可知，\n此时的输出序列一定是输入序列的逆序，所以答案选择选项D。"
+        }
+    },
+    {
+        "id": "q031018",
+        "title": "栈输出序列元素确定",
+        "content": "若栈的输入序列是1,2,3.\"，n，输出序列的第一个元素是i，则第j个输出元素是（）。\nA. i-j-1\nB. i-j\nC. j-i+ 1\nD.不确定",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "当第1个元素第一个出栈时，则1之前的元素可以依次排在i之后出栈，但剩余的元素可以在\n此时入栈，并且排在i之前的元素出栈，所以第j个出栈的元素是不确定的。"
+        }
+    },
+    {
+        "id": "q031019",
+        "title": "栈的输出序列问题",
+        "content": "某栈的输入序列为α,b,c,d，下面的4个序列中，不可能为其输出序列的是（）。\nA. a, b,c,d\nB. c,b, d,a\nC. d,c,a,b\nD. a,c,b,d\n20.\n若栈的输入序列是P1,P2.，Pn，\n输出序列是1,2，3..··\n,n,\n若P3=1，则P的值（）。\nA.可能是2\nB.一定是2\nC.不可能是2\nD.不可能是3",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于A，可能的顺序是a入，a出，b入，b出，c入，c出，d入，d出。对于选项B，可能\n的顺序是a入，b入，c入，c出，b出，d入，d出，a出。对于选项D，可能的顺序是a入，a\n出，b入，c入，c出，b出，d入，d出。选项C没有对应的序列。\n【另解】若出栈序列的第一个元素为d，则出栈序列只能是dcba。该思想通常也适用于出栈\n序列的局部分析：如12345入栈，问出栈序列34152是否正确？如何分析？若第一个出栈元素是\n3，则此时12必停留在栈中，它们出栈的相对顺序只能是21，所以34152错误。"
+        }
+    },
+    {
+        "id": "q031021",
+        "title": "栈输入输出序列问题",
+        "content": "若栈的输入序列是P，P2\"，Pn，输出序列是1,2,3.,…,n,\n若P=3，则P的值（）。\nA.可能是2\nB．不可能是1\nC.一定是1\nD．一定是2",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "假设P是1，入栈后立即出栈，P2是2，入栈后立即出栈，P是3，入栈后立即出栈，得到\n的序列符合题意。假设P是2，P2是1，P、P2依次入栈后全部出栈，P是3，入栈后立即出栈，\n得到的序列符合题意。因此，P既可能是1，又可能是2。"
+        }
+    },
+    {
+        "id": "q031022",
+        "title": "栈的出栈序列可能性",
+        "content": "已知栈的入栈序列是1,2,3,4，其出栈序列为P1，P2,P3,P4，则P2,P4不可能是（）。\nA.2,4\nB.2,1\nC.4,3\nD.3,4",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "逐个判断每个选项可能的入栈出栈顺序。对于选项A，可能的顺序是1入，1出，2入，2出，\n第3章栈、队列和数组\n71\n3入，3出，4入，4出。对于选项B，可能的顺序是1入，2入，3入，3出，2出，4入，4出，1\n出。对于选项D，可能的顺序是1入，1出，2入，3入，3出，2出，4入，4出。选项C没有对\n应的序列，因为当4在栈中时，意味着前面的所有元素（1，2，3）都已在栈中或曾经入过栈，此时\n若4第二个出栈，即栈中还有两个元素，且这两个元素是有序的（对应入栈顺序)，只能为(1,2),(l,\n3),(2,3)，若是序列(1,2)，则3已在pi位置出栈，不可能再在p4位置出栈，若是(1,3)和(2,3)这种\n情况中的任意一种，则3一定是下一个出栈元素，即p3一定是3，所以p4不可能是3。\n【另解】对于C，p2为最后一个入栈元素4，则只有pi或ps出栈的元素有可能为3（请读者分\n两种情况自行思考），而p4绝不可能为3。读者在解答此类题时，一定要注意出栈序列中的“最\n后一个入栈元素”，这样可以节省答题的时间。"
+        }
+    },
+    {
+        "id": "q031023",
+        "title": "栈输入与C标识符输出数量",
+        "content": "设栈的初始状态为空，当字符序列“n1_”作为栈的输入时，输出长度为3，且可用作\nC语言标识符的序列有（）个。\nA.4\nB.5\nC.3\nD.6",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "标识符只能以英文字母或下画线开头，而不能以数字开头。于上，由n、1、三个字符组合成\n的标识符有n1_、n_1、_1n和_n1四种。第一种：n入栈再出栈，1入栈再出栈，_入栈再出栈。\n第二种：n入栈再出栈，1入栈，_入栈，_出栈，1出栈。第三种：n入栈，1入栈，_入栈，_出\n栈，1出栈，n出栈。而根据栈的操作特性，_n1这种情况不可能出现。"
+        }
+    },
+    {
+        "id": "q031024",
+        "title": "共享栈的好处",
+        "content": "采用共享栈的好处是（）。\nA.减少存取时间，降低发生上溢的可能\nB.节省存储空间，降低发生上溢的可能\nC.减少存取时间，降低发生下溢的可能\nD.节省存储空间，降低发生下溢的可能",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "上溢是指存储器满，还往里写；下溢是指存储器空，还往外读。为了解决上溢，可给栈分配\n很大的存储空间，但这样又会造成存储空间的浪费。共享栈的提出就是为了在解决上溢的基础上\n节省存储空间，将两个栈放在同一段更大的存储空间内，这样，当一个栈的元素增加时，可使用\n另一个栈的空闲空间，从而降低发生上溢的可能性。"
+        }
+    },
+    {
+        "id": "q031025",
+        "title": "共享栈满的条件",
+        "content": "设有一个顺序共享栈Share[0:n-1]，其中第一个栈顶指针top1的初值为-1，第二\n个栈顶指针top2的初值为n，则判断共享栈满的条件是（）。\n68\n2026年数据结构考研复习指导\nA. top2-top1==1\nB.top1-top2==1\nC. top1==top2\nD.都不对",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "这种情况就是前面我们所描述的，详细内容请参见本节考点精析部分对共享栈的讲解。另外，\n读者可以思考当top1的初值为0，top2的初值为n-1时栈满的条件。\n注意\n栈顶、队头与队尾的指针的定义是不唯一的，做题时务必仔细审题和思考。"
+        }
+    },
+    {
+        "id": "q031026",
+        "title": "栈与队列容量问题",
+        "content": "【2009统考真题】设栈S和队列Q的初始状态均为空，元素abcdefg依次进入栈S。若\n每个元素出栈后立即进入队列Q，且7个元素出队的顺序是bdcfeag，则栈S的容量至\n少是(）。\nA.1\nB.2\nC.3\nD.4",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "时刻注意栈的特点是先进后出，\n，下表是出入栈的详细过程。\n序号\n说明\n栈内\n栈外\n序号\n说明\n栈内\n栈外\n1\na入栈\na\n8\ne入栈\nae\nbdc\n2\nb入栈\nab\n9\nf入栈\naef\nbdc\n3\nb出栈\na\nb\n10\n出栈\nae\nbdef\n4\nc入栈\nac\nb\n11\ne出栈\na\nbdefe\n5\nd入栈\nacd\nb\n12\na出栈\nbdcfea\n6\nd出栈\nac\nbd\n13\ng入栈\n8\nbdcfea\n7\nc出栈\na\nbdc\n14\n8出栈\nbdcfeag\n栈内的最大深度为3，所以栈S的容量至少是3。\n【另解】因为元素的出队顺序和入队顺序相同，所以元素的出栈顺序就是b,d,c,fe,α,g，\n因此元素的出入栈次序为 Push(S,a), Push(S, b), Pop(S, b), Push(S, c), Push(S, d), Pop(S,d), Pop(S, c),\nPush(S,e),Push(S,f),Pop(S,f),Pop(S,e),Pop(S,a),Push(S,g),Pop(S,g)。初始所需容量为O，\n每做一次Push操作，容量加1：每做一次Pop操作，容量减1，记录的容量最大值为3。\n72\n2026年数据结构考研复习指导"
+        }
+    },
+    {
+        "id": "q031027",
+        "title": "栈操作限制的出栈序列",
+        "content": "【2010统考真题】若元素a,b,c,d,e,f依次入栈，允许入栈、出栈操作交替进行，但不\n允许连续3次进行出栈操作，不可能得到的出栈序列是（）。\nA. dcebfa\nB.cbdaef\nC. bcaefd\nD. afedcb",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "选项A由a入，b入，c入，d入，d出，c出，e入，e出，b出，f入，f出，a出得到；选\n项B由a入，b入，c入，c出，b出，d入，d出，a出，e入，e出，f入，f出得到；选项C由\na入，b入，b出，c入，c出，a出，d入，e入，e出，f入，f出，d出得到；选项D由a入，a\n出，b入，c入，d入，e入，f入，f出，e出，d出，c出，b出得到，但题意要求不允许连续3\n次出栈操作，选项D不符。\n【另解】先入栈的元素后出栈，入栈顺序为ab，c，d.e.f，所以连续出栈时的子序列必然是按\n字母表逆序的，若出栈序列中出现了长度大于或等于3的连续逆序子序列，则为所选序列。"
+        }
+    },
+    {
+        "id": "q031028",
+        "title": "以d开头的出栈序列个数",
+        "content": "【2011统考真题】元素a,b,c,d,e依次进入初始为空的栈中，若元素入栈后可停留、可出栈，\n直到所有元素都出栈，则在所有可能的出栈序列中，以元素d开头的序列个数是（）。\nA.3\nB.4\nC.5\nD.6",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "d第一个出栈，则c,b,α 出栈的相对顺序是确定的，出栈顺序必为d_c_b_a_，e的顺序不定，\n在任意一个“_”上都有可能。\n【另解】d首先出栈，则abc停留在栈中，此时栈的状态如下图所示。\n此时可以有如下4种操作：①e入栈后出栈，则出栈序列为decba：②c出栈，e入栈后出栈，\n出栈序列为dceba；③cb出栈，e入栈后出栈，出栈序列为dcbea：④cba出栈，e入栈后出栈，\n出栈序列为dcbae。思路和上面其实一样。"
+        }
+    },
+    {
+        "id": "q031029",
+        "title": "栈序列P2=3时P1取值个数",
+        "content": "【2013统考真题】一个栈的入栈序列为1,2,3..,n，出栈序列是P,P2,P3,.…，Pn。若P2=3，\n则P可能取值的个数是（）。\nA.n-3\nB.n-2\nC. n-1\nD.无法确定",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "显然，3之后的4,5,n都是P可取的数（一直入栈直到该数入栈后马上出栈）。接下来分\n析1和2是否可取：P可以是3之前入栈的数（可能是1或2），也可以是4，当P=1时，P可\n取2；当P=2时，P可取1。因此，p可能取除3外的所有数，个数为n-1。"
+        }
+    },
+    {
+        "id": "q031030",
+        "title": "栈操作序列",
+        "content": "【2020统考真题】对空栈S进行Push和Pop操作，入栈序列为a,b,c,d，e，经过Push、\nPush、Pop、Push、Pop、Push、Push、Pop操作后得到的出栈序列是（）。\nA. b,a,c\nB. b,a,e\nC. b,c,a\nD. b,c,e",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "按题意，出入栈操作的过程如下：\n操作\n栈内元素\n出栈元素\nPush\na\nPush\nab\nPop\nh\nPush\nac\nPop\na\nPush\nad\nPush\nade\nPop\nad\n因此，出栈序列为b,c,é。"
+        }
+    },
+    {
+        "id": "q031031",
+        "title": "栈序列判断",
+        "content": "【2022统考真题】给定有限符号集S，in和out均为S中所有元素的任意排列。对于\n初始为空的栈ST，下列叙述中，正确的是（\n)。\nA.若in是ST的入栈序列，则不能判断out是否为其可能的出栈序列\nB.若out是ST的出栈序列，则不能判断in是否为其可能的入栈序列\nC.若in是ST的入栈序列，out是对应in的出栈序列，则in与out一定不同\nD.若in是ST的入栈序列，out是对应in的出栈序列，则in与out可能互为倒序",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0311",
+            "kc0312",
+            "kc0313"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "通过模拟出入栈操作，可以判断入栈序列in和出栈序列out是否合法。因此，已知in序\n列可以判断out序列是否为可能的出栈序列；已知out序列也可以判断in序列是否为可能的入\n栈序列，选项A和B错误。若每个元素入栈后立即出栈，则in序列和out序列相同，选项C\n错误。若所有元素都入栈后才依次出栈，则in序列和out序列互为倒序，选项D正确。\n第3章栈、队列和数组\n73"
+        }
+    },
+    {
+        "id": "q032001",
+        "title": "栈和队列的区别",
+        "content": "栈和队列的主要区别在于（）。\nA.它们的逻辑结构不一样\nB.它们的存储结构不一样\nC.所包含的元素不一样\nD.插入、删除操作的限定不一样",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "栈和队列的逻辑结构都是线性结构，都可以采用顺序存储或链式存储，选项C显然也错误。\n只有选项D才是栈和队列的本质区别，限定表中插入和删除操作位置的不同。"
+        }
+    },
+    {
+        "id": "q032002",
+        "title": "队列的先进先出特性",
+        "content": "队列的“先进先出”特性是指（）。\nI.最后插入队列中的元素总是最后被删除\nII.当同时进行插入、删除操作时，总是插入操作优先\n82\n2026年数据结构考研复习指导\nIII.每当有删除操作时，总要先做一次插入操作\nIV.每次从队列中删除的总是最早插入的元素\nA.I\nB.I和IV\nC.II和IⅢII\nD. IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "队列“先进先出”的特性表现在：先入队列的元素先出队列，后入队列的元素后出队列，入\n队对应的是插入操作，出队对应的是删除操作。选项I和IV均正确。"
+        }
+    },
+    {
+        "id": "q032003",
+        "title": "队列操作与出队顺序",
+        "content": "允许对队列进行的操作有（）。\nA.对队列中的元素排序\nB.取出最近入队的元素\nC.在队列元素之间插入元素\nD.删除队首元素\n04.\n一个队列的入队顺序是1,2，3，4，则出队的输出顺序是（）。\nA. 4,3,2,1\nB. 1,2,3,4\nC. 1,4,3,2\nD. 3,2,4,1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "删除队首元素即出队，是队列的基本操作之一，所以选择选项D。"
+        }
+    },
+    {
+        "id": "q032005",
+        "title": "循环队列入队操作",
+        "content": "循环队列存储在数组A[0...n]中，入队时的操作为（）。\nA.rear=rear+1\nB.rear=（rear+l)mod (n-l)\nC.rear=(rear+l) mod n\nD.rear=(rear+1) mod (n+1)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "数组下标范围为0～n，因此数组容量为n+1。循环队列中元素入队的操作是rear=（rear+1）\nmodmaxsize，题中maxsize=n+l。因此入队操作应为rear=（rear+1）mod（n+1）。"
+        }
+    },
+    {
+        "id": "q032006",
+        "title": "循环队列长度计算",
+        "content": "已知循环队列的存储空间为数组A[21]，front指向队首元素的前一个位置，rear指\n向队尾元素，假设当前front和rear的值分别为8和3，则该队列的长度为（）。\nA.5\nB.6\nC.16\nD. 17",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "队列的长度为（rear-front+maxsize）maxsize=（rear-front+21）%21=16。这种情\n第3章栈、队列和数组\n85\n况和front指向当前元素，rear指向队尾元素的下一个元素的计算是相同的。\n注意\n数组A[n]的下标范围为0~n-1。若写成A[..n］，则说明下标范围为0~n。"
+        }
+    },
+    {
+        "id": "q032007",
+        "title": "循环队列rear和front值变化",
+        "content": "若用数组A[0.5]实现循环队列，且当前rear和front的值分别为1和5，当从队列\n中删除一个元素，再加入两个元素后，rear和front的值分别为（）。\nA.3和4\nB.3和0\nC.5和0\nD.5和1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "循环队列中，每删除一个元素，队首指针front=（front+1）%6，每插入一个元素，队尾\n指针rear=（rear+1）%6。上述操作后，front=0，rear=3。"
+        }
+    },
+    {
+        "id": "q032008",
+        "title": "循环队列为空条件",
+        "content": "假设用数组Q[MaxSize]实现循环队列，队首指针front指向队首元素的前一位置，\n队尾指针rear指向队尾元素，则判断该队列为空的条件是（）。\nA.Q.rear==(Q.front+1)%MaxSize\nB.(Q.rear+1)%MaxSize==Q.front+1\nC.(Q.rear+1)%MaxSize==Q.front\nD.Q.rear==Q.front",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "当队列中只有一个元素时，front指向该元素的前一个位置，rear指向该元素，因此当队\n列为空时，队首指针等于队尾指针，这样第一个元素入队后，才能符合题目要求。"
+        }
+    },
+    {
+        "id": "q032009",
+        "title": "循环队列满条件判断",
+        "content": "假设循环队列Q[MaxSize]的队首指针为front，队尾指针为rear，队列的最大容量\n为MaxSize，此外，该队列再没有其他数据成员，则判断该队列已满足条件是（）。\nA.Q.front==Q.rear\nB.Q.front+Q.rear>=MaxSize\nC.Q.front==(Q.rear+1)%MaxSize D.Q.rear==(Q.front+1)MaxSize",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "既然不能附加任何其他数据成员，只能采用牺牲一个存储单元的方法来区分是队空还是队\n满，约定以“队列头指针在队尾指针的下一位置作为队满的标志”，因此选择选项C。选项A是\n判断队列是否空的条件，选项B和D都是干扰项。\n注意\n对于这类具体问题，举一些特例判断往往比直接思考问题能更快得到答案。"
+        }
+    },
+    {
+        "id": "q032010",
+        "title": "循环队列与链式队列问题",
+        "content": "假设用A[O..n]实现循环队列，front、rear分别指向队首元素的前一个位置和队尾\n元素。若用（rear+l）（n+l）==front作为队满标志，则（）。\nA.可用front==rear作为队空标志B.队列中最多可有n+l个元素\nC.可用front>rear作为队空标志\nD.可用（front+1)%（n+1）==rear作为队空标志\n11．与顺序队列相比，链式队列的（）。\nA.优点是队列的长度不受限制\nB.优点是入队和出队时间效率更高\nC.缺点是不能进行顺序访问\nD.缺点是不能根据队首指针和队尾指针计算队列的长度",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "若用（rear+1）（n+1)==front作为队满标志，则说明题目采用了牺牲一个存储单元的方\n法来区分队空和队满，因此可用front==rear 作为队空标志。"
+        }
+    },
+    {
+        "id": "q032012",
+        "title": "最适合用作队列的链表类型",
+        "content": "下列描述的几种链表中，最适合用作队列的是（）。\nA.带队首指针和队尾指针的循环单链表\nB.带队首指针和队尾指针的非循环单链表\nC.只带队首指针的非循环单链表\n第3章栈、队列和数组\n83\nD.只带队首指针的循环单链表",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "因为队列需在双端进行操作，所以选项C和D的链表显然不太适合链队。对于选项A，链\n表在完成入队和出队后还要修改为循环的，对于队列来讲这是多余的（画蛇添足）。对于选项B，\n因为有首指针，所以适合删除首结点：因为有队尾指针，所以适合在其后插入结点。"
+        }
+    },
+    {
+        "id": "q032013",
+        "title": "链式队列不适合的链表类型",
+        "content": "下列描述的几种链表中，最不适合用作链式队列的是（）。\nA.只带队首指针的非循环双链表\nB.只带队首指针的循环双链表\nC.只带队尾指针的循环双链表\nD.只带队尾指针的循环单链表",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "因为非循环双链表只带队首指针，所以在执行入队操作时需要修改队尾结点的指针域，而查\n找队尾结点需要O（n)的时间。选项B、C和D均可在O（1)的时间内找到队首和队尾。"
+        }
+    },
+    {
+        "id": "q032014",
+        "title": "单链表队列队头位置",
+        "content": "在用单链表实现队列时，队头设在链表的（）位置。\nA.链头\nB.链尾\nC.链中\nD.以上都可以",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "因为在队头做出队操作，为便于删除队首元素，所以总是选择链头作为队头。"
+        }
+    },
+    {
+        "id": "q032015",
+        "title": "链式队列删除与入队操作",
+        "content": "用链式存储方式的队列进行删除操作时需要（）。\nA.仅修改头指针\nB.仅修改尾指针\nC．头尾指针都要修改\nD.头尾指针可能都要修改\n16．在一个链式队列中，假设队首指针为front，队尾指针为rear，x所指向的元素需要\n入队，则需要执行的操作为（）。\nA.front=x,front=front->next\nB.x->next=front->next,front=x\nC.rear->next=x,rear=x\nD.rear->next=x,x->next=NuLL,rear=x",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "队列用链式存储时，删除元素从表头删除，通常仅需修改头指针，但若队列中仅有一个元素，\n则队尾指针也需要被修改，当仅有一个元素时，删除后队列为空，需修改队尾指针为\nrear=front。"
+        }
+    },
+    {
+        "id": "q032017",
+        "title": "循环单链表队列时间复杂度与队列序列问题",
+        "content": "假设循环单链表表示的队列长度为n，队头固定在链表尾，若只设头指针，则入队操作\n的时间复杂度为（）。\nA. O(n)\nB. O(1)\nC. 0(n²)\nD. O(nlog2n)\n18．假设输入序列为1,2,3,4,5，利用两个队列进行出入队操作，不可能输出的序列是（）。\nA.1,2,3,4,5\nB.5,2,3,4,1\nC.1,3,2,4,5\nD.4,1,5,2,3",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "依题意，入队操作是在队尾进行，即链表表头。题中已明确说明链表只设头指针，即没有头\n结点和尾指针，入队后，循环单链表必须保持循环的性质，在只带头指针的循环单链表中寻找表\n尾结点的时间复杂度为O(n)，所以入队的时间复杂度为O(n)。"
+        }
+    },
+    {
+        "id": "q032019",
+        "title": "双端队列输入受限与输出受限序列",
+        "content": "若以1，2，3，4作为双端队列的输入序列，则既不能由输入受限的双端队列得到，又不能\n由输出受限的双端队列得到的输出序列是（）。\nA. 1,2,3,4\nB. 4,1,3,2\nC. 4,2,3,1\nD.4,2,1,3",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "使用排除法。先看可由输入受限的双端队列产生的序列：设右端输入受限，1，2，3，4依次左\n入，则依次左出可得4，3，2，1，排除选项A；左出、右出、左出、左出可得到4，1，3,2，排除选\n项B：再看可由输出受限的双端队列产生的序列：设右端输出受限，1，2，3，4依次左入、左入、\n右入、左入，依次左出可得到4,2，1，3，排除选项D。"
+        }
+    },
+    {
+        "id": "q032020",
+        "title": "队列操作序列分析",
+        "content": "【2010统考真题】某队列允许在其两端进行入队操作，但仅允许在一端进行出队操作。\n若元素a,b，c,d,e依次入此队列后再进行出队操作，则不可能得到的出队序列是（）。\nA.b,a,c,d,e\nB. d, b,a,c,e\nC. d, b, c,a,e\nD.e,c,b,a,d",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "本题的队列实际上是一个输出受限的双端队列，如图3.11所示。A操作：a左入（或右入）、\nb左入、c右入、d右入、e右入。B操作：a左入（或右入）、b左入、c右入、d左入、é右入。\nD操作：a左入（或右入）、b左入、c左入、d右入、e左入。C操作：a左入（或右入）、b右入、\n因d未出，此时只能入队，c怎么进都不可能在b和a之间。\n【另解】初始时队列为空，第1个元素a左入（或右入）后，第2个元素b无论是左入还是\n右入都必与a相邻，而选项C中a与b不相邻，不合题意。"
+        }
+    },
+    {
+        "id": "q032021",
+        "title": "循环队列初始条件与操作",
+        "content": "【201l统考真题】已知循环队列存储在一维数组A[0..n-1］中，且队列非空时front\n和rear分别指向队首元素和队尾元素。若初始时队列为空，且要求第一个进入队列的\n元素存储在A[O］处，则初始时front和rear的值分别是（）。\nA. 0, 0\nB.0，n-1\nC.n-1，0\nD.n-l，n-1\n向队尾元素的后一个位置。假设队列两端均可进行入队和出队操作，队列中最多能容纳\nM-1个元素。初始时为空。下列判断队空和队满的条件中，正确的是（）。\nA.队空:endl==end2;\n队满：end1==(end2+1）mod M\nB.队空：endl==end2；\n队满：end2==(end1+1）mod (M-1)\nC.队空: end2==(endl+1)mod M;\n队满：endl==(end2+1） mod M\nD.队空:end1==(end2+1)mod M;\n队满：end2==(end1+1）mod (M-1)\n头），S为空。若仅允许下列3种操作：①出队并输出出队元素；②出队并将出队元素\n入栈；③出栈并输出出栈元素，则不能得到的输出序列是（）。\nA.1,2,5,6,4,31\nB.2,3,4,5,6,1\nC.3,4,5,6,1,2\nD.6,5,4,3,2,1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0321",
+            "kc0322",
+            "kc0323",
+            "kc0324"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "根据题意，第一个元素进入队列后存储在A[O］处，此时front和rear值都为O。入队时\n因为要执行（rear+1）n操作，所以若入队后指针指向0，则rear初值为n-1，而因为第一个\n元素在A[O]中，插入操作只改变rear指针，所以front为o不变。\n注意\n①循环队列是指顺序存储的队列，而不是指逻辑上的循环，如循环单链表表示的队列不能称为循环\n队列。②front和rear的初值并不是固定的"
+        }
+    },
+    {
+        "id": "q033002",
+        "title": "表达式与队列题目",
+        "content": "表达式a*（b+c)-d的后级表达式是（\n)。\nA.abcd*+-\nB.abc+*d-\nC.abc*+d-\nD. -+*abcd\n03．下面（）用到了队列。\nA.括号匹配\nB.表达式求值\nC.递归\nD.FIFO页面替换算法",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0331",
+            "kc0332",
+            "kc0333",
+            "kc0334",
+            "kc0335"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "后缀表达式中，每个运算符均直接位于其两个操作数的后面，按照这样的方式逐步根据计算\n的优先级将每个计算式进行变换，即可得到后缀表达式。\n【另解】将两个直接操作数用括号括起来，再将操作符提到括号后，最后去掉括号。例如，\n第3章栈、队列和数组\n97\n对于（（②a*（b+c））-d），提出操作符并去掉括号后，可得后缀表达式为abc+*d-。\n学完第5章后，可将表达式画成二叉树的形式，再用后序遍历即可求得后缀表达式。"
+        }
+    },
+    {
+        "id": "q033004",
+        "title": "栈溢出问题分析",
+        "content": "利用栈求表达式的值时，设立运算数栈OPEN。假设OPEN只有两个存储单元，则在下\n列表达式中，不会发生溢出的是（）。\nA.A-B*（C-D)\nB.(A-B）*C-D\nC.(A-B*C)-D\nD.(A-B)*(C-D)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0331",
+            "kc0332",
+            "kc0333",
+            "kc0334",
+            "kc0335"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "利用栈求表达式的值时，可以分别设立运算符栈和运算数栈，其原理不变。选项B中A入栈，\nB入栈，计算得R1，C入栈，计算得R2，D入栈，计算得R3，由此得栈深为2。选项A、C、D\n依次计算得栈深为4、3、3。因此选择选项B。\n技巧\n根据运算符优先级，统计已依次入栈但还未参与计算的运算符的个数。以选项C为例，当“（”“A”\n“-”入栈时，“（”和“-”还未参与运算，此时运算符栈大小为2，“B”和“*”入栈时运算符大小为3，\n“C”入栈时“B*C”运算，运算符栈大小为2，以此类推。"
+        }
+    },
+    {
+        "id": "q033005",
+        "title": "递归函数f的返回值",
+        "content": "执行完下列语句段后，i的值为（）。\nint f（int x）{\nreturn（（x>0)?x*f(x-1):2）;\nint i;\ni=f(f（1)）;\nA.2\nB.4\nC. 8\nD.无限递归\n第3章栈、队列和数组\n95",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0331",
+            "kc0332",
+            "kc0333",
+            "kc0334",
+            "kc0335"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "栈与递归有着紧密的联系。递归模型包括递归出口和递归体两个方面。递归出口是递归算法\n的出口，即终止递归的条件。递归体是一个递推的关系式。根据题意有\nf（0)=2:\nf（1)=1*f（0)=2;\nf（f（1))=f（2)=2*f（1)=4。"
+        }
+    },
+    {
+        "id": "q033006",
+        "title": "递归函数调用次数",
+        "content": "设有如下递归函数，则计算F（8）需要调用该递归函数的次数为（）。\nint F(int n){\nif（n<=3)return 1;\nelse return F(n-2)+F(n-4)+1;\n）\nA.7\nB.8\nC.9\nD.10",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0331",
+            "kc0332",
+            "kc0333",
+            "kc0334",
+            "kc0335"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "计算F(8)的递归调用树如下图所示：\n由图可知，递归函数F（）调用的次数为9。"
+        }
+    },
+    {
+        "id": "q033007",
+        "title": "递归函数执行顺序",
+        "content": "设有如下递归函数，在func（func（5））的执行过程中，第4个被执行的func函数是（）。\nint func（int x){\nif（x<=3) return 2;\nelse return func(x-2)+func(x-4);\n)\nA.func(2)\nB.func(3)\nC.func(4)\nD.func(5)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0331",
+            "kc0332",
+            "kc0333",
+            "kc0334",
+            "kc0335"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "func（func（5））=func（4）=func（2）+func（0）=4，因此第4个被执行的func函数是func（4）。\n也可以采用画出递归调用树的方式，即某个函数的执行次序等于其在递归调用树的先序遍历中的次序。"
+        }
+    },
+    {
+        "id": "q033008",
+        "title": "递归与非递归算法效率比较",
+        "content": "对于一个问题的递归算法求解和其相对应的非递归算法求解，（）。\nA.递归算法通常效率高一些\nB.非递归算法通常效率高一些\nC.两者相同\nD.无法比较\n09．执行函数时，其局部变量一般采用（）进行存储。\nA.树形结构\nB.静态链表\nC.栈结构\nD.队列结构",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0331",
+            "kc0332",
+            "kc0333",
+            "kc0334",
+            "kc0335"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "通常情况下，递归算法在计算机实际执行的过程中包含很多的重复计算，所以效率会低。"
+        }
+    },
+    {
+        "id": "q033010",
+        "title": "队列辅助操作与线性表特性",
+        "content": "执行（）操作时，需要使用队列作为辅助存储空间。\nA.查找散列（哈希）表\nB.广度优先搜索图\nC.前序（根）遍历二叉树\nD.深度优先搜索图\n11．下列说法中，正确的是（）。\nA.消除递归不一定需要使用栈\nB.对同一输入序列进行两组不同的合法入栈和出栈组合操作，所得的输出序列也一定相同\nC.通常使用队列来处理函数或过程调用\nD.队列和栈都是运算受限的线性表，只允许在表的两端进行运算",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0331",
+            "kc0332",
+            "kc0333",
+            "kc0334",
+            "kc0335"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": ""
+        }
+    },
+    {
+        "id": "q033012",
+        "title": "打印机缓冲区逻辑结构",
+        "content": "【2009统考真题】为解决计算机主机与打印机之间速度不匹配的问题，通常设置一个打\n印数据缓冲区，主机将要输出的数据依次写入该缓冲区，而打印机则依次从该缓冲区中\n取出数据。该缓冲区的逻辑结构应该是（）。\nA.栈\nB.队列\nC.树\nD.图",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0331",
+            "kc0332",
+            "kc0333",
+            "kc0334",
+            "kc0335"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在提取数据时必须保持原来数据的顺序，所以缓冲区的特性是先进先出。"
+        }
+    },
+    {
+        "id": "q033013",
+        "title": "中缀转后缀表达式栈最大操作符数",
+        "content": "【2012统考真题】已知操作符包括“+”“-\n“（”和“）”。将中缀表达式\na+b-a*（（c+d）/e-f）+g转换为等价的后缀表达式ab+acd+e/f-*-g+时，用栈来存\n放暂时还不能确定运算次序的操作符。栈初始时为空时，转换过程中同时保存在栈中的\n操作符的最大个数是（）。\nA.5\nB.7\nC. 8\nD. 11",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0331",
+            "kc0332",
+            "kc0333",
+            "kc0334",
+            "kc0335"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在中缀表达式转后缀表达式的过程中，扫描到操作数时直接输出，扫描到操作符时根据其优\n限符“）”，则不入栈，且依次弹出栈顶运算符，直到遇到“（”为止，并删除“（”：③若当前运\n算符的优先级高于栈顶运算符或遇到栈顶为“（”，则直接入栈：④若当前运算符的优先级低于或\n等于栈顶运算符，则依次弹出栈中的运算符并加入后缀表达式，直到遇到一个优先级低于它的运\n算符或遇到“（”或栈空为止，之后将当前运算符入栈。\n求栈中操作符的最大个数时，为简单起见，可省略对操作数的处理。\n步\n待处理运算符\n栈\n扫描运算符\n动\n作\n1\n+b-a*((c+d)/e-f)+g\n+入栈\n2\n-a*((c+d)/e-f)+g\n+\n-优先级等于栈顶+，弹出+，-入栈\n3\n*((c+d）/e-f)+g\n*优先级高于栈顶-，*入栈\n一\n4\n(（c+d)/e-f）+g\n—*\n(\n（直接入栈\n5\n(c+d)/e-f)+g\n—*(\n(\n（直接入栈\n6\n+d)/e-f)+g\n-*((\n+\n栈顶为（，+直接入栈\n7\n)/e-f)+g\n-*（(+\n)\n遇到），弹出+，删除（\n8\n/e-f)+g\n-*(\n/\n栈顶为（，/直接入栈\n10\n-f)+g\n-*(/\n-优先级低于栈顶/，弹出/，-入栈\n11\n)+g\n-*(-\n遇到），弹出-，删除（\n12\n+g\n一#\n+优先级低于栈顶*，等于-，依次弹出*和-：+入栈\n13\n+\n由上述过程可知，栈中操作符的最大个数为5。"
+        }
+    },
+    {
+        "id": "q033014",
+        "title": "中缀转后缀表达式栈元素",
+        "content": "【2014统考真题】假设栈初始为空，将中缀表达式a/b+（c*d-e*f）/g转换为等价的后\n缀表达式的过程中，当扫描到F时，栈中的元素依次是（）。\nA.+（*-\nB.+(-*\nC./+(*-*\nD. /+-*",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0331",
+            "kc0332",
+            "kc0333",
+            "kc0334",
+            "kc0335"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "中缀表达式a/b+（c*d-e*f）/g转换为后缀表达式的过程如下：\n步\n待处理序列\n栈\n后缀表达式\n扫描项\n动\n作\na/b+(c*d-e*f)/g\na\na加入后缀表达式\n2\n/b+(c*d-e*f)/g\n/\n/入栈\na\n3\nb+(c*d-e*f)/g\n/\na\nb\nb加入后缀表达式\n4\n+（c*d-e*f）/g\n/\nab\n+\n+优先级低于栈顶的/，弹出/，+入栈\n5\n(c+d-e*f) /g\n+\nab/\n(\n（入栈\n6\nc*d-e*f)/g\n+（\nab/\nC\nc加入后缀表达式\n7\n*d-e*f)/g\n+（\nab/c\n*\n栈顶为（，*入栈\n8\nd-e*f)/g\n+（*\nab/c\nd\nd加入后缀表达式\n9\n-e*f)/g\n+（*\nab/cd\n-\n-优先级低于栈顶的*，弹出*，-入栈\n10\ne*f)/g\n+(-\nab/cd*\ne\ne加入后缀表达式\n11\n*f)/g\n+(-\nab/cd*e\n*优先级高于栈顶的-，*入栈\n12\n)/g\n+（-\nab/cd*e\nf\nf加入后缀表达式\n13\n)/g\n+（-\nab/cd*ef\n)\n遇到），依次弹出*、-加入表达式，删除（\n14\n/g\n+\nab/cd*ef*\n/\n/优先级高于栈顶的+，/入栈\n15\n6\n+/\nab/cd*ef*-\ng\ng加入后缀表达式\n16\n+/\nab/cd*ef*-g\n扫描完毕，运算符依次弹出加入表达式\n17\nab/cd*ef*-g/+\n完成\n第3章栈、队列和数组\n99\n由此可知，当扫描到f时，栈中的元素依次是+（-*。\n【另解】采用手算方法，得出中缀式a/b+（c*d-e*f）/g对应的后缀式为 ab/cd*ef*-g/+。\n中缀表达式转后缀表达式时，操作数都直接输出，因此操作数的顺序是固定的。扫描到时，在\n后缀表达式f后面的运算符要么还未入栈，要么还在栈中，需要结合中缀式来判断，f后面依次\n出栈的运算符为*-／+，/在中缀表达式f之后，此时还未入栈，因此栈中的运算符（从栈底到栈\n顶）为+-*；此外，已入栈的界限符（此时还未消解，因此（也还在栈中，栈中的元素依次是+（-*。"
+        }
+    },
+    {
+        "id": "q033015",
+        "title": "程序运行时栈保存的信息",
+        "content": "【2015统考真题】已知程序如下：\nint S(int n)\nreturn （n<=0)?0:S(n-1)+n;)\nvoid main()\ncout<<S（1）;}\n程序运行时使用栈来保存调用过程的信息，自栈底到栈顶保存的信息依次对应的是（）。",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0331",
+            "kc0332",
+            "kc0333",
+            "kc0334",
+            "kc0335"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "递归调用函数时，在系统栈中保存的函数信息需满足先进后出的特点，依次调用了\nmain（），S（1），S（0），所以栈底到栈顶的信息依次是main（），S（1），S（0）。\n注意\n在递归中，系统为每一层的返回点、局部变量、传入实参等开辟了递归工作栈来存储。"
+        }
+    },
+    {
+        "id": "q034001",
+        "title": "特殊矩阵压缩存储的目的",
+        "content": "对特殊矩阵采用压缩存储的主要目的是（）。\nA.表达变得简单\nB.对矩阵元素的存取变得简单\nC.去掉矩阵中的多余元素\nD.减少不必要的存储空间",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "特殊矩阵中含有很多相同元素或零元素，所以可采用压缩存储，以节省存储空间。"
+        }
+    },
+    {
+        "id": "q034002",
+        "title": "对称矩阵压缩存储顺序表长度",
+        "content": "对n阶对称矩阵压缩存储时，需要表长为（）的顺序表。\nA. n/2\nB.nxn/2\nC. n(n + 1)/2\nD.n(n-1)/2",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "只需存储其上三角或下三角部分（含对角线），元素个数为n+（n-1)+··+1=n（n+1)/2。"
+        }
+    },
+    {
+        "id": "q034003",
+        "title": "对称矩阵下三角元素存储位置",
+        "content": "有一个nxn的对称矩阵A，将其下三角部分按行存放在一维数组B中，而A[0][0］存\n放于B[O]中，则元素A[i][i]存放于B中的（）处。\nA.(i+3)i/2\nB.(i+1)i/2\nC.(2n-i+ 1)i/2\nD.(2n-i-1)i/2",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "此题要注意3个细节：矩阵的最小下标为0：数组下标也是从0开始的：矩阵按行优先存在\n数组中。注意到此三点，答案不难得到为选项A。此外，本类题建议采用特殊值代入法求解，例\n如，A[1][1]对应的下标应为2，代入后只有选项A满足条件。\n技巧\n对于特殊三角矩阵压缩存储的题，心中应有“平移”搬动的思想，并结合草图，这样会比较形象，\n在计算时再注意矩阵和数组的起始下标，就不容易出错。"
+        }
+    },
+    {
+        "id": "q034004",
+        "title": "二维数组元素地址计算",
+        "content": "在二维数组A中，假设每个数组元素的长度为3个存储单元，行下标i为0～8，列下标\nj为0～9，从首地址SA开始连续存放。在这种情况下，元素A[8][5］的起始地址为（）。\nA.SA+141\nB.SA+144\nC.SA+222\nD.SA+255",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "二维数组计算地址（按行优先顺序）的公式为\nLOC(i,j)= LOC(0,0)+(ixm +j)xL\n其中，LOC(0,0)=SA，是数组存放的首地址；L=3是每个数组元素的长度；m=9-0+1=10\n是数组的列数。因此有L0C（8,5)=SA+（8×10+5)×3=SA+255，所以选择选项D。"
+        }
+    },
+    {
+        "id": "q034005",
+        "title": "二维数组存储地址计算",
+        "content": "二维数组A按行优先存储，其中每个元素占1个存储单元。若A[1][1]的存储地址为\n第3章栈、队列和数组\n105\n420，A[3][3]的存储地址为446，则A[5][5]的存储地址为（）。\nA.472\nB.471\nC.458\nD.457",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "本题未直接给出数组A的行数和列数，因此需要根据题目中的信息来推理。因为该二维数组\n按行优先存储，且A[3][3]的存储地址为446，所以A[3][1]的存储地址为444，又A[1][1]\n的存储地址为420，显然A[1][1]和A[3]【1]正好相差2行，所以该矩阵的列数为12。而A[5][3]\n和A[3][3]正好相差2行，A[5][5]和A[5][3]又相差2个元素，所以A[5][5]的存储地址\n是446+24+2=472。"
+        }
+    },
+    {
+        "id": "q034006",
+        "title": "三对角矩阵元素位置计算",
+        "content": "将三对角矩阵即数组A[1...100][1..100]按行优先存入一维数组B[1..298]中，数组A\n中元素A[66][65]在数组B中的位置k为（）。\nA.198\nB.195\nC.197\nD.196",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于三对角矩阵，将A[1..n][1...n]压缩至B[1...3n-2]时，a.,j与bx的对应关系为k=2i+j-2。"
+        }
+    },
+    {
+        "id": "q034007",
+        "title": "上三角矩阵压缩存储下标关系",
+        "content": "若将n阶上三角矩阵A按列优先级压缩存放在一维数组B[1.n（n+1）/2+1]中，则存\n放到B[k]中的非零元素dj（1≤i,j≤n）的下标i、j与k的对应关系是（）。\nA.i(i+ 1)/2 +j\nB.i(i-1)/2 +j-1 C. j(j-1)/2+i\nD. j(j-1)/2 + i- 1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "按列优先存储，所以元素ay前面有j-1列，共有1+2+3+…+j-1=jG-1)/2个元素，元\n素aiy在第j列上是第i个元素，数组B的下标是从1开始，因此k=（j-1)/2+i。"
+        }
+    },
+    {
+        "id": "q034008",
+        "title": "下三角矩阵压缩存储下标关系",
+        "content": "若将n阶下三角矩阵A按列优先顺序压缩存放在一维数组B[1..n（n+1）/2+1]中，则\n存放到B[k]中的非零元素au（1≤i,j≤n）的下标ij与k的对应关系是（）。\nA.(j-1)(2n-j+ 1)/2 +i- j\nB.(j-1)(2n-j + 2)/2 +i-j+ 1\nC. (j-1)(2n-j+ 2)/2 +i-j\nD.(j-1)(2n-j+ 1)/2 + i-j- 1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "按列优先存储，所以元素aij之前有j-1列，共有n+(n-1)+.…+（n-j+2)=(j-1)(2n-j+2)/2\n个元素，元素aj是第j列上第i-j+1个元素，数组B的下标从1开始，k=（j-1)(2n-j+2)/2+i-j+1。"
+        }
+    },
+    {
+        "id": "q034009",
+        "title": "稀疏矩阵压缩存储缺点",
+        "content": "稀疏矩阵采用压缩存储后的缺点主要是（）。\nA.无法判断矩阵的行列数\nB.丧失随机存取的特性\nC.无法由行、列值查找某个矩阵元素\nD.使矩阵元素之间的逻辑关系更复杂\n10．下列关于矩阵的说法中，正确的是（）。\nI.在n（n>3）阶三对角矩阵中，每行都有3个非零元\nII.稀疏矩阵的特点是矩阵中的元素较少\nA.仅I\nB.仅II\nC.I和II\nD.无正确项",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "稀疏矩阵通常采用三元组来压缩存储，存储矩阵元素的行列下标和相应的值，因此不能根据\n矩阵元素的行列下标快速定位矩阵元素，失去了随机存取的特性。"
+        }
+    },
+    {
+        "id": "q034011",
+        "title": "三对角矩阵元素下标计算",
+        "content": "【2016统考真题】有一个100阶的三对角矩阵M，其元素mij（1≤i,j≤100）按行优先\n依次压缩存入下标从0开始的一维数组N中。元素m30.30在N中的下标是（）。\nA. 86\nB.87\nC. 88\nD. 89",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "三对角矩阵如下所示。\n[aa.2\na2.1\na2.2\na2.3\n0\na3.2\na3.3\na3.4\n0\nan-1.n-2\nI-u'i-up\nuri-p\nann-1\nan.n\n采用压缩存储，将3条对角线上的元素按行优先方式存放在一维数组B中，且a存放于B[0]\n中，其存储形式如下所示：\na.\na12\na2\na2.2\n可以计算矩阵A中3条对角线上的元素a（1≤ij≤n,i-≤1）在一维数组B中存放的下标\n为k=2i+j-3，公式很难记忆，我们通常采用解法2。\n解法1：针对该题，仅需将数字逐一代入公式：k=2x30+30-3=87，结果为87。\n解法2：观察上图的三对角矩阵不难发现，第一行有两个元素，剩下的在元素m130.30所在行之\n前的28行（注意下标1≤i,j≤100）中，每行都有3个元素，而m30.30之前仅有一个元素m30.29，\n不难发现元素m30.30在数组N中的下标是2+28x3+2-1=87。\n注意\n矩阵和数组的下标从0或1开始（如矩阵可能从ao.0或a11开始，数组可能从B[0］或B[1]开始），\n这时就需要适时调整计算方法（方法无非是多计算1或少计算1的问题）。"
+        }
+    },
+    {
+        "id": "q034012",
+        "title": "稀疏矩阵存储结构",
+        "content": "【2017统考真题】适用于压缩存储稀疏矩阵的两种存储结构是（）。\nA.三元组表和十字链表\nB.三元组表和邻接矩阵\nC.十字链表和二叉链表\nD.邻接矩阵和十字链表",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "三元组表的结点存储了行（row）、列（col）、值（value）三种信息，是主要用来存储稀疏矩阵\n的一种数据结构。十字链表将行单链表和列单链表结合起来存储稀疏矩阵。邻接矩阵空间复杂度达\nO(n²)，不适合于存储稀疏矩阵。二叉链表又名左孩子右兄弟表示法，可用于表示树或森林。"
+        }
+    },
+    {
+        "id": "q034013",
+        "title": "对称矩阵元素存储下标计算",
+        "content": "【2018统考真题】设有一个12x12阶对称矩阵M,将其上三角部分的元素mu（1≤i≤j≤12）\n按行优先存入C语言的一维数组N中，元素m6.6在N中的下标是（）。\nA.50\nB.51\nC.55\nD.66",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在C语言中，数组N的下标从0开始。第一个元素mui对应存入no，矩阵M的第一行有12\n个元素，第二行有11个，第三行有10个，第四行有9个，第五行有8个，所以m6.6是第\n12+11+10+9+8+1=51个元素，下标应为50。"
+        }
+    },
+    {
+        "id": "q034014",
+        "title": "对称矩阵上三角元素存储下标",
+        "content": "【2020统考真题】将一个10x10阶对称矩阵M的上三角部分的元素mu;（1≤i≤j≤10）\n按列优先存入C语言的一维数组N中，元素m7.2在N中的下标是（）。\nA.15\nB.16\nC.22\nD.23",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "上三角矩阵按列优先存储，先存储只有1个元素的第一列，再存储有2个元素的第二列，以\n此类推。m7.2位于左下角，对应右上角的元素为m2.7，在m2.7之前存有\n第1列：1\n第2列：2\n......\n第6列：6\n第7列：1\n前面共存储有1+2+3+4+5+6+1=22个元素（数组下标范围为0～21），注意数组下标\n从0开始，所以m27在数组N中的下标为22，即m72在数组N中的下标为22。"
+        }
+    },
+    {
+        "id": "q034015",
+        "title": "二维数组存储地址计算",
+        "content": "【2021统考真题】二维数组A按行优先方式存储，每个元素占用1个存储单元。若元素\nA[0][0]的存储地址是100，A[3][3]的存储地址是220，则元素A[5][5]的存储地址\n是()。\nA. 295\nB.300\nC.301\nD.306",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    },
+    {
+        "id": "q034016",
+        "title": "三元组表存储稀疏矩阵所需数据",
+        "content": "【2023统考真题】若采用三元组表存储结构存储稀疏矩阵M，则除三元组表外，下列数\n据中还需要保存的是（）。\nI.M的行数\nII.M中包含非零元素的行数\nIII.M的列数\nIV．M中包含非零元素的列数\nA.仅I、III\nB.仅I、IV\nC.仅II、IV\nD.I、II、III、IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0341",
+            "kc0342",
+            "kc0343",
+            "kc0344"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    }
+]

@@ -1,0 +1,1202 @@
+[
+    {
+        "id": "q021001",
+        "title": "线性表基础概念",
+        "content": "线性表是具有n个（）的有限序列。\nA.数据表\nB.字符\nC.数据元素\nD.数据项\n02．下列几种描述中，（）是一个线性表。\nA.由n个实数组成的集合\nB.由100个字符组成的序列\nC.所有整数组成的序列\nD.邻接表",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0211",
+            "kc0212"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "线性表是由具有相同数据类型的有限数据元素组成的，数据元素是由数据项组成的。"
+        }
+    },
+    {
+        "id": "q021003",
+        "title": "线性表元素的前驱与后继",
+        "content": "在线性表中，除开始元素外，每个元素（）。\nA.只有唯一的前驱元素\nB.只有唯一的后继元素\nC.有多个前驱元素\nD.有多个后继元素",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0211",
+            "kc0212"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "线性表中，除最后一个（或第一个）元素外，每个元素都只有一个后继（或前驱）元素。"
+        }
+    },
+    {
+        "id": "q021004",
+        "title": "线性表元素数量",
+        "content": "若非空线性表中的元素既没有直接前驱，又没有直接后继，则该表中有（）个元素。\nA. 1\nB.2\nC.3\nD. n",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0211",
+            "kc0212"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "线性表中的第一个元素没有直接前驱，最后一个元素没有直接后继：当线性表中仅有一个元\n素时，该元素既没有直接前驱，又没有直接后继。\n2.2线性表的顺序表示\n2.2.1顺序表的定义\n命题追踪（算法题）顺序表的应用（2010、2011、2018、2020）\n线性表的顺序存储也称顺序表。它是用一组地址连续的存储单元依次存储线性表中的数据元\n素，从而使得逻辑上相邻的两个元素在物理位置上也相邻。第1个元素存储在顺序表的起始位置，\n第i个元素的存储位置后面紧接着存储的是第i+1个元素，称i为元素α在顺序表中的位序。因\n此，顺序表的特点是表中元素的逻辑顺序与其存储的物理顺序相同。\n假设顺序表L存储的起始位置为LOC（A），sizeof（ElemType）是每个数据元素所占用存\n储空间的大小，则表L所对应的顺序存储结构如图2.1所示。\n数组下标\n顺序表\n内存地址\nLOC(A)\n0\na\na2\nLOC(A)+sizeof(ElemType)\n1\n：\ni-1\na\nLOC(A)+(i-1)xsizeof(ElemType)\nn-1\nan\nLOC(A)+(n-1)xsizeof(ElemType)\n：\nMaxSize-l\nLOC(A)+(MaxSize-1)xsizeof(ElemType)\n图2.1线性表的顺序存储结构\n每个数据元素的存储位置都和顺序表的起始位置相差一个和该数据元素的位序成正比的常\n数，因此，顺序表中的任意一个数据元素都可以随机存取，所以线性表的顺序存储结构是一种随\n机存取的存储结构。通常用高级程序设计语言中的数组来描述线性表的顺序存储结构。\n注意\n线性表中元素的位序是从1开始的，而数组中元素的下标是从0开始的。"
+        }
+    },
+    {
+        "id": "q022001",
+        "title": "顺序存储结构的优点",
+        "content": "下列叙述中，（）是顺序存储结构的优点。\nA.存储密度大\nB.插入运算方便\nC.删除运算方便\nD.方便地运用于各种逻辑结构的存储表示\n18\n2026年数据结构考研复习指导\n02．下列关于顺序表的叙述中，正确的是（）。\nA.顺序表可以利用一维数组表示，因此顺序表与一维数组在逻辑结构上是相同的\nB.在顺序表中，逻辑上相邻的元素物理位置上不一定相邻\nC.顺序表和一维数组一样，都可以进行随机存取\nD.在顺序表中，每个元素的类型不必相同",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0221",
+            "kc0222"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "是链表的优点。选项D是错误的，比如对于树形结构，顺序表显然不如链表表示起来方便。"
+        }
+    },
+    {
+        "id": "q022003",
+        "title": "线性表顺序存储结构特点",
+        "content": "线性表的顺序存储结构是一种（）。\nA.随机存取的存储结构\nB.顺序存取的存储结构\nC.索引存取的存储结构\nD．散列存取的存储结构",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0221",
+            "kc0222"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "本题易误选选项B。注意，存取方式是指读/写方式。顺序表是一种支持随机存取的存储结\n第2章线性\n表\n21\n构，根据起始地址加上元素的序号，可以很方便地访问任意一个元素，这就是随机存取的概念。"
+        }
+    },
+    {
+        "id": "q022004",
+        "title": "顺序表的随机存取特性",
+        "content": "通常说顺序表具有随机存取的特性，指的是（）。\nA.查找值为x的元素的时间与顺序表中元素个数n无关\nB.查找值为x的元素的时间与顺序表中元素个数n有关\nC.查找序号为i的元素的时间与顺序表中元素个数n无关\nD.查找序号为i的元素的时间与顺序表中元素个数n有关",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0221",
+            "kc0222"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "随机存取是指在O（1)的时间访问下标为i的元素，所需时间与顺序表中的元素个数n无关。"
+        }
+    },
+    {
+        "id": "q022005",
+        "title": "顺序表存储空间无关因素",
+        "content": "一个顺序表所占用的存储空间大小与（）无关。\nA.表的长度\nB.元素的存放顺序\nC.元素的类型\nD.元素中各字段的类型",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0221",
+            "kc0222"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "顺序表所占的存储空间=表长xsizeof（元素的类型），表长和元素的类型显然会影响存储空\n间的大小。若元素为结构体类型，则元素中各字段的类型也会影响存储空间的大小。"
+        }
+    },
+    {
+        "id": "q022006",
+        "title": "线性表存储方式选择",
+        "content": "若线性表最常用的操作是存取第1个元素及其前驱和后继元素的值，为了提高效率，应\n采用（）的存储方式。\nA.单链表\nB.双链表\nC.循环单链表\nD.顺序表",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0221",
+            "kc0222"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "题干实际要求能最快存取第i-1、i和i+1个元素值。选项A、B、C都只能从头结点依次\n顺序查找，时间复杂度为O（n)；只有顺序表可以按序号随机存取，时间复杂度为O（1)。"
+        }
+    },
+    {
+        "id": "q022007",
+        "title": "线性表存储方式选择",
+        "content": "一个线性表最常用的操作是存取任意一个指定序号的元素并在最后进行插入、删除操作，\n则利用（）存储方式可以节省时间。\nA.顺序表\nB.双链表\nC.带头结点的循环双链表\nD.循环单链表",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0221",
+            "kc0222"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "只有顺序表可以按序号随机存取，且在最后进行插入和删除操作时不需要移动任何元素。"
+        }
+    },
+    {
+        "id": "q022008",
+        "title": "数组表示线性表的O(1)操作",
+        "content": "在n个元素的线性表的数组表示中，时间复杂度为O(1)的操作是（）。\nI.访问第i（1≤i≤n）个结点和求第i（2≤i≤n）个结点的直接前驱\nⅡI在最后一个结点后插入一个新的结点\nIII.删除第1个结点\nIV.在第i（1≤i≤n）个结点后插入一个结点\nA. I\nB. II、III\nC. 1、1I\nD. I、II、III",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0221",
+            "kc0222"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于I，解析略：对于ⅡI，在最后位置插入新结点不需要移动元素，时间复杂度为O（1)）：对\n于IⅡl，被删结点后的结点需要依次前移，时间复杂度为O(n)：对于IV，需要后移n-i个结点，\n时间复杂度为O(n)。"
+        }
+    },
+    {
+        "id": "q022009",
+        "title": "顺序表与链表效率比较",
+        "content": "设线性表有n个元素，严格说来，以下操作中，（）在顺序表上实现要比在链表上实现\n的效率高。\nI.输出第i（1≤i≤n）个元素值\nI1.交换第3个元素与第4个元素的值\nIIl.顺序输出这n个元素的值\nA.1\nB. I、III\nC. 1、II\nD. II、III\n10．在一个长度为n的顺序表中删除第i（1≤i≤n）个元素时，需向前移动（）个元素。\nA. n\nB.i-1\nC.n-i\nD.n-i+1\n11．对于顺序表，访问第i个位置的元素和在第i个位置插入一个元素的时间复杂度为（）。\nA. O(n), O(n)\nB. O(n), 0(1)\nC. 0(1), 0(n)\nD. 0(1), 0(1)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0221",
+            "kc0222"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于1I，顺序表只需要3次交换操作；链表则需要分别找到两个结点前驱，第4个结点断链\n后再插入到第2个结点后，效率较低。对于1ⅡI，需依次顺序访问每个元素，时间复杂度相同。"
+        }
+    },
+    {
+        "id": "q022012",
+        "title": "顺序存储线性表O(1)时间复杂度运算",
+        "content": "对于顺序存储的线性表，其算法时间复杂度为O(1)的运算应该是（）。\nA.将n个元素从小到大排序\n第2章线性表\n19\nB.删除第i（1≤i≤n）个元素\nC.改变第i（1≤i≤n）个元素的值\nD.在第i（1≤i≤n）个元素后插入一个新元素",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0221",
+            "kc0222"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对n个元素进行排序的时间复杂度最小也要O（n）（初始有序时），通常为O（nlog2n）或O（n²）\n通过第8章学习后会更理解。选项B和D显然错误。顺序表支持按序号的随机存取方式。"
+        }
+    },
+    {
+        "id": "q022013",
+        "title": "线性表顺序存储插入位置",
+        "content": "若长度为n的非空线性表采用顺序存储结构，在表的第i个位置插入一个数据元素，则\ni的合法值应该是（）\nA.1≤i≤n\nB.1≤i≤n+1\nC.0≤i≤n-1\nD.0≤i≤n",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0221",
+            "kc0222"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "线性表元素的序号是从1开始，而在第n+1个位置插入相当于在表尾追加。"
+        }
+    },
+    {
+        "id": "q022014",
+        "title": "顺序表插入算法的存储空间分配问题",
+        "content": "顺序表的插入算法中，当n个空间已满时，可再申请增加分配m个空间，若申请失败，\n则说明系统没有（）可分配的存储空间。\nA.m个\nB.m个连续\nC.n+m个\nD.n+m个连续",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0221",
+            "kc0222"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "顺序存储需要连续的存储空间，在申请时需申请n+m个连续的存储空间，然后将线性表原\n来的n个元素复制到新申请的n+m个连续的存储空间的前n个单元。"
+        }
+    },
+    {
+        "id": "q022015",
+        "title": "顺序存储有序表时间复杂度分析",
+        "content": "【2023统考真题】在下列对顺序存储的有序表（长度为n）实现给定操作的算法中，平\n均时间复杂度为O(1)的是（）。\nA.查找包含指定值元素的算法\nB.插入包含指定值元素的算法\nC.删除第i（1≤i≤n）个元素的算法\nD.获取第i（1≤i≤n）个元素的算法",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0221",
+            "kc0222"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于顺序存储的有序表，查找指定值元素可以采用顺序查找法或折半查找法，平均时间复杂\n度最少为O(log2n)。插入指定值元素需要先找到插入位置，然后将该位置及之后的元素依次后移\n一个位置，最后将指定值元素插入到该位置，平均时间复杂度为O(n)。删除第i个元素需要将该\n下标读取对应的数组元素即可，时间复杂度为O(1)。"
+        }
+    },
+    {
+        "id": "q023001",
+        "title": "线性表存储结构比较",
+        "content": "下列关于线性表的存储结构的描述中，正确的是（）。\nI.线性表的顺序存储结构优于其链式存储结构\nII.链式存储结构比顺序存储结构能更方便地表示各种逻辑结构\nIII.若频繁使用插入和删除结点操作，则顺序存储结构更优于链式存储结构\nIV.顺序存储结构和链式存储结构都可以进行顺序存取\nA.I、ⅡI、II\nB.II、IV\nC. II、III\nD. III、IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "两种存储结构适用于不同的场合，不能简单地说谁好谁坏，选项1错误。链式存储用指针表\n第2章线性\n表\n45\n示逻辑结构，而指针的设置是任意的，因此比顺序存储结构能更方便地表示各种逻辑结构，选项\nⅡI正确。在顺序存储中，插入和删除结点需要移动大量元素，效率较低，选项IⅢI的描述刚好相反。\n顺序存储结构既能随机存取又能顺序存取，而链式结构只能顺序存取，选项IV正确。"
+        }
+    },
+    {
+        "id": "q023002",
+        "title": "线性表存储方式选择",
+        "content": "对于一个线性表，既要求能进行较快速地插入和删除，又要求存储结构能反映数据之间\n的逻辑关系，则应该用（）。\nA.顺序存储方式B.链式存储方式\nC.散列存储方式D.以上均可以",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "首先直接排除选项A和D。散列存储通过散列函数映射到物理空间，不能反映数据之间的逻辑\n关系，排除选项C。链式存储能方便地表示各种逻辑关系，且插入和删除操作的时间复杂度为O(1)。"
+        }
+    },
+    {
+        "id": "q023003",
+        "title": "链式存储设计时结点存储单元地址的连续性",
+        "content": "链式存储设计时，结点内的存储单元地址（）。\nA.一定连续\nB.一定不连续\nC.不一定连续\nD.部分连续，部分不连续\n第2章线性\n表\n39",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "链式存储设计时，各个不同结点的存储空间可以不连续，但结点内的存储单元地址必须连续。"
+        }
+    },
+    {
+        "id": "q023004",
+        "title": "线性表相关说法正误判断",
+        "content": "下列关于线性表的说法中，正确的是（）。\nI.顺序存储方式只能用于存储线性结构\nII在一个设有头指针和尾指针的单链表中，删除表尾元素的时间复杂度与表长无关\nIII.带头结点的循环单链表中不存在空指针\nIV.在一个长度为n的有序单链表中插入一个新结点并仍保持有序的时间复杂度为O(n)\nV.若用单链表来表示队列，则应该选用带尾指针的循环链表\nA. I、ⅡI\nB.I、III、IV、V\nC. IV、 V\nD. III、IV、V",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "顺序存储方式同样适用于存储图和树，选项I错误。删除表尾结点时，必须从头开始找到表\n尾结点的前驱，其时间与表长有关，选项ⅡI错误。循环单链表中最后一个结点的指针不是NULL，\n而是指向头结点，整个链表形成一个环，因此不存在空指针，选项IⅢI正确。有序单链表只能依\n次查找插入位置，时间复杂度为O(n)，选项IV正确。队列需要在表头删除元素，表尾插入元素，\n采用带尾指针的循环链表较为方便，插入和删除的时间复杂度都为O(1)，选项√正确。"
+        }
+    },
+    {
+        "id": "q023005",
+        "title": "单链表与顺序表效率比较",
+        "content": "设线性表中有2n个元素，（）在单链表上实现要比在顺序表上实现效率更高。\nA.删除所有值为x的元素\nB.在最后一个元素的后面插入一个新元素\nC.顺序输出前k个元素\nD.交换第i个元素和第2n-i-1个元素的值（i=0\"，n-1）",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于选项A，在单链表和顺序表上实现的时间复杂度都为O（n)，但后者要移动很多元素，因\n此在单链表上实现效率更高。对于选项B和D，顺序表的效率更高。C无区别。"
+        }
+    },
+    {
+        "id": "q023006",
+        "title": "单链表插入结点操作",
+        "content": "在一个单链表中，已知g所指结点是p所指结点的前驱结点，若在a和p之间插入结点\nS，则执行（）。\nxu-x-x-s\nB.p->next=\ns->next;s->next=p;\nC.q->next=s;s->next=p;\nD.p->next=s;s->next=q;",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "s插入后，q成为s的前驱，而p成为s的后继，选择选项C。\n注意\n可能有读者认为选项C中的两条语句交换后才正确。实际上，因为本题插入位置的前后结点都有指\n针指示（这与前面介绍的插入操作是不同的），所以选项C中的语句顺序并不会造成断链。在此提醒读者\n在学习过程中一定要多动脑思考，而不要生搬硬套。"
+        }
+    },
+    {
+        "id": "q023007",
+        "title": "有序单链表构建时间复杂度",
+        "content": "给定有n个元素的一维数组，建立一个有序单链表的最低时间复杂度是（）。\nA. 0(1)\nB. O(n)\nc. 0(n)\nD. O(nlog2n)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "若先建立链表，然后依次插入建立有序表，则每插入一个元素就需遍历链表寻找插入位置，即\n直接插入排序，时间复杂度为O(n²)。若先将数组排好序，然后建立链表，建立链表的时间复杂度为\nO(n)，数组排序的最好时间复杂度为 O(nlog2n)，总时间复杂度为 O(nlog2n)。故选择选项 D。"
+        }
+    },
+    {
+        "id": "q023008",
+        "title": "单链表链接时间复杂度",
+        "content": "将长度为n的单链表链接在长度为m的单链表后面，其算法的时间复杂度采用大O形\n式表示应该是 （)。\nA. 0(1)\nB.O(n)\nC. 0(m)\nD. O(n + m)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "先遍历长度为m的单链表，找到该单链表的尾结点，然后将其next域指向另一个单链表的\n首结点，其时间复杂度为O(m)。"
+        }
+    },
+    {
+        "id": "q023009",
+        "title": "单链表头结点的作用",
+        "content": "单链表中，增加一个头结点的目的是（）。\nA.使单链表至少有一个结点\nB.标识表结点中首结点的位置\nC．方便运算的实现\nD.说明单链表是线性表的链式存储",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "单链表设置头结点的目的是方便运算的实现，主要好处体现在：第一，有头结点后，插入和\n删除数据元素的算法就统一了，不再需要判断是否在第一个元素之前插入或删除第一个元素；第\n二，不论链表是否为空，其头指针是指向头结点的非空指针，链表的头指针不变，因此空表和非\n空表的处理也就统一了。"
+        }
+    },
+    {
+        "id": "q023010",
+        "title": "单链表操作与表长关系",
+        "content": "在一个长度为n的带头结点的单链表h上，设有尾指针r，则执行（）操作与链表的表\n长有关。\nA.删除单链表中的第一个元素\nB.删除单链表中的最后一个元素\nC.在单链表第一个元素前插入一个新元素\nD.在单链表最后一个元素后插入一个新元素",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "删除单链表的最后一个结点需置其前驱结点的指针域为NULL，需要从头开始依次遍历找到\n该前驱结点，需要O（n)的时间，与表长有关。其他操作均与表长无关，读者可自行模拟。\n11.B,A\n在带头结点的单链表中，头指针head指向头结点，头结点的next域指向第一个元素结点，\n46\n2026年数据结构考研复习指导\n素结点，head==NULL表示该单链表为空。"
+        }
+    },
+    {
+        "id": "q023011",
+        "title": "单链表空表判定条件",
+        "content": "对于一个头指针为head的带头结点的单链表，判定该表为空表的条件是（）；对于不\n带头结点的单链表，判定空表的条件为（）\nA. head==NULL\nB.head->next==NULL\nC.head->next==head\nD.head!=NULL",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    },
+    {
+        "id": "q023012",
+        "title": "线性表删除元素移动数量",
+        "content": "在线性表ao,a1，a100中，删除元素a50需要移动（）个元素。\nA. 0\nB.50\nC. 51\nD.0或50",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "线性表有顺序存储和链式存储两种存储结构。若采用链式存储结构，则删除元素a5o不需要\n移动元素；若采用顺序存储结构，则需要依次移动50个元素。"
+        }
+    },
+    {
+        "id": "q023013",
+        "title": "头插法建立单链表的元素次序",
+        "content": "通过含有n（n>1）个元素的数组a，采用头插法建立单链表L，则L中的元素次序（）。\nA.与数组a的元素次序相同\nB.与数组a的元素次序相反\nC.与数组a的元素次序无关\nD．以上都错误",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "当采用头插法建立单链表时，数组后面的元素插入到单链表L的最前端，所以L中的元素次\n序与数组a的元素次序相反。"
+        }
+    },
+    {
+        "id": "q023014",
+        "title": "线性表相关说法判断",
+        "content": "下面关于线性表的一些说法中，正确的是（）。\n40\n2026年数据结构考研复习指导\nA.对一个设有头指针和尾指针的单链表执行删除最后一个元素的操作与链表长度无关\nB.线性表中每个元素都有一个直接前驱和一个直接后继\nC.为了方便插入和删除数据，可以使用双链表存放数据\nD.取线性表第i个元素的时间与i的大小有关",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "选项A显然错误。选项B中第一个元素和最后一个元素不满足题设要求。双链表能很方便\n地访问前驱和后继，故删除和插入数据较为方便，选项C正确。选项D未考虑顺序存储的情况。"
+        }
+    },
+    {
+        "id": "q023015",
+        "title": "双链表结点插入操作",
+        "content": "在双链表中向p所指的结点之前插入一个结点g的操作为（）。\n-drod- x-xotxd-xu-od-\nxu-rod-=xu-x-od-od-rod-\nd=xau<-b :b=xau<-rotd<-b b=xau<-d :d=xau<-b\notd-otd-dotd-dxu-xu<-otd-",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "为了在p之前插入结点q，可以将p的前一个结点的next域指向q，将q的next域指向\np，将q的prior域指向p的前一个结点，将p的prior域指向q。仅D满足条件。"
+        }
+    },
+    {
+        "id": "q023016",
+        "title": "双链表操作题",
+        "content": "在双链表存储结构中，删除p所指的结点时必须修改指针（）。\nA.p->prior->next=p->next; p->next->prior=p->prior;\nB. p->prior=p->prior->prior; p->prior->next=p;\nC.p->next->prior=p;p->next=p->next->next;\n17．在如下图所示的双链表中，已知指针p指向结点A，若要在结点A和C之间插入指针q\n所指的结点B，则依次执行的语句序列可以是（）。\nd\n①q->next=p->next;\nb=xau<-d :d=rotrd<-b\n④ p->next->prior=q;\nA. ①②④③\nB.④③②①\nc. ③④①②\nD. ①③④②\n18．在双链表的两个结点之间插入一个新结点，需要修改（）个指针域。\nA.1\nB.3\nC. 4\nD.2",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "与上一题的分析基本类似，只不过这里是删除一个结点，注意将p的前、后两结点链接起来。\n关键是要保证在结点指针的修改过程中不断链！\n注意，请读者仔细对比上述两题，弄清双链表的插入和删除方法。"
+        }
+    },
+    {
+        "id": "q023019",
+        "title": "有序单链表插入时间复杂度",
+        "content": "在长度为n的有序单链表中插入一个新结点，并仍然保持有序的时间复杂度是（）。\nA. 0(1)\nB. O(n)\nC. 0(n²)\nD. O(nlog2n)\n20．与单链表相比，双链表的优点之一是（）。\nA.插入、删除操作更方便\nB.可以进行随机访问\nC.可以省略表头指针或表尾指针\nD.访问前后相邻结点更灵活\n21．对于一个带头结点的循环单链表工，判断该表为空表的条件是（）。\nA.头结点的指针域为空\nB.L的值为NULL\nC.头结点的指针域与工的值相等\nD.头结点的指针域与L的地址相等",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "设单链表递增有序，首先要在单链表中找到第一个大于x的结点的直接前驱p，在p之后插\n入该结点。查找的时间复杂度为O(n)，插入的时间复杂度为O(1)，总时间复杂度为O(n)。"
+        }
+    },
+    {
+        "id": "q023022",
+        "title": "循环双链表判空条件",
+        "content": "对于一个带头结点的循环双链表工，判断该表为空表的条件是（）。\nA.L->prior==L&&L->next==NULL\nB.L->prior==NULL&&L->next==NULL\nC.L->prior==NULL&&L->next==L\nD.L->prior==L&&L->next==L",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "循环双链表L判空的条件是头结点（头指针）的prior和next域都指向它自身。"
+        }
+    },
+    {
+        "id": "q023023",
+        "title": "链表操作最优选择",
+        "content": "一个链表最常用的操作是在末尾插入结点和删除结点，则选用（）最节省时间。\nA.带头结点的循环双链表\nB.循环单链表\nC.带尾指针的循环单链表\nD.单链表",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在链表的末尾插入和删除一个结点时，需要修改其相邻结点的指针域。而寻找尾结点及尾结\n点的前驱结点时，只有带头结点的循环双链表所需要的时间最少。"
+        }
+    },
+    {
+        "id": "q023024",
+        "title": "线性表运算最优结构",
+        "content": "设对n（n>1）个元素的线性表的运算只有4种：删除第一个元素；删除最后一个元素；\n在第一个元素之前插入新元素；在最后一个元素之后插入新元素，则最好使用（）。\nA.只有尾结点指针没有头结点指针的循环单链表\n第2章线性表\n41\nB.只有尾结点指针没有头结点指针的非循环双链表\nC.只有头结点指针没有尾结点指针的循环双链表\nD.既有头结点指针又有尾结点指针的循环单链表",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于选项A，删除尾结点*p时，需要找到*p的前一个结点，时间复杂度为O（n)。对于选项\n第2章线性表\n47\n指针找到*p结点的时间复杂度为O(n)。对于选项D，删除尾结点*p时，需要找到*p的前一个\n结点，时间复杂度为 O(n)。对于C，执行这四种算法的时间复杂度均为O(1)。"
+        }
+    },
+    {
+        "id": "q023025",
+        "title": "循环单链表操作",
+        "content": "设有两个长度为n的循环单链表，若要求两个循环单链表的头尾相接的时间复杂度为\nO(1)，则对应两个循环单链表各设置一个指针，分别指向（）。\nA.各自的头结点\nB.各自的尾结点\nC.各自的首结点\nD.一个表的头结点，另一个表的尾结点\n26．设有一个长度为n的循环单链表，若从表中删除首元结点的时间复杂度达到O(n)，则\n此时采用的循环单链表的结构可能是（）。\nA.只有表头指针，没有头结点\nB.只有表尾指针，没有头结点\nC.只有表尾指针，带头结点\nD.只有表头指针，带头结点",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "要求用O(1)的时间将两个循环单链表头尾相接，并未指明哪个链表接在另一个链表之后，所\n以对两个链表都要在0（1)的时间找到头结点和尾结点。因此，两个指针应都指向尾结点。"
+        }
+    },
+    {
+        "id": "q023027",
+        "title": "循环单链表长度判断",
+        "content": "某线性表用带头结点的循环单链表存储，头指针为head，当head->next->next=\nhead成立时，线性表的长度可能是（）。\nA. 0\nB.1\nC.2\nD.可能为0或1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对一个空循环单链表，有 head->next==head，推理 head->next->next==head->\n唯一的元素结点，该元素结点的 next 域指向头结点，因此也有head->next->next=head。"
+        }
+    },
+    {
+        "id": "q023028",
+        "title": "双链表删除结点时间复杂度",
+        "content": "有两个长度都为n的双链表，若以h为头指针的双链表是非循环的，以h2为头指针的\n双链表是循环的，则下列叙述中正确的是（）。\nA.对于双链表h，删除首结点的时间复杂度是O(n)\nB.对于双链表h2，删除首结点的时间复杂度是O(n)\nC.对于双链表h，删除尾结点的时间复杂度是O(1)\nD.对于双链表h2，删除尾结点的时间复杂度是O(1)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于两种双链表，删除首结点的时间复杂度都是O(1)。对于非循环双链表，删除尾结点的时\n间复杂度是O(n)：对于循环双链表，删除尾结点的时间复杂度是O(1)。"
+        }
+    },
+    {
+        "id": "q023029",
+        "title": "链表操作最优选择",
+        "content": "一个链表最常用的操作是在最后一个元素后插入一个元素和删除第一个元素，则选用（）\n最节省时间。\nA.不带头结点的循环单链表\nB.双链表\nC.单链表\nD.不带头结点且有尾指针的循环单链表",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于选项A，在最后一个元素之后插入元素的情况与普通单链表相同，时间复杂度为O（n)；而\n删除第一个元素时，为保持循环单链表的性质（尾结点指向第一个结点），要先遍历整个链表找到尾\n结点，再做删除操作，时间复杂度为O(n)。对于选项B，双链表的情况与单链表的相同，一个是O(n)，\n一个是O（1)。对于选项C，在最后一个元素之后插入一个元素，要遍历整个链表才能找到插入位置，\n时间复杂度为O(n)：删除第一个元素的时间复杂度为O（1)。对于选项D，与选项A的分析对比，有\n尾结点的指针，省去了遍历链表的过程，因此时间复杂度均为O(1)。"
+        }
+    },
+    {
+        "id": "q023030",
+        "title": "线性表存储结构",
+        "content": "需要分配较大空间，插入和删除不需要移动元素的线性表，其存储结构为（）。\nA.单链表\nB.静态链表\nC.顺序表\nD.双链表\n31．下列关于静态链表的说法中，正确的是（）。\nI.静态链表兼具顺序表和单链表的优点，因此存取表中第i个元素的时间与i无关\nII.静态链表能容纳的最大元素个数在表定义时就确定了，以后不能增加\nIII.静态链表与动态链表在元素的插入、删除上类似，不需要移动元素\nIV.相比动态链表，静态链表可能浪费较多的存储空间\nA.I、II、III\nB.II、III、IV\nC.I、III、IV\nD.I、II、IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "静态链表采用数组表示，因此需要预先分配较大的连续空间，静态链表同时还具有一般链表\n的特点，即插入和删除不需要移动元素。"
+        }
+    },
+    {
+        "id": "q023032",
+        "title": "删除循环双链表结点",
+        "content": "【2016统考真题】已知一个带有表头结点的循环双链表L，结点结构为prevdatanext\n其中prev和next分别是指向其直接前驱和直接后继结点的指针。现要删除指针p所\n指的结点，正确的语句序列是（）。\nx\nxx-xx\n)  d-xux- x-d-x-\nD.p->next->prev=p->prev;p->prev->next=p->next;free(p);",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "选项A的第二句代码，相当于将p前驱结点的后继指针指向其自身，错误；选项B和C的\n第一句代码，相当于将p后继结点的前驱指针指向其自身，错误。只有选项D正确。"
+        }
+    },
+    {
+        "id": "q023033",
+        "title": "单链表插入元素地址问题",
+        "content": "【2016统考真题】已知表头元素为C的单链表在内存中的存储状态如下表所示。\n42\n2026年数据结构考研复习指导\n地址\n元素\n链接地址\n1000H\na\n1010H\n1004H\nb\n100CH\n1008H\nC\n1000H\n100CH\nd\nNULL\n1010H\ne\n1004H\n1014H\n现将f存放于1014H处并插入单链表，若f在逻辑上位于a和e之间，则a、e、f的\n“链接地址”依次是（）。\nA.1010H、1014H、1004H\nB.1010H、1004H、1014H\nC.1014H、1010H、1004H\nD.1014H、1004H、1010H",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "根据存储状态，单链表的结构如下图所示。\n1008H\n1000H\n1010H\nHt00\n00CH\nC\ne\nd\n1014H\n48\n2026年数据结构考研复习指导\n其中“链接地址”是指结点next所指的内存地址。当结点f插入后，a指向f，f指向e，é指\n向b。显然a、e 和f的“链接地址”分别是f、b和e的内存地址，即1014H、1004H和1010H。"
+        }
+    },
+    {
+        "id": "q023034",
+        "title": "删除循环单链表首元素",
+        "content": "【2021统考真题】已知头指针h指向一个带头结点的非空循环单链表，结点结构为\ndatanext]，其中 next 是指向直接后继结点的指针，p是尾指针，g是临时指针。现要\n删除该链表的第一个元素，正确的语句序列是（）。\nA.h->next=h->next->next;q=h->next;free(q);\nB.q=h->next;h->next=h->next->next;free(q);\n() ()xxx\n) ()xuxuxuu",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "如图1所示，要删除带头结点的非空循环单链表中的第一个元素，就要先用临时指针g指向待\n删结点，q=h->next；然后将q从链表中断开，h->next=q->next（这一步也可写成h->next=\nh->next->next）；此时要考虑一种特殊情况，若待删结点是链表的尾结点，即循环单链表中只\n有一个元素(p和g指向同一个结点)，如图2所示，则在删除后要将尾指针指向头结点，即if(p==q)\np=h；最后释放q结点即可，答案选择选项D。\n表头结点\n待删结点\n表头结点待删结点\n图1\n图2"
+        }
+    },
+    {
+        "id": "q023035",
+        "title": "双链表插入结点操作",
+        "content": "【2023统考真题】现有非空双链表L，其结点结构为prevdatanext]，preV是指向直接\n前驱结点的指针，next是指向直接后继结点的指针。若要在L中指针p所指向的结点\n（非尾结点）之后插入指针s指向的新结点，则在执行语句序列“s->next=p->next；\np->next=s；”后，下列语句序列中还需要执行的是（）。\nA.s->next->prev=p; s->prev=p;\nB.p->next->prev=s;s->prev=p;\nd-xu-d-s-x-",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "链表的插入操作要保证不会造成断链，画图再依次判断选项。执行完语句“①s->next=p->next;\n②p->next=s；”后的结构如下图所示（虚线表示prev，\n实线表示next）。\n对于选项 A，s->next->prev=p，错误。对于选项 B，p->next->prev=s，让 s的 prev\n指向s，错误。对于选项D，两句代码均错误。对于选项C，执行完语句“③s->prev=s->next->prev;\n4s-\n->prev=s;”后的结构如下图所示，满足插入的要求。"
+        }
+    },
+    {
+        "id": "q023036",
+        "title": "链表操作结果分析",
+        "content": "【2024统考真题】已知带头结点的非空单链表L的头指针为h，结点结构为datanext\n其中next是指向直接后继结点的指针。现有指针p和q，若p指向L中非首且非尾的\n任意一个结点，则执行语句序列“q=p->next；p->next=q->next；q->next=\nh->next；h->next=q;”的结果是（）。\nA.在p所指结点后插入q所指结点\nB.在q所指结点后插入p所指结点\nC.将P所指结点移至L的头结点之后D.将a所指结点移动到L的头结点之后",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0231",
+            "kc0232",
+            "kc0233",
+            "kc0234",
+            "kc0235",
+            "kc0236"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "假设单链表L的初始状态如图①所示。执行q=p->next后的状态如图②所示，q指向p的后\n继结点。执行p->next=q->next后的状态如图③所示，结点p的next指向q的后继结点。执\n行q->next=h->next 后的状态如图④所示,结点q的next 指向 h 的后继结点。执行h->next=q\n后的状态如图所示，q所指结点移至L的头结点h之后，选项D正确。\n①初始状态\nP\nq\n②执行q=p->next后\n③执行p->next=q->next后\n>next后\n执行h->\n第2章线性\n表\n49"
+        }
+    }
+]

@@ -1,0 +1,57 @@
+第3章栈、队列和数组
+87
+24.D
+假设队列左端允许入队和出队，右端只能入队。对于选项A，依次从右端入队1，2，再从
+左端入队3，4，5。对于选项B，从右端入队1，2，然后从左端入队3，再从右端入队4，最后从
+左端入队5。对于选项C，从左端入队1，2，然后从右端入队3，再从左端入队4，最后从右端
+入队5。无法验证选项D的序列。
+54312
+53124
+42135
+A
+B
+C
+二、综合应用题
+01.【解答】
+在循环队列的类型结构中，增设一个整型变量tag，入队时置tag为1，出队时置tag为0
+（因为只有入队操作可能导致队满，也只有出队操作可能导致队空）。队列Q初始时，置tag=0、
+front=rear=0。这样队列的4要素如下：
+队空条件：Q.front==Q.rear且Q.tag==0。
+队满条件：Q.front==Q.rear且Q.tag==1。
+入队操作:Q.data[Q.rear]=x;Q.rear=(Q.rear+1) %MaxSize; Q.tag=1。
+出队操作：x=Q.data[Q.front];Q.front=(Q.front+1) %MaxSize；Q.tag=0。
+1）设“tag”法的循环队列入队算法：
+int EnQueuel(SqQueue &Q,ElemType x)(
+if(Q.front==Q.rear&&Q.tag==1)
+return 0;
+//两个条件都满足时则队满
+Q.data[Q.rear]=x;
+Q.rear=(Q.rear+l)%MaxSize;
+Q.tag=l;
+//可能队满
+return 1;
+2）设“tag”法的循环队列出队算法：
+int DeQueuel(SqQueue&Q,ElemType&x)
+if(Q.front==Q.rear&&Q.tag==0)
+return 0;
+//两个条件都满足时则队空
+x=Q.data[Q.front];
+Q.front=（Q.front+l)MaxSize;
+Q.tag=0;
+/可能队空
+return 1;
+02.【解答】
+本题主要考查大家对队列和栈的特性与操作的理解。因为对队列的一系列操作不可能将其中
+的元素逆置，而栈可以将入栈的元素逆序提取出来，所以我们可以让队列中的元素逐个地出队，
+入栈；全部入栈后再逐个出栈，入队。
+算法的实现如下：
+void Inverser(Stack &S,Queue &Q){
+//本算法实现将队列中的元素逆置
+while(!QueueEmpty(Q))(
+x=DeQueue（Q);
+//队列中全部元素依次出队
+Push(S,x);
+//元素依次入栈
+while(!StackEmpty(S))(
+Pop(S,x);
+/栈中全部元素依次出栈

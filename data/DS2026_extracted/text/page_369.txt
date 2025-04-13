@@ -1,0 +1,47 @@
+第8章排
+357
+方法。思考：为什么caseRED语句不用考虑交换后a[j]仍为红色，而caseBLUE语句中却
+需要考虑交换后a[j]仍为蓝色？
+04.【解答】
+1）算法的基本设计思想
+由题意可知，将最小的Ln/2个元素放在A中，其余的元素放在A2中，分组结果即可满足题
+目要求。仿照快速排序的思想，基于枢轴将n个整数划分为两个子集。根据划分后枢轴所处的位
+置i分别处理：
+①若i=Ln/2」，则分组完成，算法结束。
+②若i<Ln/2]，则枢轴及之前的所有元素均属于A，继续对i之后的元素进行划分。
+③若i>Ln/2」，则枢轴及之后的所有元素均属于A2，继续对i之前的元素进行划分。
+基于该设计思想实现的算法，无须对全部元素进行全排序，其平均时间复杂度是O(n)，空间
+复杂度是0(1)。
+2）算法实现
+int setPartition(int a[],int n)
+int pivotkey, low=0,1ow0=0,high=n-1,high0=n-1,flag=1,k=n/2,i;
+int s1=0,s2=0;
+while（flag)(
+pivotkey=a[low];
+/选择枢轴
+while(low<high)
+//基于枢轴对数据进行划分
+if(low!=high) a[low]=a[high];
+while(low<high && a[low]<=pivotkey) ++low;
+if (low!=high) a[high]=a[low];
+//end of while(low<high)
+a[low]=pivotkey;
+if(low==k-1)
+//若枢轴是第n/2小的元素，划分成功
+flag=0;
+elsef
+1/是否继续划分
+if（low<k-1){
+low0=++low;
+high=high0;
+elsel
+high0=--high;
+low=low0;
+for（i=0;i<k;i++）
+s1+=a[i];
+for（i=k;i<n;i++） s2+=a[i];
+return s2-sl;
+3）本算法的平均时间复杂度是O(n)，空间复杂度是O(1)。
+8.4选择排序
+选择排序的基本思想是：每一趟（如第i趟）在后面n-i+1（i=1,2,-，n-1）个待排序元
+素中选取关键字最小的元素，作为有序子序列的第i个元素，直到第n-1趟做完，待排序元素只

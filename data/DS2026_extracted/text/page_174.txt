@@ -1,0 +1,61 @@
+162
+2026年数据结构考研复习指导
+此题可编写为递归算法，其实现如下：
+int Btdepth2（BiTree T）{
+if（T==NULL)
+return0;
+/空树，高度为0
+ldep=Btdepth2(T->lchild);
+川左子树高度
+rdep=Btdepth2(T->rchild);
+川右子树高度
+if(ldep>rdep)
+return ldep+1;
+//树的高度为子树最大高度加根结点
+else
+return rdep+1;
+04.【解答】
+根据完全二叉树的定义，具有n个结点的完全二叉树与满二叉树中编号从1～n的结点一
+对应。算法思想：采用层次遍历算法，将所有结点加入队列（包括空结点）。遇到空结点时，查
+看其后是否有非空结点。若有，则二叉树不是完全二叉树。
+算法实现如下：
+bool IsComplete(BiTree T)(
+1/本算法判断给定二叉树是否为完全二叉树
+InitQueue(Q);
+if(!T)
+return true;
+1空树为满二叉树
+EnQueue(Q,T);
+while(!IsEmpty(Q))(
+DeQueue(Q,p);
+if(p){
+结点非空，将其左、右子树入队列
+EnQueue(Q,p->lchild);
+EnQueue(Q,p->rchild);
+else
+川结点为空，检查其后是否有非空结点
+while(!IsEmpty(Q)){
+DeQueue(Q,p);
+if(p)
+Ⅱ结点非空，则二叉树为非完全二叉树
+return false;
+return true;
+05.【解答】
+计算一棵二叉树b中所有双分支结点个数的递归模型f（b）如下：
+f(b)=0
+若b=NULL
++（py<-q）+（<-q)=（a）
+若*b为双分支结点
+f(b)=f(b->lchild)+f(b->rchild)
+其他情况（*b为单分支结点或叶结点）
+具体算法实现如下：
+int DsonNodes(BiTree b)(
+if(b==NULL)
+return 0;
+else if(b->lchild!=NULL&&b->rchild!=NULL)
+//双分支结点
+return
+DSonNodes(b->lchild)+DsonNodes(b->rchild)+1;
+else
+return DSonNodes(b->lchild)+DsonNodes(b->rchild);
+当然，本题也可以设置一个全局变量Num，每遍历到一个结点时，判断每个结点是否为分支

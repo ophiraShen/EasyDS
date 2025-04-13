@@ -1,0 +1,53 @@
+第5章树与二叉树
+169
+3）算法的代码如下。
+①基于方法1的算法实现：
+int WPL(BTree *root)
+//根据WPL的定义采用递归算法实现
+return WPLl(root,0);
+int WPLl(BTree *root,intd)
+l/ld为结点深度
+if(root->left==NULL&&root->right==NULL)
+return(root->weight*d);
+else
+return（WPLl(root->left,d+1)+WPL1（root->right,d+1));
+②基于方法2的算法实现：
+int WPL(BTree *root)
+//基于递归的后序遍历算法实现
+intw_l,w_ri
+if（root->left==NULL&&root->right==NULL)
+return 0;
+else
+w_l=WPL(root->left);
+//计算左子树的WPL
+//计算右子树的WPL
+//填写非叶结点的weight域
+return(w_l+w_r+root->weight);
+//返回WPL值
+注意
+上述两种算法为官方标准答案，当遍历到度为1的结点时，会传入空指针，导致空指针异常。但是，
+作为408考试的算法题，不要求考虑特殊的边界条件，只要算法思想正确，代码逻辑正确，即可得满分。
+因此，在复习过程中，无须花过多的时间抠代码的各种边界条件。
+16.【解答】
+1）算法的基本设计思想。
+表达式树的中序序列加上必要的括号即等价的中缀表达式。可以基于二叉树的中序遍历策略
+得到所需的表达式。
+表达式树中分支结点所对应的子表达式的计算次序，由该分支结点所处的位置决定。为得到
+正确的中缀表达式，需要在生成遍历序列的同时，在适当位置增加必要的括号。显然，表达式的
+最外层（对应根结点）和操作数（对应叶结点）不需要添加括号。
+2）算法实现。
+将二叉树的中序遍历递归算法稍加改造即可得本题的答案。除根结点和叶结点外，遍历到其
+他结点时在遍历其左子树之前加上左括号，遍历完右子树后加上右括号。
+void BtreeToE(BTree *root){
+BtreeToExp(root,l);
+//根的高度为1
+void BtreeToExp(BTree *root,int deep)(
+if(root==NULL) return;
+//空结点返回
+else if(root->left==NULL&&root->right==NULL)
+//若为叶结点
+printf("%s",root->data);
+/输出操作数，不加括号
+elsel
+if（deep>l)printf("(");
+1若有子表达式则加一层括号

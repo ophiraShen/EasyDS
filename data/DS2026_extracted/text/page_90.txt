@@ -1,0 +1,53 @@
+78
+2026年数据结构考研复习指导
+则size加1，队空时Q.size==0；队满时Q.size==MaxSize，两种情况都有
+Q.front==Q.rear.
+3）类型中增设tag数据成员，以区分是队满还是队空。删除成功置tag=0，若导致
+Q.front==Q.rear，则为队空；插入成功置tag=1，若导致Q.front==Q.rear，则
+为队满。
+3.循环队列的操作
+（1）初始化
+void InitQueue(SqQueue &Q)(
+Q.rear=Q.front=0;
+/初始化队首、队尾指针
+（2）判队空
+bool isEmpty(SqQueue Q)(
+if(Q.rear==Q.front)
+/队空条件
+return true;
+else
+return false;
+（3）入队
+bool EnQueue(SqQueue &Q,ElemType x){
+if((Q.rear+1)%MaxSize==Q.front)
+//队满则报错
+return false;
+Q.data[Q.rear]=x;
+Q.rear=(Q.rear+l)MaxSize;
+/队尾指针加1取模
+return true;
+（4）出队
+bool DeQueue(SqQueue &Q,ElemType &x)(
+if(Q.rear==Q.front)
+/队空则报错
+return false;
+x=Q.data[Q.front];
+Q.front=(Q.front+1)%MaxSize;
+//队首指针加1取模
+return true;
+3.2.3
+队列的链式存储结构
+1.队列的链式存储
+命题追踪根据需求分析队列适合的存储结构（2019）
+队列的链式表示称为链式队列，它实际上是一个同时有队首指针和队尾指针的单链表，如
+图3.8所示。队首指针指向队头结点，队尾指针指向队尾结点，即单链表的最后一个结点。
+rear
+front-
+“D
+图3.8不带队头结点的链式队列
+队列的链式存储类型可描述为
+typedef struct LinkNodet
+//链式队列结点
+ElemType data;
+struct LinkNode *next;
+)LinkNode;

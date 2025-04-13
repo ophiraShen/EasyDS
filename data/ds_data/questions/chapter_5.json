@@ -1,0 +1,2058 @@
+[
+    {
+        "id": "q051001",
+        "title": "树最适合表示的数据",
+        "content": "树最适合用来表示（）的数据。",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0511",
+            "kc0512",
+            "kc0513"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "树是一种分层结构，它特别适合组织那些具有分支层次关系的数据。"
+        }
+    },
+    {
+        "id": "q052002",
+        "title": "二叉树为空时的含义",
+        "content": "“二叉树为空”意味着二叉树（）。\nA.根结点没有子树\nB.不存在\nC.没有结点\nD.由一些没有赋值的空结点构成",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "“二叉树为空”意味着二叉树中没有结点，但并不意味着二叉树不存在。注意，线性表可以\n是空表，树可以是空树，但图不能是空图（图中不能没有结点）。"
+        }
+    },
+    {
+        "id": "q052003",
+        "title": "完全二叉树与叶结点问题",
+        "content": "下列关于完全二叉树的说法中，正确的是（）。\nA.在完全二叉树中，叶结点的双亲的左兄弟（若存在）一定不是叶结点\nB.任何一棵二叉树中，叶结点数为度为2的结点数减1，即no=n2-1\nC．完全二叉树不适合顺序存储结构，只有满二叉树适合顺序存储结构\nD.结点按完全二叉树层序编号的二叉树中，第i个结点的左孩子的编号为2i\n134\n2026年数据结构考研复习指导\n04．具有10个叶结点的二叉树中有（）个度为2的结点。\nA. 8\nB.9\nC.10\nD. 11",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在完全二叉树中，叶结点的双亲的左兄弟的孩子一定在其前面（且一定存在），所以双亲的\n左兄弟（若存在）一定不是叶结点，选项A正确。no应等于n2+1，选项B错误。完全二叉树和\n满二叉树均可以采用顺序存储结构，选项C错误。第i个结点的左孩子不一定存在，选项D错误。\n选项B的这种通用公式适用于所有二叉树，我们应能立即联想到采用特殊值代入法验证，如\n画一个只含3个结点的满二叉树的草图来验证是否满足条件。"
+        }
+    },
+    {
+        "id": "q052005",
+        "title": "二叉树结点数最小值",
+        "content": "设高度为h的二叉树上只有度为0和度为2的结点，则此类二叉树中所包含的结点数至\n少为（）。\nA. h\nB.2h-1\nC.2h+1\nD.h+1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "结点最少的情况如下图所示。除根结点层只有1个结点外，其他h-1层均有两个结点，结\n点总数=2（h-1）+1=2h-1。"
+        }
+    },
+    {
+        "id": "q052006",
+        "title": "二叉树结点与高度关系",
+        "content": "具有n个结点且高度为n的二叉树的数目为（）。\nA. log2n\nB.n/2\nC. n\nD. 2-1\n07．假设一棵二叉树的结点个数为50，则它的最小高度是（）。\nA. 4\nB.5\nC. 6\nD. 7",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "除根结点外，在其余Ⅱ-1个结点中，每个结点要么是其父结点的左孩子，要么是其父结点\n的右孩子，每个结点都有两种可能，n-1个结点共有2\"-种不同的组合形态。"
+        }
+    },
+    {
+        "id": "q052008",
+        "title": "二叉树结点度分析",
+        "content": "设二叉树有2n个结点，且m<n，则不可能存在（）的结点。\nA.n个度为0\nB.2m个度为0\nC.2m个度为1\nD.2m个度为2",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "由二叉树的性质1可知no=n+1,结点总数=2n=no+n+n=n+2n+1，则n=2(n-n2)-1，\n所以n为奇数，说明该二叉树中不可能有2m个度为1的结点。"
+        }
+    },
+    {
+        "id": "q052009",
+        "title": "二叉树高度与深度问题",
+        "content": "一个具有1025个结点的二叉树的高h为（）。\nA. 11\nB.10\nC.11~1025\nD.10~1024\n10．设二叉树只有度为0和2的结点，其结点个数为15，则该二叉树的最大深度为（）。\nA.4\nB.5\nC.8\nD.9",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "当二叉树为单支树时具有最大高度，即每层上只有一个结点，最大高度为1025。而当树为完\n全二叉树时，其高度最小，最小高度为[log2n+1=11。"
+        }
+    },
+    {
+        "id": "q052011",
+        "title": "完全二叉树最少结点数",
+        "content": "高度为h的完全二叉树最少有（）个结点。\nA. 2h\nB. 2+ 1\nC. 2-1\nD. 2-1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "高度为h的完全二叉树中，第1层～第h-1层构成一个高度为h-1的满二叉树，结点个数\n为21-1。第h层至少有一个结点，所以最少的结点个数=（2--1)+1=2\"1。"
+        }
+    },
+    {
+        "id": "q052012",
+        "title": "完全二叉树的结点个数最少",
+        "content": "已知一棵完全二叉树的第6层（设根为第1层）有8个叶结点，则完全二叉树的结点个\n数最少是（）。\nA. 39\nB.52\nC.111\nD.119",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "第6层有叶结点说明完全二叉树的高度可能为6或7，显然树高为6时结点最少。若第6层\n上有8个叶结点，则前5层为满二叉树，所以完全二叉树的结点个数最少为2-1+8=39个结点。"
+        }
+    },
+    {
+        "id": "q052013",
+        "title": "完全二叉树叶结点数量",
+        "content": "若一棵深度为6的完全二叉树的第6层有3个叶结点，则该二叉树共有（）个叶结点。\nA.17\nB.18\nC.19\nD. 20",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "深度为6的完全二叉树，第5层共有24=16个结点。第6层最左边有3个叶结点，其对应\n的双亲结点为第5层最左边的两个结点，所以第5层剩余的结点均为叶结点，共有16-2=14个，\n加上第6层的3个叶结点，共有17个叶结点。"
+        }
+    },
+    {
+        "id": "q052014",
+        "title": "完全二叉树叶结点数量",
+        "content": "一棵完全二叉树上有1001个结点，其中叶结点的个数是（）。\nA.250\nB.500\nC.254\nD.501",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "由完全二叉树的性质，最后一个分支结点的序号为L1001/2」=500，所以叶结点个数为501。\n【另解】n=no+n+n2=no+n+（no-1)=2no+n-1，因为n=1001，而在完全二叉树中，\nn只能取0或1。当n=1时，no为小数，不符合题意。所以n=0，于是有no=501。"
+        }
+    },
+    {
+        "id": "q052015",
+        "title": "二叉树结点计算",
+        "content": "若一棵二叉树有126个结点，在第7层（根结点在第1层）至多有（）个结点。\nA.32\nB.64\nC.63\nD.不存在第7层\n16.\n，一棵有124个叶结点的完全二叉树，最多有（）个结点。\nA.247\nB.248\nC. 249\nD. 250",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "要使二叉树第7层的结点数最多，只考虑树高为7层的情况，7层满二叉树有127个结点\n126仅比127少1个结点，只能少在第7层，所以第7层最多有26-1=63个结点。"
+        }
+    },
+    {
+        "id": "q052017",
+        "title": "完全二叉树结点数与空指针数",
+        "content": "某完全二叉树T中，结点个数最大的层有8个结点，则T中至多有（）个结点。\nA. 8\nB.15\nC.23\nD. 31\n18.\n一棵有n个结点的二叉树采用二叉链存储结点，其中空指针数为（）。\nA. n\nB.n+1\nC.n-1\nD. 2n",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在完全二叉树中，第4层刚好最多有8个结点（前4层对应高度为4的满二叉树），若第5\n层也有8个结点，则对应于结点个数最多的情况，此时树高为5，总结点数为15+8=23。"
+        }
+    },
+    {
+        "id": "q052019",
+        "title": "二叉树三叉链表性质",
+        "content": "设有n（n≥1）个结点的二叉树采用三叉链表表示，其中每个结点包含三个指针，分别\n指向其左孩子、右孩子及双亲（若不存在，则置为空），则下列说法中正确的是（）。\nI.树中空指针的数量为n+2\nII.所有度为2的结点均被三个指针指向\nIIl.每个叶结点均被一个指针所指向\nA. 1\nB. I、ⅡI\nC. 1、III\nD. II、III\n20．在一棵完全二叉树中，其根的序号为1，（）可判定序号为p和q的两个结点是否在同\n一层。\nA. [logp]=Llog2q]\nB. log2p = log2q\nC. [log2p]+ 1 =[log2q]\nD. [log2p]=[log2q] + 1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "二叉链表表示的二叉树中空指针的数量为n+1，三叉链表表示的二叉树多了一个根结点指向\n双亲的空指针，所以树中空指针的数量为n+2，选项I正确。若根结点的度为2，则只有左、右\n两个孩子指向它，选项ⅡI错误。若整棵树只有一个根结点，则没有指针指向它，选项ⅢI错误。"
+        }
+    },
+    {
+        "id": "q052021",
+        "title": "完全二叉树公共祖先下标",
+        "content": "在一个用数组表示的完全二叉树中，根结点的下标为1，那么下标为17和19的结点的\n第5章树与二叉树\n135\n最近公共祖先的下标是（）。\nA.1\nB.2\nC. 4\nD. 8",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "当根结点下标为1时，下标为i的结点的父结点下标为i2」，那么下标为17的祖先的下标有\n8,4,2，1，下标为19的祖先的下标有9，4，2，1，因此两者最近的公共祖先的下标是4。"
+        }
+    },
+    {
+        "id": "q052022",
+        "title": "三叉树最小高度",
+        "content": "假定一棵三叉树的结点数为50，则它的最小高度为（）。\nA.3\nB.4\nC.5\nD.6",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "即h≥log;101，有h=[1og3101]=5。"
+        }
+    },
+    {
+        "id": "q052023",
+        "title": "三叉树空指针域与满二叉树性质",
+        "content": "具有n个结点的三叉树用三叉链表表示，则树中空指针域的个数为（）。\nA.3n+1\nB.2n+1\nC.3n-1\nD. 3n\n24．对于一棵满二叉树，共有n个结点和m个叶结点，高度为h，则（）。\nA.n=h+m\nB.n+m=2h\nC.m=h-1\nD. n=2\"-1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "三叉树采用三叉链表表示，每个结点均有3个指针域指向3个孩子，共有3n个指针域，但n\n个结点构成的一棵树中只需要n-1个指针（对于n-1条边），因此空指针域有2n+1个。"
+        }
+    },
+    {
+        "id": "q052025",
+        "title": "完全二叉树结点个数最大值",
+        "content": "【2009统考真题】已知一棵完全二叉树的第6层（设根为第1层）有8个叶结点，则该\n完全二叉树的结点个数最多是（）。\nA. 39\nB.52\nC. 111\nD.119",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "第6层有叶结点，完全二叉树的高度可能为6或7，显然树高为7时结点最多。完全二叉树\n与满二叉树相比，只是在最下一层的右边缺少部分叶结点，而最后一层之上是个满二叉树，且只\n有最后两层上有叶结点。若第6层上有8个叶结点，则前6层为满二叉树，而第7层缺失8×2=16\n个叶结点，所以完全二叉树的结点个数最多为27-1-16=111。"
+        }
+    },
+    {
+        "id": "q052026",
+        "title": "完全二叉树叶结点计算",
+        "content": "【2011统考真题】若一棵完全二叉树有768个结点，则该二叉树中叶结点的个数是（）。\nA.257\nB.258\nC.384\nD.385",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "【另解】n=no+n+n2=no+n+(no-1)=2no+n-1，其中n=768，而在完全二叉树中，\nn只能取0或1，当n=0时，no为小数，不符合题意。因此n=1，所以no=384。"
+        }
+    },
+    {
+        "id": "q052027",
+        "title": "完全二叉树结点总数",
+        "content": "【2018统考真题】设一棵非空完全二叉树T的所有叶结点均位于同一层，且每个非叶结\n点都有2个子结点。若T有k个叶结点，则T的结点总数是（）。\nA.2k-1\nB.2k\nC. R²\nD. 2*-1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "非叶结点的度均为2，且所有叶结点都位于同一层的完全二叉树就是满二叉树。对于一棵高\n度为h的满二叉树（空树h=0），其最后一层全部是叶结点，数目为2：总结点数为2-1。因"
+        }
+    },
+    {
+        "id": "q052028",
+        "title": "高度为5的二叉树存储单元数量",
+        "content": "【2020统考真题】对于任意一棵高度为5且有10个结点的二叉树，若采用顺序存储结构\n保存，每个结点占1个存储单元（仅存放结点的数据信息），则存放该二叉树需要的存\n储单元数量至少是（）。\nA.31\nB.16\nC.15\nD.10",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "二叉树采用顺序存储时，用数组下标来表示结点之间的父子关系。对于一棵高度为5的二叉\n树，为了满足任意性，其1～5层的所有结点都要被存储起来，即考虑为一棵高度为5的满二叉\n树，共需要存储单元的数量为1+2+4+8+16=31。"
+        }
+    },
+    {
+        "id": "q052029",
+        "title": "三叉树高度计算",
+        "content": "【2022统考真题】若三叉树T中有244个结点（叶结点的高度为1），则T的高度至少是（）。\nA. 8\nB.7\nC.6\nD.5",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0521",
+            "kc0522"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "高度一定的三叉树中结点数最多的情况是满三叉树。高度为5的满三叉树的结点数=3°+3+\n3²+3²+34=121，高度为6的满三叉树的结点数=3°+3'+3²+3²+34+3=364。三叉树T的结点\n数为244，121<244<364，因此T的高度至少为6。\n第5章树与二叉树\n139"
+        }
+    },
+    {
+        "id": "q053001",
+        "title": "二叉树遍历正确说法",
+        "content": "在下列关于二叉树遍历的说法中，正确的是（）。\nA.若有一个结点是二叉树中某个子树的中序遍历结果序列的最后一个结点，则它一定\n是该子树的前序遍历结果序列的最后一个结点\nB.若有一个结点是二叉树中某个子树的前序遍历结果序列的最后一个结点，则它一定\n是该子树的中序遍历结果序列的最后一个结点\nC.若有一个叶结点是二叉树中某个子树的中序遍历结果序列的最后一个结点，则它一\n定是该子树的前序遍历结果序列的最后一个结点\nD.若有一个叶结点是二叉树中某个子树的前序遍历结果序列的最后一个结点，则它一\n定是该子树的中序遍历结果序列的最后一个结点",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "二叉树中序遍历的最后一个结点一定是从根开始沿右子女指针链走到底的结点，设用p指示。\n若结点p不是叶结点（其左子树非空），则前序遍历的最后一个结点在它的左子树中，选项A、B\n错误：若结点p是叶结点，则前序与中序遍历的最后一个结点就是它，选项C正确。若中序遍历\n的最后一个结点p不是叶结点，它还有一个左子女q，结点q是叶结点，那么结点q是前序遍历\n的最后一个结点，但不是中序遍历的最后一个结点，选项D错误。"
+        }
+    },
+    {
+        "id": "q053002",
+        "title": "二叉树遍历序列关系",
+        "content": "在任何一棵二叉树中，若结点a有左孩子b、右孩子c，则在结点的先序序列、中序序\n列、后序序列中，（）。\nA.结点b一定在结点a的前面\nB.结点a一定在结点c的前面\nC.结点b一定在结点c的前面\nD.结点a一定在结点b的前面",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "三种遍历方式中，都先遍历左子树，再遍历右子树，因此b一定在c的前面访问。"
+        }
+    },
+    {
+        "id": "q053003",
+        "title": "二叉树中序遍历条件",
+        "content": "设n,m为一棵二叉树上的两个结点，在中序遍历时，n在m前的条件是（）。\nA.n在m右方\nB.n是m祖先\nC.n在m左方\nD.n是m子孙",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "中序遍历时，先访问左子树，再访问根结点，后访问右子树。n在m前的3种可能性如下图\n所示，从中看出n总是在m的左方。\n(a)\n(b)\n(C)\n【另解】设n和m的最近公共祖先p，则有以下可能：\n情形1，m和n分别在p的左、右（右、左）分支上；情形2，m或n为p结点，另一结点\n在p的分支上。只有n和m分别处于p的左、右分支上，m为祖先结点且n位于m的左分支，n\n为祖先结点且m位于n的右分支，符合题意。"
+        }
+    },
+    {
+        "id": "q053004",
+        "title": "二叉树后序遍历条件",
+        "content": "设n,m为一棵二叉树上的两个结点，在后序遍历时，n在m前的充分条件是（）。\nA.n在m右方\nB.n是m祖先\nC.n在m左方\nD.n是m子孙",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "后序遍历的顺序是LRN，若n在N的左子树，m在N的右子树，则在后序遍历的过程中n\n在m之前访问：若n是m的子孙，设m在N的位置，则n无论是在m的左子树还是在右子树，\n在后序遍历的过程中n都在m之前访问。其他都不可以。选项C要成立，就需加上两个结点位于\n同一层这个条件。"
+        }
+    },
+    {
+        "id": "q053005",
+        "title": "二叉树后序遍历",
+        "content": "某非空二叉树采用顺序存储结构，树中的结点信息按完全二叉树的层次序列依次存放在\n如下所示的一维数组中，则该二叉树的后序遍历序列为（）。\n2\n5\n6\n7\n8\n9\n10\n11\n12\nalblcl\nde\nh\nA. ghbefhca\nB. gbdehcfa\nC. gdbhefca\nD. bgdehcfa",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在二叉树的数组存储结构中，下标为i的结点的左、右孩子的下标分别为2i+1和2i+2（若\n存在），画出二叉树的形态如下图所示，则后序遍历序列为gdbhefca。\n第5章\n树与二叉树\n155"
+        }
+    },
+    {
+        "id": "q053006",
+        "title": "二叉树叶结点顺序比较",
+        "content": "在二叉树的前序序列、中序序列和后序序列中，所有叶结点的先后顺序（）。\nA.都不相同\nB.完全相同\nC.前序和中序相同，而与后序不同\nD.中序和后序相同，而与前序不同",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "三种遍历方式中，访问左、右子树的先后顺序是不变的，只是访问根结点的顺序不同，因此\n叶结点的先后顺序完全相同。此外，读者可以采用特殊值法，画一个结点数为3的满二叉树，采\n用三种遍历方式来验证答案的正确性。"
+        }
+    },
+    {
+        "id": "q053007",
+        "title": "二叉树结点编号遍历方法",
+        "content": "对二叉树的结点从1开始进行连续编号，要求每个结点的编号大于其左、右孩子的编号，\n同一结点的左、右孩子中，其左孩子的编号小于其右孩子的编号，可采用（）次序的\n遍历实现编号。\nA.先序遍历\nB.中序遍历\nC.后序遍历\nD．层次遍历",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对每个顶点从1开始按序编号，要求结点编号大于其左、右孩子编号，并且左孩子编号小于\n右孩子编号。编号越大说明遍历顺序越靠后，因此，三者遍历顺序为先左子树、再右子树、后根\n结点。4个选项中仅后序遍历满足要求。"
+        }
+    },
+    {
+        "id": "q053008",
+        "title": "二叉树遍历与编号问题",
+        "content": "按某种顺序对二叉树的结点进行编号，编号为1,2,，n，规定：树中任一结点v，其编\n号等于v的左子树上的最小编号减1，而v的右子树中的最小编号等于v的左子树上的\n第5章树与二叉树\n149\n最大编号加1，则说明该二叉树是按（）次序编号的。\nA.中序遍历\nB.先序遍历\nC.后序遍历\nD.层次遍历\n09．前序序列为A,B,C，后序序列为C,B,A的二叉树共有（）。\nA.1棵\nB.2棵\nC.3棵\nD.4棵\n10．一棵完全二叉树的后序遍历序列为CDBFGEA，则其先序遍历序列是（）。\nA.CBDAFEG\nB.ABECDFG\nC.ABCDEFG\nD.无法确定",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "结点v的编号比其左子树上的最小编号还小，而v的右子树中的最小编号大于v的左子树中\n的最大编号，因此√的编号比其左、右子树上的所有编号都小，显然是按先序遍历次序。"
+        }
+    },
+    {
+        "id": "q053011",
+        "title": "二叉树结点关系",
+        "content": "设结点X和Y是二叉树中任意的两个结点。在该二叉树的先序遍历序列中X在Y之前，\n而在其后序遍历序列中X在Y之后，则X和Y的关系是（）。\nA.X是Y的左兄弟\nB.X是Y的右兄弟\nC.X是Y的祖先\nD.X是Y的后裔",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "二叉树的前序遍历为NLR，后序遍历为LRN。根据题意，在前序序列中X在Y之前，在后\n序序列中X在Y之后，若设X在根的位置，Y在其左子树或右子树中，即满足要求。"
+        }
+    },
+    {
+        "id": "q053012",
+        "title": "二叉树结点位置关系",
+        "content": "若二叉树中结点的先序序列是...a...b..，中序序列是...b...a….，则（）。\nA.结点a和结点b分别在某结点的左子树和右子树中\nB.结点b在结点a的右子树中\nC.结点b在结点a的左子树中\nD.结点a和结点b分别在某结点的两棵非空子树中",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "先序序列是.….a..b.….，因此a和b结点的3种情况如下图（a)~（c所示。中序序列是...b...a.…\n因此a和b结点的3种情况如下图（d)～（f所示，相同部分是b在a的左子树中。\n(a)\n(b)\n(c)\n(d)\n(e)\n(#"
+        }
+    },
+    {
+        "id": "q053013",
+        "title": "二叉树遍历序列可能性",
+        "content": "一棵二叉树的先序遍历序列为1234567，它的中序遍历序列可能是（）。\nA.3124567\nB.1234567\nC.4135627\nD.1463572",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "解法1：由题可知，1为根结点，2为1的孩子。对于选项A，3应为1的左孩子，前序序列应\n为13.·，不符题意。类似地，选项C也是错误的。对于选项B，2为1的右孩子，3为2的右孩子···\n满足题意。对于选项D，463572应为1的右子树，2为1的右孩子，46357为2的左子树，3为2\n的左孩子，46为3的左子树，57为3的右子树，前序序列4、6应相连，5、7应相连，不符题意。\n156\n2026年数据结构考研复习指导\n解法2：前序遍历时需要借助栈。二叉树的前序序列和中序序列的关系相当于以前序序列作\n为入栈次序，以中序序列作为出栈次序。题中以1234567入栈：对于选项A，第一个出栈的是3，\n所以1不可能在2之前出栈，错误。对于选项C，1不可能在3之前出栈，错误。对于选项D，6\n第三个出栈，此时栈顶元素是5，不是3，错误。选项B正确。\n解法3：因前序序列和中序序列可以确定一棵二叉树，所以可试着用题目中的序列构造出相\n应的二叉树，即可得知，只有选项B的序列可以构造出二叉树。"
+        }
+    },
+    {
+        "id": "q053014",
+        "title": "确定二叉树的序列组合",
+        "content": "下列序列中，不能唯一地确定一棵二叉树的是（）。\nA.层次序列和中序序列\nB.先序序列和中序序列\nC.后序序列和中序序列\nD.先序序列和后序序列",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "先序序列为NLR，后序序列为LRN，虽然可以唯一确定树的根结点，但无法划分左、右子\n树。例如，先序序列为AB，后序序列为BA，则其对应的二叉树如下图所示。\nA\nA"
+        }
+    },
+    {
+        "id": "q053015",
+        "title": "二叉树中序与后序序列相同条件",
+        "content": "若一棵二叉树的中序序列和后序序列相同，则（）。\nA.二叉树为空树或二叉树任一结点没有左子树\nB.二叉树为空树或二叉树任一结点没有右子树\nC.二叉树为空树或二叉树中每个结点的度为1\nD.二叉树为空树或二叉树为满二叉树",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "中序遍历是“左根右”，后序遍历是“左右根”，当任一结点没有右子树时，两种遍历都是“左\n根”。显然，当二叉树为空树或只有根结点时，其中序序列和后序序列也相同。"
+        }
+    },
+    {
+        "id": "q053016",
+        "title": "二叉树序列转换",
+        "content": "已知一棵二叉树的后序序列为DABEC，中序序列为DEBAC，则先序序列为（）。\nA.ACBED\nB. DECAB\nC. DEABC\nD. CEDBA",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "根据后序序列与中序序列可构造出二叉树，如下图所示。由图可知先序序列为CEDBA。\nC\nD、E、B、A\n(a)确定根结点\n(b)确定左子树根结点\n(c)确定剩下的子树"
+        }
+    },
+    {
+        "id": "q053017",
+        "title": "二叉树遍历结果",
+        "content": "已知一棵二叉树的先序遍历结果为ABCDEF，中序遍历结果为CBAEDF，则后序遍历的\n结果为（）。\nA.CBEFDA\nB.FEDCBA\nC. CBEDFA\nD.不确定",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于这种遍历序列问题，先根据遍历的性质排除若干项，若还无法确定答案，则再根据遍历\n结果得到二叉树，找到对应遍历序列。例如，在本题中，已知先序和中序遍历结果，可知本树的\n根结点为A，左子树有C和B，其余为右子树，则后序遍历结果中，A一定在最后，并且C和B\n一定在前面，排除选项B和D。又因先序中有DEF，中序中有EDF，则D为这个子树的根，所\n以D在后序中排在EF之后。\n根据二叉树的递归定义，要确定二叉树，就要分别找到根结点和左、右子树。因此，根据遍\n历结果，必定要确定根结点位置和如何划分左、右子树，才可以确定最终的二叉树。因此，仅有\n先序和后序遍历不能唯一确定一棵二叉树，而二者之一加上中序遍历都可以唯一确定一棵二叉\n树。如在本题中，根据先序和中序遍历的结果确定二叉树的过程如下图所示。\nA\nA\nC、B）\nD、E、F\nD、E、F\n(a)确定根结点\n(b)确定左子树\n(c)确定右子树"
+        }
+    },
+    {
+        "id": "q053018",
+        "title": "二叉树遍历序列问题",
+        "content": "已知一棵二叉树的层次序列为ABCDEF，中序序列为BADCFE，则先序序列为（）。\nA.ACBEDF\nB.ABCDEF\nC. BDFECA\nD. FCEDBA\n19．某二叉树中结点x在先序、中序、后序遍历序列中的编号分别为pre(x)、in(x)、post(x)\n（假设都从1开始依次顺序编号），a和b是该二叉树中的两个结点，其中a是b的祖先，\n则下列选项中不可能出现的是（）。\nA. pre(a)<pre(b)B. post(a)<post(b) C. in(a)<in(b)\nD. in(a)> in(b)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "可构造出二叉树如下图所示。因此，先序序列为ABCDEF。\n第5章树与二叉树\n157\nD、C、F、E\n(a)确定根结点\n(b)确定右子树的根结点\n(c)确定剩下的子树"
+        }
+    },
+    {
+        "id": "q053020",
+        "title": "二叉树删除结点的最佳遍历方法",
+        "content": "某二叉树采用二叉链表存储结构，若要删除该二叉链表中的所有结点，并释放它们占用\n的存储空间，则采用（）遍历方法最合适。\nA.中序\nB.层次\nC.后序\nD.先序",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "删除一个结点时，需要先递归地删除它的左、右孩子，并释放它们所占的存储空间，然后删\n除该结点，并删除它所占的存储空间，这正好和后序遍历的访问顺序相吻合。"
+        }
+    },
+    {
+        "id": "q053021",
+        "title": "二叉树中序序列反转",
+        "content": "某二叉树T采用二叉链表存储结构，T的中序遍历序列为一个升序序列，要求采用某种\n方法对T进行某种操作之后得到一棵新的二叉树T，要求T的中序遍历序列为一个降序\n150\n2026年数据结构考研复习指导\n序列，则下列关于该算法的叙述中，正确的是（）。\nA.采用中序遍历的方法最合适\nB.采用后序遍历的方法最合适\nC.T中的根结点还是原T中的根结点\nD.T中的叶结点不一定是原T中的叶结点",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "只要交换7中所有分支结点的左右子树，就能得到一棵中序遍历序列为降序序列的树，而这\n并不会改变根结点，叶结点也仅仅交换位置，仍是原T中的叶结点，选项C、D错误。交换T中\n所有分支结点的左右子树，要么先处理根结点，然后递归地处理左右子树，即先序遍历；要么先\n处理左右子树，然后处理根结点，即后序遍历；中序遍历是不适合的。选项A错误，选项B正确。"
+        }
+    },
+    {
+        "id": "q053022",
+        "title": "线索二叉树的目的",
+        "content": "引入线索二叉树的目的是（）。\nA.加快查找结点的前驱或后继的速度\nB.为了能在二叉树中方便插入和删除\nC.为了能方便找到双亲\nD.使二叉树的遍历结果唯一",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "线索是前驱结点和后继结点的指针，引入线索的目的是加快对二叉树的遍历。"
+        }
+    },
+    {
+        "id": "q053023",
+        "title": "线索二叉树的结构类型",
+        "content": "线索二叉树是一种（）结构。\nA.逻辑\nB.逻辑和存储\nC.物理\nD.线性",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "二叉树是一种逻辑结构，但线索二叉树是加上线索后的链表结构，即它是二叉树在计算机内\n部的一种存储结构，所以是一种物理结构。"
+        }
+    },
+    {
+        "id": "q053024",
+        "title": "线索二叉树线索数",
+        "content": "n个结点的线索二叉树上含有的线索数为（）。\nA.2n\nB.n-1\nC. n+1\nD. n",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "n个结点共有链域指针2n个，其中，除根结点外，每个结点都被一个指针指向。剩余的链域\n建立线索，共2n-（n-1）=n+1个线索。"
+        }
+    },
+    {
+        "id": "q053025",
+        "title": "线索二叉树右孩子条件",
+        "content": "判断线索二叉树中*p结点有右孩子结点的条件是（）。\nA.p!=NULL\nB. p->rchild!=NULL\nC. p->rtag==0\nD. p->rtag==1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "线索二叉树中用ltag/rtag标识结点的左/右指针域是否为线索，其值为1时，对应指针域\n为线索，其值为0时，对应指针域为左/右孩子。"
+        }
+    },
+    {
+        "id": "q053026",
+        "title": "先序线索化二叉树空链域个数",
+        "content": "一棵左子树为空的二叉树在先序线索化后，其中空的链域的个数是（）。\nA.不确定\nB.0个\nC.1个\nD.2个",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对左子树为空的二叉树进行先序线索化，根结点的左子树为空并且也没有前驱结点（先遍历\n根结点），先序遍历的最后一个元素为叶结点，左、右子树均为空且有前驱无后继结点，所以线\n索化后，树中空链域有2个。"
+        }
+    },
+    {
+        "id": "q053027",
+        "title": "线索二叉树错误说法",
+        "content": "在线索二叉树中，下列说法不正确的是（）。\nA.在中序线索树中，若某结点有右孩子，则其后继结点是它的右子树的最左下结点\nB.在中序线索树中，若某结点有左孩子，则其前驱结点是它的左子树的最右下结点\nC.线索二叉树是利用二叉树的n+1个空指针来存放结点的前驱和后继信息的\nD.每个结点通过线索都可以直接找到它的前驱和后继",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "不是每个结点通过线索都可以直接找到它的前驱和后继。在先序线索二叉树中查找一个结点\n的先序后继很简单，而查找先序前驱必须知道该结点的双亲结点。同样，在后序线索二叉树中查\n找一个结点的后序前驱也很简单，而查找后序后继也必须知道该结点的双亲结点，二叉链表中没\n有存放双亲的指针。"
+        }
+    },
+    {
+        "id": "q053028",
+        "title": "二叉树线索化后不能求解的问题",
+        "content": "二叉树在线索化后，仍不能有效求解的问题是（）。\nA.先序线索二叉树中求先序后继\nB.中序线索二叉树中求中序后继\nC.中序线索二叉树中求中序前驱\nD.后序线索二叉树中求后序后继",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "后序线索二叉树不能有效解决求后序后继的问题。如下图所示，结点E的右指针指向右孩子，\n158\n2026年数据结构考研复习指导\n而在后序序列中E的后继结点为B，在查找E的后继时仍然只能按常规方法来查找。\nA"
+        }
+    },
+    {
+        "id": "q053029",
+        "title": "二叉中序线索树前驱结点",
+        "content": "若X是二叉中序线索树中一个有左孩子的结点，且X不为根，则X的前驱为（）。\nA.X的双亲\nB.X的右子树中最左的结点\nC.X的左子树中最右的结点\nD.X的左子树中最右的叶结点",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在二叉中序线索树中，某结点若有左孩子，则按照中序“左根右”的顺序，该结点的前驱结\n点为左子树中最右的一个结点（注意，并不一定是最右叶结点）。"
+        }
+    },
+    {
+        "id": "q053030",
+        "title": "后序线索二叉树与遍历栈需求",
+        "content": "若X是后序线索二叉树中的叶结点，且X存在左兄弟Y，则X的右线索指向的是（）。\nA.X的双亲\nB.以Y为根的子树的最左下结点\nC.X的左兄弟Y\nD.以Y为根的子树的最右下结点\n31．（）的遍历仍需要栈的支持。\nA.前序线索树\nB.中序线索树\nC.后序线索树\nD.所有线索树",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在二叉树的后序遍历中，叶结点X的后继是其双亲，因此X的右线索应指向该结点。"
+        }
+    },
+    {
+        "id": "q053032",
+        "title": "二叉树序列相反条件",
+        "content": "某二叉树的先序序列和后序序列正好相反，则该二叉树一定是（）。\nA.空或只有一个结点\nB.高度等于其结点数\nC.任意一个结点无左孩子\nD.任意一个结点无右孩子\n33．某非空二叉树的先序序列和中序序列正好相反，则下列叙述中正确的是（）。\nA.该二叉树一定只有一个结点\nB.只有一个叶结点的二叉树一定满足条件\nC.任意一个结点无左孩子的二叉树一定满足条件\nD.任意一个结点无右孩子的二叉树一定满足条件",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "非空二叉树的先序序列和后序序列相反，即“根左右”与“左右根”顺序相反，因此树只有\n根结点，或根结点只有左子树或右子树，其子树也有同样的性质，任意结点只有一个孩子，才能\n满足先序序列和后序序列正好相反。此时树形应为一个长链，树中仅有一个叶结点。"
+        }
+    },
+    {
+        "id": "q053034",
+        "title": "二叉树遍历方式",
+        "content": "【2009统考真题】给定二叉树如下图所示。设N代表二叉树的根，L代表根结点的左子\n树，R代表根结点的右子树。若遍历后的结点序列是3175624，则其遍历方式是（）。\n第5章\n树与二叉树\n151\nA.LRN\nB.NRL\nC.RLN\nD.RNL",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "分析遍历后的结点序列，可以看出根结点是在中间被访问的，而且右子树结点在左子树之前，\n则遍历的方法是RNL。本题考查的遍历方法并不是二叉树遍历的3种基本遍历方法，对于考生而\n言，重要的是掌握遍历的思想。"
+        }
+    },
+    {
+        "id": "q053035",
+        "title": "后序线索树定义",
+        "content": "【2010统考真题】下列线索二叉树中（用虚线表示线索），符合后序线索树定义的是（）。\na\nNull\nB.\nC\nD.",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "题中所给二叉树的后序序列为dbca。结点d无前驱和左子树，左链域空，无右子树，右链域\n指向其后继结点b；结点b无左子树，左链域指向其前驱结点d：结点c无左子树，左链域指向其\n前驱结点b，无右子树，右链域指向其后继结点a。"
+        }
+    },
+    {
+        "id": "q053036",
+        "title": "二叉树遍历序列分析",
+        "content": "【2011统考真题】一棵二叉树的前序遍历序列和后序遍历序列分别为1,2,3,4和4，3,2，1，\n该二叉树的中序遍历序列不会是（）。\nA.1,2,3,4\nB. 2,3,4,1\nC. 3,2,4, 1\nD.4,3,2, 1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0531",
+            "kc0532"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "前序序列为NLR，后序序列为LRN，因为前序序列和后序序列刚好相反，所以不可能存在\n一个结点同时有左右孩子，即二叉树的高度为4。1为根结点，根结点只能有左孩子（或右孩子），\n第5章树与二叉树\n159\n因此在中序序列中，1或在序列首或在序列尾，选项A、B、C、D皆满足要求。仅考虑以1的孩\n子结点2为根结点的子树，它也只能有左孩子（或右孩子），因此在中序序列中，2或在序列首或\n在序列尾，选项A、B、D皆满足要求。\n【另解】画出各选项与题干信息所对应的二叉树如下，所以选项A、B、D均满足。"
+        }
+    },
+    {
+        "id": "q054002",
+        "title": "二叉链表存储森林的根结点右指针",
+        "content": "利用二叉链表存储森林时，根结点的右指针是（）。\nA.指向最左兄弟B.指向最右兄弟\nC.一定为空\nD.不一定为空\n的二叉树根结点的右子树上的结点个数是（）。\nA. M\nB.M+M2\nC. M3\nD.M+M",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "森林与二叉树具有对应关系，因此，我们存储森林时应先将森林转换成二叉树，转换的方法\n就是“左孩子右兄弟”，与树不同的是，若存在第二棵树，则二叉链表的根结点的右指针指向的\n是森林中的第二棵树的根结点。若此森林只有一棵树，则根结点的右指针为空。因此，右指针可\n能为空也可能不为空。"
+        }
+    },
+    {
+        "id": "q054004",
+        "title": "森林F对应二叉树左子树结点数",
+        "content": "设森林F中有4棵树，第1、2、3、4棵树的结点数分别为a、b、c和d，与森林F对\n应的二叉树的根结点的左子树上的结点数是（）。\nA.a\nB. b+c+d\nC.a-1\nD.a+b+c",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "森林转换为二叉树后，二叉树的根结点为第1棵树的根结点，二叉树的根结点的左子树包含\n第1棵树的所有孩子，因此森林F对应的二叉树的根结点的左子树上的结点数是a-1。"
+        }
+    },
+    {
+        "id": "q054005",
+        "title": "森林F中第一棵树的结点数",
+        "content": "设森林F对应的二叉树为B，它有m个结点，B的根为p，p的右子树结点数为n，森林\nF中第一棵树的结点数是（）。\nA.m-n\nB. m-n-1\nC.n+1\nD.条件不足，无法确定",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "森林转换成二叉树时采用孩子兄弟表示法，根结点及其左子树为森林中的第一棵树。右子树\n为其他剩余的树。所以，第一棵树的结点个数为m-n。"
+        }
+    },
+    {
+        "id": "q054006",
+        "title": "森林F与完全二叉树的关系",
+        "content": "设森林F对应的二叉树是一棵具有16个结点的完全二叉树，则森林F中树的数目和结\n点最多的树的结点数分别是（）。\nA.2和8\nB.2和9\nC.4和8\nD.4和9",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "森林转换为二叉树后，二叉树的根结点及其左子树由第1棵树转换得到，二叉树的根结点的\n右子树由剩余的森林转换得到，以此类推，可以划分出第2，3，··棵树的结点。具有16个结点的\n完全二叉树的形态如下图所示，沿二叉树的根结点往右下遍历，共有4个结点，可知森林中有4\n棵树，其中第1棵树的结点数最多，有9个。"
+        }
+    },
+    {
+        "id": "q054007",
+        "title": "森林转化为二叉树的过程",
+        "content": "森林T=（T,T2.….，Tm）转化为二叉树BT的过程为：若m=0，则BT为空，若m≠0，\n则（）。\nA.将中间子树Tmid（mid=（1+m)/2）的根作为BT的根；将(T,T2·…·，Tmid-1)转换为BT\n的左子树；将（Tmid+1,.…，Tm)转换为BT的右子树\nB.将子树T的根作为BT的根；将T的子树森林转换成BT的左子树；将（T2,T3，·，Tm)\n转换成BT的右子树\nC.将子树T的根作为BT的根；将T的左子树森林转换成BT的左子树；将T的右子\n树森林转换为BT的右子树；其他以此类推\n176\n2026年数据结构考研复习指导\nD.将森林T的根作为BT的根；将（T，T2··，Tm)转化为该根下的结点，得到一棵树，\n然后将这棵树再转化为二叉树BT",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "将森林中每棵树的根结点视为兄弟结点的关系，再按照“左孩子右兄弟”的规则来进行转化。"
+        }
+    },
+    {
+        "id": "q054008",
+        "title": "森林转二叉树右指针域为空结点数",
+        "content": "设F是一个森林，B是由F变换来的二叉树。若F中有n个非终端结点，则B中右指针\n域为空的结点有（）个。\nA. n-1\nB.n\nC. n+ 1\nD.n+2",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "根据森林与二叉树转换规则“左孩子右兄弟”。二叉树B中右指针域为空代表该结点没有兄\n弟结点。森林中每棵树的根结点从第二个开始依次连接到前一棵树的根的右孩子，因此最后一棵\n树的根结点的右指针为空。另外，每个非终端结点，其所有孩子结点在转换之后，最后一个孩子\n的右指针也为空，所以树B中右指针域为空的结点有n+1个。"
+        }
+    },
+    {
+        "id": "q054009",
+        "title": "树的孩子兄弟链表示中叶结点个数",
+        "content": "设某树的孩子兄弟链表示中共有6个空的左指针域、7个空的右指针域，包括5个结点\n的左、右指针域都为空，则该树中叶结点的个数是（）。\nA.7\nB.6\nC. 5\nD.不能确定",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在树的孩子兄弟表示法中，若一个结点没有孩子（叶结点），则表现为该结点的左指针域为\n第5章树与二叉树\n179\n空，因此本题答案为“6”。至于“5个结点的左、右指针域都为空”，表示树中有5个结点既没\n有孩子又没有右兄弟，约束条件比题中的“求叶结点的个数”要求更严格。"
+        }
+    },
+    {
+        "id": "q054010",
+        "title": "有序树转二叉树的后根序列对应",
+        "content": "若T是由有序树T转换而来的二叉树，则T中结点的后根序列就是T中结点的（）序列。\nA.先序\nB.中序\nC.后序\nD.层序",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "有序树T转换成二叉树T时，T的后根序列是对应T的中序序列还是后序序列呢（显然树\n的后根序列不可能对应二叉树的先序序列和层序序列）？看下图所示的例子，在树T中，叶结点\nB应最先访问，在T中，B的右兄弟C转换为它的右孩子，若对应T的后序序列，则C应在B\n的前面访问，所以T的后根序列不可能对应T的后序序列。\n4\n树转化为二叉树\nC"
+        }
+    },
+    {
+        "id": "q054011",
+        "title": "二叉树森林树数",
+        "content": "某二叉树结点的中序序列为BDAECF，后序序列为DBEFCA，则该二叉树对应的森林包\n括（）棵树。\nA.1\nB.2\nC.3\nD. 4",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "根据二叉树的前序序列和中序序列可以确定一棵二叉树。根据后序序列，A是二叉树的根结\n点。根据中序序列，二叉树的形态如下图（a）所示。对于A的左子树，根据后序序列，B比D后\n被访问，因此B必为D的父结点，又根据中序序列，D是B的右儿子。对于A的右子树，\n同理可确定结点E、C、F的关系。此二叉树的形态如下图(b)所示。\nA\nB、DE、CF\n(a)\n(b)\n再根据二叉树与森林的对应关系，森林中树的棵数即其对应二叉树（向右上旋转45°后）的\n根结点A及其右兄弟数，或解释为：对应二叉树从根结点4开始不断往右孩子访问，所访问到的\n结点数。可知此森林中有3棵树，根结点分别为A，C和F。"
+        }
+    },
+    {
+        "id": "q054012",
+        "title": "树与二叉树中结点关系",
+        "content": "设X是树T中的一个非根结点，B是T所对应的二叉树。在B中，X是其双亲结点的右\n孩子，下列结论中正确的是（）。\nA.在树T中，X是其双亲结点的第一个孩子\nB.在树T中，X一定无右边兄弟\nC.在树T中，X一定是叶结点\nD.在树T中，X一定有左边兄弟",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在二叉树B中，X是其双亲的右孩子，因此在树T中，X必是其双亲结点的右兄弟，换句话\n说，X在树中必有左兄弟。"
+        }
+    },
+    {
+        "id": "q054013",
+        "title": "树存储结构错误叙述",
+        "content": "下图是一棵逻辑上的树T，则在关于该树的存储结构的叙述中，错误的是（）。\nA.若T采用双亲表示法，则有9个指向双亲的指针\nB.若T采用孩子表示法，则在T中查找某个结点的孩子比双亲表示法更方便\nC.若T采用孩子兄弟表示法，则在T中查找某个结点的双亲的时间复杂度为O（1)\nD.双亲表示法是顺序存储结构，孩子表示法和孩子兄弟表示法是链式存储结构",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "若T采用双亲表示法存储，则除根结点外，其余每个结点都有指向其双亲的指针，T共有10\n个结点，于是有9个指向双亲的指针，选项A正确。若T采用孩子表示法存储，则每个结点的孩\n子被视为一个线性表，且以单链表作为存储结构，只要遍历该单链表，就能找到某个结点的所有\n孩子，而双亲表示法要寻找某个结点的孩子，就必须遍历整棵树，选项B正确。若T采用孩子兄\n弟表示法，则在T中查找某个结点的双亲也必须遍历整棵树，时间复杂度为O(n)，选项C错误。\n选项D显然正确。"
+        }
+    },
+    {
+        "id": "q054014",
+        "title": "森林二叉树中兄弟结点关系",
+        "content": "在森林的二叉树表示中，结点M和结点N是同一父结点的左儿子和右儿子，则在该森\n林中（）。\nA.M和N有同一双亲\nB.M和N可能无公共祖先\nC.M是N的儿子\nD.M是N的左兄弟",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在森林的二叉树表示中，当M和N的父结点是二叉树根结点时，M和N在不同的树上。因\n此M和N可能无公共祖先。"
+        }
+    },
+    {
+        "id": "q054015",
+        "title": "森林转二叉树中结点关系分析",
+        "content": "【2009统考真题】将森林转换为对应的二叉树，若在二叉树中，结点是结点v的父结\n点的父结点，则在原来的森林中，u和V可能具有的关系是（）。\nI.父子关系\nII.兄弟关系\nIIl.u的父结点与v的父结点是兄弟关系\nA.只有IⅡI\nB.I和ⅡI\nC.I和III\nD.I、II和III",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "林关系中可能是兄弟关系或者原本就是父子关系。\n180\n2026年数据结构考研复习指导\n情形1：若结点v是结点u的第二个孩子结点，转换时，结点v就变成结点u第一个孩子的\n右孩子，符合要求。情形ⅡI：结点u和v是兄弟结点的关系，但二者之中还有一个兄弟结点k，\n则转换后结点v就变为结点k的右孩子，而结点k则是结点u的右孩子，符合要求。\n图1\n图Ⅱ\n情形IIl：若结点u的父结点与v的父结点是兄弟关系，则转换后，结点u和v分别在两者最\n左父结点的两棵子树中，不可能出现在同一条路径中。\n图ⅢI\n【另解】由题意可知u是v的父结点的父结点，如下图所示，有四种情况：\n(1)\n(2)\n(3)\n(4)\n根据树与二叉树的转换规则，将这四种情况转换成树中结点的关系。（1）在原来的树中u是v\n的父结点的父结点；（2）在树中u是v的父结点：（3）在树中u是v的父结点的兄弟：（4）在树中\nu与v是兄弟关系。由此可知选项I和ⅡI正确。"
+        }
+    },
+    {
+        "id": "q054016",
+        "title": "2011统考真题：树与二叉树结点问题",
+        "content": "【2011统考真题】已知一棵有2011个结点的树，其叶结点个数为116，该树对应的二叉\n树中无右孩子的结点个数是（）。\nA.115\nB.116\nC.1895\nD.1896",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "树转换为二叉树时，树的每个分支结点的所有子结点中的最右子结点无右孩子，根结点转换后\n也没有右孩子，因此，对应二叉树中无右孩子的结点个数=分支结点数+1=2011-116+1=1896。\n通常本题应采用特殊法求解，设题意中的树是如下图所示的结构，则对应的二叉树中仅有前\n115个叶结点有右孩子，所以无右孩子的结点个数=2011-115=1896。\n共1895个中间结点\n共116个叶结点"
+        }
+    },
+    {
+        "id": "q054017",
+        "title": "森林转二叉树中叶结点个数",
+        "content": "【2014统考真题】将森林F转换为对应的二叉树T，F中叶结点的个数等于（）。",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0541",
+            "kc0542",
+            "kc0543"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "将森林转化为二叉树相当于用孩子兄弟表示法来表示森林。在变化过程中，原森林某结点的\n第一个孩子结点作为它的左子树，它的兄弟作为它的右子树。森林中的叶结点没有孩子结点，转\n化为二叉树时，该结点就没有左结点，因此F中叶结点的个数等于T中左孩子指针为空的结点个\n数。此题还可通过一些特例来排除选项A、B和D。\n第5章树与二叉树\n181"
+        }
+    },
+    {
+        "id": "q055001",
+        "title": "哈夫曼树非叶结点总数",
+        "content": "在有n个叶结点的哈夫曼树中，非叶结点的总数是（）。\nA.n-1\nB.n\nC.2n-1\nD.2n",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "由哈夫曼树的构造过程可知，哈夫曼树中只有度为0和2的结点。在非空二叉树中，有no=\nn2+1，所以n2=n-1。\n【另解】n个结点构造哈夫曼树需要n-1次合并过程，每次合并新建一个分支结点，所以选\n择选项A。"
+        }
+    },
+    {
+        "id": "q055002",
+        "title": "哈夫曼树构造",
+        "content": "给定整数集合{3，5,6,9,12}，与之对应的哈夫曼树是（）\nA.\nB.\nC\nD.",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "第5章树与二叉树\n191\n首先，3和5构造为一棵子树，其根权值为8，然后该子树与6构造为一棵新子树，根权值\n为14，再后9与12构造为一棵子树，最后两棵子树共同构造为一棵哈夫曼树。"
+        }
+    },
+    {
+        "id": "q055003",
+        "title": "前缀码判断",
+        "content": "下列编码中，（）不是前缀码。\nA. {00, 01, 10, 11}\nB.{0,1,00,11}\nC.0,10,110,111}\nD.{10,110,1110,1111}",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "若没有一个编码是另一个编码的前缀，则称这样的编码为前缀编码。在选项B中，0是00\n的前缀，1是11的前缀。"
+        }
+    },
+    {
+        "id": "q055004",
+        "title": "哈夫曼编码字符数量",
+        "content": "设哈夫曼编码的长度不超过4，若已对两个字符编码为1和01，则还最多可对（）个\n字符编码。\nA. 2\nB.3\nC.4\nD.5",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在哈夫曼编码中，一个编码不能是任何其他编码的前缀。3位编码可能是001，对应的4位\n编码只能是0000和0001。3位编码也可能是000，对应的4位编码只能是0010和0011。若全采\n用4位编码，则可以为0000,0001,0010和0011。题中问的是最多，所以选择选项C。\n【另解】若哈夫曼编码的长度只允许小于或等于4，则哈夫曼树的高度最高是5，已知一个字\n符编码为1，另一个字符编码是01，这说明第二层和第三层各有一个叶结点，为使得该树从第3\n层起能够对尽可能多的字符编码，余下的二叉树应该是满二叉树，如下图所示，底层可以有4个\n叶结点，最多可以再对4个字符编码。"
+        }
+    },
+    {
+        "id": "q055005",
+        "title": "哈夫曼树结点与码字数",
+        "content": "一棵哈夫曼树共有215个结点，对其进行哈夫曼编码，共能得到（）个不同的码字。\nA.107\nB.108\nC.214\nD.215",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "根据上题的结论，叶结点数为(215+1)/2=108，所以共有108个不同的码字。\n【另解】在哈夫曼树中只有度为0和2的结点，结点总数n=no+n2，且no=n2+1，由题知\nn=215，no=108。"
+        }
+    },
+    {
+        "id": "q055006",
+        "title": "哈夫曼树高度问题",
+        "content": "设某哈夫曼树有5个叶结点，则该哈夫曼树的高度最高可以是（）。\nA.3\nB.4\nC.5\nD.6",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在哈夫曼树的构造中，每个初始结点最终都成为叶结点，5个初始结点构造的哈夫曼树共新\n建4个双分支结点，4个双分支结点所构成的高度最高的哈夫曼树如下图所示，其高度是5。"
+        }
+    },
+    {
+        "id": "q055007",
+        "title": "哈夫曼树错误说法辨析",
+        "content": "以下对于哈夫曼树的说法中，错误的是（）\nA.用一组权值构造出的哈夫曼树可能不唯一，但带权路径长度唯一\nB.哈夫曼树具有最小的带权路径长度\nC.哈夫曼树中没有度为1的结点\nD.哈夫曼树中除了度为1的结点，还有度为2的结点和叶结点\n08．下列关于哈夫曼树的说法中，错误的是（）。\n1.哈夫曼树的总结点数不能是偶数\n第5章树与二叉树\n189\nI1.哈夫曼树中度为1的结点数等于度为2和0的结点数之差\nIII.哈夫曼树的带权路径长度等于其所有分支结点的权值之和\nA.仅III\nB.I和ⅡI\nC.仅ⅡI\nD.I、II和III",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在哈夫曼树的构造过程中，每次选根的权值最小的两棵树，一棵作为左子树，一棵作为右子树，\n生成新的二叉树，新的二叉树根的权值应为其左右两棵子树根结点权值的和。至于谁做左子树，谁做\n右子树，没有限制，所以构造的哈夫曼树是不唯一的，但其带权路径长度是最小的和唯一的。哈夫\n曼树只有度为0和2的结点，度为0的结点是外结点，带有权值，没有度为1的结点。\n192\n2026年数据结构考研复习指导"
+        }
+    },
+    {
+        "id": "q055009",
+        "title": "哈夫曼树非叶结点个数",
+        "content": "若度为m的哈夫曼树中，叶结点个数为n，则非叶结点的个数为（）。\nA. n-1\nB. Ln/m]-1\nC. [(n- 1)/(m - 1)]\nD. [n/(m - 1)]- 1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "一棵度为m的哈夫曼树应只有度为0和m的结点，设度为m的结点有nm个，度为0的结点有\nno个，又设结点总数为N，N=no+nm。因有N个结点的哈夫曼树有N-1条分支，则mnm=N-1=\nnm+no-1，整理得(m-1)nm=no-1，nm=(no-1)/(m-1)。"
+        }
+    },
+    {
+        "id": "q055010",
+        "title": "并查集的结构",
+        "content": "并查集的结构是一种（）。\nA.二叉链表存储的二叉树\nB.双亲表示法存储的树\nC.顺序存储的二叉树\nD.孩子表示法存储的树",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "并查集的存储结构是用双亲表示法存储的树，主要是为了方便两个重要的操作。"
+        }
+    },
+    {
+        "id": "q055011",
+        "title": "并查集核心操作与集合数量",
+        "content": "并查集中最核心的两个操作是：①查找，查找两个元素是否属于同一个集合；②合并，\n若两个元素不属于同一个集合，且所在的两个集合互不相交，则合并这两个集合。假设\n初始长度为10（0~9）的并查集，按1-2、3-4、5-6、7-8、8-9、1-8、0-5、1-9的顺\n序进行查找和合并操作，最终并查集共有（）个集合。\nA.1\nB.2\nC.3\nD.4",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "初始时，0~9各自成一个集合。查找1-2时，合并{1}和{2}：查找3-4时，合并{3}和{4}；\n1-8时，合并{1,2}和{7，8,9}：查找0-5时，合并{0}和{5,6}：查找1-9时，它们属于同一个集\n合。最终的集合为{0,5，6、{1,2,7,8,9}和{3,4}，因此答案选择选项℃。"
+        }
+    },
+    {
+        "id": "q055012",
+        "title": "并查集相关说法判断",
+        "content": "下列关于并查集的说法中，正确的是（）（注，本题涉及图的考点）。\nA.并查集不能检测图中是否存在环路的问题\nB.通过路径优化后的并查集在最坏情况下的高度仍是O(n)\nC.Find操作返回集合中元素个数的相反数，它用来作为某个集合的标志\nD.Union操作时可根据当前集合的规模，将小集合合并到大集合中",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "结点是否相同）。若是，则说明图中存在环路，选项A错误。经过路径优化后，并查集在最坏情况\n下的高度远小于O（n)，选项B错误。Find操作总返回当前根结点作为集合的标志，选项C错误。"
+        }
+    },
+    {
+        "id": "q055013",
+        "title": "并查集错误叙述",
+        "content": "下列关于并查集的叙述中，（）是错误的（注，本题涉及图的考点）。\nA.并查集是用双亲表示法存储的树\nB.并查集可用于实现克鲁斯卡尔算法\nC.并查集可用于判断无向图的连通性\nD.在长度为n的并查集中进行查找操作的时间复杂度为 O(log2n)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在用并查集实现Kruskal算法求图的最小生成树时：判断是否加入一条边之前，先查找这条\n边关联的两个顶点是否属于同一个集合（判断加入这条边之后是否形成回路），若形成回路，则\n继续判断下一条边；若不形成回路，则将该边和边对应的顶点加入最小生成树T，并继续判断下\n一条边，直到所有顶点都已加入最小生成树T。选项B正确。用并查集判断无向图连通性的方法：\n遍历无向图的边，每遍历到一条边，就把这条边连接的两个顶点合并到同一个集合中，处理完所\n有边后，只要是相互连通的顶点都会被合并到同一个子集合中，相互不连通的顶点一定在不同的\n子集合中。选项C正确。未做路径优化的并查集在最坏情况下的高度为n，此时查找操作的时间\n复杂度为O（n)，时间复杂度通常指最坏情况下的时间复杂度。选项D错误。"
+        }
+    },
+    {
+        "id": "q055014",
+        "title": "哈夫曼树性质错误选项",
+        "content": "【2010统考真题】n（n≥2）个权值均不相同的字符构成哈夫曼树，关于该树的叙述中，\n错误的是（）。\nA.该树一定是一棵完全二叉树\nB.树中一定没有度为1的结点\nC.树中两个权值最小的结点一定是兄弟结点\nD.树中任意一个非叶结点的权值一定不小于下一层任意一个结点的权值",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "哈夫曼树为带权路径长度最小的二叉树，不一定是完全二叉树。哈夫曼树中没有度为1的结\n点，选项B正确。构造哈夫曼树时，最先选取两个权值最小的结点作为左、右子树构造一棵新的\n二叉树，选项C正确。哈夫曼树中任意一个非叶结点的权值为其左、右子树根结点的权值之和，\n可知，哈夫曼树中任意一个非叶结点的权值一定不小于下一层任意一个结点的权值。"
+        }
+    },
+    {
+        "id": "q055015",
+        "title": "前缀编码方案判断",
+        "content": "【2014统考真题】5个字符有如下4种编码方案，不是前缀编码的是（）。\nA. 01,0000,0001,001,1\nB.011,000,001,010,1\nC. 000,001,010,011,100\nD. 0,100,110,1110,1100",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "前缀编码的定义是在一个字符集中，任何一个字符的编码都不是另一个字符编码的前缀。选\n项D中的编码110是编码1100的前缀，违反了前缀编码的规则，所以选项D不是前缀编码。"
+        }
+    },
+    {
+        "id": "q055016",
+        "title": "哈夫曼树路径权值序列",
+        "content": "【2015统考真题】下列选项给出的是从根分别到达两个叶结点路径上的权值序列，能属\n于同一棵哈夫曼树的是（）。\nA.24,10,5和24,10,7\nB.24,10,5和24,12,7\nC.24,10,10和24,14,11\nD.24,10,5和24,14,6",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在哈夫曼树中，左右孩子权值之和为父结点权值。仅以分析选项A为例：若两个10分别属\n于两棵不同的子树，则根的权值不等于其孩子的权值和，不符；若两个10属同棵子树，则其权\n值不等于其两个孩子（叶结点）的权值和，不符。选项B、C选项的排除方法相同。\n第5章树与二叉树\n193"
+        }
+    },
+    {
+        "id": "q055017",
+        "title": "哈夫曼编码译码",
+        "content": "【2017统考真题】已知字符集ta,b,c,d,e,f,g,h}，若各字符的哈夫曼编码依次是0100,10,\n0000,0101,001,011,11,0001，则编码序列0100011001001011110101的译码结果是（）。\nA. acgabfh\nB.adbagbb\nC. afbeagd\nD.afeefgd",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "哈夫曼编码是前缀编码，各个编码的前缀不同，因此直接拿编码序列与哈夫曼编码一一比对\n即可。序列可分割为0100011001001011110101，译码结果是afeefgd。选项D正确。"
+        }
+    },
+    {
+        "id": "q055018",
+        "title": "字符集频率统计",
+        "content": "【2018 统考真题】已知字符集{a,b,c,d,e,f}，若各字符出现的次数分别为6,3,8,2,10,4,",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0551",
+            "kc0552"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "根据各字符出现的次数构造的哈夫曼树如下图所示。由图可知，a、c和é的编码长度应\n该相同：a和c的第1个编码应该相同，且与e的第1个编码不同：b和d的前3个编码应该\n相同。\n33"
+        }
+    }
+]

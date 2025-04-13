@@ -1,0 +1,50 @@
+第3章栈、队列和数组
+79
+typedef struct(
+//链式队列
+LinkNode *front,*rear;
+/队列的队头和队尾指针
+)LinkQueue;
+不带头结点时，当Q.front==NULL且Q.rear==NULL时，链式队列为空。
+命题追踪链式队列队空的判断（2019）
+入队时，建立一个新结点，将新结点插入到链表的尾部，并让Q.rear 指向这个新插入的结
+点（若原队列为空队，则令Q.front也指向该结点）。出队时，首先判断队是否为空，若不空，
+则取出队首元素，将其从链表中删除，并让Q.front指向下一个结点（若该结点为最后一个结
+点，则置Q.front和Q.rear都为NULL）。
+不难看出，不带头结点的链式队列在操作上往往比较麻烦，因此通常将链式队列设计成一个
+带头结点的单链表，这样插入和删除操作就统一了，如图3.9所示。
+rear
+front-
+front-
+图3.9带队头结点的链式队列
+用单链表表示的链式队列特别适合于数据元素变动比较大的情形，而且不存在队列满且产生
+溢出的问题。另外，假如程序中要使用多个队列，与多个栈的情形一样，最好使用链式队列，这样
+就不会出现存储分配不合理和“溢出”的问题。
+2.链式队列的基本操作
+命题追踪链式队列出队/入队操作的基本过程（2019）
+（1）初始化
+voidInitQueue（LinkQueue&Q）（//初始化带头结点的链式队列
+Q.front=Q.rear=（LinkNode*）malloc(sizeof(LinkNode））;//建立头结点
+Q.front->next=NULL;
+//初始为空
+（2）判队空
+bool IsEmpty(LinkQueue Q)(
+if（Q.front==Q.rear）
+//判空条件
+return true;
+else
+return false;
+（3）入队
+void EnQueue(LinkQueue &Q,ElemType x){
+LinkNode*s=（LinkNode*）malloc（sizeof（LinkNode））;//创建新结点
+s->data=x;
+s->next=NULL;
+Q.rear->next=s;
+/插入链尾
+Q.rear=s;
+//修改尾指针
+（4）出队
+bool DeQueue(LinkQueue &Q,ElemType &x) {
+if(Q.front==Q.rear)
+return false;
+//空队

@@ -1,0 +1,2116 @@
+[
+    {
+        "id": "q061001",
+        "title": "图中路径的定义",
+        "content": "图中有关路径的定义是（）。\n①有向图强连通情况下边最少的情况：至少需要n条边，构成个环路。\n202\n2026年数据结构考研复习指导\nA.由顶点和相邻顶点序偶构成的边所形成的序列\nB.由不同顶点所形成的序列\nC.由不同边所形成的序列\nD.上述定义都不是",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0611",
+            "kc0612"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "本题是北京交通大学考研真题，不同教材对路径的定义可能略有不同，顶点之间关联的边\n也可理解为路径的构成要素。对于选项B，路径的定义中并没有要求是不同顶点，比如简单回路\n的第一个顶点和最后一个顶点是可以相同的，此外选项B也没有说明这些顶点之间有边相联。"
+        }
+    },
+    {
+        "id": "q061002",
+        "title": "无向图的顶点与边关系",
+        "content": "一个有n个顶点和n条边的无向图一定是（）。\nA.连通的\nB.不连通的\nC.无环的\nD．有环的",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0611",
+            "kc0612"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "若一个无向图有n个顶点和n-1条边，可以使它连通但没有环（生成树），但若再加一条\n边，在不考虑重边的情形下，则必然会构成环。"
+        }
+    },
+    {
+        "id": "q061003",
+        "title": "无向图的深度优先搜索与连通性",
+        "content": "若从无向图的任意顶点出发进行一次深度优先搜索即可访问所有顶点，则该图一定是\n()。\nA.强连通图\nB.连通图\nC.有回路\nD．一棵树",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0611",
+            "kc0612"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "强连通图是有向图，与题意矛盾，选项A错误：对无向连通图做一次深度优先搜索，可以\n访问到该连通图的所有顶点，选项B正确：有回路的无向图不一定是连通图，因为回路不一定\n204\n2026年数据结构考研复习指导\n包含图的所有结点，选项C错误；连通图可能是树，也可能存在环，选项D错误。"
+        }
+    },
+    {
+        "id": "q061004",
+        "title": "图的正确叙述",
+        "content": "以下关于图的叙述中，正确的是（）。\nA.图与树的区别在于图的边数大于或等于顶点数\nB.假设有图G={V,E}}，顶点集V≤V，E≤E，则V'和{E构成G的子图\nC.无向图的连通分量是指无向图中的极大连通子图\nD.图的遍历就是从图中某一顶点出发访遍图中其余顶点",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0611",
+            "kc0612"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "图与树的区别是逻辑上的区别，而不是边数的区别，图的边数也可能小于树的边数，选项\nA错误：若E中的边对应的顶点不是V的元素，V和{E无法构成图，选项B错误：无向图的极\n大连通子图称为连通分量，选项C正确：图的遍历要求每个结点只能被访问一次，且若图非连\n通，则从某一顶点出发无法访问到其他全部顶点，选项D的说法不准确。"
+        }
+    },
+    {
+        "id": "q061005",
+        "title": "图的正确叙述",
+        "content": "以下关于图的叙述中，正确的是（）。\nA.强连通有向图的任何顶点到其他所有顶点都有弧\nB.图的任意顶点的入度等于出度\nC.有向完全图一定是强连通有向图\nD.有向图的边集的子集和顶点集的子集都构成原有向图的子图",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0611",
+            "kc0612"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "强连通有向图的任何顶点到其他所有顶点都有路径，但未必有弧：无向图任意顶点的入度\n等于出度，但有向图未必满足；若边集中的某条边对应的某个顶点不在对应的顶点集中，则有\n向图的边集的子集和顶点集的子集无法构成子图。"
+        }
+    },
+    {
+        "id": "q061006",
+        "title": "非连通无向图的最小顶点数",
+        "content": "一个有28条边的非连通无向图至少有（）个顶点。\nA.7\nB.8\nC. 9\nD. 10",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0611",
+            "kc0612"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "考查至少有多少个顶点的情形，我们考虑该非连通图最极端的情况，即它由一个完全图加\n一个独立的顶点构成，此时若再加一条边，则必然使图变成连通图。在 28=n（n-1)/2=8x7/2\n条边的完全无向图中，总共有8个顶点，再加上1个不连通的顶点，共9个顶点。"
+        }
+    },
+    {
+        "id": "q061007",
+        "title": "图的边数最少问题",
+        "content": "对于一个有n个顶点的图：若是连通无向图，其边的个数至少为（）；若是强连通有向\n图，则其边的个数至少为（）。\nA. n-l, n\nB.n-1,n（n-1)\nC. n, n\nD. n, n(n- 1)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0611",
+            "kc0612"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于连通无向图，边最少即构成一棵树的情形；对于强连通有向图，边最少即构成一个有\n向环的情形。"
+        }
+    },
+    {
+        "id": "q061008",
+        "title": "无向图顶点计算",
+        "content": "无向图G有23条边，度为4的顶点有5个，度为3的顶点有4个，其余都是度为2的\n顶点，则图G有（）个顶点。\nA. 11\nB.12\nC.15\nD.16",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0611",
+            "kc0612"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "因为在具有n个顶点、é 条边的无向图中，有∑\"_TD(v,)=2e，所以求得度为2 的顶点数\n为7，从而共有16个顶点。"
+        }
+    },
+    {
+        "id": "q061009",
+        "title": "有向图顶点最大度数",
+        "content": "在有n个顶点的有向图中，顶点的度最大可达（）。\nA. n\nB.n-1\nC.2n\nD.2n-2",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0611",
+            "kc0612"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在有向图中，顶点的度等于入度与出度之和。n个顶点的有向图中，任意一个顶点最多还可\n以与其他n-1个顶点有一对指向相反的边相连。注意，数据结构中仅讨论简单图。"
+        }
+    },
+    {
+        "id": "q061010",
+        "title": "6顶点无向图确保连通的最小边数",
+        "content": "具有6个顶点的无向图，当有（）条边时能确保是一个连通图。\nA.8\nB.9\nC.10\nD.11",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0611",
+            "kc0612"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "5个顶点构成一个完全无向图，需要m（n-1）/2=10条边；再加上1条边后，能保证第6个\n顶点必然与此完全无向图构成一个连通图，所以共需11条边。"
+        }
+    },
+    {
+        "id": "q061011",
+        "title": "生成树性质辨析",
+        "content": "设有无向图G=(V,E)和G'=(V,E)，若G'是G的生成树，则下列不正确的是（）。\nI.G'为G的连通分量\nII.G'为G的无环子图\nIII.G'为G的极小连通子图且V=V\nA. I、II\nB.只有III\nC.II、III\nD.只有I",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0611",
+            "kc0612"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "一个连通图的生成树是一个极小连通子图，显然它是无环的，因此选项II、IⅡI正确。极大\n连通子图称为连通分量，G连通但非连通分量。这里再补充一下“极大连通子图”：若图本来就\n是连通的，且每个子部分包含其本身的所有顶点和边，则它就是极大连通子图。"
+        }
+    },
+    {
+        "id": "q061012",
+        "title": "无向图连通分量最大值",
+        "content": "具有51个顶点和21条边的无向图的连通分量最多为（）。\nA.33\nB.34\nC.45\nD.32",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0611",
+            "kc0612"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "初始考虑只有51个顶点的无向图G，此时G中每个顶点都是连通分量，问题转化为向G中\n添加21条边，如何添加这21条边使得连通分量数目最多。若向两个不同的连通分量之间添加\n边，则连通分量数目会减1，所以应尽可能地将这21条边加入同一个连通分量且让其接近完全\n图，含有7个顶点的完全图有21条边，所以用7个顶点构成一个含有21条边的连通分量，剩下\n51-7=44个顶点对应44个连通分量，共有45个连通分量。"
+        }
+    },
+    {
+        "id": "q061013",
+        "title": "有向图的强连通分量数量",
+        "content": "在如下图所示的有向图中，共有（）个强连通分量。",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0611",
+            "kc0612"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "强连通分量是极大强连通子图，任意两个顶点之间有方向相反的两条路径。由定义不难得\n出，若一个顶点只有出边或入边，则该顶点必定单独构成一个连通分量。图中，顶点B只有出\n边，其他所有顶点都不可能有到顶点B的路径，所以顶点B单独构成一个强连通分量。在顶点"
+        }
+    },
+    {
+        "id": "q062001",
+        "title": "图的存储结构错误说法",
+        "content": "下列关于图的存储结构的说法中，错误的是（）。\n只与图中的顶点数有关，与边数无关\nB.邻接表只用于有向图的存储，邻接矩阵适用于有向图和无向图\nC.若一个有向图的邻接矩阵的对角线以下的元素为0，则该图的拓扑序列必定存在\nD.存储无向图的邻接矩阵是对称的，所以只需存储邻接矩阵的下（或上）三角部分",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "n个顶点的图，若采用邻接矩阵表示，不考虑压缩存储，则存储空间大小为O（n²)，选项A\n正确。邻接表可用于存储无向图，只是把每条边都视为两条方向相反的有向边，因此需要存储\n两次，选项B 错误。因为邻接矩阵中对角线以下的元素全为0，所以若存在<i,j>，则必有i<j,\n由传递性可知图中路径的顶点编号是依次递增的，假设存在环k→…→j一k，由题设可知k<j<\nk，矛盾，所以不存在环，拓扑序列必定存在，选项C正确。选项D显然正确。\n注意\n若邻接矩阵对角线以下（或以上）的元素全为0，则图中必然不存在环，即拓扑序列一定存在，但\n这并不能说明拓扑序列是唯一的。"
+        }
+    },
+    {
+        "id": "q062002",
+        "title": "邻接矩阵性质判断题",
+        "content": "若图的邻接矩阵中主对角线上的元素皆为0，其余元素全为1，则该图一定（）。\nA.是无向图\nB.是有向图\nC.是完全图\nD.不是带权图",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "除主对角线上的元素外，其余元素全为1，说明任意两个顶点之间都有边相连，因此该图一\n第6章图\n215\n定是完全图。"
+        }
+    },
+    {
+        "id": "q062003",
+        "title": "邻接矩阵零元素个数",
+        "content": "在含有n个顶点和e条边的无向图的邻接矩阵中，零元素的个数为（）。\nA.e\nB.2e\nC. n²-e\nD. n²-2e",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在无向图的邻接矩阵中，矩阵大小为r²，非零元素的个数为2e，所以零元素的个数为\nn²-2e。读者应掌握此题的变体，即当无向图变为有向图时，能够求出零的个数和非零的个数。"
+        }
+    },
+    {
+        "id": "q062004",
+        "title": "邻接矩阵中顶点入度的计算",
+        "content": "带权有向图G用邻接矩阵存储，则v的入度等于邻接矩阵中（）。\nA.第i行非∞的元素个数\nB.\n第i列非∞0的元素个数\nC.第i行非且非0的元素个数\nD.第i列非∞且非0的元素个数",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "算出来的：出度是由邻接矩阵的行中元素计算出来的。\n05.B、D\n有向图的入度是其第i列的非0元素之和，无向图的度是第i行或第i列的非0元素之和。\n06.B、B、D\n邻接矩阵的顶点数等于矩阵的行（列）数，有向图的边数等于矩阵中非零元素的个数，无\n向图的边数等于矩阵中非零元素个数的一半。\n注意\n本题中所给的矩阵为对称矩阵，若不是对称矩阵，则必然不可能是无向图。"
+        }
+    },
+    {
+        "id": "q062005",
+        "title": "图的邻接矩阵与顶点度数",
+        "content": "一个有n个顶点的图用邻接矩阵A表示，若图为有向图，顶点v;的入度是（）；若图为\n无向图，顶点V的度是（）。\nA[[]\nA[][]\n/=1\nA[或A[\nA[][]\nD.\ni=1\n/=1\nj=1\n01\n0",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    },
+    {
+        "id": "q062006",
+        "title": "邻接矩阵顶点与边数问题",
+        "content": "从邻接矩阵A=\n0\n可以看出，该图共有（①）个顶点；若是有向图，则该图共有\n（②）条弧；若是无向图，\n则共有（③）条边。\n①A. 9\nB.3\nC. 6\nD.1\nE．以上答案均不正确\n②A.5\nB.4\nC. 3\nD.2\nE.以上答案均不正确\n③A.5B.4\nC.3\nD.2\nE．以上答案均不正确",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    },
+    {
+        "id": "q062007",
+        "title": "图的存储结构唯一性",
+        "content": "以下关于图的存储结构的叙述中，正确的是（）。\nA.一个图的邻接矩阵表示唯一，邻接表表示唯一\nB.一个图的邻接矩阵表示唯一，邻接表表示不唯一\nC.一个图的邻接矩阵表示不唯一，邻接表表示唯一\nD.一个图的邻接矩阵表示不唯一，邻接表表示不唯一",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "邻接矩阵表示唯一是因为图中边的信息在矩阵中有确定的位置，邻接表不唯一是因为邻接\n表的建立取决于读入边的顺序和边表中的插入算法。"
+        }
+    },
+    {
+        "id": "q062008",
+        "title": "邻接矩阵A²元素含义",
+        "content": "矩阵A是有向图G的邻接矩阵，若矩阵A²的某元素α²，=3，则说明（）。\nA.从顶点i到j存在3条长度为2的路径\n212\n2026年数据结构考研复习指导\nB.从顶点i到j存在3条长度不超过2的路径\nC.从顶点i到j存在2条长度为3的路径\nD.从顶点i到j存在2条长度不超过3的路径",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "设图G的邻接矩阵为A，A\"的元素d等于从顶点i到j的长度为n的路径的数目，因此\na，=3表示从顶点i到j存在3条长度为2的路径。该结论记住即可。"
+        }
+    },
+    {
+        "id": "q062009",
+        "title": "邻接表法存储图的空间大小",
+        "content": "用邻接表法存储图所用的空间大小（）。\nA.与图的顶点数和边数有关\nB.只与图的边数有关\nC.只与图的顶点数有关\nD.与边数的平方有关",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "邻接表存储时，顶点数n决定了顶点表的大小，边数e决定了边表结点的个数，且无向图的\n每条边存储两次，总存储空间为O(n+2e)。而邻接矩阵只与图的顶点数有关，为O(n²)。"
+        }
+    },
+    {
+        "id": "q062010",
+        "title": "邻接表奇数边表结点的性质",
+        "content": "若邻接表中有奇数个边表结点，则（）。\nA.图中有奇数个结点\nB.图中有偶数个结点\nC.图为无向图\nD.图为有向图",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "无向图采用邻接表表示时，每条边存储两次，所以其边表结点的个数为偶数。题中边表结\n点为奇数个，所以必然是有向图，且有奇数条边。"
+        }
+    },
+    {
+        "id": "q062011",
+        "title": "顶点v在边表中出现次数的含义",
+        "content": "在有向图的邻接表存储结构中，顶点v在边表中出现的次数是（）。\nA.顶点v的度\nB.顶点v的出度\nC.顶点v的入度\nD.依附于顶点v的边数",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "题中的边表是不包括顶点表的。因为任何顶点u对应的边表中存放的都是以u为起点的边\n所对应的另一个顶点v。从而v在边表中出现的次数也就是它的入度。"
+        }
+    },
+    {
+        "id": "q062012",
+        "title": "无向图邻接表边表结点与时间复杂度",
+        "content": "n个顶点的无向图的邻接表最多有（）个边表结点。\nA. n²\nB.n(n-1)\nC. n(n + 1)\nD. n(n-1)/2\n13．设某无向图中有n个顶点和e条边，则建立该图的邻接表的时间复杂度是（）。\n(+u)o 'v\nB. O(n)\nC. O(ne)\nD. O(n)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "最多有m(n-1)/2条边，每条边在邻接表中存储两次，因此边表结点最多为m(n-1)个。"
+        }
+    },
+    {
+        "id": "q062014",
+        "title": "删除有向图顶点边的时间复杂度",
+        "content": "假设有n个顶点、e条边的有向图用邻接表表示，则删除与某个顶点v相关的所有边的\n时间复杂度为（)。\nA. O(n)\nB.O(e)\nC. O(n+e)\nD. O(ne)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "与顶点v相关的边包括出边和入边，对于出边，只需遍历v的顶点表结点和其指向的边表；\n对于入边，则需遍历整个边表。先删除出边：删除v的顶点表结点的单链表，出边数最多为\nn-1，时间复杂度为O(n)：再删除入边：扫描整个边表（扫描剩余全部顶点表结点及其指向的\n边表），删除所有的顶点v的入边，时间复杂度为O(n+e)。因此总时间复杂度为O(n+e)。\n216\n2026年数据结构考研复习指导"
+        }
+    },
+    {
+        "id": "q062015",
+        "title": "有向图顶点入度时间复杂度",
+        "content": "设n个顶点、e条边的有向图用邻接表表示，则某个顶点v的入度的时间复杂度为（）。\nO(n)\nB. O(e)\nC.O(n+e)\nD. O(ne)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "为了求顶点v的入度，只需要遍历邻接表中的所有边表，检查每条边是否指向顶点v，这相\n当于遍历整个邻接表，因此算法的时间复杂度为O（n+e）。"
+        }
+    },
+    {
+        "id": "q062016",
+        "title": "邻接表叙述正确选项",
+        "content": "对邻接表的叙述中，（）是正确的。\nA.无向图的邻接表中，第i个顶点的度为第i个链表中结点数的两倍\nB.邻接表比邻接矩阵的操作更简便\nC.邻接矩阵比邻接表的操作更简便\nD.求有向图结点的度，必须遍历整个邻接表",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "无向图的邻接表中，第i个顶点的度为第i个链表中的结点数，所以选项A错。邻接表和邻\n接矩阵对于不同的操作各有优势，选项B和C都不准确。有向图结点的度包括出度和入度，对\n于出度，需要遍历顶点表结点所对应的边表；对于入度，则需要遍历剩下的全部边表。"
+        }
+    },
+    {
+        "id": "q062017",
+        "title": "邻接多重表的存储结构",
+        "content": "邻接多重表是（）的存储结构。\nA.无向图\nB.有向图\nC.无向图和有向图\nD.都不是",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "邻接多重表是无向图的存储结构，"
+        }
+    },
+    {
+        "id": "q062018",
+        "title": "十字链表存储结构",
+        "content": "十字链表是（）的存储结构。\nA.无向图\nB.有向图\nC.无向图和有向图\nD.都不是",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "十字链表是有向图的存储结构。"
+        }
+    },
+    {
+        "id": "q062019",
+        "title": "图的邻接矩阵顶点度数",
+        "content": "【2013统考真题】设图的邻接矩阵A如下所示，各顶点的度依次是（）。\nA. 1,2,1,2\nB.2,2,1, 1\nC.3,4,2,3\nD.4,4,2,2\n度分别是（）。\n第6章图\n213\n42\n43\n?\nA. 0, 2\nB.2,4\nC.2,5\nD. 3, 4",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0621",
+            "kc0622",
+            "kc0623",
+            "kc0624",
+            "kc0625"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "邻接矩阵A为非对称矩阵，说明图是有向图，度为入度与出度之和。各顶点的度是矩阵中\n此结点对应的行（对应出度）和列（对应入度）的非零元素之和。"
+        }
+    },
+    {
+        "id": "q063001",
+        "title": "广度优先算法正确说法",
+        "content": "下列关于广度优先算法的说法中，正确的是（）。\n1.当各边的权值相等时，广度优先算法可以解决单源最短路径问题\nII.当各边的权值不等时，广度优先算法可用来解决单源最短路径问题\nIII.广度优先遍历算法类似于树中的后序遍历算法\nIV.实现图的广度优先算法时，使用的数据结构是队列\nA. I、IV\nB.II、III、IV\nC. II、IV\nD.I、III、IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "广度优先搜索以起始结点为中心，一层一层地向外层扩展遍历图的顶点，因此无法考虑到\n边权值，只适合求边权值相等的图的单源最短路径。广度优先搜索相当于树的层序遍历，选项\nIII错误。广度优先搜索需要用到队列，深度优先搜索需要用到栈，选项IV正确。"
+        }
+    },
+    {
+        "id": "q063002",
+        "title": "关于图的错误说法",
+        "content": "下列关于图的说法中，错误的是（）。\n公众号\n小兔网盘\n免费网课+无水印PDF\n224\n2026年数据结构考研复习指导\n1.对一个无向图进行深度优先遍历时，得到的深度优先遍历序列是唯一的\nII.若有向图不存在回路，即使不用访问标志位，同一结点也不会被访问两次\nIII.采用深度优先遍历或拓扑排序算法可以判断一个有向图中是否有环（回路）\nIV.对任何非强连通图必须2次或以上调用广度优先遍历算法才可访问所有的顶点\nA. I、II、III\nB.ⅡI、III\nC. 1、II\nD. I、II、IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "图的深度优先遍历序列通常是不唯一的，选项1错误。图1是一个不存在回路的有向图，从\n顶点1开始执行广度优先遍历，若不设置访问标志位，则会重复访问顶点3，选项1ⅡI错误。深度\n优先遍历（见本节后面习题的解析）或拓扑排序算法可以判断有向图中是否有环，选项IⅡI正\n确。图2是一个非强连通图，但从顶点1开始调用一次广度优先遍历算法就可访问所有顶点，选\n项IV错误。\n图1\n图2"
+        }
+    },
+    {
+        "id": "q063003",
+        "title": "非连通图DFS调用次数",
+        "content": "对于一个非连通无向图G，采用深度优先遍历访问所有顶点，在DFSTraverse 函数\n（见考点讲解DFS部分）中调用DFS的次数正好等于（）。\nA.顶点数\nB.边数\nC.连通分量数\nD.不确定",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "第6章图\n227\nDFS（或BFS）可用来计算无向图的连通分量数，因为一次遍历必然会将一个连通图中的所\n有顶点都访问到，所以计算图的连通分量数正好是DFSTraverse（）中DFS被调用的次数。\n04.C、A、C、A\n深度优先遍历时，每个顶点表结点和每个边表结点均查找一次，每个顶点递归调用一次，\n需要借助一个递归工作栈；而广度优先遍历时，也是每个顶点表结点和每个边表结点均查找一\n次，需要借助一个辅助队列。因此，时间复杂度都是O(n+e)，空间复杂度都是O(n)。"
+        }
+    },
+    {
+        "id": "q063004",
+        "title": "图的邻接表DFS与BFS复杂度",
+        "content": "对一个有n个顶点、e条边的图采用邻接表表示时，进行DFS遍历的时间复杂度为\n（），空间复杂度为（）；进行BFS遍历的时间复杂度为（），空间复杂度为（）。\nA. O(n)\nB. O(e)\nC. O(n+e)\nD. 0(1)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    },
+    {
+        "id": "q063005",
+        "title": "图的广度优先遍历中顶点入队次数",
+        "content": "图的广度优先遍历算法中使用队列作为其辅助数据结构，那么在算法执行过程中，每\n个顶点的入队次数最多为（）。\nA.1\nB.2\nC.3\nD. 4",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在图的广度优先遍历算法中，每个顶点被访问后立即做访问标记并入队。若队列不空，则\n队首顶点出队，若该顶点的邻接顶点未被访问，则访问之，做访问标记并入队；若被访问过，\n则跳过，如此反复，直至队空。因此，在广度优先遍历过程中，每个顶点最多入队一次。\n06.A、A\n采用邻接矩阵表示时，查找一个顶点所有出边的时间复杂度为O(n)，共有n个顶点，所以\n时间复杂度均为O（n²)"
+        }
+    },
+    {
+        "id": "q063006",
+        "title": "图遍历时间复杂度",
+        "content": "对有n个顶点、e条边的图采用邻接矩阵表示时，进行DFS遍历的时间复杂度为（），\n进行BFS遍历的时间复杂度为（）。\nA. O(n²)\nB. O(e)\nC. O(n +e)\nD. 0(e²)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    },
+    {
+        "id": "q063007",
+        "title": "无向图深度优先遍历",
+        "content": "无向图 G =(V, E), 其中 V= {a, b, c,d,e,f }, E= {(a, b),(a, e),(a,c),(b, e),(c,f), (f, d ),\n(e,d)}，对该图从a开始进行深度优先遍历，得到的顶点序列正确的是（）。\nA. a, b,e, c, d, f\nB.a,c,f,e,b,d\nC.a,e,b,c,f, d\nD. a,e,d,f, c,b",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "画出草图后，此类题可以根据边的邻接关系快速排除错误选项。以选项A为例，在遍历到\ne之后，应该访问与e邻接但未被访问的结点，（e,c)显然不在边集中。"
+        }
+    },
+    {
+        "id": "q063008",
+        "title": "深度优先遍历序列个数",
+        "content": "如下图所示，在下面的5个序列中，符合深度优先遍历的序列个数是（）。\na\n1.aebfdc2.acfdeb3.aedfcb4.aefdbc5.aecfdb\nA.5\nB.4\nC.3\nD.2",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "仅1和4正确。以2为例，遍历到c之后，与c邻接且未被访问的结点为空集，所以应为a\n的邻接点b或e入栈。以3为例，因为遍历要按栈退回，所以是先b后c，而不能先c后b。\n09.B、D\n图的深度优先搜索类似于树的先根遍历，即先访问结点，再递归向外层结点遍历，都采用\n回溯算法。图的广度优先搜索类似于树的层序遍历，即一层一层向外层扩展遍历，都需要采用\n队列来辅助算法的实现。\n10. A、B\nDFS序列产生的路径为<1,2>，<2,5>，<5,4>，<3，6>；BFS序列产生的路径为<1,2>，<1,4>，\n<2,5>，<3，6>。"
+        }
+    },
+    {
+        "id": "q063009",
+        "title": "图的遍历算法与树遍历的类比",
+        "content": "用邻接表存储的图的深度优先遍历算法类似于树的（），而其广度优先遍历算法类似于\n树的(）。\nA.中序遍历\nB.先序遍历\nC.后序遍历\nD.按层次遍历\n10.\n一个有向图G的邻接表存储如下图所示，从顶点1出发，对图G调用深度优先遍历所\n得顶点序列是（）按广度优先遍历所得顶点序列是（）。\n5\nA.125436\nB.124536\nC.124563\nD.362514\n第6章图\n225",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    },
+    {
+        "id": "q063011",
+        "title": "无向图深度优先遍历序列",
+        "content": "无向图 G =(V, E), 其中 V= {a, b, c, d,e,f }, E= {(a, b), (a, e), (a, c), (b, e), (c,f), (f, d ),\n(e,d)。对该图进行深度优先遍历，不能得到的序列是（）。\nA.acfdeb\nB.aebdfc\nC. aedfcb\nD. abecdf",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "画出V和E对应的图G，然后根据搜索算法求解。\n注意\n为什么本题序列是不唯一的，而上题序列却是唯一的呢？\n因为上题给出了具体的存储结构，此时就必须按照算法的过程来执行，每个顶点的邻接点\n的顺序已固定，但本题中每个顶点的邻接点的顺序是非固定的。"
+        }
+    },
+    {
+        "id": "q063012",
+        "title": "判断有向图回路方法",
+        "content": "判断有向图中是否存在回路，除拓扑排序外，还可以利用（）。（注：涉及下节内容）\nA.求关键路径的方法\nB.求最短路径的Dijkstra算法\nC.深度优先遍历算法\nD.广度优先遍历算法",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "利用深度优先遍历可以判断图G中是否存在回路。\n对于无向图来说，若深度优先遍历过程中遇到了回边，则必定存在环；对于有向图来说，\n这条回边可能是指向深度优先森林中另一棵生成树上的顶点的弧：但是，从有向图的某个顶点v\n出发进行深度优先遍历时，若在DFS(v)结束之前出现一条从顶点u到顶点v的回边，且u在生\n成树上是v的子孙，则有向图必定存在包含顶点v和顶点u的环。"
+        }
+    },
+    {
+        "id": "q063013",
+        "title": "生成树错误说法",
+        "content": "设无向图G=(V,E)和G'=(V\",E')，若G'是G的生成树，则下列说法错误的是（）。\nA.G'为G的子图\nB.G'为 G的连通分量\nC.G'为G的极小连通子图且V=V\nD.G'是G的一个无环子图",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "228\n2026年数据结构考研复习指导\n连通分量是无向图的极大连通子图，其中极大的含义是将依附于连通分量中顶点的所有边\n都加上，所以连通分量中可能存在回路，这样就不是生成树了。\n注意\n极大连通子图是无向图（不一定连通）的连通分量，极小连通子图是连通无向图的生成树。极小和\n极大是在满足连通的前提下，针对边的数目而言的。极大连通子图包含连通分量的全部边；极小连通子\n图（生成树）包含连通图的全部顶点，且使其连通的边数最少。"
+        }
+    },
+    {
+        "id": "q063014",
+        "title": "图的广度与深度优先生成树树高比较",
+        "content": "图的广度优先生成树的树高比深度优先生成树的树高（）。\nA.小或相等\nB.小\nC.大或相等\nD.大",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于无向图的广度优先搜索生成树，起点到其他顶点的路径是图中对应的最短路径，即所\n有生成树中树高最小。此外，深度优先总是尽可能“深”地搜索图，因此其路径也尽可能长，\n所以深度优先生成树的树高总是大于或等于广度优先生成树的树高。"
+        }
+    },
+    {
+        "id": "q063015",
+        "title": "邻接表有向图广度优先遍历时间复杂度",
+        "content": "【2012统考真题】对有n个顶点、e条边且使用邻接表存储的有向图进行广度优先遍\n历，其算法的时间复杂度是（）。\nA. O(n)\nB. O(e)\nC. O(n+e)\nD. O(ne)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "广度优先遍历需要借助队列实现。采用邻接表存储方式对图进行广度优先遍历时，每个顶点\n均需入队一次（顶点表遍历），所以时间复杂度为O(n)，在搜索所有顶点的邻接点的过程中，每条\n边至少访问一次（出边表遍历)，所以时间复杂度为O(e)，算法总的时间复杂度为O(n+e)。"
+        }
+    },
+    {
+        "id": "q063016",
+        "title": "无向图广度优先遍历序列",
+        "content": "【2013统考真题】下列选项中，不是如下无向图的广度优先遍历序列的是（）。\na\nA. h, c,a, b,d, e,g,f\nB. e,a,f,g, b, h,c, d\nC. d, b, c, a, h,e,f,g\nD. a, b,c,d, h,e,f,g",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "只要掌握DFS和BFS的遍历过程，便能轻易解决。逐个代入，手工模拟，选项D是深度优\n先遍历，而不是广度优先遍历。"
+        }
+    },
+    {
+        "id": "q063017",
+        "title": "有向图深度优先遍历序列个数",
+        "content": "【2015统考真题】设有向图G=（V,E)，顶点集V={Vo.V1,V2,V3}，边集E={<vo,v>,\n<vo,V2>，<vo,V3>，<v1,v3>}。若从顶点 V。开始对图进行深度优先遍历，则可能得到的不同\n遍历序列个数是（）\nA.2\nB.3\nC. 4\nD.5",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "画出该有向图，如下图所示。采用图的深度优先遍历，共有5种可能：<vo,Vi,v3,v>，<vo，v2,\nV3,V1>,<v0,V2,V1,V3>,<vo,V3,V2,v1>,<v0,V3,V1,V2>"
+        }
+    },
+    {
+        "id": "q063018",
+        "title": "深度优先搜索序列选项",
+        "content": "【2016统考真题】下列选项中，不是下图深度优先搜索序列的是（）。\nA.V,Vs,V4,V3,V2\nB.V,V3,V2,Vs,V4\nC. V1, V2, Vs, V4, V3\nD.V,V2,V3, V4,Vs",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0631",
+            "kc0632",
+            "kc0633"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "按深度优先遍历的策略进行遍历。对于选项A：先访问V，然后访问与V邻接且未被访问的\n任意一个顶点（满足的有V2，V和V），此时访问V，然后从V出发，访问与V邻接且未被访问\n的任意一个顶点（满足的只有V4），然后从V4出发，访问与V4邻接且未被访问的任意一个顶点\n（满足的只有V），然后从V出发，访问与V邻接且未被访问的任意一个顶点（满足的只有V2），\n结束遍历。选项B和C的分析方法与A相同。对于选项D，首先访问V，然后从V出发，访问与\nV邻接且未被访问的任意一个顶点（满足的有V2，V和V），然后从V2出发，访问与V2邻接且未\n被访问的任意一个顶点（满足的只有V），按规则本应该访问V，但选项D却访问了V，错误。"
+        }
+    },
+    {
+        "id": "q064001",
+        "title": "无向连通图的最小生成树",
+        "content": "任何一个无向连通图的最小生成树（）。\nA.有一棵或多棵\nB.只有一棵\nC.一定有多棵\nD.可能不存在",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "当无向连通图存在权值相同的多条边时，最小生成树可能是不唯一的：另外，这是一个无\n向连通图，因此最小生成树必定存在，从而选择A。"
+        }
+    },
+    {
+        "id": "q064002",
+        "title": "Prim与Kruskal算法生成的最小生成树",
+        "content": "用Prim算法和Kruskal算法构造图的最小生成树，所得到的最小生成树（）。\nA.相同\nB.不相同\nC.可能相同，可能不同\nD.无法比较",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "因为无向连通图的最小生成树不一定唯一，所以用不同算法生成的最小生成树可能不同，\n但当无向连通图的最小生成树唯一时，不同算法生成的最小生成树必定是相同的。"
+        }
+    },
+    {
+        "id": "q064003",
+        "title": "图的生成树与最小生成树",
+        "content": "下列关于图的生成树和最小生成树的叙述中，正确的是（）。\n第6章图\n243\nA.只要无向连通图中没有权值相同的边，则其最小生成树唯一\nB.只要无向图中有权值相同的边，则其最小生成树一定不唯一\nC.从n个顶点的连通图中选取n-1条权值最小的边，即可构成最小生成树\nD.设连通图G含有n个顶点，则含有n个顶点、n-1条边的子图一定是G的生成树",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "最小生成树算法是基于贪心策略的，每次总是选取权值最小且满足条件的边，若各边权值不\n同，则每次选择的新顶点也是唯一的，因此最小生成树唯一，A正确。对于B，若无向图本身就\n是一棵树，则最小生成树就是它本身，这时就是唯一的。对于C，选取的n-1条边可能构成回\n路。对于D，含有n个顶点、n-1条边的子图可能构成回路，也可能不连通。"
+        }
+    },
+    {
+        "id": "q064004",
+        "title": "无向连通图最小生成树不唯一条件",
+        "content": "设有n个顶点的无向连通图的最小生成树不唯一，则下列说法中正确的是（）。\nA.图的边数一定大于n-1\nB.图的权值最小的边一定有多条\nC.图的最小生成树的代价不一定相等D.图的各条边的权值不相等",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "若图的边数小于n-1，则图不存在最小生成树；若无向连通图的边数等于n-1，则最小生\n成树唯一，即图本身，所以图的边数一定大于n-1，A正确。若最小生成树不唯一，则一定存\n在权值相等的边，但未必是权值最小的边，如下图所示，B错误。最小生成树可能不唯一，但代\n价一定相同，C错误。当图的各边的权值互不相等时，图的最小生成树是唯一的，D错误。\nB"
+        }
+    },
+    {
+        "id": "q064005",
+        "title": "Prim算法选取最小边",
+        "content": "用Prim算法求一个带权连通图的最小生成树，在算法执行的某个时刻，已选取的顶点\n集合U={1,2,3}，已选取的边集合TE={（1,2），（2，3）}，要选取下一条权值最小的边，\n应当从（）组中选取。\nA.{(1,4),(3,4),(3,5),(2,5)}\nB.(3,4),(3,5),(4,5),(1,4)}\nC. ((1, 2), (2, 3), (3, 5)}\nD. {(4, 5), (1, 3), (3, 5)}",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "U={1,2,3}，V-U={4,5,.··}，候选边只能是这两个顶点集之间的边，只有选项A符合\n题意。"
+        }
+    },
+    {
+        "id": "q064006",
+        "title": "Kruskal算法与最短路径问题",
+        "content": "用Kruskal算法求一个带权连通图的最小生成树，在算法执行的某个时刻，已选取的边\n集合TE={(1,2),(2,3),(3,5)}，要选取下一条权值最小的边，不可能选取的边是（）。\nA. (3,6)\nB.(2,4)\nC. (1,3)\nD. (1,4)\n07．下列关于图的最短路径的相关叙述中，正确的是（）。\nA.最短路径一定是简单路径\nB.Dijkstra算法不适合求有回路的带权图的最短路径\nC.Dijkstra算法不适合求任意两个顶点的最短路径\nD.Floyd算法求两个顶点的最短路径时，pathk-i一定是path的子集",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "若选取边（1，3）则会构成回路。"
+        }
+    },
+    {
+        "id": "q064008",
+        "title": "图的最短路径叙述",
+        "content": "下列关于图的最短路径的相关叙述中，正确的是（）。\nI.Dijkstra算法求单源最短路径不允许边的权为负\nII.Dijkstra算法求每对顶点间的最短路径的时间复杂度是O(n²)\nIll.Floyd算法求每对顶点间的最短路径允许边的权为负，但不允许含有负权的回路\nA.I、II和III\nB.仅I\nC.I和III\nD.II和III",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在负权图中，Dijkstra算法既不能保证每次选出的顶点都是真正的最近顶点，又不能保证已\n确定的最短路径不再被改变，因此Dijkstra算法不允许边的权为负，选项I正确。求每对顶点间\n的最短路径需要调用Dijkstra算法n次，时间复杂度为O（n²)，选项ⅡI错误。Floyd算法求每对顶\n点间的最短路径允许有负边的存在，但不允许包含总权值为负的回路，选项IⅢI正确。"
+        }
+    },
+    {
+        "id": "q064009",
+        "title": "最短路径问题",
+        "content": "已知带权连通无向图G=(V,E)，其中V={v1,V2,V3,v4,V5,V6,v}，E={（v1,v2)10,（v1,v3)2,\n(v3,v4)2,(v3,v6)11,(v2,vs)1,(v4,v5)4,(v4,v6)6,（v5,v)7,(v6,v)3}（注：顶点偶对括号外的\n数据表示边上的权值），从源点V到顶点V的最短路径上经过的顶点序列是（）。\nA.V1,V2,V5.V7\nB.V,V3,V4,V6V7\nC.V1,V3,V4,V5,V7\nD.V1,V2,V,V4,V6V7\n10．用Dijkstra算法求一个带权有向图的从顶点0出发的最短路径，在算法执行的某个时\n刻，已求得的最短路径的顶点集合S=0，2，3，4}，下一个选取的目标顶点是顶点1，则\n可能修改的最短路径是（）。\nA.从顶点0到顶点3的最短路径\nB.从顶点0到顶点2的最短路径\nC.从顶点2到顶点4的最短路径\nD.从顶点0到顶点1的最短路径",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "题目所描述的图G如下图所示。A，B，C，D对应的路径长度分别为18，13，15，24。应用\nDijkstra算法不难求出最短路径为v→V3→V4→V6→V7。\n第6章图\n253"
+        }
+    },
+    {
+        "id": "q064011",
+        "title": "判断有向图是否有环的方法",
+        "content": "下面的（）方法可以判断出一个有向图是否有环（回路）。\nI.深度优先遍历II.拓扑排序III.\n：求最短路径IV.求关键路径\nA.I、II、IV\nB.I、III、IV\nC.I、1II、III\nD.全部可以",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "使用深度优先遍历，若从有向图上的某个顶点u出发，在DFS（u)结束之前出现一条从顶点v\n到u的边，v在生成树上是u的子孙，图中必定存在包含u和v的环，因此深度优先遍历可以检\n测一个有向图是否有环。拓扑排序时，当某顶点不为任何边的头时才能加入序列，存在环时环中\n的顶点一直是某条边的头，不能加入拓扑序列。也就是说，还存在无法找到下一个可以加入拓扑\n序列的顶点，则说明此图存在回路。求最短路径是允许图有环的。至于关键路径能否判断一个图\n有环，判断是否有环是求关键路径的第一步一一拓扑排序。"
+        }
+    },
+    {
+        "id": "q064012",
+        "title": "拓扑序列与排序问题",
+        "content": "在有向图G的拓扑序列中，若顶点V在顶点V之前，则不可能出现的情形是（）。\nA.G中有弧<v,v>\nB.G中有一条从v到v的路径\n244\n2026年数据结构考研复习指导\nC.G中没有弧<v, v>\nD.G中有一条从v到v;的路径\n13．下列关于拓扑排序的说法中，错误的是（）。\n1.若某有向图存在环路，则该有向图一定不存在拓扑排序\nII.在拓扑排序算法中为暂存入度为零的顶点，可以使用栈，也可以使用队列\nIII.若有向图的拓扑有序序列唯一，则图中每个顶点的入度和出度最多为1\nIV.若有向图的拓扑有序序列唯一，则图中入度为0和出度为0的顶点都仅有1个\nA.I、III、IV\nB.III、IV\nC.II、IV\nD.III",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "若图G中存在一条从v到v的路径，说明V是V的前驱，则要把V消去以后才能消去V，\n从而拓扑序列中必然先输出v，再输出v，这显然与题意矛盾。"
+        }
+    },
+    {
+        "id": "q064014",
+        "title": "拓扑排序的正确说法",
+        "content": "下列关于拓扑排序的说法中，正确的是（）。\n1.顶点数大于1的强连通图不能进行拓扑排序\nII.在一个有向图的拓扑序列中，若顶点a在顶点b之前，则图中必有一条弧<a，b>\nIII.若有向无环图的拓扑序列唯一，则可以唯一确定该图\nA.I和II\nB.I、II和IⅢI\nC.仅1\nD.I和III",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "强连通图是指有向图中任意顶点对之间都存在两条相反的路径，这意味着强连通图中一定\n存在环，因此不能进行拓扑排序，选项I正确。假设顶点a和b的入度均为0，且分别有两条孤\n从a和b指向同一顶点c，则产生的拓扑序列可以是abc，但是此时并无一条弧<a,b>，选项Ⅱ\n错误。如图1和2所示的有向图对应的拓扑序列都是abcd，且都是唯一的，选项IⅢl错误。\n图1\n图2"
+        }
+    },
+    {
+        "id": "q064015",
+        "title": "有向图拓扑序列判定",
+        "content": "若一个有向图的顶点不能排成一个拓扑序列，则判定该有向图（）。\nA.含有多个出度为0的顶点\nB.是个强连通图\nC.含有多个入度为0的顶点\nD.含有顶点数大于1的强连通分量",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "一个有向图中的顶点不能排成一个拓扑序列，表明其中存在一个顶点数目大于1的回路\n（环），该回路构成一个强连通分量，从而答案选择选项D。\n254\n2026年数据结构考研复习指导"
+        }
+    },
+    {
+        "id": "q064016",
+        "title": "有向图拓扑序列数量",
+        "content": "下图所示有向图的所有拓扑序列共有（）个。\nA.4\nB.6\nC. 5\nD. 7",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "本图的拓扑排序序列有ABCFDEG，ABCDFEG，ABCDEFG，ABDCFEG和ABDCEFG。读者\n应能把这一类经典习题的拓扑序列全部写出来。"
+        }
+    },
+    {
+        "id": "q064017",
+        "title": "有向图G的拓扑序列",
+        "content": "已知有向图G=(V,E)，其中V={v,v2,V3,V4,V5,V6V}，E={<V1,v2>,<v1,v>,<V1,V4>,\n<v2,V5>，<V3,V5>，<V3,v6，<V5,v>，<V6V>，<V4,V6>}，G的拓扑序列是()。\nA.{v1, v3,V4,V6,V2Vs, v}\nB.{V1,V3, V2,V6V4,Vs,V7}\nC.{v1V3,V4,v5V2,V6v}\nD.{V,V2,V5,V3,V4V6V}",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "拓扑序列的过程：找到入度为0的顶点，删除该顶点及其所有出边，并将顶点加入拓扑序\n列，重复直至所有顶点都加入拓扑序列。选择入度为O的顶点Vi，删除与v有关的边；此时顶\n点v的入度为0，选择v3，删除与v有关的边：以此类推，得出G的拓扑序列。"
+        }
+    },
+    {
+        "id": "q064018",
+        "title": "邻接矩阵对称性",
+        "content": "下列哪种图的邻接矩阵是对称矩阵？\n（）\nA.有向网\nB.无向图\nC.AOV网\nD.AOE网",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "无向图的邻接矩阵存储中，每条边存储两次，且A[iU]=AUII]。"
+        }
+    },
+    {
+        "id": "q064019",
+        "title": "有向图拓扑排序的邻接矩阵特性",
+        "content": "若一个有向图具有有序的拓扑排序序列，则它的邻接矩阵必定为（)。\nA.对称\nB.稀疏\nC.三角\nD.一般",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "此题一直以来争议较大，因为有些书中漏掉了“有序”二字。可以证明，对有向图中的顶\n点适当地编号，使其邻接矩阵为三角矩阵且主对角元素全为零的充分必要条件是，该有向图可\n以进行拓扑排序。若这个题目把“有序”二字去掉，显然应选择选项D。但此题题干中已经指\n出是“有序的拓扑序列”，因此应选选项C。需要注意的是，若一个有向图的邻接矩阵为三角矩\n阵（对角线以上或以下的元素为0），则图中必不存在环，因此其拓扑序列必然存在。"
+        }
+    },
+    {
+        "id": "q064020",
+        "title": "DFS遍历无环有向图的输出序列性质",
+        "content": "用DFS算法遍历一个无环有向图，并在DFS算法退栈返回时输出相应的顶点，则输出\n的顶点序列是（）。\nA.逆拓扑有序\nB.拓扑有序\nC.无序的\nD.无法确定",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "设图中有顶点v，它有后继顶点v，即存在边<v，v>。根据 DFS 的规则，v,入栈后，必先遍\n历完其后继顶点后v才会出栈，也就是说v会在v之后出栈，在如题所指的过程中，v在v后打\n印。v和v具有任意性，因此由上面的规律看出，输出顶点的序列是逆拓扑有序序列。\n对有向无环图利用深度优先搜索进行拓扑排序的例子如下：如下图所示，退出DFS栈的顺\n序为efgdcahb，此图的一个拓扑序列为bhacdgfe。该方法的每一步均是先输出当前无后继的结\n点，即对每个结点v，先递归地求出v的每个后继的拓扑序列。"
+        }
+    },
+    {
+        "id": "q064021",
+        "title": "关于图的正确说法",
+        "content": "下列关于图的说法中，正确的是（）。\n1.有向图中顶点V的度等于其邻接矩阵中第V行中1的个数\nII.无向图的邻接矩阵一定是对称矩阵，有向图的邻接矩阵一定是非对称矩阵\nIII.在带权图G的最小生成树G中，某条边的权值可能会超过未选边的权值\nIV.若有向无环图的拓扑序列唯一，则可以唯一确定该图\nA.I、II和III\nB.III和IV\nC. III\nD. IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "有向图邻接矩阵的第V行中1的个数是顶点V的出度，而有向图中顶点的度为入度与出度\n之和，选项1错。无向图的邻接矩阵一定是对称矩阵，但当有向图中任意两个顶点之间有边相\n连，且是两条方向相反的有向边时，有向图的邻接矩阵也是一个对称矩阵，选项1ⅡI错。最小生\n成树中的n-1条边不能保证是图中权值最小的n-1条边，因为权值最小的n-1条边并不一定能\n使图连通。在下图中，左图的最小生成树如下图所示，权值为3的边不在其最小生成树中。\n1\n2\n4\n有向无环图的拓扑序列唯一并不能唯一确定该图。在下图所示的两个有向无环图中，拓扑\n序列都为V，V2.V3，V4，IV错。注意，很多辅导书对该命题的判断是错误的。\n第6章\n255"
+        }
+    },
+    {
+        "id": "q064022",
+        "title": "AOE网关键路径长度",
+        "content": "下图所示的AOE网中，关键路径长度为（）。\nA.16\nB.17\nC.18\nD.19\n第6章图\n245",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "观察题图，从V到V的最长路径为V→V→V4→V→Vs，长度为6+1+9+2=18。"
+        }
+    },
+    {
+        "id": "q064023",
+        "title": "带权图关键路径长度",
+        "content": "若某带权图为G=(V,E)，其中V={v1,V2,V3,V4,V5,V6v7,V8,V9,v10}，E={<v1,v2>5,<V1,\nvV3>6,<V2,V5>3,<V3,V5>6,<V3,v4>3,<v4,V>3，<v4,v>1,<v4,V8>4,<V5,V6>4,<V5,V>2,<V6\nV1o>4，<v，V>5，<V8，V>2，<v9，V1o>2}（注：边括号外的数据表示边上的权值），则G的\n关键路径的长度为（）。\nA.19\nB.20\nC.21\nD.22",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "题目描述的图如下，得到关键路径的长度为21，图中画出的两条路径都是关键路径。"
+        }
+    },
+    {
+        "id": "q064024",
+        "title": "关键路径说法辨析",
+        "content": "下面关于求关键路径的说法中，不正确的是（）。\nA.求关键路径是以拓扑排序为基础的\nB.一个事件的最早发生时间与以该事件为始的弧的活动的最早开始时间相同\nC.一个事件的最迟发生时间是以该事件为尾的弧的活动的最迟开始时间与该活动的持\n续时间的差\nD.任何一个活动的持续时间的改变可能会影响关键路径的改变",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "个事件的最迟发生时间=min{以该事件为尾的弧的活动的最迟开始时间}，或min{以该事\n件为尾的弧所指事件的最迟发生时间与该弧的活动的持续时间之差。改变AOE网中任何一个\n活动的持续时间，需要重新计算关键活动，可能导致关键路径的改变。"
+        }
+    },
+    {
+        "id": "q064025",
+        "title": "AOE网关键路径的正确说法",
+        "content": "下列关于AOE网的关键路径的说法中，正确的是（）。\n1.改变网上某一关键路径上的任意一个关键活动后，必将产生不同的关键路径\nII.关键路径上活动的时间延长多少，整个工期也就随之延长多少\nIII.缩短关键路径上任意一个关键活动的持续时间可缩短关键路径长度\nIV.缩短所有关键路径上共有的任意一个关键活动的持续时间可缩短关键路径长度\nV.缩短多条关键路径上共有的任意一个关键活动的持续时间可缩短关键路径长度\nA.II和V\nB.I、II和IV\nC.II和IV\nD.I和IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "若改变的是所有关键路径上的公共活动，则不一定会产生不同的关键路径（延长必然不会\n导致，只有缩短才有可能导致）。根据关键路径的定义，可知选项ⅡI正确。关键路径是源点到终\n点的最长路径，只有所有关键路径的长度都缩短时，整个图的关键路径才能有效缩短，但也不\n能任意缩短，一旦缩短到一定程度，该关键活动就可能变成非关键活动。"
+        }
+    },
+    {
+        "id": "q064026",
+        "title": "AOE网关键路径与邻接矩阵关系",
+        "content": "在求AOE网的关键路径时，若该有向图用邻接矩阵表示且第i列值全为，则（）。\nA.若关键路径存在，第i个顶点一定是起点\nB.若关键路径存在，第i个顶点一定是终点\nC.关键路径不存在\nD.该有向图对应的无向图存在多个连通分量",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "邻接矩阵第i列值全为oo，说明顶点i没有入边，为整个工程的开始，若关键路径存在，则该\n顶点一定是起点。不能确定关键路径是否存在，也不能确定其对应的无向图的连通分量个数。"
+        }
+    },
+    {
+        "id": "q064027",
+        "title": "拓扑排序序列个数",
+        "content": "【2010统考真题】对下图进行拓扑排序，可得不同拓扑序列的个数是（）。\ne)\nA.4\nB.3\nC. 2\nD. 1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "拓扑排序的过程如下图所示。\n输出\n输出e\n输出\nd\n输出\n输出c\n输出e\n?\n输出d.得到aebcd\n输出d.得到abecd\n输出d.得到abced\n可以得到3种不同的拓扑序列，即abced，abecd和aebcd。"
+        }
+    },
+    {
+        "id": "q064028",
+        "title": "最小生成树性质判断题",
+        "content": "【2012统考真题】下列关于最小生成树的叙述中，正确的是（）。\nI.最小生成树的代价唯一\nII.所有权值最小的边一定会出现在所有的最小生成树中\nIIl.使用Prim算法从不同顶点开始得到的最小生成树一定相同\nIV.使用Prim算法和Kruskal算法得到的最小生成树总不相同\nA.仅I\nB.仅II\nC.仅I、III\nD.仅II、IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "最小生成树的树形可能不唯一（因为可能存在权值相同的边），但代价一定是唯一的，1正\n256\n2026年数据结构考研复习指导\n确。若权值最小的边有多条并且构成环状，则总有权值最小的边将不出现在某棵最小生成树\n中，ⅡI错误。设N个结点构成环，N条边的权值相等，从不同的顶点开始执行Prim算法，只\n要选取任意不同的N-1条边，就能得到不同的最小生成树，III错误。当最小生成树唯一时\n（各边的权值不同），Prim算法和Kruskal算法得到的最小生成树相同，IV错误。"
+        }
+    },
+    {
+        "id": "q064029",
+        "title": "Dijkstra算法求最短路径顺序",
+        "content": "【2012统考真题】对下图所示的有向带权图，若采用Dijkstra算法求从源点a到其他各\n246\n2026年数据结构考研复习指导\n点是c，后续得到的其余各最短路径的目标顶点依次是（）。\nA. d, e,f\nB.e,d, f\nC. f,d, e\nD. f,e,d",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "从a到各顶点的最短路径的求解过程下：\n顶点\n第1轮\n第2轮\n第3轮\n第4轮\n第5轮\nb\n(a,b)2\nC\n(a,c) 5\n(a,b,c)3\nd\n8\n(a,b,d)5\n(a, b, d)5\n(a,b,d)5\ne\n8\n(a,b,c,e)7\n(a,b,c,e)7\n(a,b,d,e) 6\n8\nf\n(a,b,c,f)4\n集合S\nla,b;\n(a,b,c}\n(a,b,c,f}\n(a,b,c,fd}\na,b,c,f.d,e}\n后续目标顶点依次为fd，é。\n本题也可用排除法：对于A，若下一个顶点为d，路径a,b,d的长度为5，而a,b,c.f的长度\n仅为4，显然错误。同理可排除B。将f加入集合S后，采用上述方法也可排除D。"
+        }
+    },
+    {
+        "id": "q064030",
+        "title": "邻接矩阵主对角线以下为零的拓扑序列",
+        "content": "【2012统考真题】若用邻接矩阵存储有向图，矩阵中主对角线以下的元素均为零，则关\n于该图拓扑序列的结论是（）。\nA.存在，且唯一\nB.存在，且不唯一\nC.存在，可能不唯一\nD.无法确定是否存在",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对角线以下元素均为零，表明只有顶点i到（i<j）可能有边，而顶点j到i一定没有边，\n即有向图是一个无环图，因此一定存在拓扑序列。对于拓扑序列是否唯一，试举一例：设有向\n[011]\n图的邻接矩阵00’\n，存在两个拓扑序列，因此该图存在可能不唯一的拓扑序列。\n[o 0 0]\n结论：对于任一有向图，若它的邻接矩阵中对角线以下（或以上）的元素均为零，则存在\n拓扑序列（可能不唯一）。反之，若图存在拓扑序列，却不一定能满足邻接矩阵中主对角线以下\n的元素均为零，但是可以通过适当地调整结点编号，使其邻接矩阵满足前述性质。"
+        }
+    },
+    {
+        "id": "q064031",
+        "title": "加快活动进度缩短工期选项",
+        "content": "【2013统考真题】下列A0E网表示一项包含8个活动的工程。通过同时加快若干活动的\n进度可缩短整个工程的工期。在下列选项中，加快其进度就可缩短工程工期的是（）。\nA.c和e\nB.d和c\nC. f和d\nD.f和h",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "找出AOE网的全部关键路径为bdcg、bdeh和bfh。根据性质，只有当所有关键路径的活动\n时间同时减少时，才能缩短工期。即正确选项中的路径必须能涵盖所有的关键路径。选项A和\nB不能涵盖bfh这条路径，选项D不能涵盖bdcg这条路径，只有选项C能涵盖所有关键路径，\n因此只有加快f和d的进度才能缩短工期（建议在图中检验）。"
+        }
+    },
+    {
+        "id": "q064032",
+        "title": "有向图拓扑排序序列",
+        "content": "【2014统考真题】对下图所示的有向图进行拓扑排序，得到的拓扑序列可能是（）。\n1\n2\nA.3,1,2,4,5,6\nB.3,1,2,4,6,5\nC.3,1,4,2,5,6\nD.3,1,4,2,6,5",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "按照拓扑排序的算法，每次都选择入度为0的结点从图中删除，此图中一开始只有结点3\n的入度为0；删除结点3后，只有结点1的入度为0：删除结点1后，只有结点4的入度为0；\n删除结点4后，结点2和结点6的入度都为0，此时选择删除不同的结点，会得出不同的拓扑序\n列，分别处理完毕后可知可能的拓扑序列为3，1,4，2.6,5和3，1,4,6,2，5。"
+        }
+    },
+    {
+        "id": "q064033",
+        "title": "Kruskal与Prim算法选边比较",
+        "content": "【2015统考真题】求下面的带权图的最小（代价）生成树时，可能是Kruskal算法第2\n次选中但不是Prim算法（从V4开始）第2次选中的边是（）。\nV\n（\nA. (V, V)\nB. (V, V4)\nC. (V2, V)\nD. (V3, V4)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "从V4开始，Kruskal算法选中的第一条边一定是权值最小的(Vi,V4)，B 错误。V和V4已经\n可达，因此含有V和V4的权值为8的第二条边一定符合Prim算法，排除A和D。"
+        }
+    },
+    {
+        "id": "q064034",
+        "title": "图的叙述判断",
+        "content": "【2011统考真题】下列关于图的叙述中，正确的是（）。\nI.回路是简单路径\nII.存储稀疏图，用邻接矩阵比邻接表更省空间\nIII.若有向图中存在拓扑序列，则该图不存在回路\nA.仅II\nB.仅I、ⅡI\nC.仅III\nD. 仅I、III",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "第一个顶点和最后一个顶点相同的路径称为回路；序列中顶点不重复出现的路径称为简单\n路径；回路显然不是简单路径，选项I错误。稀疏图是边比较少的情况，邻接矩阵存储的空间复\n杂度为O(n²)，必将浪费大量的空间，而邻接表存储的空间复杂度为O（n+e），所以应选用邻接\n第6章图\n257\n表，选项ⅡI错误。存在回路的有向图不存在拓扑序列，若拓扑排序输出结束后所余下的顶点都\n有前驱，则说明只得到了部分顶点的拓扑有序序列，图中存在回路，选项ⅢI正确。\n35．B公众号：小兔网盘免费分享无水印PDF\n根据Dijkstra算法，从顶点1到其余各顶点的最短路径如下表所示。\n顶点第1轮\n第2轮\n第3轮\n第4轮\n第5轮\n5\n5\n2\nV→V2\nv1-V2\n8\n8\n7\n3\nV→V2→V3\n8\n11\n11\n4\nV→V5-\nv1→V5-V4\nV→V5→4\nV1-→V5→V4\n5\n4\nV→V5\n8\n9\n9\n9\n6\nv1-V5-V6\nV1→V5-v6\nV1-V5→V6\n集合S\n(1.5)\n(1,5,2}\n1,5,2.3;\n1,5,2.3,6}\n1,5,2,3.6,4}\n快速解法。依次观察从顶点1到其他顶点的最短路径长度：顶点1到顶点2的最短路径长\n度为5：顶点1到顶点3的最短路径长度为5+2=7：顶点1到顶点4的最短路径长度为11：顶\n点1到顶点5的最短路径长度为4：顶点1到顶点6的最短路径长度为4+5=9：最终\ndist[]={0,5，7,11,4,9}，根据dist数组值从小到大选择顶点顺序为1,5,2,3,6,4。"
+        }
+    },
+    {
+        "id": "q064035",
+        "title": "Dijkstra算法最短路径目标顶点",
+        "content": "【2016统考真题】使用Dijkstra算法求下图中从顶点1到其他各顶点的最短路径，依次\n得到的各最短路径的目标顶点是（）。\n第6章图\n247\nA.5,2,3,4,6\nB.5,2,3,6,4\nC. 5,2,4,3,6\nD. 5,2,6,3,4",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    },
+    {
+        "id": "q064036",
+        "title": "有向图邻接表拓扑排序时间复杂度",
+        "content": "【2016统考真题】若对n个顶点、e条弧的有向图采用邻接表存储，则拓扑排序算法的\n时间复杂度是（）。\nA. O(n)\nB.O(n+e)\nC. 0(n)\nD. O(ne)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0641",
+            "kc0642",
+            "kc0643",
+            "kc0644",
+            "kc0645"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "采用邻接表作为AOV网的存储结构进行拓扑排序，需要对n个顶点做入栈、出栈、输出各一\n次，当处理e条边时，需要检测这n个顶点的边链表结点，共需要的时间为O(n+e)。若采用邻接\n矩阵作为AOV网的存储结构进行拓扑排序，在处理e条边时需对每个顶点检测相应矩阵中的某\n一行，寻找与它相关联的边，以便对这些顶点的入度减1，需要的时间代价为O（²)。\n【补充】有两种常用的拓扑排序算法：基于BFS的算法和基于DFS的算法。本题未指明采\n用哪种算法，因此只需验证一种算法即可（说明两种算法在对应条件下的时间复杂度相同）。\n基于BFS的算法的思想：首先找到所有入度为O的结点，将它们加入一个队列，并将它们\n某个后继结点的入度变为0，则将它也加入队列，并将它加入拓扑序列，重复这个过程。\n基于DFS的算法的思想：在DFS调用过程中设定一个时间标记，当DFS调用结束时，对\n各结点计时，进而按结束时间从大到小排序，可以得到一个拓扑序列。"
+        }
+    }
+]

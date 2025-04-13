@@ -1,0 +1,56 @@
+第5章树与二叉树
+167
+f(pre,11,hl,post,12,h2)=post[h2]=pre[11]
+其他情况
+取中间位置half=（h1-11）/2；
+将pre[11+1,11+half]左子树转换为post[12,12+half-1]，
+即f(pre,11+1,l1+half,post,12,12+half-1);
+将pre[11+half+1,h1]右子树转换为post[12+half,h2-1]，
+即f(pre,11+half+1,h1,post,12+half,h2-1)。
+其中，post[h2］=pre[l1]表示后序序列的最后一个结点（根结点）等于先序序列的第一个结
+点（根结点）。相应的算法实现如下：
+void PreToPost(ElemType pre[],int 11,int hl,ElemType post[],int 12,int h2)
+int half;
+if(h1>=11){
+post[h2]=pre[11];
+half=(h1-11)/2;
+PreToPost(pre,11+1,11+half,post,l2,l2+half-1);
+//转换左子树
+PreToPost(pre,l1+half+1,hl,post,l2+half,h2-1);
+/转换右子树
+例如，有以下代码：
+ElemType *pre="ABCDEFG";
+ElemType post[MaxSize];
+PreToPost（pre,0,6,post,0,6);
+printf（"后序序列："）；
+for（inti=0;i<=6;i++)
+printf("c",post[i]);
+printf("\n");
+执行结果如下：
+后序序列：CDBFGEA
+13.【解答】
+通常使用的先序、中序和后序遍历对于叶结点的访问顺序都是从左到右，这里选择中序递归
+遍历。算法思想：设置前驱结点指针pre，初始为空。第一个叶结点由指针head指向，遍历到
+叶结点时，就将它前驱的rchild指针指向它，最后一个叶结点的rchild为空。算法实现如下：
+LinkedList head, pre=NULL;
+//全局变量
+LinkedList InOrder(BiTree bt)(
+if(bt){
+InOrder(bt->lchild);
+//中序遍历左子树
+if(bt->lchild==NULL&&bt->rchild==NULL)
+/叶结点
+if（pre==NULL）{
+head=bt;
+pre=bt;
+1//处理第一个叶结点
+elsel
+pre->rchild=bt;
+pre=bt;
+//将叶结点链入链表
+InOrder(bt->rchild);
+/中序遍历右子树
+pre->rchild=NULL;
+/设置链表尾
+return head;
+上述算法的时间复杂度为 O(n)，辅助变量使用head和pre，栈空间复杂度为O(n)。

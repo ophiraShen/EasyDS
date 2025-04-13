@@ -1,0 +1,2278 @@
+[
+    {
+        "id": "q072002",
+        "title": "有序表与无序表查找平均时间比较",
+        "content": "由n个数据元素组成的两个表：一个递增有序，一个无序。采用顺序查找算法，对有序\n表从头开始查找，发现当前元素已不小于待查元素时，停止查找，确定查找不成功，已\n知查找任意一个元素的概率是相同的，则在两种表中成功查找（）。\nA.平均时间后者小\nB.平均时间两者相同\nC.平均时间前者小\nD.无法确定",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于顺序查找，不管线性表是有序的还是无序的，成功查找第一个元素的比较次数为1，成\n278\n2026年数据结构考研复习指导\n功查找第二个元素的比较次数为2，以此类推，即每个元素查找成功的比较次数只与其位置有关\n（与是否有序无关），因此查找成功的平均时间两者相同。"
+        }
+    },
+    {
+        "id": "q072003",
+        "title": "有序单链表顺序查找平均查找长度",
+        "content": "对长度为n的有序单链表，若查找每个元素的概率相等，则顺序查找表中任意一个元素\n的查找成功的平均查找长度为（）。\nA. n/2\nB.(n + 1)/2\nC.(n-1)/2\nD.n/4",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在有序单链表上做顺序查找，查找成功的平均查找长度与在无序顺序表或有序顺序表上做顺\n序查找的平均查找长度相同，都是（n+1)/2。"
+        }
+    },
+    {
+        "id": "q072004",
+        "title": "顺序表平均查找长度",
+        "content": "对长度为3的顺序表进行查找，若查找第一个元素的概率为1/2，查找第二个元素的概\n率为1/3，查找第三个元素的概率为1/6，则查找任意一个元素的平均查找长度为（）。\nA.5/3\nB.2\nC. 7/3\nD.4/3",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在长度为3的顺序表中，查找第一个元素的查找长度为1，查找第二个元素的查找长度为2，\n查找第三个元素的查找长度为3，所以有\n×I+\n2+\nX3\n3\n6"
+        }
+    },
+    {
+        "id": "q072005",
+        "title": "二分查找的正确叙述",
+        "content": "下列关于二分查找的叙述中，正确的是（）。\nA.表必须有序，表可以顺序方式存储，也可以链表方式存储\nB.表必须有序且表中数据必须是整型、实型或字符型\n第7章查\n找\n275\nC.表必须有序，而且只能从小到大排列\nD.表必须有序，且表只能以顺序方式存储",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "二分查找通过下标来定位中间位置元素，所以应采用顺序存储，且二分查找能够进行的前提\n是查找表是有序的，但具体是从大到小还是从小到大的顺序则不做要求。"
+        }
+    },
+    {
+        "id": "q072006",
+        "title": "有序线性表查找速度比较",
+        "content": "在一个顺序存储的有序线性表上查找一个数据时，既可以采用折半查找，也可以采用顺\n序查找，但前者比后者的查找速度（）。\nA.必然快\nB.取决于表是递增还是递减\nC.在大部分情况下要快\nD.必然不快",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "折半查找的快体现在一般情况下，在大部分情况下要快，但是对于某些特殊情况，顺序查找\n可能会快于折半查找。例如，查找一个含1000个元素的有序表中的第一个元素时，顺序查找的\n比较次数为1次，而折半查找的比较次数却将近10次。"
+        }
+    },
+    {
+        "id": "q072007",
+        "title": "折半查找判定树类型",
+        "content": "折半查找过程所对应的判定树是一棵（\n)\nA.最小生成树\nB．平衡二叉树\nC.完全二叉树\nD.满二叉树",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "A显然排除。对于选项C，考点精析示例中的判定树就不是完全二叉树。由选项C也可排除\n选项D，且满二叉树对结点数有要求。只可能选择选项B。事实上，由折半查找的定义不难看出，\n而使得对应的判定树的两棵子树高度差的绝对值不超过1，所以应是平衡二叉树。"
+        }
+    },
+    {
+        "id": "q072008",
+        "title": "折半查找与二叉排序树时间性能比较",
+        "content": "折半查找和二叉排序树的时间性能（\nA.相同\nB．有时不相同\nC.完全不同\nD.无法比较",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "二叉排序树的查找性能与数据的输入顺序有关，最好情况下的平均查找长度与折半查找相同，但\n最坏情况即形成单支树时，其查找长度为O(n)。"
+        }
+    },
+    {
+        "id": "q072009",
+        "title": "折半查找元素A[11]的比较下标",
+        "content": "在有11个元素的有序表A[1,2，，11]中进行折半查找（L（low+high）/2]），查找\n元素A[11]时，被比较的元素下标依次是（）。\nA. 6,8, 10, 11\nB. 6, 9,10, 11\nC.6,7,9,11\nD. 6,8,9, 11",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "依据折半查找算法的思想，第一次mid=[（1+11）/2」=6，第二次mid=[[（6+1）+11]/2」=9，\n第三次mid=L[（9+1）+11]/2]=10，第四次mid=11。"
+        }
+    },
+    {
+        "id": "q072010",
+        "title": "二分查找比较次数",
+        "content": "已知有序表(13,18,24,35,47,50,62,83,90,115,134)，当二分查找值为90的元素时，查\n找成功的元素比较次数为（）。\nA. 1\nB.2\nC.4\nD.6",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "开始时1ow指向13，high指向134，mid指向50，比较第一次90>50，所以将1ow指向\n62，high指向134，mid指向90，第二次比较找到90。"
+        }
+    },
+    {
+        "id": "q072011",
+        "title": "二分查找关键字比较序列",
+        "content": "若有序表的关键字序列为{b,c,d,e,fg,q,r,s,t)，则在二分查找关键字b的过程中，进\n行比较的关键字依次为（）。\nA. f, c, b\nB. f, d, b\nC. g,c, b\nD. g,d, b",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在折半查找算法中，mid取值的方式是确定的，要么采用向上取整，要么采用向下取整，而\n不能出现两种情况。对于选项A，第1次比较的元素是f，为向下取整；第2次比较的元素是c，\n次比较的元素是f，为向下取整；第2次比较的元素是d，为向上取整，两次mid取值的方式不\n同，不符合二分查找。对于选项C，第1次比较的元素是g，为向上取整；第2次比较的元素是c，\n为向下取整，不符合二分查找。对于选项D，第1次比较的元素是g，为向上取整；第2次比较\n的元素是d，为正中间元素；第3次比较的元素为b，为向下取整，不符合二分查找。"
+        }
+    },
+    {
+        "id": "q072012",
+        "title": "折半查找判定树高度与比较次数",
+        "content": "对表长为n的有序表进行折半查找，其判定树的高度为（\nA.[1og2(n + 1)]\nB.[log2(n + 1)]-1 C. 「log2n]\nD. [log2n]- 1\n13．已知一个长度为16的顺序表，其元素按关键字有序排列，若采用折半查找算法查找一\n个不存在的元素，则比较的次数至少是（），至多是（）。\nA.4\nB.5\nC.6\nD.7",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对n个结点的判定树，设结点总数n=2-1，则h=|log2（n+1）。\n第7章查\n找\n279\n【另解】特殊值代入法。直接将n=1和n=2的情况代入，仅有A满足要求。\n13.A、B\n对于此类题，有两种做法：一种方法是，画出查找过程中构成的判定树，让最小的分支高度对\n应于最少的比较次数，让最大的分支高度对应于最多的比较次数，出现类似于长度为15的顺序表时，\n判定树刚好是一棵满树，此时最多比较次数与最少比较次数相等；另一种方法是，直接用公式求出最\n小的分支高度和最大分支高度，从前面的讲解不难看出最大分支高度为H=1og2（n+1)=5，这对应\n的就是最多比较次数，然后因为判定树不是一棵满树，所以至少应该是4（由判定树的各分支高\n度最多相差1得出）。\n注意，若求查找成功或查找失败的平均查找长度，则需要画出判定树来求解。此外，对长度为\nn的有序表，采用折半查找时，查找成功和查找失败的最多比较次数相同，均为「1og2（n+1）]。\n14.A、D\n假设有序表中元素为A[0..11]，不难画出对它进行折半查找的判定树如下图所示，圆圈是查找\n成功结点，方形是虚构的查找失败结点。从而可以求出查找成功的ASL=（1+2x2+3×4+4×5)/12=\n37/12，查找失败的ASL=（3×3+4×10)/13。\n5\n注意\n对于本类题目，应先根据所给n的值，画出如上图所示的折半查找判定树。另外，查找失败结点的\nASL不是到图中的方形结点，而是到方形结点上一层的圆形结点。"
+        }
+    },
+    {
+        "id": "q072014",
+        "title": "折半查找平均查找长度",
+        "content": "具有12个关键字的有序表中，对每个关键字的查找概率相同，折半查找算法查找成功\n的平均查找长度为（），折半查找查找失败的平均查找长度为（）。\nA.37/12\nB.35/12\nC.39/13\nD.49/13",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    },
+    {
+        "id": "q072015",
+        "title": "查找方法正确性分析",
+        "content": "下列关于查找的说法中，正确的是（）。（注，涉及下节内容）\nA.若数据元素保持有序，则查找时就可以采用折半查找法\nB.折半查找与二叉查找树的时间性能在最坏情况下是相同的\nC.折半查找法的平均查找长度一定小于顺序查找法\nD.折半查找法查找一个元素大约需要O(log2n)次关键字比较",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "折半查找法不仅要求数据元素有序，而且要求必须为顺序存储，选项A错误。折半查找法在最\n坏情况下的时间性能为O(log2n)，二叉查找树在最坏情况下的时间性能为O(n)，选项B错误。在每"
+        }
+    },
+    {
+        "id": "q072016",
+        "title": "分块查找的数据组织方式",
+        "content": "采用分块查找时，数据的组织方式为（）。\nA.数据分成若干块，每块内数据有序\nB.数据分成若干块，每块内数据不必有序，但块间必须有序，每块内最大（或最小）\n的数据组成索引块\nC.数据分成若干块，每块内数据有序，每块内最大（或最小）的数据组成索引块\nD.数据分成若干块，每块（除最后一块外）中数据个数需相同",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "通常情况下，在分块查找的结构中，不要求每个索引块中的元素个数都相等。"
+        }
+    },
+    {
+        "id": "q072017",
+        "title": "理想块长查找",
+        "content": "对有2500个记录的索引顺序表（分块表）进行查找，最理想的块长为（）。\nA.50\nB.125\nC.500\nD. 「1og22500]",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "设块长为b，索引表包含n/b项，索引表的ASL=(n/b+1)/2，块内的ASL=(b+1)/2，总ASL=\n索引表的ASL+块内的ASL=（b+n/b+2)/2，其中对于b+n/b，由均值不等式知b=n/b时有最\n小值，此时b=√n。则最理想块长为√2500=50。"
+        }
+    },
+    {
+        "id": "q072018",
+        "title": "分块查找平均查找长度",
+        "content": "设顺序存储的某线性表共有123个元素，按分块查找的要求等分为3块。若对索引表采\n276\n2026年数据结构考研复习指导\n用顺序查找法来确定子块，且在确定的子块中也采用顺序查找法，则在等概率情况下，\n分块查找成功的平均查找长度为（）。\nA.21\nB.23\nC.41\nD.62",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "b+1,s+1_s²+2s+n\n根据公式ASL=L+Ls=\n，其中b=nls,s=123/3,n=123，代入不难得\n2\n2s\n出ASL为23。所以选择选项B。另一方面，可根据穷举法来一步步模拟。对于A块中的元素，查找\n过程的第一步是先找到A块，由于是顺序查找，找到A块只需一步，然后在A块中顺序查找，因此\nA块内各元素查找长度分别为2，3，4·，42。对于B块，采用类似的方法，但查找到B块要比查找到\n280\n2026年数据结构考研复习指导\nA块多一步，因此B块内各元素查找长度为3,4,5.,.，43。同理，C块中各个元素查找长度为4,5,6.·.\n44。所以平均查找长度为（2+3+4+..+42+3+4+5+..+43+4+5+6+...+44）/123=23。"
+        }
+    },
+    {
+        "id": "q072019",
+        "title": "索引顺序表查找比较次数",
+        "content": "为提高查找效率，对有65025个元素的有序顺序表建立索引顺序结构，在最好情况下查\n找到表中已有元素最多需要执行（）次关键字比较\nA.10\nB.14\nC.16\nD.21",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "为使查找效率最高，每个索引块的大小应是√65025=255，为每个块建立索引，则索引表中索引\n项的个数为255。若对索引项和索引块内部都采用折半查找，则查找效率最高，为「log2（255+1)]+\n[log,(255+1)]= 16。"
+        }
+    },
+    {
+        "id": "q072020",
+        "title": "折半查找最大比较次数",
+        "content": "【2010统考真题】已知一个长度为16的顺序表L，其元素按关键字有序排列，若采用折\n半查找法查找一个L中不存在的元素，则关键字的比较次数最多是（）。\nA.4\nB.5\nC.6\nD.7",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "折半查找法在查找不成功时和给定值进行关键字的比较次数最多为树的高度，即Llog2n」+1\n或[1og2(n+1)]。在本题中，n=16，所以比较次数最多为5。\n注意\n在折半查找判定树中的方形结点是虚构的，它不计入比较的次数。"
+        }
+    },
+    {
+        "id": "q072021",
+        "title": "折半查找关键字比较序列",
+        "content": "【2015统考真题】下列选项中，不能构成折半查找中关键字比较序列的是（）。\nA.500,200,450,180\nB.500,450,200,180\nC. 180, 500, 200, 450\nD.180,200,500,450",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "画出查找路径图，因为折半查找判定树是一棵二叉排序树，看其是否满足二叉排序树的\n要求。\n500\n500\n180\n20\n200\n450\n显然，选项A的查找路径不满足。"
+        }
+    },
+    {
+        "id": "q072022",
+        "title": "升序数组查找算法比较",
+        "content": "【2016统考真题】在有n（n>1000）个元素的升序数组A中查找关键字x。查找算法的\n伪代码如下所示。\nk=0;\nwhile（k<n且A[k]<x)k=k+3;\nif（k<n 且A[k]==x）查找成功；\nelse if（k-1<n且A[k-1]==x）查找成功;\nelseif（k-2<n且A[k-2]==x）查找成功；\nelse查找失败；\n本算法与折半查找算法相比，有可能具有更少比较次数的情形是（）。\nA.当x不在数组中\nB.当x接近数组开头处\nC.当X接近数组结尾处\nD.当x位于数组中间位置",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "本题为送分题。\n该程序采用跳跃式的顺序查找法查找升序数组中的x。显然，×越靠前，比较次数越少。"
+        }
+    },
+    {
+        "id": "q072023",
+        "title": "折半查找判定树选项",
+        "content": "【2017统考真题】下列二叉树中，可能成为折半查找判定树（不含外部结点）的是（）。\nA.\nB.\nD\n多是（）。\nA.9\nB.10\nC. 30\nD. 300",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于给定的一个有序查找表，其对应的折半查找判定树是确定且唯一的。在折半查找算法\n中，mid=L（low+high）／2」，因此若表中初始有2n+1个元素，则mid分割后，左右子树各\n有n个元素；若表中初始有2n个元素，则mid分割后，左子树有n-1个元素，右子树有n个\n元素。即左子树的元素个数或者与右子树的元素个数相等，或者比右子树少一个。若令mid=\n「（low+high）/2]，不难理解，左子树的元素个数或者与右子树的元素个数相等，或者比右子\n树多一个。对于选项A，树中每个左子树都与右子树的结点个数相等，或者多一个结点，符合\n子树少一个结点，不符合折半查找的规则。"
+        }
+    },
+    {
+        "id": "q072025",
+        "title": "折半查找适用性分析",
+        "content": "【2024统考真题】下列数据结构中，不适合直接使用折半查找的是（）。\nI.有序链表\nII.无序数组\nIII.有序静态链表\nIV.无序静态链表\nA.仅I、III\nB.仅II、IV\nC.仅II、III、IVD.I、II、III、IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0721",
+            "kc0722",
+            "kc0723"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "折半查找必须满足两个条件：①数组（或顺序表），折半查找的上一次查找和本次查找可能\n相隔很远的距离，如依次查找下标为n/2，n/4,n/8.·的元素，若采用链表（或静态链表），则会使\n第7章查\n找\n281\n得时间复杂度非常高。②有序，只有在有序的情况下才能根据上一次的比较情况舍弃一半的序列。"
+        }
+    },
+    {
+        "id": "q073002",
+        "title": "二叉排序树遍历序列",
+        "content": "按（）遍历二叉排序树得到的序列是一个有序序列。\nA.先序\nB.中序\nC.后序\nD.层次",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "由二叉排序树的定义不难得出中序遍历二叉树得到的序列是一个有序序列。"
+        }
+    },
+    {
+        "id": "q073003",
+        "title": "二叉排序树查找效率因素",
+        "content": "在二叉排序树中进行查找的效率与（）有关。\nA.二叉排序树的深度\nB.二叉排序树的结点的个数\nC.被查找结点的度\nD.二叉排序树的存储结构",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "二叉排序树的查找路径是自顶向下的，其平均查找长度主要取决于树的高度。"
+        }
+    },
+    {
+        "id": "q073004",
+        "title": "二叉排序树关键字最大结点的指针",
+        "content": "在常用的描述二叉排序树的存储结构中，关键字值最大的结点（）。\nA.左指针一定为空\nB.右指针一定为空\nC.左右指针均为空\nD.左右指针均不为空",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在二叉排序树的存储结构中，每个结点由三部分构成，其中左（或右）指针指向比该结点的\n关键字值小（或大）的结点。关键字值最大的结点位于二叉排序树的最右位置，因此它的右指针\n一定为空（有可能不是叶结点）。还可用反证法，若右指针不为空，则右指针上的关键字肯定比\n原关键字大，所以原关键字结点一定不是值最大的，与条件矛盾，所以右指针一定为空。"
+        }
+    },
+    {
+        "id": "q073005",
+        "title": "二叉排序树查找序列",
+        "content": "设二叉排序树中关键字由1到1000的整数构成，现要查找关键字为363的结点，下述\n关键字序列中，不可能是在二叉排序树上查找的序列是（）。\nA.2,252,401,398,330,344,397,363\nB.924,220,911,244,898,258,362,363\n第7章查\n找\n297\nC.925,202,911,240,912,245,363\nD.2,399,387,219,266,382,381,278,363",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在二叉排序树上查找时，先与根结点值进行比较，若相同，则查找结束，否则根据比较结果，\n沿着左子树或右子树向下继续查找。根据二叉排序树的定义，有左子树结点值≤根结点值≤右子\n树结点值。C序列中，比较911关键字后，应转向其左子树比较240，左子树中不应出现比911\n更大的数值，但240竞有一个右孩子结点值为912，所以不可能是正确的序列。"
+        }
+    },
+    {
+        "id": "q073006",
+        "title": "二叉排序树构造差异",
+        "content": "分别以下列序列构造二叉排序树，与用其他3个序列所构造的结果不同的是（）。\nA.(100, 80, 90,60, 120, 110, 130)\nB.(100, 120, 110,130, 80, 60, 90)\nC.(100,60, 80, 90, 120, 110, 130)\nD.(100,80,60,90,120,130,110)",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "按照二叉排序树的构造方法，不难得到A，B，D序列的构造结果相同。"
+        }
+    },
+    {
+        "id": "q073007",
+        "title": "二叉排序树相关问题",
+        "content": "从空树开始，依次插入元素52,26,14,32，71,60,93,58,24和41后构成了一棵二叉排序\n树。在该树查找60要进行比较的次数为（）。\nA.3\nB.4\nC. 5\nD.6\n08．在含有n个结点的二叉排序树中查找某个关键字的结点时，最多进行（）次比较。\nA. n/2\nB. log2n\nC. log2n + 1\nD. n\n09．五个不同结点构造的二叉查找树的形态共有（）种。\nA.20\nB.30\nC. 32\nD.42\n10．构造一棵具有n个结点的二叉排序树时，最理想情况下的深度为（）。\nA.n/2\nB.n\nC. [log2(n + 1)]\nD. [log2(n + 1)]",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "以第一个元素为根结点，依次将元素插入树，生成的二叉排序树如下图所示。进行查找时，先\n与根结点比较，然后根据比较结果，继续在左子树或右子树上进行查找。比较的结点依次为52，71,60。\n52"
+        }
+    },
+    {
+        "id": "q073011",
+        "title": "平衡二叉树最大深度",
+        "content": "含有20个结点的平衡二叉树的最大深度为（）。\nA. 4\nB.5\nC. 6\nD. 7",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "高度，nn为构造此高度的平衡二叉树所需的最少结点数）。通过递推公式可得，构造5层平衡二\n叉树至少需12个结点，构造6层至少需要20个结点。"
+        }
+    },
+    {
+        "id": "q073012",
+        "title": "5层平衡二叉树最少结点数",
+        "content": "具有5层结点的平衡二叉树至少有（）个结点。\nA.10\nB.12\nC.15\nD.17",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "设n,表示高度为h的平衡二叉树中含有的最少结点数，则有n=1,n2=2,nn=nr-1+nir2+1，由\n302\n2026年数据结构考研复习指导\n此求出n=12，对应的AVL如下图所示。"
+        }
+    },
+    {
+        "id": "q073013",
+        "title": "平衡二叉排序树形态数量",
+        "content": "高度为3的平衡二叉排序树的形态共有（）种。\nA. 13\nB.14\nC. 16\nD.15",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "叉树：②左子树是高度为1的平衡二叉树，右子树是高度为2的平衡二叉树：③左子树是高度为\n2的平衡二叉树，右子树是高度为1的平衡二叉树。高度为1的平衡二叉树只有1种形态，即单\n个结点，如图1所示；高度为2的平衡二叉树有3种形态，如图2所示。\n图1\n图2\n因此，对于情况①，共有3×3=9种树形态；对于情况②，共有1×3=3种树形态；情况③和\n情况②类似，也有3种树形态，所以共有9+3+3=15种树形态。"
+        }
+    },
+    {
+        "id": "q073014",
+        "title": "平衡二叉树旋转操作",
+        "content": "在平衡二叉树的基本操作中，可能发生两次旋转的操作是（）。\nA.添加、删除结点B.仅删除结点\nC.仅添加结点\nD.\n都不会",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": ""
+        }
+    },
+    {
+        "id": "q073015",
+        "title": "平衡二叉树与红黑树",
+        "content": "将关键字1,2，3，，1024依次插入到初始为空的平衡二叉树中，假设只有一个根结点的\n二叉树的高度为0，则插入结束后的平衡二叉树的高度是（）。\nA.8\nB.9\nC.10\nD. 11\n16．下列关于红黑树和AVL树的说法中，不正确的是（）。\nI.一棵含有n个结点的红黑树的高度至多为2log2(n+1)\nI1.若一个结点是红色的，则它的父结点和孩子结点都是黑色的\nIII.红黑树的查询效率一般要优于含有相同结点数的AVL树\nIV.若AVL树的某结点的左右孩子的平衡因子都是零，则该结点的平衡因子也是零\nA.I、III\nB.III\nC. II、IV\nD.III、IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "当按关键字有序的顺序插入初始为空的平衡二叉树时，若关键字个数n=2-1时，则该平衡\n二叉树一定是一棵满二叉树（可以用1～3、1～7手工验证）。当插入关键字1023时，平衡二叉\n树正好是一棵满二叉树，高度是9。因此，插入关键字1024后，平衡二叉树的高度是10。"
+        }
+    },
+    {
+        "id": "q073017",
+        "title": "红黑树与AVL树比较",
+        "content": "下列关于红黑树和AVL树的描述中，不正确的是（）。\nA.两者都属于自平衡的二叉树\nB.两者查找、插入、删除的时间复杂度都相同\nC.红黑树插入和删除过程至多有2次旋转操作\nD.红黑树的任意一个结点的左右子树高度（含叶结点）之比不超过2\n18．下列关于红黑树的说法中，正确的是（）。\nA.红黑树的红结点的数目最多和黑结点的数目相同\nB.若红黑树的所有结点都是黑色的，则它一定是一棵满二叉树\nC.红黑树的任何一个分支结点都有两个非空孩子结点\nD.红黑树的子树也一定是红黑树",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "自平衡的二叉排序树是指在插入和删除时能自动调整以保持其所定义的平衡性，两者都属于\n自平衡二叉树，选项A正确。两者的查找、插入、删除操作的时间复杂度都为O(log2n)，选项B\n正确。在红黑树中删除结点时，情况1可能变为情况2、3或4，情况2会变为情况3，可能会出\n现旋转次数超过2次的情况，选项C错误。从任一结点到每个叶结点的所有路径都包含相同数目\n的黑结点，没有两个连续的红结点，且叶结点是黑色的，这意味着在任一结点到其左右子树中最\n远和最近的叶结点之间，红结点的数目小于或等于黑结点的数目，路径长度之比不超过2，选项\nD正确。"
+        }
+    },
+    {
+        "id": "q073019",
+        "title": "满足红黑树定义的选项",
+        "content": "下列四个选项中，满足红黑树定义的是（）。\n298\n2026年数据结构考研复习指导\nA\nB.\nC\nD",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "红黑树是一种特殊的二叉排序树，选项B不满足二叉排序树的性质。选项C中，结点2的左\n右黑结点数不同。在选项D中，结点3的左右黑结点数不同。只有选项A满足红黑树的定义。"
+        }
+    },
+    {
+        "id": "q073020",
+        "title": "红黑树插入红结点个数",
+        "content": "将关键字1,2,3，4,5，6,7依次插入初始为空的红黑树T，则T中红结点的个数是（）。\nA.\nB.2\nC.3\nD.4",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "关键字1,2.3，4,5，6,7依次插入红黑树后的形态变化如下：\n2\n6"
+        }
+    },
+    {
+        "id": "q073021",
+        "title": "红黑树插入关键字5,4,3,2,1的最终形态",
+        "content": "将关键字5，4，3，2，1依次插入初始为空的红黑树T，则T的最终形态是（）。\nA\nB\nC\nD",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "关键字5，4，3.2，1依次插入红黑树后的形态变化如下："
+        }
+    },
+    {
+        "id": "q073022",
+        "title": "红黑树插入结点2后的操作",
+        "content": "在下图所示的红黑树中插入结点2且染成红色后，则下一步应进行的操作是（）。\nA.左旋\nB.右旋\nC.变色\nD.无须调整",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "插入结点2且将其染成红色后违反不红红原则，并且叔结点是黑色，应进行LL旋转，将结\n点3右旋旋转到结点5的位置，结点2和结点5分别成为结点3的左、右孩子，然后将结点3染\n成黑色，结点2和结点5染成红色。因此，下一步应进行右旋操作。"
+        }
+    },
+    {
+        "id": "q073023",
+        "title": "平衡二叉排序树定义",
+        "content": "【2009统考真题】下列二叉排序树中，满足平衡二叉树定义的是（）\nA.\nB.\nC.\nD.",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "根据平衡二叉树的定义，任意结点的左、右子树高度差的绝对值不超过1。而其余3个答案\n均可以找到不满足条件的结点。答题时可以把每个非叶结点的平衡因子都写出来。"
+        }
+    },
+    {
+        "id": "q073024",
+        "title": "平衡二叉树插入关键字后子结点关键字",
+        "content": "【2010统考真题】在下图所示的平衡二叉树中插入关键字48后得到一棵新平衡二叉树，\n在新平衡二叉树中，关键字37所在结点的左、右子结点中保存的关键字分别是（）。\n24\n13\n37\nA.13,48\nB.24,48\nC.24,53\nD.24,90",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "插入48以后，该二叉树根结点的平衡因子由－1变为-2，在最小不平衡子树根结点的右子\n树（R）的左子树（L）中插入新结点引起的不平衡属于RL型平衡旋转（先右旋后左旋）。\n304\n2026年数据结构考研复习指导\n24\n13\n调整后，关键字37所在结点的左、右子结点中保存的关键字分别是24、53。"
+        }
+    },
+    {
+        "id": "q073025",
+        "title": "二叉排序树查找路径",
+        "content": "【2011统考真题】对下列关键字序列，不可能构成某二叉排序树中一条查找路径的是（）。\nA.95,22,91,24,94, 71\nB.92,20,91,34,88,35\n第7章查\n找\n299\nC.21,89,77,29,36,38\nD.12,25,71,68,33,34",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在二叉排序树中，左子树结点值小于根结点，右子树结点值大于根结点。在选项A中，当查\n找到91后再向24查找，说明这一条路径（左子树）之后查找的数都要比91小，而后面却查找\n到了94（解题过程中，建议配合画图），因此错误。\n画图法：各选项对应的查找过如下图，选项B、C、D对应的查找树都是二叉排序树，选项\nA对应的查找树不是二叉排序树，因为在91为根的左子树中出现了比91大点的结点94。\n95\n92\n21\n12\n2\n20\n89\n25\n91\n91\n71\n29\n24\n34\n36\n88\n33\n38\n(a)选项A的查找过程\n(b)选项B的查找过程\n（c)选项C的查找过程\n(d)选项D的查找过程"
+        }
+    },
+    {
+        "id": "q073026",
+        "title": "平衡二叉树结点总数",
+        "content": "【2012统考真题】若平衡二叉树的高度为6，且所有非叶结点的平衡因子均为1，则该平\n衡二叉树的结点总数为（）。\nA.12\nB.20\nC.32\nD.33",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "所有非叶结点的平衡因子均为1，即平衡二叉树满足平衡的最少结点情况，如下图所示。对\n于高度为n、左右子树的高度分别为n-1和n-2、所有非叶结点的平衡因子均为1的平衡二叉树，\n计算总结点数的公式为C,=Cn-1+Cn-2+1,C\n=2+1+1=4，可推出C=20\n画图法：先画出T和T；然后新建一个根结点，连接T、T构成T；新建一个根结点，连\n接T、T2构成T4·直到画出T，可知T的结点数为20。\n排除法：对于选项A，高度为6、结点数为12的树怎么也无法达到平衡。对于选项C，结点\n较多时，考虑较极端的情形，即第6层只有最左叶子的完全二叉树刚好有32个结点，虽然满足\n平衡的条件，但显然再删去部分结点依然不影响平衡，不是最少结点的情况。同理，选项D错误。"
+        }
+    },
+    {
+        "id": "q073027",
+        "title": "二叉排序树删除与插入操作",
+        "content": "【2013统考真题】在任意一棵非空二叉排序树T中，删除某结点V之后形成二叉排序树\nT2，再将v插入T2形成二叉排序树T3。下列关于T与T的叙述中，正确的是（）。\nI.若v是T的叶结点，则T与T不同\nII.若v是T的叶结点，则T与T相同\nIII若v不是T的叶结点，则T与T不同\nIV.若V不是T的叶结点，则T与T相同\nA.仅I、III\nB.仅I、IV\nC.仅II、III\nD.仅II、IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "由于在二叉排序树中插入结点的位置是一个新的叶结点，若删除的是叶结点，则重新插入后\n得到的二叉排序树与原来的二叉排序树相同。若删除的是非叶结点，在删除过程中会找其他结点\n第7章查\n找\n305\n填补，重新插入后变成叶结点，则得到的二叉排序树与原来的二叉排序树不同。"
+        }
+    },
+    {
+        "id": "q073028",
+        "title": "平衡二叉树平衡因子为0的分支结点数",
+        "content": "【2013统考真题】若将关键字1,2,3,4,5,6,7依次插入初始为空的平衡二叉树T，则T\n中平衡因子为0的分支结点的个数是（）。\nA. 0\nB.1\nC.2\nD.3",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "利用7个关键字构建平衡二叉树T，平衡因子为0的分支结点个数为3，构建的平衡二叉树\n及构造与调整过程如下图所示。"
+        }
+    },
+    {
+        "id": "q073029",
+        "title": "AVL树中序遍历降序序列性质",
+        "content": "【2015统考真题】现有一棵无重复关键字的平衡二叉树（AVL），对其进行中序遍历可得\n到一个降序序列。下列关于该平衡二叉树的叙述中，正确的是（）。\nA.根结点的度一定为2\nB.树中最小元素一定是叶结点\nC.最后插入的元素一定是叶结点\nD.树中最大元素一定是无左子树",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "大多数教材将平衡二叉树定义为一种高度平衡的二叉排序树，二叉排序树的中序序列是一个\n升序序列，而题意正好相反。由此可知，命题老师认为平衡二叉树仅为一棵满足高度平衡的二叉\n树，不一定是二叉排序树。只有两个结点的平衡二叉树的根结点的度为1，选项A错误。中序遍\n历后得到一个降序序列（与二叉排序树正好相反），树中最大元素一定无左子树（可能有右子树），\n这与二叉排序树也正好相反，也因此不一定是叶结点，选项B错误，选项D正确。最后插入的结\n点可能会导致平衡调整，而不一定是叶结点，选项C错误。"
+        }
+    },
+    {
+        "id": "q073030",
+        "title": "二叉排序树元素大小关系",
+        "content": "【2018统考真题】已知二叉排序树如下图所示，元素之间应满足的大小关系是（）。\nx\nA.x<x<xs\nB. x<x4<xs\nC. x3<xs<x4\nD.x4<x<x5",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "根据二叉排序树的特性：中序遍历（LNR）得到的是一个递增序列。图中二叉排序树的中序\n遍历序列为x1,x3,xs,x4,x2，可知x<x5<x40"
+        }
+    },
+    {
+        "id": "q073031",
+        "title": "AVL树删除与插入后比较",
+        "content": "【2019统考真题】在任意一棵非空平衡二叉树（AVL树）T中，删除某结点v之后形成\n平衡二叉树T2，再将v插入T2形成平衡二叉树T3。下列关于T与T的叙述中，正确的\n是（）。\nI.若v是T的叶结点，则T与T可能不相同\nII.若v不是T的叶结点，则T与T一定不相同\nIl.若V不是T的叶结点，则T与T一定相同\nA.仅I\nB.仅II\nC.仅I、IⅡI\nD.仅I、III",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在非空平衡二叉树中插入结点，在失去平衡调整前，一定插入在叶结点的位置。\n若删除的是T的叶结点，则删除后平衡二叉树可能不会失去平衡，即不会发生调整，再插入\n此结点得到的二叉平衡树T与T相同；若删除后平衡二叉树失去平衡而发生调整，再插入结点\n得到的二叉平衡树T与T可能不同。说法I正确。例如，如下图所示，删除结点0，平衡二叉树\n失衡调整，再插入结点0后，平衡二叉树和以前不同。\n删除0\n3\n对于比较绝对的说法ⅡI和IⅢI，通常只需举出反例即可。\n先想到删除的结点只有一个孩子的情况），则该结点从非叶结点变成了叶结点，T与T显然不\n同。例如，如下图所示，删除结点2，用右孩子结点3填补，再插入结点2，平衡二叉树和以前\n不同。\n306\n2026年数据结构考研复习指导\n删除2\n插入2\n若删除的是T的非叶结点，且删除和插入操作后导致了平衡二叉树的调整，则该结点有可能\n通过旋转后继续变成非叶结点，T与T相同。例如，如下图所示，删除结点2，用右孩子结点3\n填补，再插入结点2，平衡二叉树失衡调整，调整后的平衡二叉树和以前相同。\n③\n删除2\n插入2\n调整"
+        }
+    },
+    {
+        "id": "q073032",
+        "title": "不能生成二叉排序树的关键字序列",
+        "content": "【2020统考真题】下列给定的关键字输入序列中，不能生成右边二叉排序树的是（）。\nA.4,5,2,1,3\nB.4,5,1,2,3\nC.4,2,5,3,1\nD. 4,2,1,3,5",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0731",
+            "kc0732",
+            "kc0733"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "每个选项都逐一验证，选项B生成二叉排序树的过程如下图所示，显然错误。\n4\n4"
+        }
+    },
+    {
+        "id": "q074001",
+        "title": "B树阶数判断",
+        "content": "下图所示是一棵（）。\n[1225\n05\n10\n15\n1922\n26\n28\nA.4阶B树\nB.3阶B树\nC.4阶B+树\nD.无法确定",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "关键字数目比子树数目少1，首先可排除B+树。对于4阶B树，根结点至少有2棵子树（关\n键字数至少为1），其他非叶结点至少有[n/2]=2棵子树（关键字数至少为1）、至多有4棵子树（关\n键字数至多为3）。5阶B树和6阶B树的分析也类似。题目所示的B树，同时满足4阶B树、5\n阶B树和6阶B树的要求，因此不能确定是哪种类型的B树。"
+        }
+    },
+    {
+        "id": "q074002",
+        "title": "m阶B树错误说法",
+        "content": "下列关于m阶B树的说法中，错误的是（）。\nA.根结点至多有m棵子树\nB.所有叶结点都在同一层次上\nC.非叶结点至少有m/2（m为偶数）或(m+1)/2（m为奇数）棵子树\nD.根结点中的数据是有序的",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "除根结点外的所有非叶结点至少有m/2棵子树。对于根结点，最多有m棵子树，若其不是\n叶结点，则至少有2棵子树。"
+        }
+    },
+    {
+        "id": "q074003",
+        "title": "B树性质与高度分析",
+        "content": "下列关于高度为3的3阶B树的说法中，正确的是（）。\n1.每个结点至少有两棵非空子树\nII.树中每个结点至多有2个关键字\nIII.树中最多能存储26个关键字\nIV.插入一个元素引起B树结点分裂后，树的高度变为4\nA. I、II\nB. II、III\nC.III、IV\nD. 1、II、IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "每个非根的内部结点必须至少有|m/2|棵子树，而本题中的根结点不是叶结点，也至少要有\n318\n2026年数据结构考研复习指导\n两棵子树，选项I正确。每个结点至多有m-1=2个关键字，选项1I正确。在高度为h的m阶B\n树中，关键字个数至多为（m-1)(1+m+m²+.…·+m²-1)=m²-1，代入m=3，h=3，即树中最多\n能存储26个关键字，选项IⅡI正确。对于选项IV，插入一个元素引起B树结点分裂后，只要从\n根结点到该元素插入位置的路径上至少有一个结点未满，B树就不会长高，如图1所示：只有当\n结点的分裂传到根结点，并使根结点也分裂时，才会导致树高增1，如图2所示，选项IV错误。\n插入60后，溢出\n结点分裂\n3052\n5052\n505260\n[20][50]60\n图1结点分裂不导致树高增1（3阶B树）\n3052\n3052\n结点分裂\n305268\n插入70\n再分裂\n089090]0809]0\n20[50[60]\n图2结点分裂导致树高增1（3阶B树）"
+        }
+    },
+    {
+        "id": "q074004",
+        "title": "B树插入与删除操作的关键字条件",
+        "content": "在一棵m阶B树中做插入操作前，若一个结点中的关键字个数等于（），则插入操作\n后必须分裂成两个结点；在一棵m阶B树中做删除操作前，若一个结点中的关键字个\n数等于（），则删除操作后可能需要同它的左兄弟或右兄弟结点合并成一个结点。\nA.m，[m/2]-2\nB.m-1,「m/2]-1\nC. m+ 1,[m/2]\nD. m/2,[m/2]+ 1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "因为B树每个结点内的关键字个数最多为m-1，所以当关键字个数大于㎡-1时，则应该分\n裂。每个结点内的关键字个数至少为m/21-1个，所以当关键字个数少于[m/2]-1时，则可能与\n其他结点合并（除非只有根结点）。若将本题题干改为B+树，请读者思考上述问题的解答。"
+        }
+    },
+    {
+        "id": "q074005",
+        "title": "B树叶结点数量问题",
+        "content": "具有n个关键字的m阶B树，应有（）个叶结点。\nA. n+1\nB. n-1\nC. mn\nD. nm/2",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "B树的叶结点对应查找失败的情况，对有n个关键字的查找集合进行查找，失败可能性有n+\n1种。\n06.B、D\n由m阶B树的性质可知，根结点至少有2棵子树；根结点外的所有非终端结点至少有「m/2］棵\n子树，结点数最少时，3阶B树形状至少类似于一棵满二叉树，即高度为5的B树至少有2-1=\n31个结点。因为每个结点最多有m棵子树，所以当结点数最多时，3阶B树形状类似于满三叉树，\n结点数为（3-1)/2=121（注意，这里求的是结点数而非关键字数，若求的是关键字数，则还应把\n每个结点中关键字数的上下界确定出来）。"
+        }
+    },
+    {
+        "id": "q074006",
+        "title": "3阶B树结点数量范围",
+        "content": "高度为5的3阶B树至少有（）个结点，至多有（）个结点。\nA.32\nB.31\nC.120\nD.121",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    },
+    {
+        "id": "q074007",
+        "title": "B树关键字数量计算",
+        "content": "含有n个非叶结点的m阶B树中至少包含（）个关键字。\nA. n(m+ 1)\nB.n\nC. n([m/2]- 1)\nD.(n-1)([m/2]-1)+ 1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "除根结点外，m阶B树中的每个非叶结点至少有「m/2]-1个关键字，根结点至少有一个关\n键字，所以总共包含的关键字最少个数=（n-1）（「m/21-1）+1。\n注意\n由以上题目可知B树和B+树的定义与性质尤为重要，需要熟练掌握，\n08.C、B\n5阶B树中共有53个关键字，由最大高度公式H≤log[m/27((n+1)/2)+1得最大高度H≤\nlog3[(53+1)/2]+1=4，即最大高度为4；由最小高度公式h≥logm(n+1)得最小高度h≥logs54=2.5，\n从而最小高度为3。\n09.A、D\n利用前面的公式即最小高度h≥logm(n+1)和最大高度H≤log[m/21[(n+1)/2]+1，易算出最大\n高度H≤log2l(2047+1)/2]+1=11，最小高度h≥log;2048=6.9，从而最小高度取7（注意，有些\n第7章查\n找\n319\n辅导书针对本题算出的高度要比这里给出的答案多1，因为它们在对B树的高度定义中，把最底\n层不包含任何关键字的叶结点也算进去了）。"
+        }
+    },
+    {
+        "id": "q074008",
+        "title": "B树高度问题",
+        "content": "已知一棵5阶B树中共有53个关键字，则树的最大高度为（），最小高度为（）。\nA. 2\nB.3\nC. 4\nD.5\n09．已知一棵3阶B树中共有2047个关键字，则树的最大高度为（），最小高度为（）。\nA. 11\nB.10\nC.8\nD.7",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    },
+    {
+        "id": "q074010",
+        "title": "B树搜索I/O次数",
+        "content": "在7阶B树中搜索第2016个关键字，若根结点已读入内存，则最多需启动（）次1/O）\nA.4\nB.5\nC. 6\nD. 7",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "本题要计算的是最坏情况下第2016个关键字在7阶B树中的最大深度，即考查B树结点中\n关键字数最少的情况。按照B树的定义，根结点至少有1个关键字，第二层至少有2个结点，即\n2×3个关键字；第三层至少有2×4个结点，即2×4×3个关键字；第四层至少有2×4²个结点，即2×4²×3\n个关键字；以此类推，第h层至少有2x4\"-2个结点，即2x4-2×3个关键字，故前h层的关键字\n总数n=1+2×3×（1+4+.··+4-2）=1+2x（4--1）。故当h=5时，n=511；当h=6时，n=2047，\n坏情况下第2016个关键字在7阶B树的第6层，需启动5次I/0操作。"
+        }
+    },
+    {
+        "id": "q074011",
+        "title": "B树插入操作错误叙述",
+        "content": "在一棵高度为h的B树中插入一个新关键字，假设在插入过程中读入的结点一直在内存\n中，根结点的高度为1，且初始时未读入内存，则下列叙述中错误的是（）。（注意，本\n316\n2026年数据结构考研复习指导\n题中的新结点是指新产生的结点，如一次分裂才产生一个新结点。）\nA.若插入操作导致树的高度变为h+1，则本次插入一定导致了根结点的分裂\nB.若插入操作导致旧结点的分裂，则树的高度一定会变为h+1\nC.由于本次插入操作而产生的新结点的个数最多为h+1\nD.由于本次插入操作而产生的读/写磁盘的次数最多为3h+1",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "考虑最坏情况，在待插入结点中插入一个关键码后，导致结点分裂，在该层分裂成2个结点，\n因此需要2次写磁盘操作：分裂操作逐层向上传导，导致每层都有结点分裂，因为结点分裂而导\n致的写磁盘操作共有2h次，加上最后一次结点分裂形成新根结点也需要1次写磁盘操作，写磁\nh次的读磁盘操作，整个过程中读/写磁盘的总次数为3h+1次，选项C、D正确。若插入操作导\n致了B树的高度增加，则分裂操作一定是从最底层传导至根结点的，即前面分析的最坏情况，选\n项A正确。若分裂操作没有传导至根结点，则B树的高度不变，选项B错误。"
+        }
+    },
+    {
+        "id": "q074012",
+        "title": "B树与B+树特性对比",
+        "content": "下列关于B树和B+树的叙述中，错误的是（）。\nA.B树和B+树都能有效地支持顺序查找\nB.B树和B+树都能有效地支持随机查找\nC.B树和B+树都是平衡的多叉树\nD.B树和B+树都可以用于文件索引结构",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "用：③B树叶结点关键字和其他结点包含的关键字是不重复的：④B+树支持顺序查找和随机查找，\n从小到大顺序链接，因此可以进行顺序查找，而B树不支持顺序查找。B树和B+树都可用于文\n件索引结构，但B+树更适合做数据库索引和文件索引，因为它的磁盘读/写代价更低。"
+        }
+    },
+    {
+        "id": "q074013",
+        "title": "B树与B+树查找操作辨析",
+        "content": "下列关于B树和B+树的查找操作的叙述中，错误的是（）。\nA.B树查找成功时，不一定需要查找到最后一层的内部结点\nB.B树查找失败时，一定需要查找到叶结点\nC.B+树查找成功时，不一定需要查找到叶结点\nD.B+树查找成功时，每次查找的长度都相等",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在B树的查找操作中，若目标元素在某个内部结点中，则查找结束，不需要进入叶结点；查\n找失败时，叶结点是所有路径的终点，选项A、B正确。B+树中仅叶结点包含信息，非叶结点仅\n起到索引作用，查找成功时一定会找到相应的叶结点，所经过的路径长度都相等，选项C错误，\n选项D正确。"
+        }
+    },
+    {
+        "id": "q074014",
+        "title": "m阶B树定义错误选项",
+        "content": "【2009统考真题】下列叙述中，不符合m阶B树定义要求的是（）。\nA.根结点至多有m棵子树\nB.所有叶结点都在同一层上\nC.各结点内关键字均升序或降序排列\nD.叶结点之间通过指针链接",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "m阶B树不要求将各叶结点之间用指针链接。选项D描述的实际上是B+树。"
+        }
+    },
+    {
+        "id": "q074015",
+        "title": "3阶B树删除关键字78后的最右叶结点关键字",
+        "content": "【2012统考真题】已知一棵3阶B树，如下图所示。删除关键字78得到一棵新B树，\n其最右叶结点中的关键字是（）。",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于图中所示的3阶B树，被删关键字78所在的结点在删除前的关键字个数=1=3/2|-1，\n且其左兄弟结点的关键字个数=2≥[3/2]，属于“兄弟够借”的情况，因此要把该结点的左兄弟结\n点中的最大关键字上移到双亲结点中，同时把双亲结点中大于上移关键字的关键字下移到要删除\n关键字的结点中，这样就达到了新的平衡，如下图所示。\n45\n1735\n5565)\n1735\n5562\n个\n10\n[21]\n3747\n60]\n65\n320\n2026年数据结构考研复习指导"
+        }
+    },
+    {
+        "id": "q074016",
+        "title": "5阶B树关键字最少个数",
+        "content": "【2013统考真题】在一棵高度为2的5阶B树中，所含关键字的个数至少是（）。\nA.5\nB.7\nC.8\nD.14",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "对于5阶B树，根结点的分支数最少为2（关键字数最少为1），其他非叶结点的分支数最少\n为n/2]=3（关键字数最少为2），因此关键字个数最少的情况如下图所示（叶结点不计入高度）。\nX\nXX\nXX\nYUU\n注意\n一般对于某个具体的B树图形，并不能确定是几阶B树。对于本题所述的5阶B树，不要误认为：\n“存在至少有一个含关键字结点中的关键字达到4”才符合5阶B树的要求，因为5阶B树中各个结点包\n含的关键字个数最少为2（「5/21-1=2），最多为4（5-1=4）。当5阶B树中各个结点包含的关键字个\n数为2时，也满足5阶B树的要求。"
+        }
+    },
+    {
+        "id": "q074017",
+        "title": "4阶B树关键字结点最多个数",
+        "content": "【2014统考真题】在一棵有15个关键字的4阶B树中，含关键字的结点个数最多是（）。\nA.5\nB.6\nC.10\nD.15",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "关键字数量不变，要求结点数量最多，即要求每个结点中含关键字的数量最少。根据4阶B\n树的定义，根结点最少含1个关键字，非根结点中最少含「4/21-1=1个关键字，所以每个结\n点中关键字数量最少都为1个，即每个结点都有2个分支，类似于排序二叉树，而15个结点\n正好可以构造一个4层的4阶B树，使得终端结点全在第四层，符合B树的定义。"
+        }
+    },
+    {
+        "id": "q074018",
+        "title": "B+树与B树的特点对比",
+        "content": "【2016统考真题】B+树不同于B树的特点之一是（）。\nA.能支持顺序查找\nB.结点中含有关键字\nC.根结点至少有两个分支\nD.所有叶结点都在同一层上",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "B+树的所有叶结点中包含了全部的关键字信息，且叶结点本身依关键字从小到大顺序链接，\n因此可以进行顺序查找，而B树不支持顺序查找（只支持多路查找）。"
+        }
+    },
+    {
+        "id": "q074019",
+        "title": "B+树适用场景",
+        "content": "【2017统考真题】下列应用中，适合使用B+树的是（）。\nA.编译器中的词法分析\nB.关系数据库系统中的索引\nC.网络中的路由表快速查找\nD.操作系统的磁盘空闲块管理",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "B+树是应文件系统所需而产生的B树的变形，前者比后者更加适用于实际应用中的操作系\n统的文件索引和数据库索引，因为前者的磁盘读/写代价更低，查询效率更加稳定。编译器中的词\n法分析使用有穷自动机和语法树。网络中的路由表快速查找主要靠高速缓存、路由表压缩技术和\n快速查找算法。系统一般使用空闲空间链表管理磁盘空闲块。"
+        }
+    },
+    {
+        "id": "q074020",
+        "title": "5阶3阶B树关键字最小值",
+        "content": "【2018统考真题】高度为5的3阶B树含有的关键字个数至少是（）。\nA.15\nB.31\nC.62\nD.242",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "m阶B树的基本性质：根结点以外的非叶结点最少含有m/21-1个关键字，代入m=3得到\n子。此时其树形与h=5的满二叉树相同，可求得关键字最少为31个。"
+        }
+    },
+    {
+        "id": "q074021",
+        "title": "4阶B树插入关键字后的根结点内容",
+        "content": "【2020统考真题】依次将关键字5，6，9，13，8，2，12，15插入初始为空的4阶B树\n后，根结点中包含的关键字是（）。\nA. 8\nB.6,9\nC.8,13\nD.9,12",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "一个4阶B树的任意非叶结点至多含有m-1=3个关键字，在关键字依次插入的过程中，会\n导致结点的不断分裂，插入过程如下图所示。得到根结点包含的关键字为6，9。\n插入8.229 13\n1 6\n日\n69\n9"
+        }
+    },
+    {
+        "id": "q074022",
+        "title": "3阶B树高度3第2层4关键字",
+        "content": "【2021统考真题】在一棵高度为3的3阶B树中，根为第1层，若第2层中有4个关键",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0741",
+            "kc0742"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "第7章查\n找\n321\n在阶为3的B树中，每个结点至多含有2个关键字（至少1个），至多有3棵子树。本题规\n定第二层有4个关键字，欲使B树的结点数达到最多，则这4个关键字包含在3个结点中，B树\n树形如下图所示，其中A，B，C，·，M表示关键字，最多有11个结点。\nB\nCD\nE\nH\nM"
+        }
+    },
+    {
+        "id": "q075001",
+        "title": "顺序存储结构上的查找方法",
+        "content": "只能在顺序存储结构上进行的查找方法是（）。\nA.顺序查找法\nB.折半查找法\nC.树形查找法\nD.散列查找法",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "顺序查找可以是顺序存储或链式存储；折半查找只能是顺序存储且要求关键字有序；树形查\n找法要求采用树的存储结构，既可以采用顺序存储也可以采用链式存储：散列查找中的链地址法\n解决冲突时，采用的是顺序存储与链式存储相结合的方式。"
+        }
+    },
+    {
+        "id": "q075002",
+        "title": "散列查找适用情况",
+        "content": "散列查找一般适用于（）的情况下的查找。\nA.查找表为链表\nB.查找表为有序表\nC.关键字集合比地址集合大得多\nD.关键字集合与地址集合之间存在对应关系",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "关键字集合与地址集合之间存在对应关系时，通过散列函数表示这种关系。这样，查找以计\n算散列函数而非比较的方式进行查找。"
+        }
+    },
+    {
+        "id": "q075003",
+        "title": "散列表的正确说法",
+        "content": "下列关于散列表的说法中，正确的是（）。\nI.若散列表的填装因子α<1，则可避免碰撞的产生\nII.散列查找中不需要任何关键字的比较\nIII.散列表在查找成功时平均查找长度仅与表长有关\nIV.若在散列表中删除一个元素，不能简单地将该元素删除\nA.I和IV\nB.II和III\nC. III\nD.IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "冲突（碰撞）是不可避免的，与装填因子无关，因此需要设计处理冲突的方法，选项1错误。\n散列查找的思想是计算出散列地址来进行查找，然后比较关键字以确定是否查找成功，选项ⅡI错\n误。散列查找成功的平均查找长度与装填因子有关，与表长无直接关系，选项IⅡI错误。在开放\n的做法是在要删除的地方做删除标记，而不是直接删除），选项IV正确。"
+        }
+    },
+    {
+        "id": "q075004",
+        "title": "开放定址法中“堆积”问题原因",
+        "content": "在开放定址法中散列到同一个地址而引起的“堆积”问题是由（）引起的。\nA.同义词之间发生冲突\nB.非同义词之间发生冲突\nC.同义词之间或非同义词之间发生冲突\nD.散列表“溢出”",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "在开放定址法中散列到同一个地址而产生的“堆积”问题，是同义词冲突的探查序列和非同\n义词之间不同的探查序列交织在一起，导致关键字查询需要经过较长的探测距离，降低了散列的\n效率。因此要选择好的处理冲突的方法来避免“堆积”"
+        }
+    },
+    {
+        "id": "q075005",
+        "title": "散列冲突处理方法",
+        "content": "下列关于散列冲突处理方法的说法中，正确的有（）。\nI.采用平方探测法处理冲突时不易产生聚集\nII.采用线性探测法处理冲突时，所有同义词在散列表中一定相邻\nIII.采用链地址法处理冲突时，若限定在链首插入，则插入任意一个元素的时间相同\nIV.采用链地址法处理冲突易引起聚集现象\nA.I和III\nB.I、II和ⅢII\nC.III和IV\nD.I和IV",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "第7章查\n找\n331\n平方探测法采用的增量序列是非线性的，它可以跳过一些已被占用的单元，而不是顺序地探\n测下一单元，这样能减小冲突的概率，选项I正确。散列地址i的关键字，和为解决冲突形成的\n某次探测地址为i的关键字，都争夺地址ii+1,，因此不一定相邻，选项ⅡI错误。选项IⅢI正\n确。同义词冲突不等于聚集，链地址法处理冲突时将同义词放在同一个链表中，不会引起聚集现\n象，选项IV错误。"
+        }
+    },
+    {
+        "id": "q075006",
+        "title": "散列表容量与探测次数",
+        "content": "设有一个含有200个元素的散列表，用线性探测法解决冲突，按关键字查询时找到一个\n表项的平均探测次数不超过1.5，则散列表应能够容纳（）个元素（设查找成功的平均\n查找长度为ASL=[1+1/(1-α)]/2，其中α为装填因子）。\n328\n2026年数据结构考研复习指导\nA.400\nB.526\nC.624\nD. 676\n07．假定有K个关键字互为同义词，若用线性探测法把这K个关键字填入散列表，至少要\n进行（）次探测。\nA.K-1\nB.K\nC.K+1\nD.K(K + 1)/2",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "若有200个元素要放入散列表，采用线性探测法解决冲突，限定查找成功的平均查找长度不\n超过1.5，则\n200—1\nASL成\n1.5=α=\nm≥400\nm"
+        }
+    },
+    {
+        "id": "q075008",
+        "title": "散列表查找的平均查找长度",
+        "content": "对包含n个元素的散列表进行查找，平均查找长度（）。\nA.为 O(log2n)\nB.为0(1)\nC.不直接依赖于nD.直接依赖于表长m",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "散列表的平均查找长度与装填因子α直接相关，表的查找效率不直接依赖于表中已有表项个\n数n或表长m。若表中存放的记录全是某个地址的同义词，则平均查找长度为O(n)而非O（1)。"
+        }
+    },
+    {
+        "id": "q075009",
+        "title": "开放定址法散列查找中聚集的原因",
+        "content": "采用开放定址法解决冲突的散列查找中，发生聚集的原因主要是（）。\nA.数据元素过多\nB.负载因子过大\nC.散列函数选择不当\nD.解决冲突的方法选择不当",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "聚集是因选取不当的处理冲突的方法，而导致不同关键字的元素对同一散列地址进行争夺的\n现象。用线性探查法时，容易引发聚集现象。"
+        }
+    },
+    {
+        "id": "q075010",
+        "title": "线性探测再散列法解决冲突的要求",
+        "content": "当用线性探测再散列法解决冲突时，计算出的一系列“下一个空位”的要求是（）。\nA.必须大于或等于原散列地址\nB.必须小于或等于原散列地址\nC.可以大于或小于但不等于原散列地址D.对地址在何处没有限制",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "“下一个空位”可以大于或小于但不等于原散列地址，等于原散列地址是没有意义的。"
+        }
+    },
+    {
+        "id": "q075011",
+        "title": "链地址法散列表构造与记录计数",
+        "content": "一组记录的关键字为{19,14,23,1,68,20,84,27,55，11,10,79}，用链地址法构造散列表，散\n列函数为H（key）=keymod 13，散列地址为1的链中有（）个记录。\nA.1\nB.2\nC. 3\nD. 4",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "由散列函数计算可知，14，1,27，79散列后的地址都是1，所以有4个记录。\n12.A，B\n因为在链地址法中，映射到同一地址的关键字都会链到与此地址相对应的链表上，所以探测过\n程一定是在此链表上进行的，从而这些位置上的关键字均为同义词：但在线性探测法中出现两个同\n义关键字时，会把该关键字对应地址的下一个地址也占用掉，两个地址分别记为Addr、Addr+1，\n查找一个满足H（key）=Addr+1的关键字key 时，显然首次探测到的不是key 的同义词。\n13.A，C\nH的取值有17种可能，对应到不同的链表中，所以链表的个数应为17。因为H（key）的取\n值范围是0～16，所以数组下标为0～16。"
+        }
+    },
+    {
+        "id": "q075012",
+        "title": "散列表冲突处理方法的查找特性",
+        "content": "在采用链地址法处理冲突所构成的散列表上查找某一关键字，则在查找成功的情况下，\n所探测的这些位置上的关键字值（）；若采用线性探测法，则（）。\nA.一定都是同义词\nB.不一定都是同义词\nC.都相同\nD．一定都不是同义词",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    },
+    {
+        "id": "q075013",
+        "title": "链地址法散列表构造",
+        "content": "若采用链地址法构造散列表，散列函数为H（key）=keymod17，则需（①）个链表\n这些链的链首指针构成一个指针数组，数组的下标范围为（②）。\n①A. 17\nB.13\nC.16\nD.任意\n②A. 0~ 17\nB. 1~17\nC. 0~16\nD. 1~16",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "未找到",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "未找到解析"
+        }
+    },
+    {
+        "id": "q075014",
+        "title": "散列表线性探测法处理冲突",
+        "content": "设散列表长m=14，散列函数为H（key）=key%11，表中仅有4个结点H（15）=4，\nH（38）=5，H（61）=6，H（84）=7，若采用线性探测法处理冲突，则关键字为49的结\n点地址是（）。\nA.8\nB.3\nC.5\nD.9",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "A",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "线性探测法的公式为H=（H（key）+d）%m，其中d=1,2,,m-1。H（49）=49%11=5，有冲突；\nH=（H（49）+1）%14=6，有冲突；H2=（H（49)+2）%14=7，有冲突；H3=（H（49)+3）%14=8，无冲突。"
+        }
+    },
+    {
+        "id": "q075015",
+        "title": "散列表查找探查次数",
+        "content": "现有长度为17、初始为空的散列表HT，散列函数H（key）=key%17，用线性探查法解\n决冲突。将关键字序列26,25，72,38,8,18,59依次插入HT后，则查找59需探查（）\n次。\nA.2\nB.3\nC.4\nD. 5",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "插入过程如下：H（26）=9，不冲突；H（25）=8，不冲突；H（72）=4，不冲突：H（38）=4，\n冲突，冲突处理后的地址为5；H（8）=8，冲突，冲突处理后的地址为10：H（18）=1，不冲突；\nH（59）=8，冲突，冲突处理后的地址为11。因此，在表中查找59需要探查4次。"
+        }
+    },
+    {
+        "id": "q075016",
+        "title": "散列表平方探测法插入关键字",
+        "content": "现有长度为17、初始为空的散列表HT，散列函数H（key）=key17，用平方探测法\n解决冲突：H,(key）=(H(key)±i²)%17。将关键字序列6,22,7,26,9,23依次插入HT\n后，则关键字23存放在散列表中的位置是（）。\nA.0\nB.2\nC.6\nD.15",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "B",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "插入过程如下：6%17=6；22%17=5：7%17=7；26%17=9：9%17=9，冲突，平方探测法探\n测10（无冲突）；23%17=6，冲突，平方探测法探测7（冲突），探测5（冲突），探测10（冲突），\n探测2（无冲突）。因此，关键字23应放在位置2。构造的散列表如下表所示。\n332\n2026年数据结构考研复习指导\n地址0\n2\n元素\n2"
+        }
+    },
+    {
+        "id": "q075017",
+        "title": "散列冲突可能性",
+        "content": "将10个元素散列到100000个单元的散列表中，则（）产生冲突。\nA.一定会\nB.一定不会\nC.仍可能会\nD.不确定",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "由于散列函数的选取，仍然有可能产生地址冲突，冲突不能绝对地避免。"
+        }
+    },
+    {
+        "id": "q075018",
+        "title": "散列表查找效率措施",
+        "content": "【2011统考真题】为提高散列表的查找效率，可以采取的正确措施是（）。\nI.增大装填（载）因子\nII.设计冲突（碰撞）少的散列函数\nIII.处理冲突（碰撞）时避免产生聚集（堆积）现象\nA.仅1\nB.仅ⅡI\nC.仅I、ⅡI\nD.仅II、III\n第7章查\n找\n329",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "散列表的查找效率取决于散列函数、处理冲突的方法和装填因子。显然，冲突的产生概率与\n装填因子（表中记录数与表长之比）的大小成正比，选项I与题意相反。选项ⅡI显然正确。采用\n合适的冲突处理方法可避免聚集现象，也将提高查找效率，选项IⅢI正确。例如，用链地址法处\n理冲突时不存在聚集现象，用线性探测法处理冲突时易引起聚集现象。"
+        }
+    },
+    {
+        "id": "q075019",
+        "title": "哈希冲突堆积现象影响",
+        "content": "【2014统考真题】用哈希（散列）方法处理冲突（碰撞）时可能出现堆积（聚集）现象，\n下列选项中，会受堆积现象直接影响的是（）。\nA.存储效率\nB.散列函数\nC.装填（装载）因子\nD.平均查找长度",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "堆积现象因冲突而产生，它对存储效率、散列函数和装填因子均不会有影响，而平均查找长\n度会因为堆积现象而增大。散列函数是指将关键字映射到哈希地址的函数。存储效率和装填（装\n载）因子的定义相同，指哈希表中已存储的元素个数与哈希表长度的比值。这些因素都与堆积现\n象无关，而只与哈希表的结构和设计有关。"
+        }
+    },
+    {
+        "id": "q075020",
+        "title": "散列表查找成功平均长度",
+        "content": "【2018统考真题】现有长度为7、初始为空的散列表HT，散列函数H（k）=k%7，用线性\n探测再散列法解决冲突。将关键字22，43，15依次插入HT后，查找成功的平均查找长\n度是（）。\nA.1.5\nB.1.6\nC.2\nD.3",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "根据题意，得到的HT如下：\n0\n2\n3\n4\n22\n43\n15\nASL成功=(1+ 2+ 3)/3=2。"
+        }
+    },
+    {
+        "id": "q075021",
+        "title": "散列表查找失败的平均查找长度",
+        "content": "【2019统考真题】现有长度为11且初始为空的散列表HT,散列函数是H(key)=key%7，\n采用线性探查（线性探测再散列）法解决冲突。将关键字序列87,40,30，6,11,22,98,20\n依次插入HT后，HT查找失败的平均查找长度是（）。\nA.4\nB.5.25\nC. 6\nD.6.29",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "采用线性探查法计算每个关键字的存放情况如下表所示。\n散列地址\n0\n2\n3\n5\n6\n8\n9\n10\n关键字\n982230871140620\n由于H（key）=0～6，查找失败时可能对应的地址有7个，对于计算出地址为0的关键字\nkey0，只有比较完0～8号地址后才能确定该关键字不在表中，比较次数为9：对于计算出地址\n为1的关键字key1，只有比较完1～8号地址后才能确定该关键字不在表中，比较次数为8：以\n此类推。需要特别注意的是，散列函数不可能计算出地址7，因此有\nASL失败=（9+8+7+6+5+4+3)/7=6"
+        }
+    },
+    {
+        "id": "q075022",
+        "title": "影响散列方法平均查找长度的因素",
+        "content": "【2022统考真题】下列因素中，影响散列（哈希）方法平均查找长度的是（）。\n1．装填因子\nII.散列函数\nIII.．冲突解决策略\nA.仅I、II\nB.仅I、III\nC.仅II、III\nD. I、II、III",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "D",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "原题再现。填装因子越大，说明哈希表中存储的元素越满，发生冲突的可能性就越高，导致平均\n查找长度越大。散列函数、冲突解决策略也会影响发生冲突的可能性。选项I、ⅡI、IⅢI都正确。"
+        }
+    },
+    {
+        "id": "q075023",
+        "title": "散列表查找失败的平均查找长度",
+        "content": "【2023统考真题】现有长度为5、初始为空的散列表HT，散列函数H（k)=（k+4）%5，\n用线性探查再散列法解决冲突。若将关键字序列2022,12.25依次插入HT，然后删除关\n键字25，则HT中查找失败的平均查找长度为（）。\nA.1\nB.1.6\nC.1.8\nD.2.2",
+        "difficulty": "integer",
+        "type": "concept",
+        "knowledge_points": [
+            "kc0751",
+            "kc0752",
+            "kc0753",
+            "kc0754"
+        ],
+        "related_questions": [
+            {
+                "id": "string",
+                "relation_type": "string"
+            }
+        ],
+        "reference_answer": {
+            "content": "C",
+            "key_points": [
+                "string"
+            ],
+            "explanation": "当采用开放定址法时，不能随便物理删除表中的已有元素，因为若删除元素，则可能截断其\n他具有相同散列地址的元素的查找地址。因此，当要删除一个元素时，可给它做一个删除标记。\n依次将2022，12，25插入散列表，然后删除25，得到的散列表如下：\n地址\n0\n1\n2\n3\n4\n关键字\n2022\n12\n25（删除）\n查找失败次数\n3\n2\n/\n2\n当查找位置是删除标记时，应继续往后查找。\n第7章查\n找\n333\n查找失败的平均查找长度为(1+3+2+1+2)/5=1.8。"
+        }
+    }
+]

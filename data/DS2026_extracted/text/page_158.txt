@@ -1,0 +1,41 @@
+146
+2026年数据结构考研复习指导
+|1Di]
+1EL
+图5.17中序线索二叉树及其二叉链表示
+通过中序遍历对二叉树线索化的递归算法如下：
+void InThread(ThreadTree &p,ThreadTree&pre)(
+if（p!=NULL){
+InThread(p->lchild,pre);
+/递归，线索化左子树
+if (p->lchild==NULL){
+//当前结点的左子树为空
+p->lchild=pre;
+/建立当前结点的前驱线索
+p->ltag=l;
+if（pre!=NULL&&pre->rchild==NULL）（//前驱结点非空且其右子树为空
+pre->rchild=p;
+/建立前驱结点的后继线索
+pre->rtag=l;
+pre=p;
+/标记当前结点成为刚刚访问过的结点
+InThread(p->rchild,pre);
+//递归，线索化右子树
+通过中序遍历建立中序线索二叉树的主过程算法如下：
+void CreateInThread(ThreadTree T)(
+ThreadTree pre=NULL;
+if（T!=NULL){
+/非空二叉树，线索化
+InThread(T,pre);
+//线索化二叉树
+pre->rchild=NULL;
+Ⅱ/处理遍历的最后一个结点
+pre->rtag=1;
+为方便起见，可在二叉树的线索链表上也添加一个头结点，令其1child域的指针指向二叉
+树的根结点，其rchild域的指针指向中序遍历时访问的最后一个结点：令二叉树中序序列中的
+第一个结点的1child域指针和最后一个结点的rchild域指针均指向头结点。这好比为二叉树
+建立了一个双向线索链表，方便从前往后或从后往前对线索二叉树进行遍历，如图5.18所示。
+Head
+D
+E
+图5.18带头结点的中序线索二叉树

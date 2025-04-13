@@ -1,0 +1,50 @@
+24
+2026年数据结构考研复习指导
+L.length=i+1;
+return true;
+对于本题的算法，请读者用序列1.2.2.2.2.3.3.3.4.4.5来手动模拟算法的执行过程，在模
+拟过程中要标注i和j所指示的元素。
+思考：若将本题中的有序表改为无序表，你能想到时间复杂度为O（n)的方法吗？
+（提示：使用散列表。）
+06.【解答】
+算法思想：首先，按顺序不断取下两个顺序表表头较小的结点存入新的顺序表中。然后，看
+哪个表还有剩余，将剩下的部分加到新的顺序表后面。
+本题代码如下：
+bool Merge(SeqList A,SeqList B,SeqList &C){
+/将有序顺序表A与B合并为一个新的有序顺序表C
+if(A.length+B.length>C.maxSize)
+//大于顺序表的最大长度
+return false;
+int i=0，j=0,k=0;
+while(i<A.length&&j<B.length)(
+//循环，两两比较，小者存入结果表
+if(A.data[i]<=B.data[j])
+C.data[k++]=A.data[i++];
+else
+C.data[k++]=B.data[j++];
+while(i<A.length)
+//还剩一个没有比较完的顺序表
+C.data[k++]=A.data[i++];
+while(j<B.length)
+C.data[k++]=B.data[j++];
+C.length=k;
+returntrue;
+注意
+本算法的方法非常典型，需牢固掌握。
+07.【解答】
+算法思想：首先将数组A[m+n]中的全部元素(a,a2,a3,…,am,b,b2,b3,.….,bn)原地逆置为
+(bn,bn-1,b-2,….,b1,amam-1,am-2,,a)，然后对前n个元素和后m个元素分别使用逆置算法，
+即可得到（b，b2,b3,.…，bm,a,a2,a3,.…,am），从而实现顺序表的位置互换。
+本题代码如下：
+typedef int DataType;
+void Reverse(DataType A[],int left,int right,int arraySize){
+//逆转（aleft,aleft+l,aleft+2,",aright)为(aright,aright-l,",aleft)
+if(left>=rightllright>=arraySize)
+return;
+int mid=(left+right)/2;
+for（int i=0;i<=mid-left;i++){
+DataType temp=A[left+i];
+A[left+i]=A[right-i];
+A[right-i]=temp;
+void Exchange(DataType A[],int m,int n,int arraySize)
+*数组A[m+n]中，从0到m-1存放顺序表（a1，a2，a3，"，am），从m到m+n-1存放顺序表
