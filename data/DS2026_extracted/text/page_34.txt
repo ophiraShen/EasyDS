@@ -1,0 +1,55 @@
+22
+2026年数据结构考研复习指导
+本题代码如下：
+bool Del_Min(SqList &L,ElemType &value)(
+//删除顺序表L中最小值元素结点，并通过引用型参数value返回其值
+/若删除成功，则返回true；否则返回false
+if(L.length==0)
+return false;
+Ⅱ表空，中止操作返回
+value=L.data[0];
+int pos=0;
+//假定0号元素的值最小
+for(int i=1;i<L.length;i++)
+//循环，寻找具有最小值的元素
+if(L.data[i]<value){
+//让value记忆当前具有最小值的元素
+value=L.data[i];
+pos=i;
+L.data[pos]=L.data[L.length-1];
+//空出的位置由最后一个元素填补
+L.length--;
+return true;
+//此时，value为最小值
+注意
+本题也可用函数返回值返回，两者的区别是：函数返回值只能返回一个值，而参数返回（引用传参）
+可以返回多个值。
+02.【解答】
+算法思想：扫描顺序表L的前半部分元素，对于元素L.data[i]（0<=i<L.length/2），
+将其与后半部分的对应元素L.data[L.length-i-1]进行交换。
+本题代码如下：
+void Reverse(SqList &L){
+ElemType temp;
+//辅助变量
+for（int i=0;i<L.length/2;i++）{
+temp=L.data[i];
+//交换L.data[i]与L.data[L.length-i-1]
+L.data[i]=L.data[L.length-i-1];
+L.data[L.length-i-1]=temp;
+03.【解答】
+解法1：用k记录顺序表L中不等于x的元素个数（需要保存的元素个数），扫描时将不等于
+x的元素移动到下标k的位置，并更新k值。扫描结束后修改L的长度。
+本题代码如下：
+void del_x_l(SqList &L,ElemType x){
+//本算法实现删除顺序表L中所有值为×的数据元素
+int k=0,i;
+/记录值不等于×的元素个数
+for(i=0;i<L.length;i++)
+if（L.data[i]!=x){
+L.data[k]=L.data[i];
+k++;
+//不等于×的元素增1
+L.length=k;
+//顺序表工的长度等于k
+元素前移k个位置。扫描结束后修改L的长度。
+本题代码如下：

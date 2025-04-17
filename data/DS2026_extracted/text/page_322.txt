@@ -1,0 +1,46 @@
+310
+2026年数据结构考研复习指导
+均小于根结点值。为了从大到小输出，先遍历右子树，再访问根结点，后遍历左子树。算法如下：
+void OutPut(BSTNode *bt,KeyType k)
+{//本算法从大到小输出二叉排序树中所有值不小于k的关键字
+if(bt==NULL)
+return;
+if(bt->rchild!=NULL)
+OutPut(bt->rchild,k);
+//递归输出右子树结点
+if(bt->data>=k)
+printf("%d",bt->data);
+//只输出大于或等于k的结点值
+if(bt->lchild!=NULL)
+OutPut(bt->lchild,k);
+//递归输出左子树的结点
+本题也可采用中序遍历加辅助栈的方法实现。
+10.【解答】
+设二叉排序树的根结点为*七，根据结点存储的信息，有以下几种情况：
+当t->lchild为空时，情况如下：
+1）若t->rchild 非空且k==1，则*t即第k小的元素，查找成功。
+2）若t->rchild非空且k！=1，则第k小的元素必在*t的右子树。
+当t->lchild 非空时，情况如下：
+1）t->lchild->count==k-1，*t即第k小的元素，查找成功
+2）t->lchild->count>k-1，第k小的元素必在*t的左子树，继续到*t的左子树中查找。
+3)t->lchild->count<k-1,第k小的元素必在右子树，继续搜索右子树，寻找第k-（t->
+lchild->count+1）小的元素。
+对左右子树的搜索采用相同的规则，递归实现的算法描述如下：
+BSTNode *Search_Small(BSTNode*t,int k){
+//在以t为根的子树上寻找第k小的元素，返回其所在结点的指针。k从11开始计算
+l在树结点中增加一个count数据成员，存储以该结点为根的子树的结点个数
+if(k<ll|k>t->count) return NULL;
+if（t->lchild==NULL){
+if(k==l)return t;
+else return Search Small(t->rchild,k-1);
+elsel
+if(t->lchild->count==k-1)return t;
+if(t->lchild->count>k-1) return Search_Small(t->lchild,k);
+if(t->lchild->count<k-1)
+return Search_Small(t->rchild,k-(t->lchild->count+1));
+最大查找长度取决于树的高度。由于二叉排序树是随机生成的，其高度应是O(log2n)，算法
+的时间复杂度为 O(log2n)。
+7.4B树和B+树
+考研大纲对B树和B+树的要求各不相同，重点在于考查B树，不仅要求理解B树的基本特
+点，还要求掌握B树的建立、插入和删除操作，而对B+树则只考查基本概念。
+①也可写成“B-树”，注意这里的“”是连接词，不能读作“减”。

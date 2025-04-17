@@ -1,0 +1,66 @@
+第2章线性
+表
+53
+最后一个结点比较，若不等则直接插入，否则将当前遍历的结点删除并处理下一个结点，直到最
+后一个结点为止。
+08.【解答】
+算法思想：表A、B都有序，可从第一个元素起依次比较A、B两表的元素，若元素值不等，
+则值小的指针往后移，若元素值相等，则创建一个值等于两结点的元素值的新结点，使用尾插法
+插入到新的链表中，并将两个原表指针后移一位，直到其中一个链表遍历到表尾。
+本题代码如下：
+void Get_Common(LinkList A,LinkList B)(
+x-x
+LinkList C=(LinkList)malloc(sizeof(LNode)); //建立表C
+r=C;
+lIlr始终指向c的尾结点
+while(p!=NULL&&q!=NULL){
+//循环跳出条件
+if(p->data<q->data)
+p=p->next;
+/若A的当前元素较小，后移指针
+elseif(p->data>q->data)
+q=q->next;
+I若B的当前元素较小，后移指针
+elsel
+/找到公共元素结点
+s=（LNode*)malloc(sizeof(LNode));
+s->data=p->data;
+//复制产生结点*s
+r->next=s;
+/将*s链接到c上（尾插法）
+r=s;
+p=p->next;
+I/表A和B继续向后扫描
+q=q->next;
+r->next=NULL;
+//置c尾结点指针为空
+09.【解答】
+算法思想：采用归并的思想，设置两个工作指针pa和pb，对两个链表进行归并扫描，只有
+同时出现在两集合中的元素才链接到结果表中且仅保留一个，其他的结点全部释放。当一个链表
+遍历完毕后，释放另一个表中剩下的全部结点。
+本题代码如下：
+LinkList Union(LinkList &la,LinkList &lb){
+LNode *pa=la->next;
+//设工作指针分别为pa和pb
+LNode *pb=lb->next;
+LNode *u,*pc=la;
+//结果表中当前合并结点的前驱指针pc
+while(pa&&pb)(
+if(pa->data==pb->data)(
+I/交集并入结果表中
+pc->next=pa;
+//A中结点链接到结果表
+!ed=od
+pa=pa->next;
+u=pb;
+/B中结点释放
+pb=pb->next;
+free(u);
+u=pa;
+pa=pa->next;
+//后移指针
+free(u);
+//释放A中当前结点
+elser
+//若B中当前结点值小于A中当前结点值
+u=pb;

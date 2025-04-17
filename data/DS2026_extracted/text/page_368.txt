@@ -1,0 +1,55 @@
+356
+2026年数据结构考研复习指导
+快速排序一样的划分操作后，表 L[1..n]被划分为L[1..m-1]和L[m+1..n]，其中L(m)=pivot。
+讨论m与k的大小关系：
+1）当m=k时，显然pivot就是所要寻找的元素，直接返回pivot即可。
+2）当m<k时，所要寻找的元素一定落在L[m+1..n]中，因此可对L[m+1..n]递归地查找第
+k-m小的元素。
+3）当m>k时，所要寻找的元素一定落在L[1.m-1]中，因此可对L[1..m-1]递归地查找第
+k小的元素。
+该算法的时间复杂度在平均情况下可以达到O(n)，而所占空间的复杂度则取决于划分的方
+法。算法的实现如下：
+int kth_elem(int a[],int low,int high,int k)(
+int pivot=a[low];
+int low_temp=low;
+//由于下面会修改1ow与high，在递归时又要用到它们
+int high_temp=high;
+while(low<high){
+while(low<high&&a[high]>=pivot)
+--high;
+a[low]=a[high];
+while(low<high&&a[low]<=pivot)
+++low;
+a[high]=a[low];
+a[low]=pivot;
+1/上面为快速排序中的划分算法
+/以下是本算法思想中所述的内容
+if（low==k)
+//由于与k相同，直接返回pivot元素
+return
+a[low];
+else if(low>k)
+在前一部分表中递归寻找
+return
+kth_elem(a,low_temp,low-1,k);
+else
+/在后一部分表中递归寻找
+return
+kth_elem(a,low+l,high_temp,k);
+03.【解答】
+算法思想：顺序扫描线性表，将红色条块交换到线性表的最前面，蓝色条块交换到线性表的
+最后面。为此，设立三个指针，其中，j为工作指针，表示当前扫描的元素，i以前的元素全部为
+红色，k以后的元素全部为蓝色。根据/所指示元素的颜色，决定将其交换到序列的前部或尾部。
+初始时i=0，k=n-1，算法的实现如下：
+typedefenum{RED,WHITE,BLUE）color；//设置枚举数组
+void Flag_Arrange(color a[],int n){
+int i=0,j=0,k=n-1;
+while(j<=k)
+switch（a[j]）{//判断条块的颜色
+caseRED:Swap（a[i],a[j]);i++;j++;break;
+//红色，则和i交换
+case WHITE: j++;break;
+case BLUE: Swap(a[j],a[k]);k--;
+//蓝色，则和k交换
+//这里没有j++语句，以防止交换后a[j]仍为蓝色
+例如，将元素值正数、负数和零排序为前面都是负数，接着是0，最后是正数，也用同样的

@@ -1,0 +1,55 @@
+第2章线性
+表
+23
+void del_x_2(SqList &L,ElemType x){
+int k=0,i=0;
+//k记录值等于x的元素个数
+while(i<L.length)(
+if(L.data[i]==x)
+k++;
+else
+L.data[i-k]=L.data[i]；/当前元素前移k个位置
+i++;
+L.length=L.length-k;
+/顺序表L的长度递减
+此外，本题还可以考虑设头、尾两个指针（i=1,j=n），从两端向中间移动，在遇到最左端
+值x的元素时，直接将最右端值非x的元素左移至值为x的数据元素位置，直到两指针相遇。但
+这种方法会改变原表中元素的相对位置。
+04.【解答】
+算法思想：从前向后扫描顺序表L，用k记录值在s和t之间的元素个数（初始时k=0）。对
+之间的元素仅移动一次，因此算法效率高。
+本题代码如下：
+bool Del_s_t(SqList &L,ElemType s,ElemType t){
+//删除顺序表L中值在给定值s和t（要求s<t）之间的所有元素
+int i,k=0;
+if(L.length==011s>=t)
+return false;
+//线性表为空或s、t不合法，返回
+for（i=0;i<L.length;i++){
+if(L.data[i]>=s&&L.data[i]<=t)
+k++;
+else
+L.data[i-k]=L.data[i]；//当前元素前移k个位置
+}//for
+L.length-=k;
+//长度减小
+return true;
+注意
+本题也可从后向前扫描顺序表，每遇到一个值在s和1之间的元素，就删除该元素，其后的所有元
+素全部前移。但移动次数远大于前者，效率不够高。
+05.【解答】
+算法思想：注意是有序顺序表，值相同的元素一定在连续的位置上，用类似于直接插入排序
+的思想，初始时将第一个元素视为非重复的有序表。之后依次判断后面的元素是否与前面非重复
+有序表的最后一个元素相同，若相同，则继续向后判断，若不同，则插入前面的非重复有序表的
+最后，直至判断到表尾为止。
+本题代码如下：
+bool Delete_Same(SeqList& L)(
+if(L.length==0)
+return false;
+inti，j;
+//li存储第一个不相同的元素，j为工作指针
+for（i=0,j=1;j<L.length;j++)
+if(L.data[i]!=L.data[j])
+//查找下一个与上一个元素值不同的元素
+L.data[++i]=L.data[j];
+//找到后，将元素前移

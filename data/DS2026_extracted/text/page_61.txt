@@ -1,0 +1,57 @@
+第2章线性
+表
+49
+二、综合应用题
+01.【解答】
+解法1：用p从头至尾扫描单链表，pre指向*p结点的前驱。若p所指结点的值为x，则删
+除，并让p移向下一个结点，否则让pre、p指针同步后移一个结点。
+本题代码如下：
+void Del_x_1(Linklist &L,ElemType x)(
+while(p!=NULL){
+if(p->data==x）{
+!d=b
+/lg指向被删结点
+p=p->next;
+pre->next=p;
+//将*g结点从链表中断开
+free(q);
+/释放*q结点的空间
+elset
+//否则，pre和p同步后移
+pre=p;
+p=p->next;
+//else
+1//while
+本算法是在无序单链表中删除满足某种条件的所有结点，这里的条件是结点的值为×。实际
+上，这个条件是可以任意指定的，只要修改if条件即可。比如，我们要求删除值介于mink和
+maxk之间的所有结点，则只需将if语句修改为if（p->data>mink&&p->data<maxk）。
+解法2：采用尾插法建立单链表。用p指针扫描工的所有结点，当其值不为x时，将其链接
+到L之后，否则将其释放。
+本题代码如下：
+void Del_x_2(Linklist &L,ElemType x)(
+LNode *p=L->next,*r=L,*q;
+//r指向尾结点，其初值为头结点
+while(p!=NULL){
+if(p->data!=x){
+l/*p结点值不为x时将其链接到L尾部
+r->next=p;
+r=p;
+p=p->next;
+//继续扫描
+elset
+//*p结点值为x时将其释放
+!d=b
+p=p->next;
+//继续扫描
+free(q);
+//释放空间
+)//while
+r->next=NULL;
+/插入结束后置尾结点指针为NULL
+上述两个算法扫描一遍链表，时间复杂度为0（n)，空间复杂度为O（1)。
+02.【解答】
+算法思想：用p从头至尾扫描单链表，pre指向*p结点的前驱，用minp保存值最小的结
+点指针（初值为p），minpre指向*minp 结点的前驱（初值为pre）。一边扫描，一边比较，若
+p->data 小于minp->data，则将p、pre 分别赋值给minp、minpre，如下图所示。当p扫
+描完毕时，minp指向最小值结点，minpre指向最小值结点的前驱结点，再将minp所指结点删
+除即可。

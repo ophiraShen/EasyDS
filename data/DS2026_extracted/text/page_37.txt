@@ -1,0 +1,60 @@
+第2章线性
+表
+25
+(b1，b2，b3，…，bn），算法将这两个表的位置互换*/
+Reverse(A,0,m+n-1,arraySize);
+Reverse(A,0,n-l,arraySize);
+Reverse(A,n,m+n-l,arraySize);
+08.【解答】
+算法思想：顺序存储的线性表递增有序，可以顺序查找，也可以折半查找。题目要求“用最
+少的时间在表中查找数值为x的元素”，这里应使用折半查找法。
+本题代码如下：
+void SearchExchangeInsert(ElemType A[],ElemType x)(
+int low=0,high=n-1,mid;
+//low和high指向顺序表下界和上界的下标
+while(low<=high){
+mid=(1ow+high)/2;
+/找中间位置
+if(A[mid]==x) break;
+/找到x，退出while循环
+else if(A[mid]<x)
+low=mid+1；//到中点mid的右半部去查
+else high=mid-1;
+//到中点mid的左半部去查
+/下面两个if语句只会执行
+个
+if（A[mid]==x&&mid!=n-l）{
+//若最后一个元素与×相等，则不存在与其后
+继交换的操作
++]+]]]
+if(low>high){
+//查找失败，插入数据元素x
+for（i=n-l;i>high;i--）A[i+l]=A[i];
+//后移元素
+A[i+1]=x;
+/插入x
+//结束插入
+本题的算法也可写成三个函数：查找函数、交换后继函数与插入函数。写成三个函数的优点
+是逻辑清晰、易读。
+09.【解析】
+1）算法的基本设计思想。
+使用三个下标变量从小到大遍历数组。当三个下标变量指向的元素相等时，输出并向前推进
+指针，否则仅移动小于最大元素的下标变量，直到某个下标变量移出数组范围，即可停止。
+2）算法的实现。
+void samekey（int A[],int B[],int C[],int n）(
+int i=0,j=0,k=0;
+//定义三个工作指针
+while(i<n&&j<n&&k<n){
+//相同则输出，并集体后移
+if(A[i]==B[j]&&B[j]==C[k]）{
+printf("d\n",A[i]);
+i++;j++;k++;
+)elset
+intmaxNum=max(A[i],max（B[j],C[k])）;
+if(A[i]<maxNum)i++;
+if(B[j]<maxNum)j++;
+if(C[k]<maxNum)k++;
+3）每个指针移动的次数不超过n次，且每次循环至少有一个指针后移，所以时间复杂度为
+O(n)，算法只用到了常数个变量，空间复杂度为O(1)。
+10.【解答】
+1）算法的基本设计思想：

@@ -1,0 +1,44 @@
+第6章图
+263
+06.【解答】
+Dijkstra算法每一步都会贪婪地选择与源点vo最近的下一条边，直到vo连接到图中所有顶
+点。Prim算法（已知是最小生成树算法）与Dikstra算法高度相似，但是在每个阶段，它贪婪地
+选择与该阶段已加入MST中任意一个顶点最近的下一条边。显然，Dijkstra算法可以产生一棵生
+成树，但该树不一定是最小生成树，只需举出一个反例即可，以下图G为例（将a作为源点）。
+b
+b
+-Prim
+..Dijkstra
+(a）图G
+(b)两种算法产生的生成树
+Dijkstra算法得到的路径集合为(a,b),(a,c),(a,d)}，该生成树的总权值为5+5+5=15。
+Prim算法得到的边集合为{(a,d),（b,d),（c,d)}，该最小生成树的总权值为5+1+1=7。
+显然，Dijkstra算法得到的生成树不一定是最小生成树。
+07.【解答】
+本节前面给出了DFS实现拓扑排序的思想，下面是利用DFS求各顶点结束时间的代码（在
+DFS的基础上加入了time变量）。将结束时间从大到小排序，即可得到拓扑序列。
+boolvisited[MAX VERTEX NUM];
+//访问标记数组
+void DFsTraverse(Graph G){
+for(v=0;v<G.vexnum;++v)
+visited[v]=FALSE;
+/初始化访问标记数组
+time=0;
+for(v=0;v<G.vexnum;++v)
+//本代码从v=0开始遍历
+if(!visited[v]） DFS(G,v);
+void DFS(Graph G,int v){
+visited[v]=TRUE;
+visit(v);
+for(w=FirstNeighbor(G,v);w>=0;w=NextNeighbor(G,V,w))
+if(!visited[w])(
+//w为v的尚未访问的邻接点
+DFS(G,W);
+）
+time=time+l;finishTime[v]=time;
+08.【解答】
+该方法不一定能（或不能）求得最短路径。
+例如，对于下图所示的带权图，若按照题中的原则，从A到C的最短路径是A→B→C，事
+实上其最短路径是A→D→C。
+09.【解答】
+1）在上三角矩阵A[6][6]中，第1行至第5行主对角线上方的元素个数分别为5,4,3,2，1，

@@ -1,0 +1,46 @@
+88
+2026年数据结构考研复习指导
+EnQueue(Q,x);
+/再入队
+03.【解答】
+利用两个栈S1和S2来模拟一个队列，当需要向队列中插入一个元素时，用S1来存放已输
+入的元素，即S1执行入栈操作。当需要出队时，则对S2执行出栈操作。因为从栈中取出元素的
+顺序是原顺序的逆序，所以必须先将S1中的所有元素全部出栈并入栈到S2中，再在S2中执行
+出栈操作，即可实现出队操作，而在执行此操作前必须判断S2是否为空，否则会导致顺序混乱。
+当栈 S1和 S2 都为空时队列为空。
+总结如下：
+1）对S2的出栈操作用作出队，若S2为空，则先将S1中的所有元素送入S2。
+2）对S1的入栈操作用作入队，若S1满，必须先保证S2为空，才能将S1中的元素全部插
+入S2中。
+入队算法：
+int EnQueue(Stack &S1,Stack &S2,ElemType e){
+if(!StackOverflow(S1))(
+Push(Sl,e);
+return 1;
+if(StackOverflow(Sl)&&!StackEmpty(s2)){
+printf（"队列为满"）;
+return 0;
+if(Stackoverflow(S1)&&StackEmpty(S2)){
+while(!StackEmpty(Sl))(
+Pop(S1,x);
+Push(S2,x);
+Push(Sl,e);
+return 1;
+出队算法：
+void DeQueue(Stack &S1,Stack &S2,ElemType &x)(
+if(!StackEmpty(S2)){
+Pop(S2,x）;
+else if(StackEmpty(Sl)){
+printf（"队列为空"）;
+elsel
+while(!StackEmpty(Sl))(
+Pop(S1,x）;
+Push(S2,x);
+Pop（S2,x）;
+判断队列为空的算法：
+int QueueEmpty(Stack S1,Stack S2)(
+if(StackEmpty(S1)&&StackEmpty(S2))
+return
+1;
+else
+return0;

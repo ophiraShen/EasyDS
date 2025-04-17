@@ -1,0 +1,71 @@
+第1章绪
+论
+int i=0;
+while(i*i*i<=n)
+i++;
+公众号：小兔网盘免费分享无水印PDF
+A. O(n)
+B. O(nlog2n)
+C. 0(n)
+D. 0(√n)
+08．某个程序段如下：
+for(i=n-l;i>1;i--)
+for(j=1;j<i;j++)
+if(A[j]>A[j+1])
+A[j]与A[j+1]对换；
+其中n为正整数，则最后一行语句的频度在最坏情况下是（）。
+A. O(n)
+B. O(nlog2n)
+C. 0(n)
+D. O(m²)
+09.下列程序段的时间复杂度为（）。
+if(n>=0）{
+for（int i=0;i<n;i++)
+for（int j=0;j<n;j++)
+printf（"输入数据大于或等于零\n")
+elset
+for（int j=0;j<n;j++)
+printf（"输入数据小于零\n"）
+{
+A. 0(n²)
+B. O(n)
+C. 0(1)
+D. O(nlog2n)
+10．下列算法中加下画线的语句的执行次数为（）。
+int m=0,i，j;
+for（i=1;i<=n;i++)
+for(j=1;j<=2*i;j++)
+m++;
+A.n(n+1)
+B.n
+C. n+1
+D. n²
+11.
+下列函数代码的时间复杂度是（）。
+int Func（int n){
+if（n==1) return 1;
+else return 2*Func(n/2)+n;
+A. O(n)
+B. O(nlog2n)
+C. O(log2n)
+D. 0(n²)
+12.【2011统考真题】设n是描述问题规模的非负整数，下列程序段的时间复杂度是（）。
+x=2;
+while(x<n/2)
+x=2*x;
+A. O(log2n)
+B. O(n)
+C. O(nlog2n)
+D. 0(n²)
+13.【2012统考真题】求整数n（n≥0）的阶乘的算法如下，其时间复杂度是（）。
+int fact（int n){
+if（n<=1) return 1;
+return n*fact(n-l);
+A. O(log2n)
+B.O(n)
+C. O(nlog2n)
+D. 0(n²)
+14.【2014统考真题】下列程序段的时间复杂度是（）。
+count=0;
+for（k=1;k<=n;k*=2)
+for（j=1;j<=n;j++)

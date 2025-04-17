@@ -1,0 +1,67 @@
+第5章
+树与二叉树
+171
+pmin[k]=pmax[k]=bt.SqBiTNode[k];
+for（k=bt.ElemNum-1;k>0;k--){
+//从最后一个叶结点向根遍历
+if(bt.SqBiTNode[k]!=-1){
+m=（k-1)/2;
+//双亲
+if(k%2==1&&bt.SqBiTNode[m]>pmax[k])
+//其为左孩子
+pmin[m]=pmin[k];
+elseif(k%2==0&&bt.SqBiTNode[m]<pmin[k])
+1//其为右孩子
+pmax[m]=pmax[k];
+else return false;
+return true;
+5.4树、森林
+5.4.1树的存储结构
+树的存储方式有多种，既可采用顺序存储结构，又可采用链式存储结构，但无论采用何种存
+储方式，都要求能唯一地反映树中各结点之间的逻辑关系，这里介绍3种常用的存储结构。
+1.双亲表示法
+这种存储结构采用一组连续空间来存储每个结点，同时在每个结点中增设一个伪指针，指示
+其双亲结点在数组中的位置。如图5.20所示，根结点下标为0，其伪指针域为-1。
+双亲表示法的存储结构描述如下：
+#define MAX_TREE_SIZE 100
+/树中最多结点数
+//树的结点定义
+typedef struct{
+ElemType data;
+//数据元素
+int parent;
+//双亲位置域
+)PTNode;
+typedef struct{
+//树的类型定义
+PTNode nodes[MAX_TREE_SIZE];
+I/双亲表示
+int n;
+//结点数
+)PTree;
+data
+parent
+R
+-1
+A
+0
+2
+B
+0
+C
+0
+D
+E
+1
+F
+6
+H
+6
+K
+6
+(a)一棵树
+（b）双亲表示
+(c)双亲指针图示
+图5.20树的双亲表示法
+双亲表示法利用了每个结点（根结点除外）只有唯一双亲的性质，可以很快地得到每个结点
+的双亲结点，但求结点的孩子时则需要遍历整个结构

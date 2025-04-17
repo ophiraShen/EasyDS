@@ -1,0 +1,58 @@
+第5章
+树与二叉树
+165
+exit（1);
+while(top!=0&&s[top].tag==1)
+top--;
+/退栈（空遍历）
+if(top!=0）{
+s[top].tag=l;
+bt=s[top].t->rchild;
+//沿右分支向下遍历
+)//while(bt!=NULLlItop>0)
+因为查找的过程就是后序遍历的过程，所以使用的栈的深度不超过树的深度。
+10.【解答】
+后序遍历最后访问根结点，即在递归算法中，根是压在栈底的。本题要找p和g的最近公共
+祖先结点r，不失一般性，设p在g的左边。算法思想：采用后序非递归算法，栈中存放二叉树
+结点的指针，当访问到某结点时，栈中所有元素均为该结点的祖先。后序遍历必然先遍历到结点
+栈中元素均为p的祖先。先将栈复制到另一辅助栈中。继续遍历到结点g时，将栈中元素从
+p，
+算法实现如下：
+typedef struct{
+BiTree t;
+inttag；//tag=0表示左子女已被访问，tag=1表示右子女已被访问
+)stack;
+stack s[],sl[];
+//栈，容量足够大
+//本算法求二叉树中p和g指向结点的最近公共结点
+top=0;bt=ROOT;
+while(bt!=NULL||top>O）{
+while(bt!=NULL){
+s[++top].t=bt;
+s[top].tag=0;
+bt=bt->lchild;
+//沿左分支向下
+while（top!=0&&s[top].tag==1）{
+//假定p在g的左侧，遇到p时，栈中元素均为p的祖先
+if(s[top].t==p){
+for(i=l;i<=top;i++)
+sl[i]=s[i];
+topl=top;
+//将栈s的元素转入辅助栈s1保存
+if(s[top].t==q)
+/找到g结点
+for（i=top;i>0;i--）{//将栈中元素的树结点到s1中去匹配
+for(j=topl;j>0;j--)
+if(sl[j].t==s[i].t)
+returns[i].t；/lp和q的最近公共祖先已找到
+top--;
+/退栈
+）/while
+if(top!=0){
+s[top].tag=l;
+bt=s[top].t->rchild;
+//沿右分支向下遍历
+}//while
+return NULL;
+/lp 和g无公共祖先
+）

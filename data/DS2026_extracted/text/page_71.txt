@@ -1,0 +1,55 @@
+第2章线性
+表
+59
+18.【解答】
+顺序遍历两个链表到尾结点时，并不能保证两个链表同时到达尾结点。这是因为两个链表的
+长度不同。假设一个链表比另一个链表长k个结点，我们先在长链表上遍历k个结点，之后同步
+遍历两个链表，这样就能够保证它们同时到达最后一个结点。因为两个链表从第一个公共结点到
+链表的尾结点都是重合的，所以它们肯定同时到达第一个公共结点。
+1）算法的基本设计思想：
+①分别求出str1和str2所指的两个链表的长度m和n。
+②将两个链表以表尾对齐：令指针p、q分别指向str1和str2的头结点，若m≥n，则
+指针p先走，使p指向链表中的第m-n+1个结点；若m<n，则使q指向链表中的第
+n-m+1个结点，即使指针p和g所指的结点到表尾的长度相等。
+③反复将指针p和q同步向后移动，并判断它们是否指向同一结点。当p、q指向同一结
+点，则该点即所求的共同后缀的起始位置。
+2）本题代码如下：
+typedef struct Node
+char data;
+struct Node *next;
+)SNode;
+/*求链表长度的函数*/
+int listlen(SNode *head){
+int len=0;
+while(head->next!=NULL){
+len++;
+head=head->next;
+return len;
+/*找出共同后缀的起始地址*/
+SNode* find_list(SNode
+*strl,SNode *str2){
+int m,n;
+SNode *p,*q;
+m=listlen(strl);
+l/求str1的长度，O(m)
+n=listlen(str2）;
+//求str2的长度，O(n)
+for(p=strl;m>n;m--
+//若m>n，使p指向链表中的第m-n+1个结点
+p=p->next;
+for(q=str2;m<n;n-
+//若m<n，使g指向链表中的第n-m+1个结点
+q=q->next;
+while（p->next!=NULL&&p->next!=q->next）{//查找共同后缀起始点
+p=p->next;
+//两个指针同步向后移动
+q=q->next;
+return p->next;
+//返回共同后缀的起始地址
+3）时间复杂度为O（lenl+len2）或O（max（lenl,len2)，其中lenl、len2分别为两个链表的长度。
+19.【解答】
+1）算法的基本设计思想：
+·算法的核心思想是用空间换时间。使用辅助数组记录链表中已出现的数值，从而只需对链
+表进行一趟扫描。
+·因为ldata|≤n，故辅助数组g的大小为n+1，各元素的初值均为0。依次扫描链表中
+的各结点，同时检查q[Idatal]的值，若为O则保留该结点，并令a[ldata|]=l；否

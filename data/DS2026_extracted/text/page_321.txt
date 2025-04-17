@@ -1,0 +1,54 @@
+第7章查
+找
+309
+else
+//在右子树中查找
+t=t->rchild;
+//层次加1
+n++;
+return
+n;
+07.【解答】
+设置二叉树的平衡标记balance，以标记返回二叉树bt 是否为平衡二叉树，若为平衡二叉
+树，则返回1，否则返回0：h为二叉树bt的高度。采用后序遍历的递归算法：
+1）若bt为空，则高度为0，balance=l。
+2）若bt仅有根结点，则高度为1，balance=1。
+3）否则，对bt的左、右子树执行递归运算，返回左、右子树的高度和平衡标记，bt的高
+度为最高子树的高度加1。若左、右子树的高度差大于1，则balance=0：若左、右子
+树的高度差小于或等于1，且左、右子树都平衡时，balance=1，否则balance=0。
+算法如下：
+void Judge_AVL(BiTree bt,int &balance,int &h)(
+int b1=0,br=0,hl=0,hr=0;
+//左、右子树的平衡标记和高度
+if(bt==NULL）{
+//空树，高度为0
+h=0;
+balance=l;
+elseif（bt->lchild==NULL&&bt->rchild==NULL）{//仅有根结点，则高度为1
+h=1;
+balance=l;
+elser
+Judge_AVL(bt->lchild,bl,hl);
+/递归判断左子树
+Judge_AVL(bt->rchild,br,hr);
+//递归判断右子树
+h=(hl>hr?hl:hr)+1;
+if(abs(hl-hr)<2)
+//若子树高度差的绝对值<2，则看左、右子树是否都平衡
+balance=bl&&br；//&&为逻辑与，即左、右子树都平衡时，二叉树平衡
+else
+balance=0;
+08.【解答】
+在一棵二叉排序树中，最左下结点即关键字最小的结点，最右下结点即关键字最大的结点，
+本算法只要找出这两个结点即可，而不需要比较关键字。算法如下：
+KeyType MinKey(BSTNode*bt)
+while(bt->lchild!=NULL)
+bt=bt->lchild;
+return bt->data;
+KeyType MaxKey(BSTNode *bt){
+Ⅱ求出二叉排序树中最大关键字结点
+while(bt->rchild!=NULL)
+bt=bt->rchild;
+return bt->data;
+09.【解答】
+由二叉排序树的性质可知，右子树中所有的结点值均大于根结点值，左子树中所有的结点值

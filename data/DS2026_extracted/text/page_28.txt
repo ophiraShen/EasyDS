@@ -1,0 +1,66 @@
+16
+2026年数据结构考研复习指导
+动态分配的初始化为顺序表分配一个预定义大小的数组空间，并将顺序表的当前长度设为0。
+void InitList(SeqList &L)(
+L.data=（ElemType*)malloc（InitSize*sizeof（ElemType));//分配存储空间
+L.length=0;
+//顺序表初始长度为0
+L.MaxSize=InitSize;
+//初始存储容量
+2.插入操作
+在顺序表L的第i（1<=i<=L.length+1）个位置插入新元素é。若i的输入不合法，则
+返回false，表示插入失败；否则，将第i个元素及其后的所有元素依次往后移动一个位置，腾
+出一个空位置插入新元素e，顺序表长度增加1，插入成功，返回true。
+bool ListInsert(SqList &L,int i,ElemType e)(
+if(i<1l|i>L.length+1)
+//判断i的范围是否有效
+return false;
+if(L.length>=MaxSize)
+//当前存储空间已满，不能插入
+return false;
+for(int j=L.length;j>=i;j--)
+//将第i个元素及之后的元素后移
+L.data[j]=L.data[j-1];
+//在位置i处放入é
+L.data[i-1]=e;
+L.length++;
+//线性表长度加1
+return true;
+注意
+区别顺序表的位序和数组下标。为何判断插入位置是否合法时if语句中用1ength+1，而移动元素的
+for语句中只用length？
+最好情况：在表尾插入（i=n+1），元素后移语句将不执行，时间复杂度为O(1)。
+最坏情况：在表头插入（i=1)，元素后移语句将执行n次，时间复杂度为O(n)。
+平均情况：假设p（p;=1/(n+1)）是在第i个位置上插入一个结点的概率，则在长度为n的
+线性表中插入一个结点时，所需移动结点的平均次数为
+1
+1+1
+1 n(n+1)
+n
+p（n-i+1）=
+（n-i+1）=
+(n-i+1)=
+n+1
+=n+1
+n+1
+2
+2
+i=l
+因此，顺序表插入算法的平均时间复杂度为O(n)。
+3．删除操作
+删除顺序表L中第i（1<=i<=L.length）个位置的元素，用引用变量e返回。若i的输
+入不合法，则返回false：否则，将被删元素赋给引用变量e，并将第i+1个元素及其后的所有
+元素依次往前移动一个位置，返回true。
+bool ListDelete(SqList &L,int i,ElemType &e)(
+if(i<llli>L.length)
+//判断i的范围是否有效
+return false;
+e=L.data[i-1];
+/将被删除的元素赋值给e
+for（int j=i;j<L.length;j++)
+/将第i个位置后的元素前移
+L.data[j-1]=L.data[j];
+L.length--;
+//线性表长度减1
+return true;
+最好情况：删除表尾元素（i=n），无须移动元素，时间复杂度为O（1)。

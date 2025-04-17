@@ -1,0 +1,99 @@
+第6章图
+265
+点。为了简化代码，可将网络和链路的结构合并为一个，用一个标志位来区分它们，这
+样就可用邻接表来实现图的存储。链式存储结构如下图所示。
+弧结点的两种基本形态
+Flag=1Next
+Flag-2Next
+ID
+Prefix
+RouterID
+表头结点
+IP
+Mask
+LN_link
+结构示意
+Metric
+Metric
+Next
+其数据类型定义如下：
+typedef struct{
+unsigned int ID,
+IP;
+)LinkNode;
+//Link的结构
+typedef struct{
+unsigned int Prefix,Mask;
+NetNode;
+//Net的结构
+typedef struct Node
+int Flag;
+//Flag=1为Link;Flag=2为Net
+union{
+LinkNode Lnode;
+NetNode Nnode
+LinkORNet;
+Unsigned int Metric;
+struct Node *next;
+)ArcNode;
+/弧结点
+typedef struct hNode
+unsignedintRouterID;
+ArcNode *LN_link;
+Struct hNode *next;
+}HNODE;
+/表头结点
+对应表的链式存储结构示意图如下所示。
+10.1.1.1
+Flag=1
+Flag-1
+Flag=2
+10.1.1.2
+10.1.1.5
+192.1.1.0
+10.1.1.1
+10.1.1.9
+255.255.255.0
+3
+2
+1
+10.1.1.2
+Flag=1
+Flag=1
+Flag=2
+10.1.1.1
+10.1.1.6
+192.1.6.0
+10.1.1.2
+10.1.1.13
+255.255.255.0
+3
+4
+1
+10.1.1.5
+Flag=1
+Flag-1
+Flag=2
+10.1.1.6
+10.1.1.1
+192.1.5.0
+10.1.1.5
+10.1.1.10
+255.255.255.0
+6
+2
+1
+10.1.1.6
+Flag-1
+Flag-1
+Flag-2
+√
+10.1.1.5
+10.1.1.2
+192.1.7.0
+10.1.1.6
+10.1.1.14
+255.255.255.0
+6
+4
+3）计算结果如下表所示。

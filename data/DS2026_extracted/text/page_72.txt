@@ -1,0 +1,59 @@
+60
+2026年数据结构考研复习指导
+则将该结点从链表中删除。
+2）使用C语言描述的单链表结点的数据类型定义：
+typedef struct node{
+int
+data;
+struct node
+*link;
+}NODE;
+Typedef NODE *PNODE;
+3）算法实现如下：
+void func （PNODE h,int n){
+PNODE p=h,r;
+int *q,m;
+for（int i=0;i<n+l;i++)
+//数组元素初值置0
+*（q+i）=0;
+while（p->link!=NULL){
+if（*（q+m）==0）{
+//判断该结点的data是否已出现过
+*（q+m）=1;
+//首次出现
+p=p->link;
+//保留
+elset
+//重复出现
+r=p->link;
+/删除
+p->link=r->link;
+free(r);
+free(q);
+4）参考答案所给算法的时间复杂度为O(m)，空间复杂度为O(n)。
+20.【解答】
+1）算法的基本设计思想：
+一个元素，再摘取倒数第一个元素·依次合并而成的。为了方便链表后半段取元素，需要先将
+L后半段原地逆置[题目要求空间复杂度为O（1），不能借助栈]，否则每取最后一个结点都需要遍
+历一次链表。①先找出链表L的中间结点，为此设置两个指针p和q，指针p每次走一步，指针
+q每次走两步，当指针q到达链尾时，指针p正好在链表的中间结点：②然后将L的后半段结点
+原地逆置。③从单链表前后两段中依次各取一个结点，按要求重排。
+2）算法实现如下：
+void change_list(NODE*h){
+p=q=h;
+while(q->next!=NULL)(
+Ⅱ寻找中间结点
+p=p->next;
+llp走一步
+q=q->next;
+if(q->next!=NuLL)q=q->next;
+llg走两步
+q=p->next;
+/lp所指结点为中间结点，g为后半段链表的首结点
+p->next=NULL;
+while(q!=NULL){
+//将链表后半段逆置
+r=q->next;
+q->next=p->next;
+p->next=q;
+q=r;

@@ -1,0 +1,65 @@
+166
+2026年数据结构考研复习指导
+11.【解答】
+采用层次遍历的方法求出所有结点的层次，并将所有结点和对应的层次放在一个队列中。然
+后通过扫描队列求出各层的结点总数，最大的层结点总数即二叉树的宽度。算法实现如下：
+typedef struct{
+BiTree data[MaxSize];
+//保存队列中的结点指针
+int level[MaxSize];
+//保存data中相同下标结点的层次
+int front,rear;
+}Qu;
+int BTWidth(BiTree b){
+BiTree p;
+int k,max,i,n;
+Qu.front=Qu.rear=-1;
+/队列为空
+Qu.rear++;
+Qu.data[Qu.rear]=b;
+/根结点指针入队
+Qu.level[Qu.rear]=1;
+//根结点层次为1
+while(Qu.front<Qu.rear){
+Qu.front++;
+/出队
+p=Qu.data[Qu.front];
+/出队结点
+k=Qu.level[Qu.front];
+/出队结点的层次
+if(p->lchild!=NULL）{
+Ⅱ左孩子入队
+Qu.rear++;
+Qu.data[Qu.rear]=p->lchild;
+Qu.level[Qu.rear]=k+l;
+if(p->rchild!=NULL){
+//右孩子入队
+Qu.rear++;
+Qu.data[Qu.rear]=p->rchild;
+Qu.level[Qu.rear]=k+1;
+}//while
+max=0;i=0;
+//max保存同一层最多的结点个数
+k=1;
+//k表示从第一层开始查找
+while(i<=Qu.rear){
+l/i扫描队中所有元素
+n=0;
+//n统计第k层的结点个数
+while(i<=Qu.rear&&Qu.level[i]==k){
+n++;
+i++;
+k=Qu.level[i];
+if(n>max)
+//保存最大的n
+max=n;
+return max;
+注意
+本题队列中的结点，在出队后仍需要保留在队列中，以便求二叉树的宽度，所以设置的队列采用非
+环形队列，否则在出队后可能被其他结点覆盖，无法再求二叉树的宽度，
+12.【解答】
+对一般二叉树，仅根据先序或后序序列，不能确定另一个遍历序列。但对满二叉树，任意一
+个结点的左、右子树均含有相等的结点数，同时，先序序列的第一个结点作为后序序列的最后一
+个结点，由此得到将先序序列pre[11..h1]转换为后序序列post[12..h2]的递归模型如下：
+f(pre,11,hl,post,12,h2)=不做任何事情
+h1<11时
