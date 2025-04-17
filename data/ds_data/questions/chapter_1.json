@@ -6,7 +6,8 @@
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0111",
+            "kc0112"
         ],
         "related_questions": [
             {
@@ -20,7 +21,8 @@
                 "string"
             ],
             "explanation": "树和图是典型的非线性数据结构，其他选项都属于线性数据结构。"
-        }
+        },
+        "chapter": "01"
     },
     {
         "id": "q011003",
@@ -29,7 +31,8 @@
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0111",
+            "kc0112"
         ],
         "related_questions": [
             {
@@ -43,7 +46,8 @@
                 "string"
             ],
             "explanation": "顺序表、哈希表和单链表是三种不同的数据结构，既描述逻辑结构，又描述存储结构和数据\n运算。而有序表是指关键字有序的线性表，仅描述元素之间的逻辑关系，它既可以链式存储，又\n可以顺序存储，所以属于逻辑结构。"
-        }
+        },
+        "chapter": "01"
     },
     {
         "id": "q011004",
@@ -52,7 +56,8 @@
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0111",
+            "kc0112"
         ],
         "related_questions": [
             {
@@ -66,7 +71,8 @@
                 "string"
             ],
             "explanation": "数据的逻辑结构是从面向实际问题的角度出发的，只采用抽象表达方式，独立于存储结构，\n立于逻辑结构而存在。数据结构包括三个要素，缺一不可。\n05．C公众号：小兔网盘免费分享无水印PDF\n在存储数据时，不仅要存储数据元素的值，而且要存储数据元素之间的关系。"
-        }
+        },
+        "chapter": "01"
     },
     {
         "id": "q011005",
@@ -75,7 +81,8 @@
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0111",
+            "kc0112"
         ],
         "related_questions": [
             {
@@ -89,7 +96,8 @@
                 "string"
             ],
             "explanation": "未找到解析"
-        }
+        },
+        "chapter": "01"
     },
     {
         "id": "q012001",
@@ -98,7 +106,8 @@
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0111",
+            "kc0112"
         ],
         "related_questions": [
             {
@@ -112,7 +121,8 @@
                 "string"
             ],
             "explanation": "一个算法应具有五个重要特性：有穷性、确定性、可行性、输入和输出。选项A、C和D中\n提到的特性（如可维护性、可读性、可靠性、正确性等）是很重要的，但它们并不是算法定义的\n重要特性，更多的是关于软件开发中的附加要求。"
-        }
+        },
+        "chapter": "01"
     },
     {
         "id": "q012002",
@@ -121,7 +131,8 @@
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0121",
+            "kc0122"
         ],
         "related_questions": [
             {
@@ -135,7 +146,8 @@
                 "string"
             ],
             "explanation": "算法的时间效率是指算法的时间复杂度，即执行算法所需的计算工作量，选项A错误。算法\n设计会综合考虑时间效率和空间效率两个方面，若某些应用场景对时间效率要求很高，而对空间\n“优劣”不仅要考虑算法的时空效率，还要从正确性、可读性、健壮性等方面来综合评价。"
-        }
+        },
+        "chapter": "01"
     },
     {
         "id": "q012004",
@@ -144,7 +156,8 @@
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0121",
+            "kc0122"
         ],
         "related_questions": [
             {
@@ -158,7 +171,8 @@
                 "string"
             ],
             "explanation": "算法的空间复杂度为O(1)，表示执行该算法所需的辅助空间大小相比输入数据的规模来说是\n一个常量，而不表示该算法执行时不需要任何空间或辅助空间。"
-        }
+        },
+        "chapter": "01"
     },
     {
         "id": "q012005",
@@ -167,7 +181,8 @@
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0121",
+            "kc0122"
         ],
         "related_questions": [
             {
@@ -181,7 +196,8 @@
                 "string"
             ],
             "explanation": "A的最高阶是nlog2n，时间复杂度是O(nlog2n)。B的最高阶是n²，时间复杂度是O(n²)。C\n的最高阶是nlog2n，时间复杂度是O(nlog2n)。D的最高阶是log2n，时间复杂度是O(log2n)。"
-        }
+        },
+        "chapter": "01"
     },
     {
         "id": "q012006",
@@ -190,7 +206,8 @@
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0121",
+            "kc0122"
         ],
         "related_questions": [
             {
@@ -204,16 +221,18 @@
                 "string"
             ],
             "explanation": "找出基本运算i=i*2，设执行次数为t，2'≤n，即1≤log2n，故时间复杂度T(n)=O(log2n)。\n更直观的方法：计算基本运算i=i*2的执行次数（每执行一次i乘以2），其中判断条件可\n理解为2'=n，即t= log2n，则T(n)=O(log2n)。"
-        }
+        },
+        "chapter": "01"
     },
     {
         "id": "q012007",
         "title": "算法时间复杂度与频度分析",
-        "content": "下列算法的时间复杂度为（）。\nvoid fun(int n){\n第1章绪\n论\nint i=0;\nwhile(i*i*i<=n)\ni++;\n公众号：小兔网盘免费分享无水印PDF\nA. O(n)\nB. O(nlog2n)\nC. 0(n)\nD. 0(√n)\n08．某个程序段如下：\nfor(i=n-l;i>1;i--)\nfor(j=1;j<i;j++)\nif(A[j]>A[j+1])\nA[j]与A[j+1]对换；\n其中n为正整数，则最后一行语句的频度在最坏情况下是（）。\nA. O(n)\nB. O(nlog2n)\nC. 0(n)\nD. O(m²)",
+        "content": "下列算法的时间复杂度为（）。\nvoid fun(int n){\n第1章绪\n论\nint i=0;\nwhile(i*i*i<=n)\ni++;\nA. O(n)\nB. O(nlog2n)\nC. 0(n)\nD. 0(√n)\n08．某个程序段如下：\nfor(i=n-l;i>1;i--)\nfor(j=1;j<i;j++)\nif(A[j]>A[j+1])\nA[j]与A[j+1]对换；\n其中n为正整数，则最后一行语句的频度在最坏情况下是（）。\nA. O(n)\nB. O(nlog2n)\nC. 0(n)\nD. O(m²)",
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0121",
+            "kc0122"
         ],
         "related_questions": [
             {
@@ -227,7 +246,8 @@
                 "string"
             ],
             "explanation": "基本运算为i++，设执行次数为1，有xix≤n，即≤n。因此有≤n，则 T(n)=O（）。"
-        }
+        },
+        "chapter": "01"
     },
     {
         "id": "q012009",
@@ -236,7 +256,8 @@
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0121",
+            "kc0122"
         ],
         "related_questions": [
             {
@@ -250,7 +271,8 @@
                 "string"
             ],
             "explanation": "当程序段中有条件判断语句时，取分支路径上的最大时间复杂度。"
-        }
+        },
+        "chapter": "01"
     },
     {
         "id": "q012012",
@@ -259,7 +281,8 @@
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0121",
+            "kc0122"
         ],
         "related_questions": [
             {
@@ -273,7 +296,8 @@
                 "string"
             ],
             "explanation": "基本运算（执行频率最高的语句）为x=2*x，每执行一次，×乘以2，设执行次数为1，则\n有 21+1<n/2，所以 1<log2(n/2)- 1 =log2n-2，得 T(n)= O(log2n)。"
-        }
+        },
+        "chapter": "01"
     },
     {
         "id": "q012013",
@@ -282,7 +306,8 @@
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0121",
+            "kc0122"
         ],
         "related_questions": [
             {
@@ -296,7 +321,8 @@
                 "string"
             ],
             "explanation": "本题求的是递归调用的时间复杂度，递归调用可视为多重循环，每次递归执行的基本语句是\nif（n<=1）return 1;，因此可以认为单层循环的执行次数为1，共执行了n次递归调用，总\n10\n2026年数据结构考研复习指导\n执行次数T=1+1+…+1=n，所以时间复杂度为O(n)。\n循环变量i\n单层循环语句\n单层循环执行次数\nn\nif(n<=1) return 1;\n1\nn-1\nif(n<=l) return 1;\n1\nn-2\nif(n<=1)return 1;\n...\n...\n...\n1\nif(n<=l)return 1;\n1"
-        }
+        },
+        "chapter": "01"
     },
     {
         "id": "q012014",
@@ -305,7 +331,8 @@
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
-            "kc0111"
+            "kc0121",
+            "kc0122"
         ],
         "related_questions": [
             {
@@ -319,6 +346,7 @@
                 "string"
             ],
             "explanation": "对于单层循环如for（j=1;j<=n;j++）count++;，可以直接数出执行次数为n，因此可\n将多层循环转换成多个并列的单层循环，且列出每个单层循环如下（假设+为循环变量的幂次）：\n循环变量k\n单层循环语句\n单层循环执行次数\n1\nfor（j=1;j<=n;j++)\nn\n2\nfor(j=1;j<=n;j++)\nn\n22\nfor(j=1;j<=n;j++)\nn\n.….\n.·.\n...\n2\nfor（j=1;j<=n;j++)\nn\n进入外层循环的条件是k≤n,当循环结束时，循环变量的幂次t满足2'≤n<2\",即t≤log2n。\n所以总执行次数 T=n(t+1)=n(log2n+1)，时间复杂度为 O(nlog2n)。"
-        }
+        },
+        "chapter": "01"
     }
 ]

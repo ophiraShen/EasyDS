@@ -10,9 +10,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0821",
@@ -25,9 +23,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc086597",
@@ -40,9 +36,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0822",
@@ -55,9 +49,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0823",
@@ -70,9 +62,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0821",
@@ -85,9 +75,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0839",
@@ -100,9 +88,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0831",
@@ -115,9 +101,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0832",
@@ -130,9 +114,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0841",
@@ -145,9 +127,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0842",
@@ -160,9 +140,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0847",
@@ -175,9 +153,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0851",
@@ -190,9 +166,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0852",
@@ -205,9 +179,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0853",
@@ -220,9 +192,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0861",
@@ -235,9 +205,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0862",
@@ -250,9 +218,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0871",
@@ -265,9 +231,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0872",
@@ -280,9 +244,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0873",
@@ -295,9 +257,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0874",
@@ -310,9 +270,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0872",
@@ -325,9 +283,7 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     },
     {
         "id": "kc0875",
@@ -340,8 +296,6 @@
                 "relation_type": "string"
             }
         ],
-        "questions": [
-            "question_id"
-        ]
+        "questions": []
     }
 ]
