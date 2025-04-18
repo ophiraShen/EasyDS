@@ -13,46 +13,21 @@ class KnowledgeQASystem:
     """知识问答系统，整合知识点索引和智能体问答功能"""
     
     def __init__(self, 
-                 indices_path: str = '/root/autodl-tmp/EasyDS/data/ds_data/ds_indices.pkl',
-                 questions_dir: str = '/root/autodl-tmp/EasyDS/data/ds_data/questions'):
+                 indices_path: str = '/root/autodl-tmp/EasyDS/data/ds_data/ds_indices.pkl',):
         """
         初始化知识问答系统
         
         Args:
             indices_path: 索引文件路径
-            questions_dir: 问题目录路径
         """
         # 加载知识点索引系统
-        self.knowledge_system = KnowledgeIndexSystem.load_indices(indices_path)
-        self.questions_dir = questions_dir
+        self.index_system = KnowledgeIndexSystem.load_indices(indices_path)
         
         # 创建智能体工作流
         self.workflow = create_workflow()
+
+        self.sessions = {}
         
-        # 加载问题索引
-        self.questions_by_chapter = self._index_questions_by_chapter()
-    
-    def _index_questions_by_chapter(self) -> Dict[str, List[Dict]]:
-        """
-        将问题按章节索引
-        
-        Returns:
-            章节到问题列表的映射: {chapter_id: [question_objects]}
-        """
-        questions_by_chapter = {}
-        
-        # 遍历问题目录
-        for filename in os.listdir(self.questions_dir):
-            if filename.endswith('.json') and filename.startswith('chapter_'):
-                chapter_id = filename.replace('chapter_', '').replace('.json', '')
-                
-                file_path = os.path.join(self.questions_dir, filename)
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    questions = json.load(f)
-                
-                questions_by_chapter[chapter_id] = questions
-                
-        return questions_by_chapter
         
     def get_chapters(self) -> List[Dict]:
         """
@@ -61,12 +36,8 @@ class KnowledgeQASystem:
         Returns:
             章节信息列表
         """
-        chapters = []
-        for chapter_id, chapter_data in self.knowledge_system.chapter_index.items():
-            chapters.append({
-                "id": chapter_id,
-                "title": chapter_data.get("title", f"第{chapter_id}章")
-            })
+
+        chapters = self.index_system.get_chapter_list()
         
         # 按章节ID排序
         chapters.sort(key=lambda x: x["id"])
@@ -82,18 +53,16 @@ class KnowledgeQASystem:
         Returns:
             问题列表
         """
-        if chapter_id in self.questions_by_chapter:
+        questions = []
+        for q in self.index_system.get_questions_by_chapter(chapter_id):
             # 返回精简版的问题列表，只包含必要信息
-            questions = []
-            for q in self.questions_by_chapter[chapter_id]:
-                questions.append({
-                    "id": q["id"],
-                    "title": q["title"],
-                    "type": q.get("type", "选择题"),
-                    "difficulty": q.get("difficulty", "中等")
-                })
-            return questions
-        return []
+            questions.append({
+                "id": q["id"],
+                "title": q["title"],
+                "type": q.get("type", "选择题"),
+                "difficulty": q.get("difficulty", "中等")
+            })
+        return questions
     
     def get_question_detail(self, question_id: str) -> Optional[Dict]:
         """
@@ -105,7 +74,7 @@ class KnowledgeQASystem:
         Returns:
             问题详情
         """
-        return self.knowledge_system.get_question(question_id)
+        return self.index_system.get_question(question_id)
     
     def create_session(self, question_id: str) -> str:
         """
@@ -118,7 +87,7 @@ class KnowledgeQASystem:
             会话ID
         """
         # 获取问题详情
-        question = self.get_question_detail(question_id)
+        question = self.index_system.get_question(question_id)
         if not question:
             raise ValueError(f"找不到问题: {question_id}")
         
@@ -135,7 +104,7 @@ class KnowledgeQASystem:
         
         return session_id
     
-    async def process_answer(self, session_id: str, answer: str) -> Dict:
+    async def process_answer(self, session_id: str, answer: str):
         """
         处理用户回答
         
@@ -164,10 +133,11 @@ class KnowledgeQASystem:
             "log": ""
         }
         
-        async for msg, _ in self.workflow.astream(inputs, config, stream_mode="messages"):
-            yield msg.content
+        print("开始处理回答...")
+        async for msg, metadata in self.workflow.astream(inputs, config, stream_mode="messages"):
+            yield msg.content, metadata['langgraph_node']
         
-    
+
     def get_session_info(self, session_id: str) -> Dict:
         """获取会话信息"""
         session = self.sessions.get(session_id)
@@ -198,7 +168,7 @@ class KnowledgeQASystem:
         
         knowledge_points = []
         for kp_id in question["knowledge_points"]:
-            kp = self.knowledge_system.get_knowledge_point(kp_id)
+            kp = self.index_system.get_knowledge_point(kp_id)
             if kp:
                 knowledge_points.append({
                     "id": kp_id,
@@ -228,7 +198,7 @@ class KnowledgeQASystem:
         seen_ids = {question_id}  # 排除当前问题
         
         for kp_id in question["knowledge_points"]:
-            questions = self.knowledge_system.get_questions_by_knowledge(kp_id)
+            questions = self.index_system.get_questions_by_knowledge(kp_id)
             for q in questions:
                 q_id = q["id"]
                 if q_id not in seen_ids:

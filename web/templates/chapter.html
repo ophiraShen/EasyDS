@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyDS - 章节问题</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EasyDS 数据结构智能教学系统</h1>
+            <p id="chapter-title">章节题目</p>
+        </header>
+        
+        <main>
+            <div class="questions-container">
+                <h2>问题列表</h2>
+                <div id="questions-list" class="list-container">
+                    <!-- 问题列表将通过JavaScript动态加载 -->
+                    <div class="loading">加载中...</div>
+                </div>
+                <button id="back-btn" class="btn">返回章节列表</button>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2023 EasyDS 数据结构智能教学系统</p>
+        </footer>
+    </div>
+    
+    <script>
+        const chapterId = "{{ chapter_id }}";
+    </script>
+    <script src="/static/js/chapters.js"></script>
+</body>
+</html> 

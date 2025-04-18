@@ -97,6 +97,46 @@ class KnowledgeIndexSystem:
                                 if q['id'] not in self.knowledge_question_index[kp_id]:
                                     self.knowledge_question_index[kp_id].append(q['id'])
                 print(f"从章节{chapter_num}加载了 {len(questions)} 个题目")
+
+    def get_chapter_list(self) -> List[Dict]:
+        """获取所有章节的列表
+        
+        Returns:
+            章节列表，每个章节包含id和title
+        """
+        chapters = []
+        for chapter_id, chapter in self.chapter_index.items():
+            chapters.append({
+                "id": chapter_id,
+                "title": chapter.get("title", f"第{chapter_id}章")
+            })
+        # 按章节ID排序
+        chapters.sort(key=lambda x: x["id"])
+        return chapters
+    
+    def get_questions_by_chapter(self, chapter_id: str) -> List[Dict]:
+        """获取指定章节的所有题目
+        
+        Args:
+            chapter_id: 章节ID
+            
+        Returns:
+            题目列表
+        """
+        # 找出以该章节ID开头的所有题目
+        questions = []
+        prefix = f"q{chapter_id}"
+        
+        for question_id, question in self.question_index.items():
+            if question_id.startswith(prefix):
+                questions.append({
+                    "id": question_id,
+                    "title": question.get("title", ""),
+                    "type": question.get("type", "选择题"),
+                    "difficulty": question.get("difficulty", "中等")
+                })
+        
+        return questions
     
     def get_knowledge_point(self, knowledge_id: str) -> Optional[dict]:
         """根据知识点ID获取知识点信息

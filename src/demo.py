@@ -13,7 +13,7 @@ async def display_chapters(qa_system: KnowledgeQASystem):
     chapters = qa_system.get_chapters()
     print("\n==== 章节列表 ====")
     for i, chapter in enumerate(chapters, 1):
-        print(f"{i}. {chapter['title']} (ID: {chapter['id']})")
+        print(f"{i}. {chapter['title']}")
     return chapters
 
 async def display_questions(qa_system: KnowledgeQASystem, chapter_id: str):
@@ -21,7 +21,7 @@ async def display_questions(qa_system: KnowledgeQASystem, chapter_id: str):
     questions = qa_system.get_questions_by_chapter(chapter_id)
     print(f"\n==== 第{chapter_id}章问题列表 ====")
     for i, q in enumerate(questions[:10], 1):  # 只显示前10个问题
-        print(f"{i}. {q['title']} (ID: {q['id']})")
+        print(f"{i}. {q['title']}")
     return questions[:10]
 
 async def display_question_detail(qa_system: KnowledgeQASystem, question_id: str):
@@ -59,8 +59,11 @@ async def interactive_session(qa_system: KnowledgeQASystem, question_id: str):
         
         print("\nAI回复中...")
         # 使用流式输出
-        async for chunk in qa_system.process_answer(session_id, user_input):
-            print(chunk, end="", flush=True)
+        async for chunk, node in qa_system.process_answer(session_id, user_input):
+            if node == "student_agent":
+                print(chunk, end="", flush=True)
+            elif node == "teacher_agent":
+                print(chunk, end="", flush=True)
         print()  # 打印换行
         
         # 询问用户是否继续

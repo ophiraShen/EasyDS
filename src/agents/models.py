@@ -1,5 +1,8 @@
 # src/agents/models.py
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from typing import Optional, Union, Any
 from langchain_core.language_models import BaseChatModel
