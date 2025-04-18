@@ -24,4 +24,26 @@ async def get_knowledge_summary(knowledge_id: str):
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/knowledge/{knowledge_id}/title", tags=["knowledge"])
+async def get_knowledge_title(knowledge_id: str):
+    """获取指定知识点的标题"""
+    try:
+        title = qa_service.get_knowledge_title(knowledge_id)
+        if not title:
+            raise HTTPException(status_code=404, detail=f"知识点标题未找到: {knowledge_id}")
+        return {"id": knowledge_id, "title": title}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/knowledge/details/all", tags=["knowledge"])
+async def get_all_knowledge_details():
+    """获取所有知识点的详细信息（ID和标题）"""
+    try:
+        details = qa_service.get_all_knowledge_details()
+        return details
+    except Exception as e:
         raise HTTPException(status_code=500, detail=str(e)) 

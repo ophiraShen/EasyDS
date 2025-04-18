@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EasyDS - 章节题库</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <!-- 添加Marked.js库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
     <!-- 固定导航栏 -->
@@ -26,7 +28,7 @@
             
             <div class="questions-panel">
                 <h2>题目列表 <span id="current-chapter-title"></span></h2>
-                <div id="questions-container" class="list-panel">
+                <div id="question-list" class="list-panel">
                     <p class="empty-tip">请选择左侧章节查看题目</p>
                 </div>
             </div>

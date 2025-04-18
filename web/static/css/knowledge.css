@@ -1,12 +1,140 @@
+/* 布局样式 */
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+}
+
+/* 左侧面板：章节列表和知识点列表 */
+.sidebar-panel {
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chapter-section, .knowledge-list-section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chapter-section {
+    flex: 0 0 auto;
+    max-height: 40vh;
+}
+
+.knowledge-list-section {
+    flex: 1;
+    max-height: 40vh;
+}
+
+.list-panel {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 10px;
+    padding-right: 5px;
+}
+
+/* 右侧面板：知识点详情 */
+.detail-panel {
+    flex: 1;
+    position: relative;
+}
+
+/* 章节项样式 */
+.chapter-item {
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    background-color: #f1f5f9;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chapter-item:hover {
+    background-color: #e2e8f0;
+}
+
+.chapter-item.active {
+    background-color: #dbeafe;
+    border-left: 3px solid #3b82f6;
+    font-weight: 500;
+}
+
+.chapter-item.expanded .chapter-icon {
+    transform: rotate(90deg);
+}
+
+.chapter-icon {
+    transition: transform 0.3s ease;
+}
+
+/* 知识点项样式 */
+.knowledge-item {
+    padding: 10px 15px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.knowledge-item:hover {
+    border-color: #93c5fd;
+    background-color: #eff6ff;
+}
+
+.knowledge-item.active {
+    border-color: #3b82f6;
+    background-color: #dbeafe;
+    font-weight: 500;
+}
+
+/* 知识点ID和标题样式 */
+.knowledge-id {
+    font-weight: 500;
+    color: #2563eb;
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+}
+
+.knowledge-title-text {
+    font-size: 0.85rem;
+    color: #4b5563;
+    white-space: normal;
+    line-height: 1.3;
+}
+
+.knowledge-id-label {
+    font-weight: 600;
+    color: #2563eb;
+}
+
+.knowledge-title-label {
+    color: #4b5563;
+}
+
 /* 知识点详情容器样式 */
 .knowledge-detail-card {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 150px);
     overflow: hidden;
 }
 
@@ -41,29 +169,160 @@
     background-size: 100% 30px;
 }
 
-/* 知识点内容样式 */
+/* 空知识点详情占位符 */
+.empty-detail-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-content {
+    text-align: center;
+    color: #9ca3af;
+}
+
+.placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+/* 知识点内容样式 - Markdown格式支持 */
 .knowledge-summary {
     line-height: 1.8;
-    white-space: pre-wrap;
     font-size: 1rem;
     color: #333;
     padding: 5px;
 }
 
+/* 覆盖默认的pre-wrap设置，让Markdown格式正常渲染 */
+.knowledge-summary {
+    white-space: normal;
+}
+
+/* Markdown段落样式 */
 .knowledge-summary p {
     margin-bottom: 15px;
 }
 
-.knowledge-summary strong {
+/* Markdown标题样式 */
+.knowledge-summary h1, 
+.knowledge-summary h2, 
+.knowledge-summary h3, 
+.knowledge-summary h4, 
+.knowledge-summary h5, 
+.knowledge-summary h6 {
+    margin-top: 20px;
+    margin-bottom: 10px;
     color: #2563eb;
     font-weight: 600;
 }
 
-.knowledge-summary .list-number {
+.knowledge-summary h1 {
+    font-size: 1.8rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 5px;
+}
+
+.knowledge-summary h2 {
+    font-size: 1.5rem;
+}
+
+.knowledge-summary h3 {
+    font-size: 1.3rem;
+}
+
+/* Markdown强调样式 */
+.knowledge-summary strong, .knowledge-summary b {
     color: #2563eb;
     font-weight: 600;
-    display: inline-block;
-    margin-right: 5px;
+}
+
+.knowledge-summary em, .knowledge-summary i {
+    font-style: italic;
+}
+
+/* Markdown列表样式 */
+.knowledge-summary ul, .knowledge-summary ol {
+    margin-bottom: 15px;
+    padding-left: 25px;
+}
+
+.knowledge-summary li {
+    margin-bottom: 5px;
+}
+
+/* Markdown代码样式 */
+.knowledge-summary code {
+    background-color: #f1f5f9;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 0.9em;
+}
+
+.knowledge-summary pre {
+    background-color: #f8fafc;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin-bottom: 15px;
+    border: 1px solid #e2e8f0;
+}
+
+.knowledge-summary pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    display: block;
+}
+
+/* Markdown引用样式 */
+.knowledge-summary blockquote {
+    border-left: 4px solid #3b82f6;
+    padding-left: 15px;
+    color: #4b5563;
+    font-style: italic;
+    margin: 15px 0;
+}
+
+/* Markdown表格样式 */
+.knowledge-summary table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.knowledge-summary th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+}
+
+.knowledge-summary td, .knowledge-summary th {
+    border: 1px solid #e2e8f0;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.knowledge-summary tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* Markdown链接样式 */
+.knowledge-summary a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.knowledge-summary a:hover {
+    text-decoration: underline;
 }
 
 .error-message {
@@ -74,32 +333,40 @@
     border-radius: 6px;
 }
 
-/* 列表与详情切换布局 */
-#knowledge-list-container {
-    display: block;
-}
-
-/* 返回按钮样式 */
-#back-to-list {
-    margin-left: 15px;
-    flex-shrink: 0;
-}
-
 /* 滚动条样式 */
-.knowledge-detail-container::-webkit-scrollbar {
+.knowledge-detail-container::-webkit-scrollbar,
+.list-panel::-webkit-scrollbar {
     width: 8px;
 }
 
-.knowledge-detail-container::-webkit-scrollbar-track {
+.knowledge-detail-container::-webkit-scrollbar-track,
+.list-panel::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 4px;
 }
 
-.knowledge-detail-container::-webkit-scrollbar-thumb {
+.knowledge-detail-container::-webkit-scrollbar-thumb,
+.list-panel::-webkit-scrollbar-thumb {
     background: #d1d5db;
     border-radius: 4px;
 }
 
-.knowledge-detail-container::-webkit-scrollbar-thumb:hover {
+.knowledge-detail-container::-webkit-scrollbar-thumb:hover,
+.list-panel::-webkit-scrollbar-thumb:hover {
     background: #a0aec0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .sidebar-panel {
+        width: 100%;
+    }
+    
+    .chapter-section, .knowledge-list-section {
+        max-height: none;
+    }
 } 

@@ -5,8 +5,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 获取DOM元素
     const chapterList = document.getElementById('chapter-list');
-    const questionsContainer = document.getElementById('questions-container');
+    const questionList = document.getElementById('question-list');
     const currentChapterTitle = document.getElementById('current-chapter-title');
+    
+    // 配置marked选项
+    marked.use({
+        breaks: true,  // 允许在换行时添加<br>标签
+        gfm: true      // 使用GitHub风格的Markdown
+    });
     
     // 初始化
     init();
@@ -17,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             await loadChapters();
         } catch (error) {
             console.error('初始化失败:', error);
-            questionsContainer.innerHTML = '<p class="empty-tip">加载失败，请刷新页面重试</p>';
+            questionList.innerHTML = '<p class="empty-tip">加载失败，请刷新页面重试</p>';
         }
     }
     
@@ -82,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 加载问题列表
     async function loadQuestions(chapterId) {
         try {
-            questionsContainer.innerHTML = '<p class="empty-tip">加载中...</p>';
+            questionList.innerHTML = '<p class="empty-tip">加载中...</p>';
             
             const response = await fetch(`/api/chapters/${chapterId}/questions`);
             if (!response.ok) {
@@ -93,18 +99,18 @@ document.addEventListener('DOMContentLoaded', function() {
             renderQuestions(questions);
         } catch (error) {
             console.error('加载题目失败:', error);
-            questionsContainer.innerHTML = '<p class="empty-tip">加载题目失败，请重试</p>';
+            questionList.innerHTML = '<p class="empty-tip">加载题目失败，请重试</p>';
         }
     }
     
     // 渲染问题列表
     function renderQuestions(questions) {
         if (!questions || questions.length === 0) {
-            questionsContainer.innerHTML = '<p class="empty-tip">该章节暂无题目</p>';
+            questionList.innerHTML = '<p class="empty-tip">该章节暂无题目</p>';
             return;
         }
         
-        questionsContainer.innerHTML = '';
+        questionList.innerHTML = '';
         
         questions.forEach(question => {
             const div = document.createElement('div');
@@ -118,8 +124,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 difficultyClass = 'hard';
             }
             
+            // 使用Markdown渲染标题
+            const titleHTML = marked.parse(question.title);
+            // 去除<p>标签以保持样式一致性
+            const formattedTitle = titleHTML.replace(/<\/?p>/g, '');
+            
             div.innerHTML = `
-                <div class="title">${question.title}</div>
+                <div class="title">${formattedTitle}</div>
                 <div class="meta">
                     <span>${question.type}</span>
                     <span class="difficulty ${difficultyClass}">${question.difficulty}</span>
@@ -131,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = `/chat/${question.id}`;
             });
             
-            questionsContainer.appendChild(div);
+            questionList.appendChild(div);
         });
     }
 }); 

@@ -6,6 +6,9 @@
     <title>EasyDS - 知识点速记</title>
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/knowledge.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- 添加Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <!-- 固定导航栏 -->
@@ -20,31 +23,39 @@
     
     <div class="main-container">
         <div class="content-wrapper">
-            <div class="chapter-panel">
-                <h2>章节列表</h2>
-                <ul id="chapter-list" class="list-panel"></ul>
-            </div>
-            
-            <div class="knowledge-panel">
-                <div id="knowledge-list-container">
-                    <h2>知识点列表 <span id="current-chapter-title"></span></h2>
-                    <div id="knowledge-list" class="list-panel">
-                        <p class="empty-tip">请选择左侧章节查看知识点</p>
-                    </div>
+            <!-- 左侧面板: 包含章节列表和知识点列表 -->
+            <div class="sidebar-panel">
+                <div class="chapter-section">
+                    <h2>章节列表</h2>
+                    <ul id="chapter-list" class="list-panel"></ul>
                 </div>
                 
+                <div class="knowledge-list-section">
+                    <h2>知识点列表 <span id="current-chapter-title"></span></h2>
+                    <div id="knowledge-list" class="list-panel">
+                        <p class="empty-tip">请选择章节查看知识点</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧面板: 显示知识点详情 -->
+            <div class="detail-panel">
                 <div id="knowledge-detail" class="knowledge-detail-card" style="display: none;">
                     <div class="knowledge-detail-header">
                         <div class="knowledge-detail-title">
                             <h2>知识点详情</h2>
                             <h3 id="knowledge-title"></h3>
                         </div>
-                        <button id="back-to-list" class="action-btn">
-                            <i class="fas fa-arrow-left"></i> 返回列表
-                        </button>
                     </div>
                     <div class="knowledge-detail-container">
                         <div id="knowledge-summary" class="knowledge-summary"></div>
+                    </div>
+                </div>
+                
+                <div id="empty-detail-placeholder" class="empty-detail-placeholder">
+                    <div class="placeholder-content">
+                        <i class="fas fa-book-open placeholder-icon"></i>
+                        <p>请从左侧选择知识点查看详情</p>
                     </div>
                 </div>
             </div>

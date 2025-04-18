@@ -2,6 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // 获取URL参数中的问题ID
     let sessionId = null;
     
+    // 配置marked选项
+    marked.use({
+        breaks: true,  // 允许在换行时添加<br>标签
+        gfm: true      // 使用GitHub风格的Markdown
+    });
+    
     // 初始化页面
     initPage();
     
@@ -216,10 +222,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // 更新消息内容
+        // 更新消息内容，使用Markdown渲染
         if (messageElement) {
             const contentDiv = messageElement.querySelector('.message-content');
-            contentDiv.textContent = content;
+            // 使用Markdown渲染消息内容
+            contentDiv.innerHTML = marked.parse(content);
             
             // 滚动到底部
             scrollToBottom();
@@ -236,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="message-icon">👤</div>
                 <span>你</span>
             </div>
-            <div class="message-content">${message}</div>
+            <div class="message-content">${marked.parse(message)}</div>
         `;
         
         container.appendChild(messageDiv);
@@ -255,17 +262,19 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollToBottom();
     }
     
-    // 显示问题详情
+    // 显示问题详情 - 使用Markdown渲染
     function displayQuestionDetail(questionData) {
         const detailDiv = document.getElementById('question-detail');
         
+        // 使用Markdown渲染标题和内容
         let html = `<div class="question-title">${questionData.title}</div>`;
-        html += `<div class="question-content">${questionData.content}</div>`;
+        html += `<div class="question-content">${marked.parse(questionData.content)}</div>`;
         
         if (questionData.options) {
             html += '<div class="options">';
             for (const key in questionData.options) {
-                html += `<div class="option"><span>${key}.</span> ${questionData.options[key]}</div>`;
+                // 选项也用Markdown渲染
+                html += `<div class="option"><span>${key}.</span> ${marked.parse(questionData.options[key])}</div>`;
             }
             html += '</div>';
         }
@@ -273,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function() {
         detailDiv.innerHTML = html;
     }
     
-    // 显示知识点
+    // 显示知识点 - 使用Markdown渲染知识点内容
     function displayKnowledgePoints(kpData) {
         const kpList = document.getElementById('knowledge-points-list');
         kpList.innerHTML = '';
@@ -331,7 +340,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         const response = await fetch(`/api/knowledge/${kp.id}`);
                         if (response.ok) {
                             const summary = await response.json();
-                            popup.textContent = summary;
+                            // 使用Markdown渲染知识点内容
+                            popup.innerHTML = marked.parse(summary);
                         } else {
                             popup.textContent = '无法加载知识点详情';
                         }

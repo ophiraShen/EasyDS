@@ -58,6 +58,12 @@ class KnowledgeQASystem:
         """
         return self.index_system.get_knowledge_point(knowledge_id)['summry']
     
+    def get_knowledge_name_by_knowledge_id(self, knowledge_id: str) -> str:
+        """
+        获取指定知识点对应的名称
+        """
+        return self.index_system.get_knowledge_point(knowledge_id)['title']
+    
     def get_questions_by_chapter(self, chapter_id: str) -> List[Dict]:
         """
         获取指定章节的所有问题

@@ -61,4 +61,32 @@ class QAService:
         
     def knowledge_points_summary_by_knowledge_id(self, knowledge_id):
         """获取指定知识点的概要"""
-        return self.qa_system.knowledge_points_summary_by_knowledge_id(knowledge_id) 
+        return self.qa_system.knowledge_points_summary_by_knowledge_id(knowledge_id)
+    
+    def get_knowledge_title(self, knowledge_id):
+        """获取指定知识点的标题"""
+        try:
+            return self.qa_system.get_knowledge_name_by_knowledge_id(knowledge_id)
+        except Exception as e:
+            logger.error(f"获取知识点标题错误: {str(e)}")
+            return ""
+    
+    def get_all_knowledge_details(self):
+        """获取所有知识点的详细信息（ID和标题）"""
+        try:
+            result = {}
+            all_chapter_knowledge_points = self.chapter_knowledge_points()
+            
+            for chapter_id, knowledge_ids in all_chapter_knowledge_points.items():
+                for knowledge_id in knowledge_ids:
+                    if knowledge_id not in result:
+                        title = self.get_knowledge_title(knowledge_id)
+                        result[knowledge_id] = {
+                            "id": knowledge_id,
+                            "title": title
+                        }
+            
+            return result
+        except Exception as e:
+            logger.error(f"获取所有知识点详情错误: {str(e)}")
+            return {} 
