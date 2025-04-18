@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from web.api.endpoints import chapters, questions, sessions
+from web.api.endpoints import chapters, questions, sessions, knowledge
 
 app = FastAPI(title="EasyDS API", description="数据结构智能教学API", version="1.0.0")
 
@@ -25,14 +25,19 @@ app.add_middleware(
 app.include_router(chapters.router, prefix="/api", tags=["chapters"])
 app.include_router(questions.router, prefix="/api", tags=["questions"])
 app.include_router(sessions.router, prefix="/api", tags=["sessions"])
+app.include_router(knowledge.router, prefix="/api", tags=["knowledge"])
 
 @app.get("/")
 async def root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-@app.get("/chapter/{chapter_id}")
-async def chapter_view(request: Request, chapter_id: str):
-    return templates.TemplateResponse("chapter.html", {"request": request, "chapter_id": chapter_id})
+@app.get("/problems")
+async def problems_page(request: Request):
+    return templates.TemplateResponse("problems.html", {"request": request})
+
+@app.get("/knowledge")
+async def knowledge_page(request: Request):
+    return templates.TemplateResponse("knowledge.html", {"request": request})
 
 @app.get("/chat/{question_id}")
 async def chat_view(request: Request, question_id: str):

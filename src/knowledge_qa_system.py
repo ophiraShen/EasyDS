@@ -43,6 +43,21 @@ class KnowledgeQASystem:
         chapters.sort(key=lambda x: x["id"])
         return chapters
     
+    def chapter_knowledge_points(self) -> Dict[str, List[str]]:
+        """
+        获取所有章节的知识点
+        """
+        chapters_knowledge_points = {}
+        for chapter_id, chapter_info in self.index_system.chapter_index.items():
+            chapters_knowledge_points[chapter_id] = chapter_info['knowledge_points']
+        return chapters_knowledge_points
+    
+    def knowledge_points_summary_by_knowledge_id(self, knowledge_id: str) -> str:
+        """
+        获取指定知识点对应的总结
+        """
+        return self.index_system.get_knowledge_point(knowledge_id)['summry']
+    
     def get_questions_by_chapter(self, chapter_id: str) -> List[Dict]:
         """
         获取指定章节的所有问题

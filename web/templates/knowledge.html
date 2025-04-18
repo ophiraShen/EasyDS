@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyDS - 知识点速记</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/knowledge.css">
+</head>
+<body>
+    <!-- 固定导航栏 -->
+    <nav class="fixed-nav">
+        <div class="nav-logo">数据结构智能教学系统</div>
+        <div class="nav-links">
+            <a href="/" class="nav-item">首页</a>
+            <a href="/problems" class="nav-item">章节题库</a>
+            <a href="/knowledge" class="nav-item active">知识点速记</a>
+        </div>
+    </nav>
+    
+    <div class="main-container">
+        <div class="content-wrapper">
+            <div class="chapter-panel">
+                <h2>章节列表</h2>
+                <ul id="chapter-list" class="list-panel"></ul>
+            </div>
+            
+            <div class="knowledge-panel">
+                <div id="knowledge-list-container">
+                    <h2>知识点列表 <span id="current-chapter-title"></span></h2>
+                    <div id="knowledge-list" class="list-panel">
+                        <p class="empty-tip">请选择左侧章节查看知识点</p>
+                    </div>
+                </div>
+                
+                <div id="knowledge-detail" class="knowledge-detail-card" style="display: none;">
+                    <div class="knowledge-detail-header">
+                        <div class="knowledge-detail-title">
+                            <h2>知识点详情</h2>
+                            <h3 id="knowledge-title"></h3>
+                        </div>
+                        <button id="back-to-list" class="action-btn">
+                            <i class="fas fa-arrow-left"></i> 返回列表
+                        </button>
+                    </div>
+                    <div class="knowledge-detail-container">
+                        <div id="knowledge-summary" class="knowledge-summary"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/knowledge.js"></script>
+</body>
+</html> 

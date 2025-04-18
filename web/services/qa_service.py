@@ -53,4 +53,12 @@ class QAService:
     
     def delete_session(self, session_id):
         """删除会话"""
-        return self.qa_system.delete_session(session_id) 
+        return self.qa_system.delete_session(session_id)
+        
+    def chapter_knowledge_points(self):
+        """获取所有章节的知识点"""
+        return self.qa_system.chapter_knowledge_points()
+        
+    def knowledge_points_summary_by_knowledge_id(self, knowledge_id):
+        """获取指定知识点的概要"""
+        return self.qa_system.knowledge_points_summary_by_knowledge_id(knowledge_id) 

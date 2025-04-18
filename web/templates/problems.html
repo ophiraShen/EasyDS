@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyDS - 章节题库</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- 固定导航栏 -->
+    <nav class="fixed-nav">
+        <div class="nav-logo">数据结构智能教学系统</div>
+        <div class="nav-links">
+            <a href="/" class="nav-item">首页</a>
+            <a href="/problems" class="nav-item active">章节题库</a>
+            <a href="/knowledge" class="nav-item">知识点速记</a>
+        </div>
+    </nav>
+    
+    <div class="main-container">
+        <div class="content-wrapper">
+            <div class="chapter-panel">
+                <h2>章节列表</h2>
+                <ul id="chapter-list" class="list-panel"></ul>
+            </div>
+            
+            <div class="questions-panel">
+                <h2>题目列表 <span id="current-chapter-title"></span></h2>
+                <div id="questions-container" class="list-panel">
+                    <p class="empty-tip">请选择左侧章节查看题目</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/problems.js"></script>
+</body>
+</html> 

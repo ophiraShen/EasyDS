@@ -7,28 +7,54 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <h2>问题详情</h2>
-            <div id="question-detail"></div>
-            <div class="knowledge-points">
-                <h3>相关知识点</h3>
-                <ul id="knowledge-points-list"></ul>
-            </div>
-            <div class="similar-questions">
-                <h3>相似问题</h3>
-                <ul id="similar-questions-list"></ul>
-            </div>
-            <button id="back-btn" class="btn">返回列表</button>
+    <!-- 固定导航栏 -->
+    <nav class="fixed-nav">
+        <div class="nav-logo">数据结构智能教学系统</div>
+        <div class="nav-links">
+            <a href="/" class="nav-item">首页</a>
+            <a href="/problems" class="nav-item active">章节题库</a>
+            <a href="/knowledge" class="nav-item">知识点速记</a>
         </div>
-        
-        <div class="main-content">
-            <div class="chat-container">
-                <div id="chat-messages"></div>
+    </nav>
+    
+    <div class="main-container">
+        <div class="chat-layout">
+            <!-- 左侧：题目详情和相关资料 -->
+            <div class="chat-sidebar">
+                <div class="sidebar-section">
+                    <h2>题目详情</h2>
+                    <div id="question-detail" class="question-detail-box"></div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>相关知识点</h3>
+                    <ul id="knowledge-points-list"></ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>相似问题</h3>
+                    <ul id="similar-questions-list"></ul>
+                </div>
+                
+                <div class="sidebar-actions">
+                    <button id="back-btn" class="action-btn">返回列表</button>
+                </div>
             </div>
-            <div class="input-area">
-                <textarea id="user-input" placeholder="输入你对问题的解答..."></textarea>
-                <button id="send-btn" class="btn">发送</button>
+            
+            <!-- 右侧：笔记本风格的对话界面 -->
+            <div class="chat-notebook">
+                <div class="notebook-header">
+                    <h2>题目解答</h2>
+                </div>
+                
+                <div class="notebook-content">
+                    <div id="chat-messages" class="chat-messages"></div>
+                </div>
+                
+                <div class="input-area">
+                    <textarea id="user-input" placeholder="输入你对问题的解答..."></textarea>
+                    <button id="send-btn" class="btn">发送</button>
+                </div>
             </div>
         </div>
     </div>

@@ -9,221 +9,368 @@
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Microsoft YaHei', Arial, sans-serif;
-    background-color: var(--background-color);
+    font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f7fa;
     color: #333;
     line-height: 1.6;
+    padding-top: 50px; /* 为固定导航栏留出空间 */
 }
 
 .container {
-    display: flex;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: 100vh;
+    padding: 20px;
 }
 
 header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1rem;
     text-align: center;
-    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #e6e9ed;
+    margin-bottom: 30px;
 }
 
 header h1 {
-    margin-bottom: 0.5rem;
+    color: #2e3e50;
+    font-weight: 600;
 }
 
-main {
-    padding: 2rem;
-    width: 100%;
+/* 首页布局 - 章节和题目列表 */
+.content-wrapper {
+    display: flex;
+    gap: 30px;
+    min-height: 600px;
+    height: 100%;
 }
 
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #333;
-    color: white;
-    width: 100%;
+.chapter-panel {
+    flex: 1;
+    max-width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-/* 首页章节列表样式 */
-.chapters-container {
-    max-width: 800px;
-    margin: 0 auto;
+.questions-panel {
+    flex: 2;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.list-container {
-    margin-top: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    background-color: white;
+.list-panel {
+    margin-top: 15px;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+    min-height: 100px;
+}
+
+.list-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.list-panel::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 3px;
 }
 
 .chapter-item, .question-item {
-    padding: 1rem;
-    border-bottom: 1px solid var(--border-color);
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    transition: all 0.2s;
     cursor: pointer;
-    transition: background-color 0.2s;
+    list-style: none;
 }
 
-.chapter-item:hover, .question-item:hover {
-    background-color: #f0f0f0;
+.chapter-item {
+    background-color: #f1f5f9;
+    border-left: 3px solid transparent;
 }
 
-.chapter-item:last-child, .question-item:last-child {
-    border-bottom: none;
+.chapter-item:hover {
+    background-color: #e2e8f0;
 }
 
-.loading {
-    padding: 2rem;
-    text-align: center;
-    color: #777;
+.chapter-item.active {
+    background-color: #dbeafe;
+    border-left: 3px solid #3b82f6;
+    font-weight: 500;
 }
 
-/* 侧边栏样式 */
-.sidebar {
-    width: 300px;
-    padding: 20px;
-    background-color: white;
-    border-right: 1px solid var(--border-color);
-    overflow-y: auto;
+.question-item {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* 主内容区样式 */
-.main-content {
+.question-item:hover {
+    border-color: #cbd5e1;
+    background-color: #f1f5f9;
+}
+
+.question-item .title {
     flex: 1;
+}
+
+.question-item .meta {
+    font-size: 0.85em;
+    color: #64748b;
+    display: flex;
+    gap: 10px;
+}
+
+.question-item .difficulty {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+}
+
+.difficulty.easy {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.difficulty.medium {
+    background-color: #fef9c3;
+    color: #ca8a04;
+}
+
+.difficulty.hard {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.empty-tip {
+    color: #94a3b8;
+    text-align: center;
+    padding: 40px 0;
+}
+
+/* 聊天/答题页面样式 */
+.notebook-container {
+    display: flex;
+    height: calc(100vh - 120px);
+    background: #f5f6fa;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.notebook-left, .notebook-right {
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.notebook-left {
+    flex: 1;
+    background: #fff;
+    border-right: 1px solid #e2e8f0;
     display: flex;
     flex-direction: column;
 }
 
-/* 聊天容器样式 */
-.chat-container {
+.notebook-right {
     flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-    background-color: white;
-}
-
-/* 输入区域样式 */
-.input-area {
-    padding: 15px;
-    background-color: white;
-    border-top: 1px solid var(--border-color);
+    background: #fffaf0;
     display: flex;
+    flex-direction: column;
 }
 
-#user-input {
+.notebook-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 15px;
+}
+
+.notebook-header h2 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.notebook-header .question-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.notebook-header .question-content {
+    color: #4b5563;
+    margin-bottom: 10px;
+}
+
+.notebook-header .options {
+    margin-top: 10px;
+}
+
+.notebook-header .option {
+    padding: 5px 0;
+}
+
+.notebook-header .option span {
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+.chat-messages {
     flex: 1;
-    padding: 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
+    overflow-y: auto;
+    padding: 10px 5px;
+}
+
+.message {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    max-width: 85%;
+    position: relative;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.user-message {
+    background-color: #f1f5f9;
+    color: #334155;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.agent-message {
+    position: relative;
+    padding-top: 25px;
+}
+
+.agent-label {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.student-message {
+    background-color: #e0f2fe;
+    color: #0c4a6e;
+    margin-right: auto;
+}
+
+.teacher-message {
+    background-color: #ffedd5;
+    color: #7c2d12;
+    margin-left: auto;
+}
+
+.system-message {
+    background-color: #f3f4f6;
+    color: #6b7280;
+    text-align: center;
+    margin: 10px auto;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+}
+
+.input-area {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #fff;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    gap: 10px;
+}
+
+.input-area textarea {
+    flex: 1;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 12px;
     resize: none;
-    height: 80px;
+    height: 100px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.input-area textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
 
 .btn {
-    padding: 8px 16px;
-    background-color: var(--primary-color);
+    background-color: #3b82f6;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .btn:hover {
-    background-color: #3a76d8;
+    background-color: #2563eb;
 }
 
-#send-btn {
-    width: 80px;
-    margin-left: 10px;
+.btn:disabled {
+    background-color: #93c5fd;
+    cursor: not-allowed;
 }
 
-#back-btn {
-    width: 100%;
-    margin-top: 1rem;
+.action-btn {
+    background-color: transparent;
+    border: 1px solid #d1d5db;
+    color: #4b5563;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
-/* 消息样式 */
-.message {
-    padding: 10px 15px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    max-width: 85%;
+.action-btn:hover {
+    background-color: #f3f4f6;
+    border-color: #9ca3af;
 }
 
-.user-message {
-    background-color: var(--user-color);
-    color: white;
-    align-self: flex-end;
-    margin-left: auto;
-}
-
-.system-message {
-    background-color: var(--system-color);
-    color: white;
-    width: 100%;
-    text-align: center;
-}
-
-.student-message, .teacher-message {
-    width: 100%;
-    background-color: white;
-    border: 1px solid var(--border-color);
-    margin-bottom: 20px;
-}
-
-.agent-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.student-message .agent-label {
-    color: var(--student-color);
-}
-
-.teacher-message .agent-label {
-    color: var(--teacher-color);
-}
-
-.agent-content {
-    white-space: pre-wrap;
-    line-height: 1.5;
-}
-
-/* 问题详情样式 */
-#question-detail {
-    margin-bottom: 1.5rem;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
-
-#question-detail h3 {
-    margin-bottom: 10px;
-    color: var(--primary-color);
-}
-
-.question-content {
-    margin: 15px 0;
-}
-
-.options {
-    margin-top: 10px;
-}
-
-.option {
-    margin-bottom: 5px;
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .chapter-panel {
+        max-width: 100%;
+    }
+    
+    .chat-notebook {
+        height: 500px;
+    }
+    
+    .chat-layout {
+        flex-direction: column;
+    }
+    
+    .chat-sidebar {
+        width: 100%;
+        max-height: 300px;
+    }
 }
 
 /* 知识点和相似问题样式 */
@@ -253,4 +400,373 @@ footer {
 #chat-messages {
     display: flex;
     flex-direction: column;
+}
+
+/* 固定导航栏样式 */
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.nav-logo {
+    font-weight: 600;
+    color: #2e3e50;
+    font-size: 1.1rem;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-item {
+    padding: 0 15px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.nav-item:hover {
+    color: #2563eb;
+    background-color: #f1f5f9;
+}
+
+.nav-item.active {
+    color: #2563eb;
+}
+
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    width: 70%;
+    height: 3px;
+    background-color: #2563eb;
+    border-radius: 3px 3px 0 0;
+}
+
+/* 主容器 */
+.main-container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 0 20px;
+    height: calc(100vh - 70px);
+}
+
+/* 聊天布局优化 */
+.chat-layout {
+    display: flex;
+    gap: 30px;
+    height: 100%;
+}
+
+/* 侧边栏调整 */
+.chat-sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* 笔记本对话区域 */
+.chat-notebook {
+    flex: 1;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.notebook-header {
+    padding: 15px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    flex-shrink: 0;
+}
+
+.notebook-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #f8fafc;
+    background-image: linear-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 100% 30px;
+}
+
+.chat-messages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-bottom: 20px;
+    min-height: 100%;
+}
+
+.input-area {
+    background-color: white;
+    padding: 15px 20px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+/* 左列消息 - 用户和学生智能体 */
+.message-left {
+    grid-column: 1;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    margin-bottom: 15px;
+}
+
+/* 右列消息 - 教师智能体 */
+.message-right {
+    grid-column: 2;
+    padding: 15px;
+    background-color: #fffbeb;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.message-user {
+    background-color: #f1f5f9;
+    border-left: 3px solid #3b82f6;
+}
+
+.message-student {
+    background-color: #e0f2fe;
+    border-left: 3px solid #0ea5e9;
+}
+
+.message-teacher {
+    background-color: #ffedd5;
+    border-left: 3px solid #f97316;
+}
+
+.message-header {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.message-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message-content {
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+/* 知识点页面样式 */
+.knowledge-panel {
+    flex: 2;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.knowledge-item {
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.knowledge-item:hover {
+    border-color: #93c5fd;
+    background-color: #eff6ff;
+}
+
+.knowledge-detail {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 60px);
+}
+
+.knowledge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: white;
+    border-bottom: 1px solid #e2e8f0;
+    border-radius: 8px 8px 0 0;
+}
+
+.knowledge-header h3 {
+    color: #2563eb;
+    margin: 0;
+}
+
+.knowledge-summary {
+    flex: 1;
+    line-height: 1.8;
+    color: #4b5563;
+    padding: 15px 20px;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    background: linear-gradient(#fff 29px, #f2f6fc 1px) 0 0;
+    background-size: 100% 30px;
+    border-radius: 0 0 8px 8px;
+}
+
+/* 知识点浮窗便签样式 */
+.knowledge-point-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.knowledge-point-item:hover {
+    background-color: #eff6ff;
+    border-color: #93c5fd;
+}
+
+.knowledge-point-title {
+    flex: 1;
+}
+
+.note-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    margin-left: 8px;
+}
+
+.note-icon svg {
+    transition: transform 0.2s;
+}
+
+.knowledge-point-item:hover .note-icon svg {
+    transform: scale(1.2);
+    color: #3b82f6;
+}
+
+.knowledge-popup {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    width: 280px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    z-index: 10;
+    white-space: pre-wrap;
+    color: #334155;
+    animation: popup-fade-in 0.2s ease-out;
+}
+
+@keyframes popup-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 笔记便签的样式 - 给便签添加一个撕边效果 */
+.knowledge-popup::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-left: 1px solid #e2e8f0;
+    border-top: 1px solid #e2e8f0;
+    transform: rotate(45deg);
+}
+
+/* 右侧箭头 */
+.popup-arrow {
+    position: absolute;
+    top: -8px;
+    right: 20px; /* 默认在右侧 */
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-left: 1px solid #e2e8f0;
+    border-top: 1px solid #e2e8f0;
+    transform: rotate(45deg);
+}
+
+/* 添加一个便签纸的背景效果 */
+.knowledge-popup {
+    background: linear-gradient(#fff 29px, #f2f6fc 1px) 0 0;
+    background-size: 100% 30px;
+}
+
+/* 知识点列表样式优化 */
+#knowledge-points-list {
+    padding: 5px;
+    margin: 10px 0;
 } 
