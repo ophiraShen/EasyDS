@@ -43,7 +43,7 @@ async def send_message(session_id: str, content: str, request: Request):
                         "content": chunk,
                         "node": node
                     })
-                    logger.info(f"生成消息块 - node: {node}, chunk长度: {len(chunk)}")
+                    # logger.info(f"生成消息块 - node: {node}, chunk长度: {len(chunk)}")
                     yield f"data: {data}\n\n"
                     await asyncio.sleep(0.01)  # 小延迟，防止浏览器过载
                     

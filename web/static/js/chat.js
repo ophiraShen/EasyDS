@@ -188,45 +188,125 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (type === 'student') {
             // 获取最后一个学生消息元素
-            messageElement = container.querySelector('.message-student:last-child');
+            messageElement = container.querySelector('.message-item:last-child .message-content .student-avatar');
             
             // 如果不存在，则创建新的
             if (!messageElement) {
                 messageElement = document.createElement('div');
-                messageElement.className = 'message-left message-student';
+                messageElement.className = 'message-item';
                 messageElement.innerHTML = `
-                    <div class="message-header">
-                        <div class="message-icon">👨‍🎓</div>
-                        <span>学生智能体</span>
+                    <div class="message-container">
+                        <div class="message-content">
+                            <div class="avatar student-avatar">
+                                <svg class="avatar-icon student-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                                </svg>
+                            </div>
+                            <div class="message-bubble-container">
+                                <div class="message-header">
+                                    <span class="sender-name student-name">学生智能体</span>
+                                </div>
+                                <div class="message-bubble student-bubble">
+                                    <div class="message-text"></div>
+                                    <button class="expand-button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="message-content"></div>
+                    <div class="connector-line"></div>
                 `;
                 container.appendChild(messageElement);
+                
+                // 获取实际的消息内容元素
+                messageElement = container.querySelector('.message-item:last-child');
+            } else {
+                // 如果找到了student-avatar，向上查找到message-item
+                messageElement = messageElement.closest('.message-item');
             }
         } else if (type === 'teacher') {
             // 获取最后一个教师消息元素
-            messageElement = container.querySelector('.message-teacher:last-child');
+            messageElement = container.querySelector('.message-item:last-child .message-content .teacher-avatar');
             
             // 如果不存在，则创建新的
             if (!messageElement) {
                 messageElement = document.createElement('div');
-                messageElement.className = 'message-right message-teacher';
+                messageElement.className = 'message-item';
                 messageElement.innerHTML = `
-                    <div class="message-header">
-                        <div class="message-icon">👨‍🏫</div>
-                        <span>教师智能体</span>
+                    <div class="message-container">
+                        <div class="message-content">
+                            <div class="avatar teacher-avatar">
+                                <svg class="avatar-icon teacher-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                                </svg>
+                            </div>
+                            <div class="message-bubble-container">
+                                <div class="message-header">
+                                    <span class="teacher-badge">教师指导</span>
+                                    <span class="sender-name teacher-name">教师智能体</span>
+                                </div>
+                                <div class="message-bubble teacher-bubble">
+                                    <div class="message-text"></div>
+                                    <button class="expand-button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="message-content"></div>
+                    <div class="connector-line"></div>
                 `;
                 container.appendChild(messageElement);
+                
+                // 获取实际的消息内容元素
+                messageElement = container.querySelector('.message-item:last-child');
+            } else {
+                // 如果找到了teacher-avatar，向上查找到message-item
+                messageElement = messageElement.closest('.message-item');
             }
         }
         
         // 更新消息内容，使用Markdown渲染
         if (messageElement) {
-            const contentDiv = messageElement.querySelector('.message-content');
+            const contentDiv = messageElement.querySelector('.message-text');
             // 使用Markdown渲染消息内容
             contentDiv.innerHTML = marked.parse(content);
+            
+            // 检查消息是否需要显示展开/折叠按钮
+            const expandButton = messageElement.querySelector('.expand-button');
+            if (expandButton) {
+                // 延迟一小段时间确保内容已渲染，然后检查高度
+                setTimeout(() => {
+                    const contentHeight = contentDiv.scrollHeight;
+                    const lineHeight = parseInt(window.getComputedStyle(contentDiv).lineHeight);
+                    const maxHeight = lineHeight * 3; // 3行高度
+                    
+                    if (contentHeight > maxHeight) {
+                        expandButton.style.display = 'inline-block';
+                        contentDiv.classList.remove('expanded');
+                    } else {
+                        expandButton.style.display = 'none';
+                    }
+                    
+                    // 滚动到底部
+                    scrollToBottom();
+                }, 100);
+            }
+            
+            // 处理内容中的列表，确保它们显示在气泡内
+            const lists = contentDiv.querySelectorAll('ol, ul');
+            lists.forEach(list => {
+                list.style.paddingLeft = '1.5rem';
+                list.style.marginTop = '0.3rem';
+                list.style.marginBottom = '0.3rem';
+            });
             
             // 滚动到底部
             scrollToBottom();
@@ -236,15 +316,45 @@ document.addEventListener('DOMContentLoaded', function() {
     // 添加用户消息到聊天界面
     function addUserMessage(message) {
         const container = document.getElementById('chat-messages');
+        
         const messageDiv = document.createElement('div');
-        messageDiv.className = 'message-left message-user';
+        messageDiv.className = 'message-item';
+        
+        // 检查是否是短消息（少于15个字符）- 增加字符数限制
+        const isShortMessage = message.length < 15;
+        const shortTextClass = isShortMessage ? 'short-text' : '';
+        
+        // 创建临时元素，确保生成的内容不会被浏览器错误解析
+        const tempDiv = document.createElement('div');
+        tempDiv.textContent = message;
+        const safeMessage = tempDiv.textContent;
+        
+        // 使用更安全的方式添加内容
         messageDiv.innerHTML = `
-            <div class="message-header">
-                <div class="message-icon">👤</div>
-                <span>你</span>
+            <div class="message-container user">
+                <div class="message-content">
+                    <div class="avatar user-avatar">
+                        <svg class="avatar-icon user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <div class="message-bubble-container">
+                        <div class="message-header">
+                            <span class="sender-name user-name">你</span>
+                        </div>
+                        <div class="message-bubble user-bubble${isShortMessage ? ' short-message' : ''}">
+                            <div class="message-text ${shortTextClass}"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="message-content">${marked.parse(message)}</div>
+            <div class="connector-line"></div>
         `;
+        
+        // 安全地设置消息内容
+        const messageTextDiv = messageDiv.querySelector('.message-text');
+        messageTextDiv.innerHTML = marked.parse(safeMessage);
         
         container.appendChild(messageDiv);
         scrollToBottom();
@@ -253,10 +363,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // 添加系统消息到聊天界面
     function addSystemMessage(message) {
         const container = document.getElementById('chat-messages');
+        
         const messageDiv = document.createElement('div');
-        messageDiv.className = 'message-left system-message';
-        messageDiv.style.gridColumn = "1 / span 2"; // 跨两列
-        messageDiv.textContent = message;
+        messageDiv.className = 'message-item';
+        
+        messageDiv.innerHTML = `
+            <div class="message-container">
+                <div class="message-content">
+                    <div class="avatar">
+                        <svg class="avatar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <div class="message-bubble-container">
+                        <div class="message-header">
+                            <span class="sender-name">系统</span>
+                        </div>
+                        <div class="message-bubble">
+                            <div class="message-text">${marked.parse(message)}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="connector-line"></div>
+        `;
         
         container.appendChild(messageDiv);
         scrollToBottom();
@@ -417,4 +549,32 @@ document.addEventListener('DOMContentLoaded', function() {
             notebookContent.scrollTop = notebookContent.scrollHeight;
         }
     }
+    
+    // 为所有展开/折叠按钮添加点击事件
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.expand-button')) {
+            const button = e.target.closest('.expand-button');
+            const messageText = button.parentElement.querySelector('.message-text');
+            
+            messageText.classList.toggle('expanded');
+            
+            // 更新按钮图标
+            if (messageText.classList.contains('expanded')) {
+                button.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                        <polyline points="18 15 12 9 6 15"></polyline>
+                    </svg>
+                `;
+            } else {
+                button.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                `;
+            }
+            
+            // 滚动到适当位置
+            setTimeout(scrollToBottom, 100);
+        }
+    });
 }); 

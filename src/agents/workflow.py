@@ -4,13 +4,29 @@ from langgraph.prebuilt import ToolNode
 from langgraph.checkpoint.memory import MemorySaver
 
 from .base import State
-from .agents.router import router_agent
-from .agents.student import student_agent 
-from .agents.teacher import teacher_agent, knowledge_summry_search
+from .agents.router import RouterAgent
+from .agents.student import StudentAgent 
+from .agents.teacher import TeacherAgent, knowledge_summry_search
 
-def create_workflow():
-    """创建工作流程图"""
+def create_workflow(
+    router_model_type: str = "qwen2.5",
+    teacher_model_type: str = "qwen2.5", 
+    student_model_type: str = "qwen2.5"
+):
+    """
+    创建工作流程图
+    
+    Args:
+        router_model_type: 路由节点使用的模型类型
+        teacher_model_type: 教师节点使用的模型类型
+        student_model_type: 学生节点使用的模型类型
+    """
     workflow = StateGraph(State)
+    
+    # 创建节点实例
+    router_agent = RouterAgent(model_type=router_model_type)
+    student_agent = StudentAgent(model_type=student_model_type)
+    teacher_agent = TeacherAgent(model_type=teacher_model_type)
     
     # 添加节点
     workflow.add_node("router_agent", router_agent)

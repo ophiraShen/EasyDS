@@ -7,6 +7,505 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <!-- 添加Marked.js库 -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* 笔记本风格的主容器
+         * 设置相对定位以便子元素可以相对它定位
+         * 高度设置为视窗高度减去140px的上下边距
+         */
+        .notebook-container {
+            position: relative;
+            height: calc(100vh - 140px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 笔记本背景样式
+         * 使用绝对定位铺满容器
+         * 创建横线背景图案模拟笔记本纸张效果
+         */
+        .notebook-background {
+            position: absolute;
+            inset: 0;
+            background-color: #f8f9fa;
+            background-image: linear-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 100% 2rem;
+            background-position: 0 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* 笔记本左侧红色竖线
+         * 模拟真实笔记本的装订线
+         */
+        .notebook-margin {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 16px;
+            width: 1px;
+            background-color: #f8c4c4;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* 聊天界面布局
+         * 使用flex布局实现左侧边栏和右侧聊天区域
+         */
+        .chat-layout {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            height: calc(100vh - 50px);
+        }
+
+        /* 左侧边栏样式
+         * 固定宽度300px，添加滚动条
+         */
+        .chat-sidebar {
+            flex: 0 0 300px;
+            padding: 20px;
+            background: white;
+            overflow-y: auto;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        /* 聊天区域主体样式
+         * 使用flex布局使内容可以自适应高度
+         */
+        .chat-notebook {
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        /* 聊天区域头部样式 */
+        .notebook-header {
+            padding: 15px;
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 10;
+        }
+
+        /* 聊天内容区域样式
+         * 设置滚动条和左侧padding留出空间给装订线
+         */
+        .notebook-content {
+            position: relative;
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            padding-left: 5rem;
+        }
+
+        /* 消息列表容器
+         * 使用flex布局垂直排列消息
+         */
+        .chat-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding-bottom: 1rem;
+        }
+
+        /* 单条消息项样式 */
+        .message-item {
+            position: relative;
+        }
+
+        /* 消息容器样式
+         * 使用flex布局控制消息的排列方向
+         */
+        .message-container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* 用户消息靠右对齐 */
+        .message-container.user {
+            justify-content: flex-end;
+        }
+
+        /* 消息内容样式
+         * 包含头像和气泡的容器
+         */
+        .message-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            max-width: 85%;
+        }
+
+        /* 用户消息内容反向排列 */
+        .message-container.user .message-content {
+            flex-direction: row-reverse;
+            margin-left: auto;
+        }
+
+        /* 头像样式 */
+        .avatar {
+            flex-shrink: 0;
+            width: 1.75rem;
+            height: 1.75rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e5e7eb;
+            margin-top: 4px;
+        }
+
+        /* 学生头像特殊样式 */
+        .student-avatar {
+            background-color: #dbeafe;
+        }
+
+        /* 教师头像特殊样式 */
+        .teacher-avatar {
+            background-color: #fef3c7;
+        }
+
+        /* 头像图标基础样式 */
+        .avatar-icon {
+            width: 1rem;
+            height: 1rem;
+            color: #4b5563;
+        }
+
+        /* 学生图标颜色 */
+        .student-icon {
+            color: #1d4ed8;
+        }
+
+        /* 教师图标颜色 */
+        .teacher-icon {
+            color: #b45309;
+        }
+
+        .message-bubble-container {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            max-width: 100%;
+        }
+
+        .message-container.user .message-bubble-container {
+            text-align: right;
+            max-width: calc(100% - 2.5rem); /* 减去头像和间距的宽度 */
+        }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.125rem;
+        }
+
+        .message-container.user .message-header {
+            justify-content: flex-end;
+        }
+
+        .sender-name {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .student-name {
+            color: #1d4ed8;
+        }
+
+        .teacher-name {
+            color: #b45309;
+        }
+
+        .teacher-badge {
+            margin-right: 0.5rem;
+            padding: 0 0.375rem;
+            font-size: 0.75rem;
+            background-color: #fef3c7;
+            color: #92400e;
+            border-radius: 9999px;
+        }
+
+        .message-bubble {
+            padding: 0rem 0.5rem !important;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            white-space: pre-line;
+            background-color: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            word-break: normal;
+            width: auto;
+            display: inline-block;
+            text-align: left;
+            min-width: fit-content;
+            overflow: visible;
+            box-sizing: content-box;
+        }
+
+        .message-container.user .message-bubble {
+            max-width: 100%;
+            width: fit-content;
+        }
+
+        .user-bubble {
+            min-width: 3rem;
+            word-break: normal;
+            white-space: normal;
+            letter-spacing: normal;
+        }
+
+        .user-bubble .message-text {
+            max-width: 100%;
+            overflow-wrap: break-word;
+            word-break: normal;
+            hyphens: auto;
+        }
+
+        .message-text p {
+            word-break: normal;
+        }
+
+        .message-text p:only-child:not(.short-text) {
+            word-break: break-word;
+        }
+
+        .student-bubble {
+            background-color: #eff6ff;
+            border: 1px solid #dbeafe;
+        }
+
+        .teacher-bubble {
+            background-color: #fffbeb;
+            border: 1px solid #fef3c7;
+        }
+
+        .connector-line {
+            position: absolute;
+            left: 0.875rem;
+            top: 1.75rem;
+            height: calc(100% - 1rem);
+            width: 1px;
+            background-color: #e5e7eb;
+        }
+
+        .expand-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 1.25rem;
+            height: 1.25rem;
+            padding: 0;
+            margin-left: 0.25rem;
+            margin-top: 0.125rem;
+            flex-shrink: 0;
+            color: #6b7280;
+        }
+
+        .message-text {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            max-height: 4.5em;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .message-text.expanded {
+            max-height: none;
+            overflow: visible;
+        }
+
+        .input-area {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .input-area textarea {
+            flex: 1;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-size: 14px;
+            background-color: #f5f7fa;
+            border: 1px solid #e2e8f0;
+            resize: none;
+            min-height: 50px;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .input-area .btn {
+            align-self: flex-end;
+            padding: 12px 20px;
+            border-radius: 8px;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .input-area .btn:hover {
+            background-color: #2563eb;
+        }
+
+        .input-area .btn:disabled {
+            background-color: #93c5fd;
+            cursor: not-allowed;
+        }
+
+        /* 专门为消息内容添加样式 */
+        .message-text p {
+            margin: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .message-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 暗色模式适配
+         * 根据系统设置自动切换暗色主题
+         */
+        @media (prefers-color-scheme: dark) {
+            .notebook-background {
+                background-color: #111827;
+                background-image: linear-gradient(#374151 1px, transparent 1px);
+            }
+
+            .notebook-margin {
+                background-color: rgba(220, 38, 38, 0.3);
+            }
+
+            .chat-sidebar, .notebook-header, .input-area {
+                background: #1f2937;
+                border-color: #374151;
+            }
+
+            .avatar {
+                background-color: #374151;
+            }
+
+            .student-avatar {
+                background-color: rgba(30, 64, 175, 0.2);
+            }
+
+            .teacher-avatar {
+                background-color: rgba(217, 119, 6, 0.2);
+            }
+
+            .avatar-icon {
+                color: #9ca3af;
+            }
+
+            .student-icon {
+                color: #60a5fa;
+            }
+
+            .teacher-icon {
+                color: #fbbf24;
+            }
+
+            .sender-name {
+                color: #e5e7eb;
+            }
+
+            .student-name {
+                color: #60a5fa;
+            }
+
+            .teacher-name {
+                color: #fbbf24;
+            }
+
+            .teacher-badge {
+                background-color: rgba(217, 119, 6, 0.2);
+                color: #fbbf24;
+            }
+
+            .message-bubble {
+                background-color: rgba(59, 130, 246, 0.1);
+                border: 1px solid rgba(59, 130, 246, 0.2);
+            }
+
+            .student-bubble {
+                background-color: rgba(30, 64, 175, 0.2);
+                border: 1px solid rgba(30, 64, 175, 0.3);
+            }
+
+            .teacher-bubble {
+                background-color: rgba(217, 119, 6, 0.1);
+                border: 1px solid rgba(217, 119, 6, 0.2);
+            }
+
+            .connector-line {
+                background-color: #374151;
+            }
+
+            .input-area textarea {
+                background-color: #374151;
+                border-color: #4b5563;
+                color: #e5e7eb;
+            }
+        }
+
+        /* 短消息特殊处理
+         * 确保短消息在一行内显示
+         */
+        .short-message {
+            white-space: nowrap !important;
+            min-width: auto !important;
+            padding: 0.3rem 0.8rem !important;
+        }
+        
+        .short-text {
+            white-space: nowrap !important;
+            word-break: keep-all !important;
+            letter-spacing: normal;
+        }
+
+        /* 列表样式优化
+         * 确保列表在气泡内正确显示
+         */
+        .message-bubble ol {
+            margin-top: 0.3rem;
+            margin-bottom: 0.3rem;
+            padding-left: 1.5rem;
+        }
+        
+        .message-bubble li {
+            margin-bottom: 0.2rem;
+        }
+
+        /* 教师消息气泡样式优化 */
+        .teacher-bubble {
+            max-width: 100%;
+            width: auto;
+            display: block;
+        }
+        
+        /* 展开/折叠按钮样式 */
+        .expand-button {
+            display: inline-block;
+            position: relative;
+            margin-top: 0.3rem;
+            cursor: pointer;
+            color: #3b82f6;
+        }
+    </style>
 </head>
 <body>
     <!-- 固定导航栏 -->
@@ -49,13 +548,21 @@
                     <h2>题目解答</h2>
                 </div>
                 
-                <div class="notebook-content">
-                    <div id="chat-messages" class="chat-messages"></div>
-                </div>
-                
-                <div class="input-area">
-                    <textarea id="user-input" placeholder="输入你对问题的解答..."></textarea>
-                    <button id="send-btn" class="btn">发送</button>
+                <div class="notebook-container">
+                    <!-- 笔记本背景 -->
+                    <div class="notebook-background"></div>
+                    <div class="notebook-margin"></div>
+                    
+                    <!-- 内容区域 -->
+                    <div class="notebook-content">
+                        <div id="chat-messages" class="chat-messages"></div>
+                    </div>
+                    
+                    <!-- 输入区域固定在底部 -->
+                    <div class="input-area">
+                        <textarea id="user-input" placeholder="输入你对问题的解答..."></textarea>
+                        <button id="send-btn" class="btn">发送</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,6 +570,30 @@
     
     <script>
         const questionId = "{{ question_id }}";
+        
+        // 展开/折叠功能
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('expand-button') || e.target.closest('.expand-button')) {
+                const button = e.target.classList.contains('expand-button') ? e.target : e.target.closest('.expand-button');
+                const messageText = button.parentElement.querySelector('.message-text');
+                messageText.classList.toggle('expanded');
+                
+                // 切换按钮图标
+                if (messageText.classList.contains('expanded')) {
+                    button.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                    `;
+                } else {
+                    button.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    `;
+                }
+            }
+        });
     </script>
     <script src="/static/js/chat.js"></script>
 </body>

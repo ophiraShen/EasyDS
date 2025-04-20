@@ -13,7 +13,10 @@ class KnowledgeQASystem:
     """知识问答系统，整合知识点索引和智能体问答功能"""
     
     def __init__(self, 
-                 indices_path: str = '/root/autodl-tmp/EasyDS/data/ds_data/ds_indices.pkl',):
+                 indices_path: str = '/root/autodl-tmp/EasyDS/data/ds_data/ds_indices.pkl',
+                 router_model_type: str = "qwen2.5",
+                 teacher_model_type: str = "qwen2.5",
+                 student_model_type: str = "qwen2.5"):
         """
         初始化知识问答系统
         
@@ -24,7 +27,7 @@ class KnowledgeQASystem:
         self.index_system = KnowledgeIndexSystem.load_indices(indices_path)
         
         # 创建智能体工作流
-        self.workflow = create_workflow()
+        self.workflow = create_workflow(router_model_type, teacher_model_type, student_model_type)
 
         self.sessions = {}
         

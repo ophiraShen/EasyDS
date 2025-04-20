@@ -32,7 +32,7 @@ class QAService:
         logger.info(f"QAService.process_answer 被调用 - session_id: {session_id}")
         try:
             async for chunk, node in self.qa_system.process_answer(session_id, answer):
-                logger.info(f"接收到底层响应 - node: {node}, chunk长度: {len(chunk)}")
+                # logger.info(f"接收到底层响应 - node: {node}, chunk长度: {len(chunk)}")
                 yield chunk, node
         except Exception as e:
             logger.error(f"process_answer 处理错误: {str(e)}")

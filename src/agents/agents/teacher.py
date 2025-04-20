@@ -25,45 +25,50 @@ async def knowledge_summry_search(knowledge_points: list):
     except Exception as e:
         return str(e)
 
-async def teacher_agent(state: State, config) -> Command[Literal["tool_node", "__end__"]]:
+class TeacherAgent:
     """教师智能体"""
-    try:
-        curr_question = state.question[0]
-        evaluation = state.evaluation
-        
-        with open("/root/autodl-tmp/EasyDS/src/agents/prompts/teacher_agent_prompt.txt", "r", encoding="utf-8") as f:
-            prompt = f.read()
+    def __init__(self, model_type: str = "deepseek"):
+        self.model_type = model_type
+    
+    async def __call__(self, state: State, config) -> Command[Literal["tool_node", "__end__"]]:
+        """处理教师智能体逻辑"""
+        try:
+            curr_question = state.question[0]
+            evaluation = state.evaluation
             
-        prompt = ChatPromptTemplate([
-            ("system", prompt),
-            ("human", "{messages}")
-        ])
-        
-        system_prompt = prompt.partial(
-            title=curr_question['title'],
-            content=curr_question['content'],
-            answer=curr_question['reference_answer']['content'],
-            knowledge_points=curr_question['knowledge_points'],
-            explanation=curr_question['reference_answer']['explanation'],
-            is_right=evaluation['is_right'],
-            is_complete=evaluation['is_complete'],
-            reason=evaluation['reason']
-        )
-        
-        llm = get_llm()
-        tools = [knowledge_summry_search]
-        chain = system_prompt | llm.bind_tools(tools)
-        teacher_feedback = await chain.ainvoke({"messages": state.messages}, config)
-        
-        goto = "tool_node" if teacher_feedback.tool_calls else "__end__"
-        
-        return Command(
-            update={"messages": teacher_feedback},
-            goto=goto
-        )
-        
-    except Exception as e:
-        return Command(
-            update={"log": str(e)},
-            goto="__end__"
-        )
+            with open("/root/autodl-tmp/EasyDS/src/agents/prompts/teacher_agent_prompt.txt", "r", encoding="utf-8") as f:
+                prompt = f.read()
+                
+            prompt = ChatPromptTemplate([
+                ("system", prompt),
+                ("human", "{messages}")
+            ])
+            
+            system_prompt = prompt.partial(
+                title=curr_question['title'],
+                content=curr_question['content'],
+                answer=curr_question['reference_answer']['content'],
+                knowledge_points=curr_question['knowledge_points'],
+                explanation=curr_question['reference_answer']['explanation'],
+                is_right=evaluation['is_right'],
+                is_complete=evaluation['is_complete'],
+                reason=evaluation['reason']
+            )
+            
+            llm = get_llm(model_type=self.model_type)
+            tools = [knowledge_summry_search]
+            chain = system_prompt | llm.bind_tools(tools)
+            teacher_feedback = await chain.ainvoke({"messages": state.messages}, config)
+            
+            goto = "tool_node" if teacher_feedback.tool_calls else "__end__"
+            
+            return Command(
+                update={"messages": teacher_feedback},
+                goto=goto
+            )
+            
+        except Exception as e:
+            return Command(
+                update={"log": str(e)},
+                goto="__end__"
+            )
