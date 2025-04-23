@@ -5,7 +5,7 @@ load_dotenv()
 
 from langchain_openai import ChatOpenAI
 
-def get_llm(model_type: str = "qwen2.5", **kwargs):
+def get_llm(model_type: str = "deepseek", **kwargs):
     """直接获取 LLM 模型实例"""
     
     # 默认参数

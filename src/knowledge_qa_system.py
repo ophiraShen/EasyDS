@@ -14,9 +14,9 @@ class KnowledgeQASystem:
     
     def __init__(self, 
                  indices_path: str = '/root/autodl-tmp/EasyDS/data/ds_data/ds_indices.pkl',
-                 router_model_type: str = "qwen2.5",
-                 teacher_model_type: str = "qwen2.5",
-                 student_model_type: str = "qwen2.5"):
+                 router_model_type: str = "deepseek",
+                 teacher_model_type: str = "deepseek",
+                 student_model_type: str = "deepseek"):
         """
         初始化知识问答系统
         

@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
             sessionId = sessionData.session_id;
             
             // 显示系统欢迎消息
-            addSystemMessage("欢迎来到EasyDS智能辅导系统！请输入你对这个问题的解答，我会给你提供反馈。");
+            addSystemMessage("欢迎来到EasyDS智能辅导系统！请为我讲解这道题目吧！");
             
         } catch (error) {
             console.error('初始化失败:', error);

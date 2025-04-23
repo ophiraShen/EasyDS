@@ -9,9 +9,9 @@ from .agents.student import StudentAgent
 from .agents.teacher import TeacherAgent, knowledge_summry_search
 
 def create_workflow(
-    router_model_type: str = "qwen2.5",
-    teacher_model_type: str = "qwen2.5", 
-    student_model_type: str = "qwen2.5"
+    router_model_type: str = "deepseek",
+    teacher_model_type: str = "deepseek", 
+    student_model_type: str = "deepseek"
 ):
     """
     创建工作流程图
