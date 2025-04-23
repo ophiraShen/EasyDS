@@ -8,11 +8,16 @@ from langchain_core.messages import HumanMessage
 from data.ds_data.data_processing.index_builder import KnowledgeIndexSystem
 from .workflow import create_workflow
 
+# 获取项目根目录
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DS_INDICES_PATH = os.path.join(ROOT_DIR, "data", "ds_data", "ds_indices.pkl")
+QUESTIONS_DIR = os.path.join(ROOT_DIR, "data", "ds_data", "questions")
+
 class SessionManager:
     """会话管理器，负责管理多个对话会话和问题选择"""
     
-    def __init__(self, indices_path: str = '/root/autodl-tmp/EasyDS/data/ds_data/ds_indices.pkl', 
-                questions_dir: str = '/root/autodl-tmp/EasyDS/data/ds_data/questions'):
+    def __init__(self, indices_path: str = DS_INDICES_PATH, 
+                questions_dir: str = QUESTIONS_DIR):
         """
         初始化会话管理器
         

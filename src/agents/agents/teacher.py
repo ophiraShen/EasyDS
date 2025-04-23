@@ -1,4 +1,5 @@
 # src/agents/agents/teacher.py
+import os
 from typing import Literal
 from langchain_core.prompts import ChatPromptTemplate
 from langgraph.types import Command
@@ -7,10 +8,16 @@ from ..base import State
 from ..models import get_llm
 from data.ds_data.data_processing.index_builder import KnowledgeIndexSystem
 
+# 获取当前文件所在的目录
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROMPTS_DIR = os.path.join(os.path.dirname(CURRENT_DIR), "prompts")
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(CURRENT_DIR)))
+DS_INDICES_PATH = os.path.join(ROOT_DIR, "data", "ds_data", "ds_indices.pkl")
+
 async def knowledge_summry_search(knowledge_points: list):
     """根据知识点列表查询知识点概述"""
     try:
-        system = await KnowledgeIndexSystem.load_indices_async('/root/autodl-tmp/EasyDS/data/ds_data/ds_indices.pkl')
+        system = await KnowledgeIndexSystem.load_indices_async(DS_INDICES_PATH)
         knowledge_summry = []
         for kp in knowledge_points:
             knowledge_point_info = await system.get_knowledge_point_async(kp)
@@ -36,7 +43,8 @@ class TeacherAgent:
             curr_question = state.question[0]
             evaluation = state.evaluation
             
-            with open("/root/autodl-tmp/EasyDS/src/agents/prompts/teacher_agent_prompt.txt", "r", encoding="utf-8") as f:
+            prompt_path = os.path.join(PROMPTS_DIR, "teacher_agent_prompt.txt")
+            with open(prompt_path, "r", encoding="utf-8") as f:
                 prompt = f.read()
                 
             prompt = ChatPromptTemplate([

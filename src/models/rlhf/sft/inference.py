@@ -1,5 +1,6 @@
 # web_demo/glm_edge_1.5b_chat.py
 
+import os
 import gradio as gr
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
@@ -7,9 +8,12 @@ from peft import PeftModel
 
 device = "cuda"
 
+# 获取项目根目录
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+LORA_PATH = os.path.join(ROOT_DIR, "scripts", "rlhf", "lora_model")
+
 # 基础模型路径和 LoRA 模型路径
-BASE_MODEL_PATH = "/root/autodl-fs/modelscope/glm_4_9b_chat"  
-LORA_PATH = "/root/autodl-tmp/EasyDS/scripts/rlhf/lora_model"
+BASE_MODEL_PATH = "/root/autodl-fs/modelscope/glm_4_9b_chat"  # 这个可能是一个外部路径，保留
 
 # 加载tokenizer和基础模型
 tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_PATH, trust_remote_code=True)

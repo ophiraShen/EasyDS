@@ -9,11 +9,15 @@ from langchain_core.messages import HumanMessage
 from data.ds_data.data_processing.index_builder import KnowledgeIndexSystem
 from src.agents.workflow import create_workflow
 
+# 获取项目根目录
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DS_INDICES_PATH = os.path.join(ROOT_DIR, "data", "ds_data", "ds_indices.pkl")
+
 class KnowledgeQASystem:
     """知识问答系统，整合知识点索引和智能体问答功能"""
     
     def __init__(self, 
-                 indices_path: str = '/root/autodl-tmp/EasyDS/data/ds_data/ds_indices.pkl',
+                 indices_path: str = DS_INDICES_PATH,
                  router_model_type: str = "deepseek",
                  teacher_model_type: str = "deepseek",
                  student_model_type: str = "deepseek"):

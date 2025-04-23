@@ -269,10 +269,18 @@ class KnowledgeIndexSystem:
 
 
 if __name__ == '__main__':
-    # 假设我们在autodl-tmp/EasyDS/data/ds_data/data_processing目录下运行脚本
-    system = KnowledgeIndexSystem(data_dir="/root/autodl-tmp/EasyDS/data/ds_data")
+    # 使用相对路径
+    import os
+    # 获取当前脚本所在目录的上两级目录作为数据目录
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.dirname(current_dir)  # ds_data目录
+    
+    system = KnowledgeIndexSystem(data_dir=data_dir)
     system.build_indices()
-    system.save_indices('/root/autodl-tmp/EasyDS/data/ds_data/ds_indices.pkl')
+    
+    # 保存到ds_data目录下
+    indices_path = os.path.join(data_dir, 'ds_indices.pkl')
+    system.save_indices(indices_path)
     
     # 示例：使用索引查询知识点和题目
     # 测试查询知识点

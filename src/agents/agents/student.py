@@ -1,7 +1,12 @@
 # src/agents/agents/student.py
+import os
 from langchain_core.prompts import ChatPromptTemplate
 from ..base import State
 from ..models import get_llm
+
+# 获取当前文件所在的目录
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROMPTS_DIR = os.path.join(os.path.dirname(CURRENT_DIR), "prompts")
 
 class StudentAgent:
     """学生智能体"""
@@ -14,7 +19,8 @@ class StudentAgent:
             curr_question = state.question[0]
             evaluation = state.evaluation
             
-            with open("/root/autodl-tmp/EasyDS/src/agents/prompts/student_agent_prompt2.txt", "r", encoding="utf-8") as f:
+            prompt_path = os.path.join(PROMPTS_DIR, "student_agent_prompt2.txt")
+            with open(prompt_path, "r", encoding="utf-8") as f:
                 prompt = f.read()
                 
             prompt = ChatPromptTemplate([

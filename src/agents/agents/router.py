@@ -1,4 +1,5 @@
 # src/agents/agents/router.py
+import os
 from typing import Literal
 from pydantic import Field
 from typing_extensions import TypedDict
@@ -7,6 +8,10 @@ from langgraph.types import Command
 
 from ..base import State
 from ..models import get_llm
+
+# 获取当前文件所在的目录
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROMPTS_DIR = os.path.join(os.path.dirname(CURRENT_DIR), "prompts")
 
 class Evaluation(TypedDict):
     is_right: bool
@@ -23,7 +28,8 @@ class RouterAgent:
         """根据当前状态进行路由"""
         try:
             curr_question = state.question[0]
-            with open("/root/autodl-tmp/EasyDS/src/agents/prompts/router_agent_prompt.txt", "r", encoding="utf-8") as f:
+            prompt_path = os.path.join(PROMPTS_DIR, "router_agent_prompt.txt")
+            with open(prompt_path, "r", encoding="utf-8") as f:
                 prompt = f.read()
                 
             prompt = ChatPromptTemplate([
