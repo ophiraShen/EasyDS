@@ -27,7 +27,7 @@
     {
         "id": "q011003",
         "title": "逻辑结构选项",
-        "content": "下列选项中，属于逻辑结构的是（\nA.顺序表\nB.哈希表\nC.有序表\nD.单链表",
+        "content": "下列选项中，属于逻辑结构的是（）\nA.顺序表\nB.哈希表\nC.有序表\nD.单链表",
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
@@ -127,7 +127,7 @@
     {
         "id": "q012002",
         "title": "算法特性与时间复杂度",
-        "content": "下列关于算法的说法中，正确的是（）。\nA.算法的时间效率取决于算法执行所花的CPU时间\nB.在算法设计中不允许用牺牲空间效率的方式来换取好的时间效率\nC.算法必须具备有穷性、确定性等五个特性\nD.通常用时间效率和空间效率来衡量算法的优劣\n03．某算法的时间复杂度为O(n²)，则表示该算法的（）。\nA．问题规模是n²\nB.执行时间等于n²\nC.执行时间与n²成正比\nD.问题规模与n²成正比",
+        "content": "下列关于算法的说法中，正确的是（）。\nA.算法的时间效率取决于算法执行所花的CPU时间\nB.在算法设计中不允许用牺牲空间效率的方式来换取好的时间效率\nC.算法必须具备有穷性、确定性等五个特性\nD.通常用时间效率和空间效率来衡量算法的优劣",
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [
@@ -327,7 +327,7 @@
     {
         "id": "q012014",
         "title": "程序段时间复杂度分析",
-        "content": "【2014统考真题】下列程序段的时间复杂度是（）。\ncount=0;\nfor（k=1;k<=n;k*=2)\nfor（j=1;j<=n;j++)",
+        "content": "【2014统考真题】下列程序段的时间复杂度是（）。\ncount=0;\nfor（k=1;k<=n;k*=2)\n\tfor（j=1;j<=n;j++)\n\t\tcount++;\nA. O(log2n)\nB. O(n)\nC. O(nlog2n)\nD. 0(n²)",
         "difficulty": "integer",
         "type": "concept",
         "knowledge_points": [

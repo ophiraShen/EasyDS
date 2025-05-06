@@ -5,36 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EasyDS - 数据结构智能教学系统</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
-<body>
+<body class="bg-gradient-to-b from-white to-blue-50/30">
     <!-- 固定导航栏 -->
-    <nav class="fixed-nav">
-        <div class="nav-logo">数据结构智能教学系统</div>
-        <div class="nav-links">
-            <a href="/" class="nav-item active">首页</a>
-            <a href="/problems" class="nav-item">章节题库</a>
-            <a href="/knowledge" class="nav-item">知识点速记</a>
+    <nav class="fixed-nav bg-white shadow-sm w-full">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center py-3">
+            <div class="nav-logo font-bold">数据结构智能教学系统</div>
+            <div class="nav-links">
+                <a href="/" class="nav-item active px-3 py-2 text-blue-600 font-medium">首页</a>
+                <a href="/problems" class="nav-item px-3 py-2 text-gray-700 hover:text-blue-600">章节题库</a>
+                <a href="/knowledge" class="nav-item px-3 py-2 text-gray-700 hover:text-blue-600">知识点速记</a>
+            </div>
         </div>
     </nav>
     
-    <div class="main-container">
-        <!-- 随机生成的示例内容，之后会调整 -->
-        <div style="background: white; border-radius: 8px; padding: 30px; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
-            <h2>欢迎使用数据结构智能教学系统</h2>
-            <p style="margin-top: 15px; line-height: 1.8;">
-                本系统基于多智能体教学模式，帮助学生更好地理解和掌握数据结构知识。系统特点：
-            </p>
-            <ul style="margin: 20px 0; padding-left: 20px; line-height: 1.6;">
-                <li>章节题库 - 按章节分类的各类数据结构题目，帮助理解和掌握知识点</li>
-                <li>智能对话 - 答题后获得智能体反馈，包括学生智能体和教师智能体</li>
-                <li>知识点速记 - 快速查看和记忆关键的数据结构知识点</li>
-            </ul>
-            <p style="line-height: 1.8;">
-                请点击上方导航栏进入相应模块开始学习！
-            </p>
+    <div class="flex flex-col min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 py-6 space-y-8 pt-16">
+            <!-- Hero Section -->
+            <section class="text-center max-w-3xl mx-auto border-b pb-6">
+                <h1 class="text-3xl font-bold text-gray-900 mb-3 tracking-tight">
+                    <span class="text-blue-600">EasyDS</span> - 基于费曼学习法的考研数据结构智能教学系统
+                </h1>
+                <p class="text-lg text-gray-700 mb-3 leading-relaxed">
+                    颠覆传统"问答式"学习模式，引领"主动讲解式"学习革新
+                </p>
+                <p class="text-sm text-blue-600 font-medium inline-block border border-blue-200 rounded-full px-4 py-1 bg-blue-50">
+                    点击导航栏的<span class="font-bold">"章节题库"</span>开始您的学习之旅
+                </p>
+            </section>
+
+            <!-- Introduction -->
+            <section class="max-w-3xl mx-auto text-center">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 inline-block border-b-2 border-blue-300 pb-1">
+                    智能教学新体验
+                </h2>
+                <p class="text-base text-gray-700 leading-relaxed">
+                    EasyDS是一款创新型AI教育系统，专为考研数据结构学习设计。系统采用费曼学习法（"通过教授来学习"），
+                    通过多智能体协同教学模式，实现深度交互式学习体验。
+                </p>
+            </section>
+
+            <!-- Features Section -->
+            <section>
+                <h2 class="text-2xl font-bold text-center text-gray-900 mb-5 inline-block border-b-2 border-blue-300 pb-1">
+                    系统特色
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="py-3 px-4 border-b">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-blue-100 p-2 rounded-full">
+                                    <i data-lucide="brain" class="w-5 h-5 text-blue-600"></i>
+                                </div>
+                                <h3 class="text-base font-semibold">三层智能体模型</h3>
+                            </div>
+                        </div>
+                        <div class="py-2 px-4">
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                路由Agent评估回答，学生Agent进行知识点追问，教师Agent提供纠错指导
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="py-3 px-4 border-b">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-blue-100 p-2 rounded-full">
+                                    <i data-lucide="lightbulb" class="w-5 h-5 text-blue-600"></i>
+                                </div>
+                                <h3 class="text-base font-semibold">费曼学习法</h3>
+                            </div>
+                        </div>
+                        <div class="py-2 px-4">
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                主动讲解加深理解，发现知识盲点，建立完整知识体系
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="py-3 px-4 border-b">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-blue-100 p-2 rounded-full">
+                                    <i data-lucide="rotate-cw" class="w-5 h-5 text-blue-600"></i>
+                                </div>
+                                <h3 class="text-base font-semibold">动态教学路径</h3>
+                            </div>
+                        </div>
+                        <div class="py-2 px-4">
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                系统根据您的表现实时调整教学策略，提供个性化学习体验
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="py-3 px-4 border-b">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-blue-100 p-2 rounded-full">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i>
+                                </div>
+                                <h3 class="text-base font-semibold">严格遵循考研大纲</h3>
+                            </div>
+                        </div>
+                        <div class="py-2 px-4">
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                知识点覆盖精准，紧贴考研要求，整合权威资料
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section>
+                <h2 class="text-2xl font-bold text-center text-gray-900 mb-5 inline-block border-b-2 border-blue-300 pb-1">
+                    使用指南
+                </h2>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col items-center text-center">
+                        <div class="bg-blue-100 p-2 rounded-full mb-3">
+                            <i data-lucide="book-open" class="h-5 w-5 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-base font-semibold mb-2">章节题库</h3>
+                        <p class="text-xs text-gray-700 leading-relaxed">浏览按章节分类的数据结构题目，选择您想学习的内容</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col items-center text-center">
+                        <div class="bg-blue-100 p-2 rounded-full mb-3">
+                            <i data-lucide="message-square" class="h-5 w-5 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-base font-semibold mb-2">主动讲解</h3>
+                        <p class="text-xs text-gray-700 leading-relaxed">尝试自己讲解题目的解题思路，系统将评估您的表现</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col items-center text-center">
+                        <div class="bg-blue-100 p-2 rounded-full mb-3">
+                            <i data-lucide="rotate-cw" class="h-5 w-5 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-base font-semibold mb-2">智能反馈</h3>
+                        <p class="text-xs text-gray-700 leading-relaxed">获得智能体个性化指导，纠正错误，填补知识空缺</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col items-center text-center">
+                        <div class="bg-blue-100 p-2 rounded-full mb-3">
+                            <i data-lucide="brain" class="h-5 w-5 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-base font-semibold mb-2">知识速记</h3>
+                        <p class="text-xs text-gray-700 leading-relaxed">随时查阅关键知识点，构建完整的知识体系</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-5 text-center max-w-3xl mx-auto">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">开始您的学习之旅</h2>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    点击导航栏的<span class="font-bold text-blue-600">"章节题库"</span>，
+                    选择一道题目，尝试讲解您的解题思路，体验费曼学习法的魅力！
+                </p>
+            </section>
         </div>
     </div>
     
-    <script src="/static/js/index.js"></script>
+    <script>
+        // 初始化Lucide图标
+        lucide.createIcons();
+    </script>
 </body>
-</html> 
+</html>

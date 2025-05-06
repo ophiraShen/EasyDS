@@ -87,7 +87,7 @@ async def interactive_session(qa_system: KnowledgeQASystem, question_id: str):
 
 async def main():
     """主函数"""
-    qa_system = KnowledgeQASystem(router_model_type="qwen2.5", teacher_model_type="qwen2.5", student_model_type="qwen2.5")
+    qa_system = KnowledgeQASystem(router_model_type="tongyi", teacher_model_type="tongyi", student_model_type="tongyi")
     
     while True:
         # 显示章节列表

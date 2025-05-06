@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <!-- 添加Marked.js库 -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- 添加语法高亮支持 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/highlight.min.js"></script>
+    <!-- 添加MathJax数学公式支持 -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <style>
         /* 笔记本风格的主容器
          * 设置相对定位以便子元素可以相对它定位
@@ -67,6 +83,30 @@
             background: white;
             overflow-y: auto;
             border-right: 1px solid #e0e0e0;
+        }
+
+        /* 题目详情盒子样式 */
+        .question-detail-box {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* 侧边栏小节样式 */
+        .sidebar-section {
+            margin-bottom: 25px;
+        }
+
+        .sidebar-section h2, .sidebar-section h3 {
+            margin-bottom: 15px;
+            color: #1e40af;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .sidebar-actions {
+            margin-top: 25px;
+            text-align: center;
         }
 
         /* 聊天区域主体样式
@@ -317,6 +357,12 @@
             position: relative;
         }
 
+        /* 教师消息永不折叠 */
+        .teacher-bubble .message-text {
+            max-height: none !important;
+            overflow: visible !important;
+        }
+
         .message-text.expanded {
             max-height: none;
             overflow: visible;
@@ -375,6 +421,37 @@
 
         .message-text p:last-child {
             margin-bottom: 0;
+        }
+        
+        /* 新增：优化 Markdown 渲染后的样式，特别是教师气泡中的段落和列表间距 */
+        .teacher-bubble .message-text p {
+            margin: 0.3rem 0;
+            line-height: 1.3;
+        }
+        
+        .teacher-bubble .message-text ul,
+        .teacher-bubble .message-text ol {
+            margin: 0.3rem 0;
+            padding-left: 1.2rem;
+        }
+        
+        .teacher-bubble .message-text li {
+            margin: 0.15rem 0;
+            line-height: 1.3;
+        }
+        
+        .teacher-bubble .message-text li p {
+            margin: 0.1rem 0;
+        }
+        
+        .teacher-bubble .message-text h1,
+        .teacher-bubble .message-text h2,
+        .teacher-bubble .message-text h3,
+        .teacher-bubble .message-text h4,
+        .teacher-bubble .message-text h5,
+        .teacher-bubble .message-text h6 {
+            margin: 0.5rem 0 0.3rem 0;
+            line-height: 1.3;
         }
 
         /* 暗色模式适配
@@ -460,6 +537,35 @@
                 border-color: #4b5563;
                 color: #e5e7eb;
             }
+            
+            /* 暗色模式下的题目详情样式 */
+            .question-detail-box {
+                background-color: #1f2937;
+                border-color: #374151;
+            }
+            
+            .question-title {
+                color: #60a5fa;
+                border-color: #374151;
+            }
+            
+            .question-content {
+                color: #e5e7eb;
+            }
+            
+            .question-content code, .question-content pre {
+                background-color: #111827;
+                border-color: #374151;
+            }
+            
+            .question-content blockquote {
+                border-color: #4b5563;
+                color: #9ca3af;
+            }
+            
+            .option span {
+                color: #60a5fa;
+            }
         }
 
         /* 短消息特殊处理
@@ -495,6 +601,61 @@
             max-width: 100%;
             width: auto;
             display: block;
+        }
+        
+        /* 覆盖气泡中默认样式，确保内容紧凑显示 */
+        .teacher-bubble .message-text {
+            line-height: 1.3 !important;
+            padding: 0.2rem 0.5rem !important;
+        }
+        
+        /* 教师消息内优化样式 */
+        .teacher-bubble .compact-p {
+            margin: 0.35rem 0 !important;
+            line-height: 1.4 !important;
+        }
+        
+        .teacher-bubble .compact-ul {
+            margin: 0.3rem 0 !important;
+            padding-left: 1.2rem !important;
+        }
+        
+        .teacher-bubble .compact-li {
+            margin: 0.2rem 0 !important;
+        }
+        
+        .teacher-bubble .compact-h3,
+        .teacher-bubble .compact-h4,
+        .teacher-bubble .compact-h5 {
+            margin: 0.5rem 0 0.2rem 0 !important;
+        }
+        
+        /* 强调重要元素，提高可读性 */
+        .teacher-bubble strong {
+            color: #b45309;
+            font-weight: 600;
+        }
+        
+        .teacher-bubble em {
+            font-style: italic;
+            color: #1e40af;
+        }
+        
+        /* 题目选项容器样式 */
+        .option {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        
+        .option span {
+            flex-shrink: 0;
+            margin-right: 0.5rem;
+            margin-top: 0.1rem;
+        }
+        
+        .option-content {
+            flex: 1;
         }
         
         /* 展开/折叠按钮样式 */
@@ -575,6 +736,11 @@
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('expand-button') || e.target.closest('.expand-button')) {
                 const button = e.target.classList.contains('expand-button') ? e.target : e.target.closest('.expand-button');
+                // 跳过教师消息的展开按钮处理
+                if (button.closest('.teacher-bubble')) {
+                    return;
+                }
+                
                 const messageText = button.parentElement.querySelector('.message-text');
                 messageText.classList.toggle('expanded');
                 

@@ -9,7 +9,10 @@ class QAService:
     
     def __init__(self):
         """初始化服务"""
-        self.qa_system = KnowledgeQASystem()
+        self.qa_system = KnowledgeQASystem(
+            router_model_type="tongyi",
+            teacher_model_type="tongyi",
+            student_model_type="tongyi")
     
     def get_chapters(self):
         """获取所有章节"""

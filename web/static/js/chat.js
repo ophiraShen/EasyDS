@@ -2,10 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // 获取URL参数中的问题ID
     let sessionId = null;
     
-    // 配置marked选项
+    // 配置marked选项 - 简化版
     marked.use({
-        breaks: true,  // 允许在换行时添加<br>标签
-        gfm: true      // 使用GitHub风格的Markdown
+        breaks: true
     });
     
     // 初始化页面
@@ -251,12 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <span class="sender-name teacher-name">教师智能体</span>
                                 </div>
                                 <div class="message-bubble teacher-bubble">
-                                    <div class="message-text"></div>
-                                    <button class="expand-button">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
-                                            <polyline points="6 9 12 15 18 9"></polyline>
-                                        </svg>
-                                    </button>
+                                    <div class="message-text expanded"></div>
                                 </div>
                             </div>
                         </div>
@@ -273,16 +267,96 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // 更新消息内容，使用Markdown渲染
+        // 更新消息内容
         if (messageElement) {
             const contentDiv = messageElement.querySelector('.message-text');
-            // 使用Markdown渲染消息内容
-            contentDiv.innerHTML = marked.parse(content);
             
-            // 检查消息是否需要显示展开/折叠按钮
-            const expandButton = messageElement.querySelector('.expand-button');
-            if (expandButton) {
-                // 延迟一小段时间确保内容已渲染，然后检查高度
+            if (type === 'teacher') {
+                // 教师消息处理 - 平衡紧凑性和可读性
+                
+                // 1. 清理内容，移除多余空白
+                let cleanContent = content
+                    // 移除三个以上连续的空行，替换为两个换行
+                    .replace(/\n\s*\n\s*\n\s*\n/g, '\n\n')
+                    // 移除行首多余空白
+                    .replace(/\n\s+/g, '\n')
+                    // 移除前后空白
+                    .trim();
+                
+                // 2. 自定义Markdown转HTML函数
+                const md2html = (text) => {
+                    // 处理标题
+                    text = text.replace(/^# (.*?)$/gm, '<h3 class="compact-h3">$1</h3>');
+                    text = text.replace(/^## (.*?)$/gm, '<h4 class="compact-h4">$1</h4>');
+                    text = text.replace(/^### (.*?)$/gm, '<h5 class="compact-h5">$1</h5>');
+                    
+                    // 处理加粗和斜体
+                    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                    
+                    // 处理列表项
+                    text = text.replace(/^\s*-\s+(.*?)$/gm, '<li class="compact-li">$1</li>');
+                    text = text.replace(/^\s*\*\s+(.*?)$/gm, '<li class="compact-li">$1</li>');
+                    text = text.replace(/^\s*(\d+)\.\s+(.*?)$/gm, '<li class="compact-li compact-ol">$1. $2</li>');
+                    
+                    // 将连续列表项包装在ul中
+                    let inList = false;
+                    const lines = text.split('\n');
+                    let result = '';
+                    
+                    for (let i = 0; i < lines.length; i++) {
+                        const line = lines[i];
+                        
+                        if (line.includes('<li class="compact-li">') || line.includes('<li class="compact-li compact-ol">')) {
+                            if (!inList) {
+                                result += '<ul class="compact-ul">';
+                                inList = true;
+                            }
+                            result += line;
+                        } else {
+                            if (inList) {
+                                result += '</ul>';
+                                inList = false;
+                            }
+                            
+                            // 处理普通段落
+                            if (line.trim() !== '' && 
+                                !line.startsWith('<h') && 
+                                !line.startsWith('<ul') && 
+                                !line.startsWith('</ul')) {
+                                result += `<p class="compact-p">${line}</p>`;
+                            } else {
+                                result += line;
+                            }
+                        }
+                    }
+                    
+                    if (inList) {
+                        result += '</ul>';
+                    }
+                    
+                    return result;
+                };
+                
+                // 3. 将内容按段落分割，分别处理
+                const paragraphs = cleanContent.split('\n\n');
+                let html = '';
+                
+                paragraphs.forEach(para => {
+                    if (para.trim() === '') return;
+                    html += md2html(para);
+                });
+                
+                // 4. 设置内容
+                contentDiv.innerHTML = html;
+                contentDiv.classList.add('expanded');
+                
+            } else {
+                // 学生消息使用Markdown
+                contentDiv.innerHTML = marked.parse(content);
+                
+                // 处理学生消息展开/折叠
+                const expandButton = messageElement.querySelector('.expand-button');
                 setTimeout(() => {
                     const contentHeight = contentDiv.scrollHeight;
                     const lineHeight = parseInt(window.getComputedStyle(contentDiv).lineHeight);
@@ -299,14 +373,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     scrollToBottom();
                 }, 100);
             }
-            
-            // 处理内容中的列表，确保它们显示在气泡内
-            const lists = contentDiv.querySelectorAll('ol, ul');
-            lists.forEach(list => {
-                list.style.paddingLeft = '1.5rem';
-                list.style.marginTop = '0.3rem';
-                list.style.marginBottom = '0.3rem';
-            });
             
             // 滚动到底部
             scrollToBottom();
@@ -382,7 +448,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <span class="sender-name">系统</span>
                         </div>
                         <div class="message-bubble">
-                            <div class="message-text">${marked.parse(message)}</div>
+                            <div class="message-text"></div>
                         </div>
                     </div>
                 </div>
@@ -390,28 +456,70 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="connector-line"></div>
         `;
         
+        // 直接设置文本内容，避免使用marked
+        const contentDiv = messageDiv.querySelector('.message-text');
+        contentDiv.textContent = message;
+        
         container.appendChild(messageDiv);
         scrollToBottom();
     }
     
-    // 显示问题详情 - 使用Markdown渲染
+    // 显示问题详情 - 使用增强的Markdown渲染
     function displayQuestionDetail(questionData) {
         const detailDiv = document.getElementById('question-detail');
         
-        // 使用Markdown渲染标题和内容
+        // 创建自定义的Markdown渲染函数
+        const renderMarkdown = (text) => {
+            // 预处理文本，保留制表符和特殊字符
+            let processedText = text
+                // 将换行+制表符替换为HTML的换行和缩进
+                .replace(/\n\t\t/g, '\n<span class="double-indent"></span>')
+                .replace(/\n\t/g, '\n<span class="indent"></span>')
+                // 保留连续的空行，防止Markdown压缩
+                .replace(/\n\n\n/g, '\n<br><br>\n')
+                .replace(/\n\n/g, '\n<br>\n');
+            
+            // 使用marked但添加自定义处理
+            const rendered = marked.parse(processedText);
+            
+            return rendered;
+        };
+        
+        // 使用增强的Markdown渲染标题和内容
         let html = `<div class="question-title">${questionData.title}</div>`;
-        html += `<div class="question-content">${marked.parse(questionData.content)}</div>`;
+        html += `<div class="question-content">${renderMarkdown(questionData.content)}</div>`;
         
         if (questionData.options) {
             html += '<div class="options">';
             for (const key in questionData.options) {
-                // 选项也用Markdown渲染
-                html += `<div class="option"><span>${key}.</span> ${marked.parse(questionData.options[key])}</div>`;
+                // 选项也用增强的Markdown渲染
+                html += `<div class="option"><span>${key}.</span> <div class="option-content">${renderMarkdown(questionData.options[key])}</div></div>`;
             }
             html += '</div>';
         }
         
         detailDiv.innerHTML = html;
+        
+        // 处理题目中可能包含的数学公式
+        if (window.MathJax) {
+            try {
+                MathJax.typesetPromise([detailDiv]).catch(err => console.error('MathJax处理失败:', err));
+            } catch (e) {
+                console.error('MathJax处理错误:', e);
+            }
+        }
+        
+        // 处理题目中可能包含的代码块
+        const codeBlocks = detailDiv.querySelectorAll('pre code');
+        if (window.hljs && codeBlocks.length > 0) {
+            try {
+                codeBlocks.forEach(block => {
+                    hljs.highlightElement(block);
+                });
+            } catch (e) {
+                console.error('代码高亮处理错误:', e);
+            }
+        }
     }
     
     // 显示知识点 - 使用Markdown渲染知识点内容
@@ -554,6 +662,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(e) {
         if (e.target.closest('.expand-button')) {
             const button = e.target.closest('.expand-button');
+            // 检查是否为教师消息的展开按钮 - 如果是则忽略
+            if (button.closest('.teacher-bubble')) {
+                return; // 不处理教师消息的展开/折叠按钮
+            }
+            
             const messageText = button.parentElement.querySelector('.message-text');
             
             messageText.classList.toggle('expanded');
