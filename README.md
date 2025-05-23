@@ -114,4 +114,4 @@ EasyDS基于费曼学习法（"通过教授来学习"），通过引导学习者
 
 - 项目维护者：OphiraShen
 - 电子邮件：ophira.shenyige@outlook.com
-- 项目仓库：https://github.com/yourusername/EasyDS
+- 项目仓库：https://github.com/ophiraShen/EasyDS
