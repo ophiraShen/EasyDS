@@ -46,8 +46,7 @@ cd EasyDS
 pip install -r requirements.txt
 
 # 配置环境变量
-cp .env.example .env
-# 编辑.env文件，添加必要的API密钥
+直接编辑 .env 文件，添加或修改必要的 API 密钥等配置信息。
 ```
 
 ### 运行
